@@ -1,0 +1,23 @@
+{
+  "name": "amys_kapers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amykapernick/amys_kapers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amykapernick/amys_kapers/issues"
+  },
+  "homepage": "https://github.com/amykapernick/amys_kapers#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.8.3"
+  }
+}
