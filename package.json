@@ -2,9 +2,12 @@
   "name": "amys_kapers",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.njk",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve"
+    "start": "yarn run dev",
+    "dev": "eleventy --serve",
+    "dev:gulp": " gulp css && gulp watch",
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
@@ -18,6 +21,11 @@
   },
   "homepage": "https://github.com/amykapernick/amys_kapers#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.8.3"
+    "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
+    "clean-css": "^4.2.1",
+    "eleventy-plugin-respimg": "^0.1.2",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
   }
 }

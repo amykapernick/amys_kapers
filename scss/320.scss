@@ -1,0 +1,122 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 100px;
+  align-items: center;
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 1000px;
+  overflow-x: hidden;
+}
+
+blockquote {
+    font-size: 2.5em;
+    grid-column: span 3;
+    margin: 0;
+
+    &:first-of-type {
+        grid-column: span 4;
+    }
+
+    &:nth-of-type(2) {
+        order: 1;
+    }
+
+    &:nth-of-type(3) {
+        order: 4;
+    }
+
+    &:nth-of-type(4) {
+        order: 5;
+    }
+
+    &:nth-of-type(5) {
+        order: 8;
+    }
+
+    &:nth-of-type(6) {
+        order: 9;
+    }
+
+    &:nth-of-type(7) {
+        order: 12;
+    }
+
+    &:nth-of-type(8) {
+        order: 13;
+    }
+
+    &:nth-of-type(9) {
+        order: 16;
+    }
+
+    &:nth-of-type(10) {
+        order: 1;
+    }
+}
+
+img {
+    grid-column: span 2;
+    max-width: 100%;
+}
+
+svg {
+    grid-column: span 3;
+
+    &:first-of-type {
+        order: 2;
+    }
+
+    &:nth-of-type(2) {
+        order: 3;
+    }
+
+    &:nth-of-type(3) {
+        order: 6;
+    }
+
+    &:nth-of-type(4) {
+        order: 7;
+    }
+
+    &:nth-of-type(5) {
+        order: 10;
+    }
+
+    &:nth-of-type(6) {
+        order: 11;
+    }
+
+    &:nth-of-type(7) {
+        order: 14;
+    }
+
+    &:nth-of-type(8) {
+        order: 15;
+    }
+
+    &:nth-of-type(9) {
+        order: 18;
+    }
+
+    &:nth-of-type(10) {
+        order: 19;
+    }
+}
+
+.rotate {
+  $num: 7;
+  $int: 2.5s;
+  $duration: $num * $int;
+
+  span {
+    animation: fadeEffect $duration linear infinite 0s;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 0.5ch;
+
+    @include rotateWords($num, $int);
+  }
+}

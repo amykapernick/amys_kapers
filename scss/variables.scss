@@ -1,0 +1,32 @@
+//Colours
+$grey: #d1d1d1;
+$grey_dark: #5b5b5b;
+$white: #edf3f7;
+$blue: #1c75bc;
+$blue_light: #6ca7d8;
+$aqua: #16a6b1;
+$aqua_light: #7cced5;
+
+/*FadeIn Animation*/
+@keyframes fadeEffect {
+  9% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0;
+  }
+}
+
+@mixin rotateWords($num, $int) {
+  @for $i from 2 through $num {
+    &:nth-child(#{$i}) {
+      animation-delay: ($i - 1) * $int;
+    }
+  }
+}
