@@ -7,7 +7,7 @@
     "start": "yarn run dev",
     "dev": "eleventy --serve",
     "dev:gulp": " gulp css && gulp watch",
-    "build": "eleventy"
+    "build": "gulp css && eleventy"
   },
   "repository": {
     "type": "git",
