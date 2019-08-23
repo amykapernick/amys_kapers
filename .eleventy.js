@@ -5,11 +5,11 @@ const pluginRespimg = require("eleventy-plugin-respimg");
 module.exports = function(eleventyConfig) {
   // Config
   eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.setTemplateFormats("html, njk, png, jpg, svg, css");
-  eleventyConfig.addPassthroughCopy("css");
-  //   eleventyConf.addFilter("cssmin", function(code) {
-  //     return new cleanCss({}).minify(code).styles;
-  //   });
+  eleventyConfig.setTemplateFormats("html, js, njk, png, jpg, svg, css");
+  eleventyConfig.setBrowserSyncConfig({
+    notify: true,
+    watch: true
+  });
 
   // Plugins
   eleventyConfig.addPlugin(pluginA11yText, {
