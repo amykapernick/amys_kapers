@@ -9,22 +9,19 @@ $aqua_light: #7cced5;
 
 /*FadeIn Animation*/
 @keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
   9% {
     opacity: 0;
   }
   10% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 1;
-  }
-  26% {
     opacity: 0;
   }
 }
 
 @mixin rotateWords($num, $int) {
-  @for $i from 2 through $num {
+  @for $i from 1 through $num {
     &:nth-child(#{$i}) {
       animation-delay: ($i - 1) * $int;
     }
