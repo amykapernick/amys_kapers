@@ -5,6 +5,7 @@ const pluginRespimg = require("eleventy-plugin-respimg");
 module.exports = function(eleventyConfig) {
   // Config
   eleventyConfig.addPassthroughCopy("img");
+  eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.setTemplateFormats("html, js, njk, png, jpg, svg, css");
   eleventyConfig.setBrowserSyncConfig({
     notify: true,

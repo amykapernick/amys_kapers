@@ -2,76 +2,124 @@
 <html>
 	<head>
 		<title>Amy Kapernick</title>
-		<link rel="stylesheet" href="/main.css"/>
-		<link rel="shortcut icon" href="/img/amy_small.png"/>
+		<link rel="stylesheet" href="/main.css" />
+		<link rel="shortcut icon" href="/img/amy_small.png" />
 	</head>
 
 	<body>
-		<blockquote>
-			<p>Hi 👋</p>
-			<p>I'm Amy</p>
+		{% include 'wave.svg' %}
 
-			<p>I'm a<span class="rotate">
-					<span>Front End Developer</span>
-					<span>Speaker</span>
-					<span>Dog Lover</span>
-					<span>Ambassador</span>
-					<span>Writer</span>
-					<span>Organiser</span>
-					<span>Mentor</span>
-					<span>Champion</span>
-					<span>Evangelist</span>
-					<span>Conference Addict</span>
-				</span>
-			</p>
-		</blockquote>
-		<img src="./img/amy.png"/>
-		{% include 'websites.svg' %}
-		<blockquote>
-			<p>I help small to medium businesses get their websites online and stay online.</p>
-			<a href="https://aimhigherweb.design" target="_blank">{% include 'dev.svg' %}
-																AimHigher Web Design</a>
-		</blockquote>
-		{% include 'speaking.svg' %}
-		<blockquote>
-			<p>I speak at conferences about front end development, the web, mental health and life.</p>
-			<a href="https://speaking.amys_kapers.tech" target="_blank">{% include 'notist.svg' %}
-																Notist</a>
-		</blockquote>
-		{% include 'mentor.svg' %}
-		<blockquote>
-			<p>I mentor at events, helping more girls and women get involved in tech.</p>
-			<a href="https://techoutsiders.com.au/amy-kapernick" target="_blank">{% include 'techoutsiders.svg' %}
-																Tech Outsiders</a>
-		</blockquote>
-		{% include 'blog.svg' %}
-		<blockquote>
-			<p>I write blog posts.</p>
-			<a href="https://amygoestoperth.com.au" target="_blank">{% include 'window-paragraph.svg' %}
-																Amy Goes to Perth</a>
-			<a href="https://thefreelance.guide" target="_blank">{% include 'window-paragraph.svg' %}The Freelance Guide</a>
-		</blockquote>
-		{% include 'twilio.svg' %}
-		<blockquote>
-			<p>I'm a Twilio Champion</p>
-		</blockquote>
-		{% include 'social.svg' %}
-		<blockquote>
-			<p>Sometimes I write interesting things on socials, but mostly it's just pictures of my dog.</p>
-			<a href="https://twitter.com/amys_kapers" target="_blank">{% include 'twitter.svg' %}
-																Twitter</a>
-			<a href="https://www.instagram.com/amys_kapers/" target="_blank">{% include 'instagram.svg' %}
-																Instagram</a>
-			<a href="https://github.com/amykapernick" target="_blank">{% include 'github.svg' %}
-																GitHub</a>
-			<a href="https://codepen.io/aimhigherwebdesign-amy/" target="_blank">{% include 'codepen.svg' %}
-																Codepen</a>
-			<a href="https://www.linkedin.com/in/amykapernick" target="_blank">{% include 'linkedin.svg' %}
-																LinkedIn</a>
-		</blockquote>
-		<img src="./img/remi.jpg"/>
-		<blockquote>
-			<p>I have a grey and white border collie who likes long walks on the beach and cuddles on the couch.</p>
-		</blockquote>
+		<header>
+			<blockquote>
+				<p>Hi 👋</p>
+				<p>I'm Amy</p>
+
+				<p>
+					I'm a<span class="rotate">
+						<span>Front End Developer</span>
+						<span>Speaker</span>
+						<span>Dog Lover</span>
+						<span>Ambassador</span>
+						<span>Writer</span>
+						<span>Organiser</span>
+						<span>Mentor</span>
+						<span>Champion</span>
+						<span>Evangelist</span>
+						<span>Conference Addict</span>
+					</span>
+				</p>
+			</blockquote>
+			<img src="./img/amy.png" />
+		</header>
+		<main>
+			<section>
+				{% include 'websites.svg' %}
+				<blockquote>
+					<p>I help small to medium businesses get their websites online and stay online.</p>
+					<a href="https://aimhigherweb.design" target="_blank">
+						{# {% include 'dev.svg' %}  #}
+						{% include 'aimhigher.svg' %} 
+						AimHigher Web Design
+					</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'speaking.svg' %}
+				<blockquote>
+					<p>I speak at conferences about front end development, the web, mental health and life.</p>
+					<a href="https://speaking.amys_kapers.tech" target="_blank">{% include 'notist.svg' %} Notist</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'mentor.svg' %}
+				<blockquote>
+					<p>I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and Muses Code JS (formerly NodeGirls).</p>
+					<a href="https://techoutsiders.com.au/amy-kapernick" target="_blank">
+						{% include 'techoutsiders.svg' %}
+						Tech Outsiders
+					</a>
+					<a href="https://musescodejs.org/perth.html" target="_blank">
+						{% include 'musesjs.svg' %}
+						Muses Code Js
+					</a>
+					<a href="https://shecodes.com.au/" target="_blank">
+						<img src="./img/shecodes.png" />
+						She Codes
+					</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'blog.svg' %}
+				<blockquote>
+					<p>I write blog posts. Sometimes I blog about tech, soemtimes about the web, sometimes about life. Everything is on my main blog, but I also have <em>The Freelance Guide</em> to try and help other freelancers navigate the world of the pants-optional lifestyle.</p>
+					<a href="https://amygoestoperth.com.au" target="_blank">{% include 'window-paragraph.svg' %} Amy Goes to Perth</a>
+					<a href="https://thefreelance.guide" target="_blank">{% include 'window-paragraph.svg' %}The Freelance Guide</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'pair.svg' %}
+				<blockquote>
+					<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
+					<a href="https://www.twilio.com/champions" target="_blank">{% include 'twilio.svg' %} Twilio Champions</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'social.svg' %}
+				<blockquote>
+					<p>Sometimes I write interesting things on socials, but mostly it's just pictures of my dog.</p>
+					<a href="https://twitter.com/amys_kapers" target="_blank">{% include 'twitter.svg' %} Twitter</a>
+					<a href="https://www.instagram.com/amys_kapers/" target="_blank">{% include 'instagram.svg' %} Instagram</a>
+					<a href="https://github.com/amykapernick" target="_blank">{% include 'github.svg' %} GitHub</a>
+					<a href="https://codepen.io/aimhigherwebdesign-amy/" target="_blank">{% include 'codepen.svg' %} Codepen</a>
+					<a href="https://www.linkedin.com/in/amykapernick" target="_blank">{% include 'linkedin.svg' %} LinkedIn</a>
+				</blockquote>
+			</section>
+			<section>
+				<img src="./img/remi.jpg" />
+				<blockquote>
+					<p>I have a grey and white border collie who likes long walks on the beach and cuddles on the couch.</p>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'community.svg' %}
+				<blockquote>
+					<p>I'm a co-organiser for Fenders, a community group of front end developers (mostly) in Perth. We run events throughout the year as well as maintaining an active Slack group.</p>
+					<a href="https://fenders.co" target="_blank">
+						{% include 'fenders.svg' %} 
+						Fenders
+					</a>
+				</blockquote>
+			</section>
+			<section>
+				{% include 'evangelist.svg' %}
+				<blockquote>
+					<p>I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local businesses and community grups to see how we can help them and get them involved in our conferences.</p>
+					<a href="https://yowconferences.com.au" target="_blank">
+						{% include 'yow.svg' %} 
+						YOW! Conferences
+					</a>
+				</blockquote>
+			</section>
+		</main>
 	</body>
 </html>

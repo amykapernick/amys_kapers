@@ -1,2 +1,23 @@
 @import 'variables.scss';
+@import 'rotate.scss';
 @import '320.scss';
+
+
+@media(min-width: 738px) {
+    section {    
+        &:nth-child(2n) {
+            > svg {
+                order: 2;
+            }
+        }
+    }
+}
+
+@media(min-width: 1000px) {
+    header {
+    
+        blockquote {
+            margin-top: 0;
+        }
+    }
+}
