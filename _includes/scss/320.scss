@@ -5,14 +5,15 @@ body {
 	color: $grey_dark;
 	font-family: 'Roboto Mono', monospace;
 
-	@supports(display: subgrid) {
+	@supports (display: subgrid) {
 		display: grid;
 		grid-template-columns: repeat(6, minmax(200px, 1fr));
 		grid-column-gap: 30px;
 		grid-row-gap: 100px;
 		align-items: center;
 
-		header, main {
+		header,
+		main {
 			display: grid;
 			grid-template-columns: subgrid;
 		}
@@ -23,19 +24,20 @@ body {
 	}
 }
 
-header, main {
+header,
+main {
 	margin: 0 auto;
 	padding: 0;
 	width: 90vw;
 	max-width: 1000px;
 }
 
-header, section {
+header,
+section {
 	display: grid;
 	grid-column-gap: 30px;
 	grid-row-gap: 50px;
 	align-items: center;
-	
 }
 
 header {
@@ -43,6 +45,8 @@ header {
 	padding-top: 50px;
 
 	blockquote {
+		mix-blend-mode: hard-light;
+		color: #000;
 		font-size: 2.5em;
 		margin-top: 75px;
 	}
@@ -100,7 +104,8 @@ a {
 	font-size: 0;
 	padding: 10px;
 
-	svg, img {
+	svg,
+	img {
 		color: $grey_dark;
 		height: 40px;
 		width: auto;
@@ -110,7 +115,9 @@ a {
 		}
 	}
 
-	&:active, &:hover, &:focus {
+	&:active,
+	&:hover,
+	&:focus {
 		background: rgba(255, 255, 255, 0.5);
 		border-color: $blue;
 	}
