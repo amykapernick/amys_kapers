@@ -25,7 +25,8 @@ body {
 }
 
 header,
-main {
+main,
+footer {
 	margin: 0 auto;
 	padding: 0;
 	width: 90vw;
@@ -120,5 +121,27 @@ a {
 	&:focus {
 		background: rgba(255, 255, 255, 0.5);
 		border-color: $blue;
+	}
+}
+
+footer {
+	h2,
+	p,
+	h3 {
+		grid-column: 1 / -1;
+		text-align: center;
+	}
+
+	h4 {
+		grid-row: 4;
+	}
+
+	.trips {
+	}
+
+	@media (min-width: 500px) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(5, auto);
 	}
 }

@@ -24,6 +24,7 @@
     "@11ty/eleventy": "^0.8.3",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
     "clean-css": "^4.2.1",
+    "date-fns": "^2.4.0",
     "eleventy-plugin-respimg": "^0.1.2",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",

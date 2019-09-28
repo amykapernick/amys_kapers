@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
 		<title>Amy Kapernick</title>
 		<link rel="stylesheet" href="/main.css" />
 		<link rel="shortcut icon" href="/img/amy_small.png" />
@@ -40,9 +40,7 @@
 				<blockquote>
 					<p>I help small to medium businesses get their websites online and stay online.</p>
 					<a href="https://aimhigherweb.design" target="_blank">
-						{# {% include 'dev.svg' %}  #}
-						{% include 'aimhigher.svg' %} 
-						AimHigher Web Design
+						{# {% include 'dev.svg' %} #} {% include 'aimhigher.svg' %} AimHigher Web Design
 					</a>
 				</blockquote>
 			</section>
@@ -56,14 +54,15 @@
 			<section>
 				{% include 'mentor.svg' %}
 				<blockquote>
-					<p>I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and Muses Code JS (formerly NodeGirls).</p>
+					<p>
+						I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and
+						Muses Code JS (formerly NodeGirls).
+					</p>
 					<a href="https://techoutsiders.com.au/amy-kapernick" target="_blank">
-						{% include 'techoutsiders.svg' %}
-						Tech Outsiders
+						{% include 'techoutsiders.svg' %} Tech Outsiders
 					</a>
 					<a href="https://musescodejs.org/perth.html" target="_blank">
-						{% include 'musesjs.svg' %}
-						Muses Code Js
+						{% include 'musesjs.svg' %} Muses Code Js
 					</a>
 					<a href="https://shecodes.com.au/" target="_blank">
 						<img src="./img/shecodes.png" />
@@ -74,7 +73,11 @@
 			<section>
 				{% include 'blog.svg' %}
 				<blockquote>
-					<p>I write blog posts. Sometimes I blog about tech, soemtimes about the web, sometimes about life. Everything is on my main blog, but I also have <em>The Freelance Guide</em> to try and help other freelancers navigate the world of the pants-optional lifestyle.</p>
+					<p>
+						I write blog posts. Sometimes I blog about tech, soemtimes about the web, sometimes about life. Everything is on my main blog,
+						but I also have <em>The Freelance Guide</em> to try and help other freelancers navigate the world of the pants-optional
+						lifestyle.
+					</p>
 					<a href="https://amygoestoperth.com.au" target="_blank">{% include 'window-paragraph.svg' %} Amy Goes to Perth</a>
 					<a href="https://thefreelance.guide" target="_blank">{% include 'window-paragraph.svg' %}The Freelance Guide</a>
 				</blockquote>
@@ -106,23 +109,38 @@
 			<section>
 				{% include 'community.svg' %}
 				<blockquote>
-					<p>I'm a co-organiser for Fenders, a community group of front end developers (mostly) in Perth. We run events throughout the year as well as maintaining an active Slack group.</p>
+					<p>
+						I'm a co-organiser for Fenders, a community group of front end developers (mostly) in Perth. We run events throughout the year
+						as well as maintaining an active Slack group.
+					</p>
 					<a href="https://fenders.co" target="_blank">
-						{% include 'fenders.svg' %} 
-						Fenders
+						{% include 'fenders.svg' %} Fenders
 					</a>
 				</blockquote>
 			</section>
 			<section>
 				{% include 'evangelist.svg' %}
 				<blockquote>
-					<p>I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local businesses and community grups to see how we can help them and get them involved in our conferences.</p>
+					<p>
+						I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local
+						businesses and community grups to see how we can help them and get them involved in our conferences.
+					</p>
 					<a href="https://yowconferences.com.au" target="_blank">
-						{% include 'yow.svg' %} 
-						YOW! Conferences
+						{% include 'yow.svg' %} YOW! Conferences
 					</a>
 				</blockquote>
 			</section>
 		</main>
+		<footer id="where">
+			<h2>Where is Amy?</h2>
+			<p>Right now Amy is in <span class="location"></span> <span class="conference"></span></p>
+			<h3>Coming Up Next</h3>
+			<h4>Trips</h4>
+			<ul class="trips"></ul>
+			<h4>Conferences</h4>
+			<ul class="conferences"></ul>
+		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"></script>
+		<script src="/js/main.js"></script>
 	</body>
 </html>
