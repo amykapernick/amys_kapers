@@ -1,10 +1,5 @@
 const travel = [
 		{
-			start: '2019-08-29',
-			end: '2019-08-31',
-			city: 'Melbourne',
-		},
-		{
 			start: '2019-10-09',
 			end: '2019-10-19',
 			city: 'Sydney',
@@ -25,17 +20,17 @@ const travel = [
 			country: 'United States',
 		},
 		{
+			start: '2019-11-22',
+			end: '2019-11-24',
+			city: 'Adelaide',
+		},
+		{
 			start: '2019-12-08',
 			end: '2019-12-14',
 			city: 'Brisbane',
 		},
 	],
 	events = [
-		{
-			start: '2019-09-21',
-			end: '2019-09-22',
-			name: 'Bsides Perth',
-		},
 		{
 			start: '2019-10-10',
 			name: 'Twilio Engage and Superclass',
@@ -58,6 +53,11 @@ const travel = [
 			end: '2019-11-08',
 			name: 'Microsoft Ignite',
 			type: 'attending',
+		},
+		{
+			start: '2019-11-23',
+			name: 'DDD Adelaide',
+			type: 'speaking',
 		},
 		{
 			start: '2019-12-09',
