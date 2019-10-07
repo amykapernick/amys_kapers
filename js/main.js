@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		today = new Date()
 
 	let city = 'Perth',
-		country = 'Australia 🇦🇺',
+		country = 'Australia',
 		currentTrip = '',
 		conf,
 		tripList,
@@ -130,42 +130,29 @@ document.addEventListener('DOMContentLoaded', () => {
 	tripList = travel.map(trip => {
 		let country = trip.country || 'Australia',
 			start = dateFns.format(new Date(trip.start), 'DD MMM'),
-			end = trip.end ? `- ${dateFns.format(new Date(trip.end), 'DD MMM')}` : false
-
-		switch (country) {
-			case 'Australia':
-				country = `${country} 🇦🇺`
-				break
-			case 'United States':
-				country = `${country} 🇺🇸`
-				break
-		}
+			end = trip.end ? `- ${dateFns.format(new Date(trip.end), 'DD MMM')}` : false,
+			classes = country.toLowerCase().replace(' ', '-')
 
 		if (dateFns.isAfter(new Date(trip.start), today)) {
-			return `<li>${trip.city}, ${country}: ${start} ${end}</li>`
+			return `<li class="${classes}">${trip.city}, ${country}: ${start} ${end}</li>`
 		}
 	})
 
 	confList = events.map(event => {
 		let start = dateFns.format(new Date(event.start), 'DD MMM'),
 			end = event.end ? `- ${dateFns.format(new Date(event.end), 'DD MMM')}` : '',
-			name = event.name
-
-		switch (event.type) {
-			case 'speaking':
-				name = `🎤 ${name}`
-				break
-			case 'attending':
-				name = `🎫 ${name}`
-				break
-		}
+			name = event.name,
+			classes = event.type
 
 		if (dateFns.isAfter(new Date(event.start), today)) {
-			return `<li>${name}: ${start} ${end}</li>`
+			return `<li class="${classes}">${name}: ${start} ${end}</li>`
 		}
 	})
 
+	let countryClass = country.toLowerCase().replace(' ', '-')
+
 	location.innerHTML = `${city}, ${country} ${currentTrip}`
+	location.classList.add(countryClass)
 	conference.innerHTML = conf ? conf : ''
 	trips.innerHTML = tripList.join('')
 	conferences.innerHTML = confList.join('')

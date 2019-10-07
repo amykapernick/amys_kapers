@@ -1,6 +1,6 @@
 //Colours
 $grey: #d1d1d1;
-$grey_dark: #36454f ;
+$grey_dark: #36454f;
 $white: #edf3f7;
 $blue: #007cbb;
 $blue_light: #80bedd;
@@ -8,29 +8,29 @@ $aqua: #00acbb;
 $aqua_light: #80d6dd;
 
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('./fonts/RobotoMono-Regular.ttf') format('truetype');
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url('./fonts/RobotoMono-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: italic;
-    font-weight: 400;
-    src: url('./fonts/RobotoMono-RegularItalic.ttf') format('truetype');
+	font-family: 'Roboto Mono';
+	font-style: italic;
+	font-weight: 400;
+	src: url('./fonts/RobotoMono-RegularItalic.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: normal;
-    font-weight: 700;
-    src: url('./fonts/RobotoMono-Bold.ttf') format('truetype');
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	font-weight: 700;
+	src: url('./fonts/RobotoMono-Bold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Roboto Mono';
-    font-style: italic;
-    font-weight: 700;
-    src: url('./fonts/RobotoMono-BoldItalic.ttf') format('truetype');
+	font-family: 'Roboto Mono';
+	font-style: italic;
+	font-weight: 700;
+	src: url('./fonts/RobotoMono-BoldItalic.ttf') format('truetype');
 }

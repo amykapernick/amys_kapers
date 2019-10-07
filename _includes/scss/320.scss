@@ -136,7 +136,44 @@ footer {
 		grid-row: 4;
 	}
 
-	.trips {
+	li {
+		list-style: none;
+		padding-left: 0;
+	}
+
+	.australia {
+		&:before {
+			content: url('./img/australia.svg');
+			margin-right: 10px;
+		}
+	}
+
+	.united-states {
+		&:before {
+			content: url('./img/usa.svg');
+			margin-right: 10px;
+		}
+	}
+
+	.united-kingdom {
+		&:before {
+			content: url('./img/uk.svg');
+			margin-right: 10px;
+		}
+	}
+
+	.speaking {
+		&:before {
+			content: url('./img/mic.svg');
+			margin-right: 10px;
+		}
+	}
+
+	.attending {
+		&:before {
+			content: url('./img/badge.svg');
+			margin-right: 10px;
+		}
 	}
 
 	@media (min-width: 500px) {
