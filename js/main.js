@@ -1,19 +1,5 @@
 const travel = [
 		{
-			start: '2019-10-09',
-			end: '2019-10-19',
-			city: 'Sydney',
-			country: 'Australia',
-			timezone: 'Australia/Sydney',
-		},
-		{
-			start: '2019-10-30',
-			end: '2019-11-02',
-			city: 'Sydney',
-			country: 'Australia',
-			timezone: 'Australia/Sydney',
-		},
-		{
 			start: '2019-11-02',
 			end: '2019-11-09',
 			city: 'Orlando',
@@ -25,29 +11,18 @@ const travel = [
 			city: 'Adelaide',
 		},
 		{
-			start: '2019-12-08',
+			start: '2019-11-29',
 			end: '2019-12-14',
 			city: 'Brisbane',
 		},
+		{
+			start: '2020-01-27',
+			end: '2020-02-03',
+			city: 'London',
+			country: 'United Kingdom',
+		},
 	],
 	events = [
-		{
-			start: '2019-10-10',
-			name: 'Twilio Engage and Superclass',
-			type: 'speaking',
-		},
-		{
-			start: '2019-10-16',
-			end: '2019-10-18',
-			name: 'NDC Sydney',
-			type: 'speaking',
-		},
-		{
-			start: '2019-10-31',
-			end: '2019-11-01',
-			name: 'Laracon AU',
-			type: 'speaking',
-		},
 		{
 			start: '2019-11-04',
 			end: '2019-11-08',
@@ -60,10 +35,21 @@ const travel = [
 			type: 'speaking',
 		},
 		{
+			start: '2019-11-30',
+			name: 'DDD Brisbane',
+			type: 'speaking',
+		},
+		{
 			start: '2019-12-09',
 			end: '2019-12-10',
 			name: 'YOW! Brisbane',
 			type: 'attending',
+		},
+		{
+			start: '2020-01-29',
+			end: '2020-01-31',
+			name: 'NDC London',
+			type: 'speaking',
 		},
 	]
 
