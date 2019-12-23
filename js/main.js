@@ -1,19 +1,13 @@
 const travel = [
 		{
-			start: '2019-11-02',
-			end: '2019-11-09',
-			city: 'Orlando',
-			country: 'United States',
-		},
-		{
-			start: '2019-11-22',
-			end: '2019-11-24',
-			city: 'Adelaide',
-		},
-		{
 			start: '2019-11-29',
 			end: '2019-12-14',
 			city: 'Brisbane',
+		},
+		{
+			start: '2019-12-14',
+			end: '2019-12-28',
+			city: 'Queensland',
 		},
 		{
 			start: '2020-01-27',
@@ -23,28 +17,6 @@ const travel = [
 		},
 	],
 	events = [
-		{
-			start: '2019-11-04',
-			end: '2019-11-08',
-			name: 'Microsoft Ignite',
-			type: 'attending',
-		},
-		{
-			start: '2019-11-23',
-			name: 'DDD Adelaide',
-			type: 'speaking',
-		},
-		{
-			start: '2019-11-30',
-			name: 'DDD Brisbane',
-			type: 'speaking',
-		},
-		{
-			start: '2019-12-09',
-			end: '2019-12-10',
-			name: 'YOW! Brisbane',
-			type: 'attending',
-		},
 		{
 			start: '2020-01-29',
 			end: '2020-01-31',
@@ -85,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (away) {
 			city = trip.city
-			country = trip.country
+			country = trip.country || 'Australia'
 			currentTrip = `(${dateFns.format(new Date(trip.start), 'DD MMM')} - ${dateFns.format(new Date(trip.end), 'DD MMM')})`
 
 			return true
