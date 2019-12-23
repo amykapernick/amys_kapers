@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.njk",
   "scripts": {
-    "start": "yarn run dev",
-    "dev": "eleventy --serve",
-    "dev:gulp": " gulp css && gulp watch",
+    "start": "eleventy --serve --port=$PORT",
+    "gulp": " gulp css && gulp watch",
     "build": "gulp css && eleventy"
   },
   "repository": {

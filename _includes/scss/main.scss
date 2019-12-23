@@ -23,6 +23,12 @@
 				grid-column: 2;
 			}
 		}
+
+		img {
+			&.right {
+				grid-column: 2;
+			}
+		}
 	}
 }
 
