@@ -1,19 +1,14 @@
 const travel = [
 		{
-			start: '2019-11-29',
-			end: '2019-12-14',
-			city: 'Brisbane',
-		},
-		{
-			start: '2019-12-14',
-			end: '2019-12-28',
-			city: 'Queensland',
-		},
-		{
 			start: '2020-01-27',
 			end: '2020-02-03',
 			city: 'London',
 			country: 'United Kingdom',
+		},
+		{
+			start: '2020-02-12',
+			end: '2020-02-15',
+			city: 'Sydney',
 		},
 	],
 	events = [
@@ -21,6 +16,18 @@ const travel = [
 			start: '2020-01-29',
 			end: '2020-01-31',
 			name: 'NDC London',
+			type: 'speaking',
+		},
+		{
+			start: '2020-02-13',
+			end: '2020-02-14',
+			name: 'Ignite the Tour (Sydney)',
+			type: 'speaking',
+		},
+		{
+			start: '2020-04-21',
+			end: '2020-04-24',
+			name: 'NDC Porto',
 			type: 'speaking',
 		},
 	]
