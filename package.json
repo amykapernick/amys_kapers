@@ -20,14 +20,14 @@
   },
   "homepage": "https://github.com/amykapernick/amys_kapers#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.8.3",
+    "@11ty/eleventy": "^0.10.0",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
     "clean-css": "^4.2.1",
-    "date-fns": "^2.4.0",
+    "date-fns": "^2.9.0",
     "eleventy-plugin-respimg": "^0.1.2",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "path": "^0.12.7"
   }
 }
