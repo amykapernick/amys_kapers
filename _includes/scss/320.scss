@@ -140,6 +140,13 @@ footer {
 		}
 	}
 
+	.location {
+		&:before {
+			content: var(--image);
+			margin-right: 10px;
+		}
+	}
+
 	.australia {
 		--image: url('./img/australia.svg');
 	}
