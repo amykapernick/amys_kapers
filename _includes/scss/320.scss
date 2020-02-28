@@ -133,41 +133,39 @@ footer {
 	li {
 		list-style: none;
 		padding-left: 0;
+
+		&:before {
+			content: var(--image);
+			margin-right: 10px;
+		}
 	}
 
 	.australia {
-		&:before {
-			content: url('./img/australia.svg');
-			margin-right: 10px;
-		}
+		--image: url('./img/australia.svg');
 	}
 
 	.united-states {
-		&:before {
-			content: url('./img/usa.svg');
-			margin-right: 10px;
-		}
+		--image: url('./img/usa.svg');
 	}
 
 	.united-kingdom {
-		&:before {
-			content: url('./img/uk.svg');
-			margin-right: 10px;
-		}
+		--image: url('./img/uk.svg');
+	}
+
+	.portugal {
+		--image: url('./img/portugal.svg');
 	}
 
 	.speaking {
-		&:before {
-			content: url('./img/mic.svg');
-			margin-right: 10px;
-		}
+		--image: url('./img/mic.svg');
 	}
 
 	.attending {
-		&:before {
-			content: url('./img/badge.svg');
-			margin-right: 10px;
-		}
+		--image: url('./img/badge.svg');
+	}
+
+	.organising {
+		--image: url('./img/notes.svg');
 	}
 
 	@media (min-width: 500px) {

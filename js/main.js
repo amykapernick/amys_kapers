@@ -1,34 +1,52 @@
 const travel = [
 		{
-			start: '2020-01-27',
-			end: '2020-02-03',
-			city: 'London',
-			country: 'United Kingdom',
+			start: '2020-03-15',
+			end: '2020-03-19',
+			city: 'Seattle',
+			country: 'United States',
 		},
 		{
-			start: '2020-02-12',
-			end: '2020-02-15',
-			city: 'Sydney',
+			start: '2020-04-20',
+			end: '2020-04-28',
+			city: 'Porto',
+			country: 'Portugal',
 		},
 	],
 	events = [
 		{
-			start: '2020-01-29',
-			end: '2020-01-31',
-			name: 'NDC London',
-			type: 'speaking',
+			start: '2020-03-15',
+			end: '2020-03-19',
+			name: 'MVP Summit',
+			type: 'attending',
 		},
 		{
-			start: '2020-02-13',
-			end: '2020-02-14',
-			name: 'Ignite the Tour (Sydney)',
-			type: 'speaking',
-		},
-		{
-			start: '2020-04-21',
-			end: '2020-04-24',
+			start: '2020-04-22',
+			end: '2020-04-23',
 			name: 'NDC Porto',
 			type: 'speaking',
+		},
+		{
+			start: '2020-06-08',
+			end: '2020-06-12',
+			name: 'NDC Oslo',
+			type: 'speaking',
+		},
+		{
+			start: '2020-05-20',
+			end: '2020-05-21',
+			name: 'Twilio Signal',
+			type: 'speaking',
+		},
+		{
+			start: '2020-08-01',
+			name: 'DDD Perth',
+			type: 'organising',
+		},
+		{
+			start: '2020-09-07',
+			end: '2020-09-08',
+			name: 'YOW! Perth',
+			type: 'organising',
 		},
 	]
 
@@ -122,3 +140,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	trips.innerHTML = tripList.join('')
 	conferences.innerHTML = confList.join('')
 })
+	
