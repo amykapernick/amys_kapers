@@ -1,7 +1,7 @@
 const travel = [
 		{
-			start: '2020-03-15',
-			end: '2020-03-19',
+			start: '2020-03-14',
+			end: '2020-03-21',
 			city: 'Seattle',
 			country: 'United States',
 		},
