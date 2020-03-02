@@ -1,11 +1,5 @@
 const travel = [
 		{
-			start: '2020-03-14',
-			end: '2020-03-21',
-			city: 'Seattle',
-			country: 'United States',
-		},
-		{
 			start: '2020-04-20',
 			end: '2020-04-28',
 			city: 'Porto',
@@ -13,12 +7,6 @@ const travel = [
 		},
 	],
 	events = [
-		{
-			start: '2020-03-15',
-			end: '2020-03-19',
-			name: 'MVP Summit',
-			type: 'attending',
-		},
 		{
 			start: '2020-04-22',
 			end: '2020-04-23',
