@@ -1,10 +1,5 @@
 const travel = [
-		{
-			start: '2020-04-20',
-			end: '2020-04-28',
-			city: 'Porto',
-			country: 'Portugal',
-		},
+
 	],
 	events = [
 		{
@@ -20,12 +15,6 @@ const travel = [
 			type: 'speaking',
 		},
 		{
-			start: '2020-05-20',
-			end: '2020-05-21',
-			name: 'Twilio Signal',
-			type: 'speaking',
-		},
-		{
 			start: '2020-08-01',
 			name: 'DDD Perth',
 			type: 'organising',
@@ -35,6 +24,12 @@ const travel = [
 			end: '2020-09-08',
 			name: 'YOW! Perth',
 			type: 'organising',
+		},
+		{
+			start: '2020-09-29',
+			end: '2020-10-01',
+			name: 'Twilio Signal',
+			type: 'speaking',
 		},
 	]
 
