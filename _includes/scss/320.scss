@@ -13,7 +13,7 @@ body {
 		align-items: center;
 
 		header,
-		main {
+		.home {
 			display: grid;
 			grid-template-columns: subgrid;
 		}
@@ -53,8 +53,63 @@ header {
 	}
 }
 
-main {
+a {
+	color: $blue;
+
+	&:active,
+	&:hover,
+	&:focus {
+		background: $blue;
+		color: #fff;
+		text-decoration: none;
+	}
+}
+
+.home {
 	padding-top: 20vh;
+
+	blockquote {
+		font-size: 1.5em;
+		margin: 0;
+		text-align: center;
+	
+		p {
+			mix-blend-mode: multiply;
+			text-align: left;
+	
+			&:last-of-type {
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	a {
+		border: 3px solid transparent;
+		color: transparent;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 0;
+		padding: 10px;
+	
+		svg,
+		img {
+			color: $grey_dark;
+			height: 50px;
+			width: auto;
+	
+			&.blend {
+				mix-blend-mode: difference;
+			}
+		}
+	
+		&:active,
+		&:hover,
+		&:focus {
+			background: rgba(255, 255, 255, 0.5);
+			border-color: $blue;
+		}
+	}
 }
 
 svg {
@@ -71,50 +126,20 @@ svg {
 	z-index: -1;
 }
 
-blockquote {
-	font-size: 1.5em;
-	margin: 0;
-	text-align: center;
-
-	p {
-		mix-blend-mode: multiply;
-		text-align: left;
-
-		&:last-of-type {
-			margin-bottom: 10px;
-		}
-	}
-}
-
 img {
 	max-width: 100%;
 }
 
-a {
-	border: 3px solid transparent;
-	color: transparent;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 0;
-	padding: 10px;
 
-	svg,
-	img {
-		color: $grey_dark;
-		height: 50px;
-		width: auto;
+.talks {
+	background: rgba(255, 255, 255, 0.8);
+	border-radius: 30px;
+	padding: 20px;
 
-		&.blend {
-			mix-blend-mode: difference;
-		}
-	}
-
-	&:active,
-	&:hover,
-	&:focus {
-		background: rgba(255, 255, 255, 0.5);
-		border-color: $blue;
+	blockquote {
+		border: 5px solid $blue;
+		font-size: 1.3em;
+		padding: 20px;
 	}
 }
 

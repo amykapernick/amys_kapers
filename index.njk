@@ -10,7 +10,7 @@
 	</head>
 
 	<body>
-		{% include 'wave.svg' %}
+		{{'/img/wave.svg' | svgContents | safe}}
 
 		<header>
 			<blockquote>
@@ -34,33 +34,32 @@
 			</blockquote>
 			<img src="./img/amy.png"/>
 		</header>
-		<main>
-			{% include 'websites.svg' %}
+		<main class="home">
+			{{'/img/websites.svg' | svgContents | safe}}
 			<blockquote>
 				<p>I help small to medium businesses get their websites online and stay online.</p>
 				<a href="https://aimhigherweb.design" target="_blank">
-					{# {% include 'dev.svg' %} #}
-					{% include 'aimhigher.svg' %} AimHigher Web Design
+					{{'/img/aimhigher.svg' | svgContents | safe}} AimHigher Web Design
 				</a>
 			</blockquote>
 
-			{% include 'speaking.svg' %}
+			{{'/img/speaking.svg' | svgContents | safe}}
 			<blockquote>
 				<p>I speak at conferences about front end development, the web, mental health and life.</p>
-				<a href="https://speaking.amyskapers.dev" target="_blank">{% include 'notist.svg' %} Notist</a>
+				<a href="https://speaking.amyskapers.dev" target="_blank">{{'/img/notist.svg' | svgContents | safe}} Notist</a>
 			</blockquote>
 
-			{% include 'mentor.svg' %}
+			{{'/img/mentor.svg' | svgContents | safe}}
 			<blockquote>
 				<p>
 					I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and
 					Muses Code JS (formerly NodeGirls).
 				</p>
 				<a href="https://techoutsiders.com.au/amy-kapernick" target="_blank">
-					{% include 'techoutsiders.svg' %} Tech Outsiders
+					{{'/img/techoutsiders.svg' | svgContents | safe}} Tech Outsiders
 				</a>
 				<a href="https://musescodejs.org/perth.html" target="_blank">
-					{% include 'musesjs.svg' %} Muses Code Js
+					{{'/img/musesjs.svg' | svgContents | safe}} Muses Code Js
 				</a>
 				<a href="https://shecodes.com.au/" target="_blank">
 					<img src="./img/shecodes.png"/>
@@ -68,37 +67,37 @@
 				</a>
 			</blockquote>
 
-			{% include 'blog.svg' %}
+			{{'/img/blog.svg' | svgContents | safe}}
 			<blockquote>
 				<p>
 					I write blog posts. Sometimes I blog about tech, sometimes about the web, sometimes about life. Everything is on my main blog,
 					but I also have <em>The Freelance Guide</em> to try and help other freelancers navigate the world of the pants-optional
 					lifestyle.
 				</p>
-				<a href="https://amygoestoperth.com.au" target="_blank">{% include 'window-paragraph.svg' %} Amy Goes to Perth</a>
-				<a href="https://thefreelance.guide" target="_blank">{% include 'window-paragraph.svg' %}The Freelance Guide</a>
+				<a href="https://amygoestoperth.com.au" target="_blank">{{'/img/window-paragraph.svg' | svgContents | safe}} Amy Goes to Perth</a>
+				<a href="https://thefreelance.guide" target="_blank">{{'/img/window-paragraph.svg' | svgContents | safe}} The Freelance Guide</a>
 			</blockquote>
 
-			{% include 'organiser.svg' %}
+			{{'/img/organiser.svg' | svgContents | safe}}
 			<blockquote>
 				<p>I'm a Microsoft MVP. This means I do a lot of work in my community and sharing what I've learnt in conference talks and blog posts.</p>
-				<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595?fullname=amy%20kapernick" target="_blank">{% include 'mvp.svg' %} Microsoft MVP</a>
+				<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595?fullname=amy%20kapernick" target="_blank">{{'/img/mvp.svg' | svgContents | safe}} Microsoft MVP</a>
 			</blockquote>
 
-			{% include 'pair.svg' %}
+			{{'/img/pair.svg' | svgContents | safe}}
 			<blockquote>
 				<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
-				<a href="https://www.twilio.com/champions" target="_blank">{% include 'twilio.svg' %} Twilio Champions</a>
+				<a href="https://www.twilio.com/champions" target="_blank">{{'/img/twilio.svg' | svgContents | safe}} Twilio Champions</a>
 			</blockquote>
 
-			{% include 'social.svg' %}
+			{{'/img/social.svg' | svgContents | safe}}
 			<blockquote>
 				<p>Sometimes I write interesting things on socials, but mostly it's just pictures of my dog.</p>
-				<a href="https://twitter.com/amys_kapers" target="_blank">{% include 'twitter.svg' %} Twitter</a>
-				<a href="https://www.instagram.com/amys_kapers/" target="_blank">{% include 'instagram.svg' %} Instagram</a>
-				<a href="https://github.com/amykapernick" target="_blank">{% include 'github.svg' %} GitHub</a>
-				<a href="https://codepen.io/aimhigherwebdesign-amy/" target="_blank">{% include 'codepen.svg' %} Codepen</a>
-				<a href="https://www.linkedin.com/in/amykapernick" target="_blank">{% include 'linkedin.svg' %} LinkedIn</a>
+				<a href="https://twitter.com/amys_kapers" target="_blank">{{'/img/twitter.svg' | svgContents | safe}} Twitter</a>
+				<a href="https://www.instagram.com/amys_kapers/" target="_blank">{{'/img/instagram.svg' | svgContents | safe}} Instagram</a>
+				<a href="https://github.com/amykapernick" target="_blank">{{'/img/github.svg' | svgContents | safe}} GitHub</a>
+				<a href="https://codepen.io/aimhigherwebdesign-amy/" target="_blank">{{'/img/codepen.svg' | svgContents | safe}} Codepen</a>
+				<a href="https://www.linkedin.com/in/amykapernick" target="_blank">{{'/img/linkedin.svg' | svgContents | safe}} LinkedIn</a>
 			</blockquote>
 
 			{# {% include 'community.svg' %}
@@ -112,14 +111,14 @@
 				</a>
 			</blockquote> #}
 
-			{% include 'evangelist.svg' %}
+			{{'/img/evangelist.svg' | svgContents | safe}}
 			<blockquote>
 				<p>
 					I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local
 					businesses and community groups to see how we can help them and get them involved in our conferences.
 				</p>
 				<a href="https://yowconference.com" target="_blank">
-					{% include 'yow.svg' %} YOW! Conferences
+					{{'/img/yow.svg' | svgContents | safe}} YOW! Conferences
 				</a>
 			</blockquote>
 

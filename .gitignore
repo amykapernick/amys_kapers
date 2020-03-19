@@ -3,3 +3,5 @@ css
 _site
 
 yarn-error.log
+
+.env
