@@ -141,6 +141,11 @@ img {
 		font-size: 1.3em;
 		padding: 20px;
 	}
+
+	pre {
+		word-break: break-word;
+		white-space: break-spaces;
+	}
 }
 
 footer {

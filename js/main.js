@@ -3,6 +3,17 @@ const travel = [
 	],
 	events = [
 		{
+			start: '2020-03-26',
+			end: '2020-03-27',
+			name: 'WFH Conf',
+			type: 'speaking',
+		},
+		{
+			start: '2020-04-08',
+			name: 'Global AI Community on Virtual Tour',
+			type: 'speaking',
+		},
+		{
 			start: '2020-04-22',
 			end: '2020-04-23',
 			name: 'NDC Porto',
