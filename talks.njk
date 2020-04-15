@@ -35,7 +35,7 @@
 			{% for talk in collections.talks %}
 
 				<article>
-					<h2>{{talk.data.title}}</h2>
+					<h2 id={{ talk.url | strippath }}>{{talk.data.title}}</h2>
 					{{ talk.templateContent | safe }}
 
 					{# {% for event in notist.events %}
