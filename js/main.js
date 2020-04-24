@@ -14,8 +14,8 @@ const travel = [
 			type: 'speaking',
 		},
 		{
-			start: '2020-04-22',
-			end: '2020-04-23',
+			start: '2020-04-23',
+			end: '2020-04-24',
 			name: 'NDC Porto',
 			type: 'speaking',
 		},
