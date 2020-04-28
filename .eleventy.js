@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy('img')
 	eleventyConfig.addPassthroughCopy('fonts')
 	eleventyConfig.addPassthroughCopy('js')
+	eleventyConfig.addPassthroughCopy('files')
 
 	eleventyConfig.setTemplateFormats(['html', 'md', 'js', 'njk', 'png', 'jpg', 'css'])
 
