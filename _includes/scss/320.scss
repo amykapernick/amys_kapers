@@ -33,6 +33,11 @@ footer {
 	max-width: 1000px;
 }
 
+.hidden {
+	position: absolute;
+	right: -200vw;
+}
+
 header,
 section {
 	display: grid;
