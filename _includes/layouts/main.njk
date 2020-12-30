@@ -7,15 +7,12 @@
 		<link rel="stylesheet" href="/main.css"/>
 		<link rel="shortcut icon" href="/img/amy_small.png"/>
 
-		{% set metatitle = "Amy Kapernick" %}
-		{% set description = "Amy is a freelance developer, who spends her time volunteering at various community events in Perth, works as an evangelist for YOW! and is a Twilio Champion and Microsoft MVP. In her spare time she blogs about tech, the web and life and speaks at various conferences all over the world." %}
-
 		{# Meta Info #}
-		<title>{{metatitle}}</title>
+		<title>{{pagetitle}}</title>
 		<meta name="description" content="{{description}}"/>
 
 		{# OG Social #}
-		<meta property="og:title" content="{{metatitle}}"/>
+		<meta property="og:title" content="{{pagetitle}}"/>
 		<meta property="og:description" content="{{description}}">
 		<meta property="og:image" content="/img/socials/linkedin_wide.png"/>
 		<meta name="author" content="Amy Kapernick"/>
@@ -29,30 +26,11 @@
 	</head>
 
 	<body>
+		<main>
+			{% block content %}{% endblock %}
+		</main>
 
-		<header>
-			<blockquote>
-				<p>Hi 👋</p>
-				<p>I'm Amy</p>
-
-				<p>
-					I'm a<span class="rotate">
-						<span>&nbsp;Front End Developer</span>
-						<span>&nbsp;Speaker</span>
-						<span>&nbsp;Dog Lover</span>
-						<span>&nbsp; MVP</span>
-						<span>&nbsp;Writer</span>
-						<span>n Organiser</span>
-						<span>&nbsp;Mentor</span>
-						<span>&nbsp;Champion</span>
-						<span>n Evangelist</span>
-						<span>&nbsp;Conference Addict</span>
-					</span>
-				</p>
-			</blockquote>
-			<img src="./img/amy.png"/>
-		</header>
-		<main class="home"></main>
+		{% include 'partials/footer.html' %}
 
 		<script src="/js/main.js"></script>
 	</body>

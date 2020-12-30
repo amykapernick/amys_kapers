@@ -11,27 +11,19 @@
 	<p>I am currently giving a variety of talks about the front end of the web, and mental health.</p>
 	<p>Want me to speak at your event? The talks I've given recently are below, and you can contact me on <a href="https://twitter.com/amys_kapers" target="_blank">Twitter</a> or <a href="https://www.linkedin.com/in/amykapernick" target="_blank">LinkedIn</a>
 	</p>
+	<p>Looking for something more in-depth? I also run various <a href="/workshops">workshops</a> on front end tech, both in-person and online.</p>
 </blockquote>
 
 {% for talk in collections.talks %}
 
-	<article>
-		<h2 id={{ talk.url }}>{{talk.data.title}}</h2>
-		{{ talk.templateContent | safe }}
+<article>
+	<h2 id={{ talk.url }}>{{talk.data.title}}</h2>
+	{{ talk.templateContent | safe }}
 
-		{# {% for event in notist.events %}
-
-						<pre>{{event | dump | safe}}</pre>
-
-						{% if event.attributes.title %}
-							{{event.event}}
-						{% endif %}
-
-					{% endfor %} #}
-
-		{# <details>
-						<summary>Previous Presentations</summary>
-					</details> #}
-	</article>
+	<details>
+		<summary>Previous Presentations</summary>
+		{% filterTalks talk.data.title, notist.events.past %}
+	</details>
+</article>
 
 {% endfor %}

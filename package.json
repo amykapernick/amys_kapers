@@ -15,7 +15,8 @@
   "homepage": "https://amyskapers.dev",
   "dependencies": {
     "@11ty/eleventy": "^0.11.1",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.1"
+    "markdown-it": "^12.0.4"
   }
 }
