@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const markdownIt = require('markdown-it'),
+svgPlugin = require('@jamshop/eleventy-plugin-svg'),
 months = [
 	'January',
 	'February',
@@ -54,6 +55,12 @@ module.exports = function(eleventyConfig) {
 			</ul>`
 		)
 	})
+
+	// Plugins
+	eleventyConfig.addPlugin(svgPlugin, {
+		input: "src/img/"
+	  });
+	  
 
 	// Markdown Options
 	const markdown = markdownIt({
