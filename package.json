@@ -1,38 +1,21 @@
 {
   "name": "amys_kapers",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
   "main": "index.njk",
   "scripts": {
-    "start": "eleventy --serve --port=$PORT",
-    "gulp": " gulp css && gulp watch",
-    "build": "gulp css && eleventy"
+    "start": "eleventy --serve",
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amykapernick/amys_kapers.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amykapernick/amys_kapers/issues"
-  },
-  "homepage": "https://github.com/amykapernick/amys_kapers#readme",
+  "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev)",
+  "license": "MIT",
+  "homepage": "https://amyskapers.dev",
   "dependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
-    "axios": "^0.19.2",
-    "clean-css": "^4.2.3",
-    "date-fns": "^2.12.0",
+    "@11ty/eleventy": "^0.11.1",
     "dotenv": "^8.2.0",
-    "eleventy-plugin-respimg": "^0.1.2",
-    "eleventy-plugin-svg-contents": "^0.5.1",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.1.0",
-    "markdown-it": "^10.0.0",
-    "node-fetch": "^2.6.0",
-    "node-sass": "^4.14.1",
-    "path": "^0.12.7"
+    "node-fetch": "^2.6.1"
   }
 }

@@ -1,28 +1,15 @@
-const svgContents = require("eleventy-plugin-svg-contents");
+require('dotenv').config()
 
 module.exports = function(eleventyConfig) {
-	eleventyConfig.addPlugin(svgContents);
-
-	eleventyConfig.addNunjucksFilter("strippath", (path) => {
-		return path.match(/\/talks\/((\w|\d|-)+)\//)[1]
-	})
-
-	eleventyConfig.addPassthroughCopy('img')
-	eleventyConfig.addPassthroughCopy('fonts')
-	eleventyConfig.addPassthroughCopy('js')
-	eleventyConfig.addPassthroughCopy('files')
-
-	eleventyConfig.setTemplateFormats(['html', 'md', 'js', 'njk', 'png', 'jpg', 'css'])
-
+	// Dev Config
 	eleventyConfig.setBrowserSyncConfig({
 		notify: true,
 		watch: true,
 	})
 
-	const markdownIt = require('markdown-it')
-
-	eleventyConfig.setLibrary('md', markdownIt({
-		html: true,
-		breaks: true
-	}))
+	// Static Files
+	eleventyConfig.addPassthroughCopy({'src/img': 'img'})
+	eleventyConfig.addPassthroughCopy({'src/fonts': 'fonts'})
+	eleventyConfig.addPassthroughCopy({'src/js': 'js'})
+	eleventyConfig.addPassthroughCopy({'src/files': 'files'})
 }
