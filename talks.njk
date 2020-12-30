@@ -1,44 +1,25 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
-		<title>Amy Kapernick</title>
-		<link rel="stylesheet" href="/main.css"/>
-		<link rel="shortcut icon" href="/img/amy_small.png"/>
-	</head>
+<header>
+	<blockquote>
+		<p>Hi 👋</p>
+		<p>I'm Amy</p>
 
-	<body>
-		{{'/img/wave.svg' | svgContents | safe}}
+		<p>I'm a Speaker</p>
+	</blockquote>
+</header>
 
-		<header>
-			<blockquote>
-				<p>Hi 👋</p>
-				<p>I'm Amy</p>
+<blockquote>
+	<p>I am currently giving a variety of talks about the front end of the web, and mental health.</p>
+	<p>Want me to speak at your event? The talks I've given recently are below, and you can contact me on <a href="https://twitter.com/amys_kapers" target="_blank">Twitter</a> or <a href="https://www.linkedin.com/in/amykapernick" target="_blank">LinkedIn</a>
+	</p>
+</blockquote>
 
-				<p>I'm a Speaker</p>
-			</blockquote>
-			<img src="/img/amy.png"/>
-		</header>
+{% for talk in collections.talks %}
 
-		<main class="talks">
+	<article>
+		<h2 id={{ talk.url }}>{{talk.data.title}}</h2>
+		{{ talk.templateContent | safe }}
 
-			{# <pre>{{notist | dump | safe}}</pre> #}
-
-			<blockquote>
-				<p>I am currently giving a variety of talks about the front end of the web, and mental health.</p>
-				<p>Want me to speak at your event? The talks I've given recently are below, and you can contact me on <a href="https://twitter.com/amys_kapers" target="_blank">Twitter</a> or <a href="https://www.linkedin.com/in/amykapernick" target="_blank">LinkedIn</a>
-				</p>
-			</blockquote>
-
-			{% for talk in collections.talks %}
-
-				<article>
-					<h2 id={{ talk.url | strippath }}>{{talk.data.title}}</h2>
-					{{ talk.templateContent | safe }}
-
-					{# {% for event in notist.events %}
+		{# {% for event in notist.events %}
 
 						<pre>{{event | dump | safe}}</pre>
 
@@ -48,25 +29,9 @@
 
 					{% endfor %} #}
 
-					{# <details>
+		{# <details>
 						<summary>Previous Presentations</summary>
 					</details> #}
-				</article>
+	</article>
 
-			{% endfor %}
-
-		</main>
-		<footer id="where">
-			<h2>Where is Amy?</h2>
-			<p>Right now Amy is in <span class="location"></span>
-				<span class="conference"></span></p>
-			<h3>Coming Up Next</h3>
-			<h4>Trips</h4>
-			<ul class="trips"></ul>
-			<h4>Conferences</h4>
-			<ul class="conferences"></ul>
-		</footer>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.28.5/date_fns.min.js"></script>
-		<script src="/js/main.js"></script>
-	</body>
-</html>
+{% endfor %}
