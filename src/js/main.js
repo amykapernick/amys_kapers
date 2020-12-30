@@ -1,93 +1,152 @@
+const travel = [],
+events = [
+	{
+		start: '2021-8-14',
+		name: 'DDD Perth',
+		type: 'organising',
+	},
+	{
+		start: '2020-12-30',
+		end: '2020-12-29',
+		name: 'Current Conference',
+		type: 'organising',
+	},
+],
+months = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec'
+]
+
 if (typeof document !== 'undefined') {
+	let city = 'Perth',
+		country = 'Australia',
+		currentTrip = '',
+		conf,
+		tripList,
+		confList,
+		away = false,
+		atConf = false
+
 	document.addEventListener('DOMContentLoaded', () => {
 		const section = document.querySelector('#where'),
 			location = section.querySelector('.location'),
 			conference = section.querySelector('.conference'),
 			trips = section.querySelector('.trips'),
 			conferences = section.querySelector('.conferences'),
-			today = new Date()
-	
-		let city = 'Perth',
-			country = 'Australia',
-			currentTrip = '',
-			conf,
-			tripList,
-			confList
-	
-		travel.some(trip => {
-			let away = false
-	
-			if (dateFns.isSameDay(today, new Date(trip.start))) {
-				away = true
-			} else if (dateFns.isAfter(today, new Date(trip.start))) {
-				if (dateFns.isBefore(today, new Date(trip.end))) {
-					away = true
-				} else if (dateFns.isSameDay(today, new Date(trip.end))) {
-					away = true
+			today = new Date(`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`),
+			futureTrips = travel.filter(trip => {
+				const startDate = new Date(trip.start),
+				start = new Date(`${startDate.getFullYear()}-${startDate.getMonth() + 1}-${startDate.getDate()}`)
+
+				if(trip.end) {
+					const endDate = new Date(trip.end),
+					end = new Date(`${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`)
+
+					if(today >= start && today <= end) {
+						away = true
+						city = trip.city
+						country = trip.country || 'Australia'
+						currentTrip = `(${start.getDate()} ${start.getMonth()}) - (${end.getDate()} ${end.getMonth()})`
+					}
+
+					return today <= end
 				}
-			} else {
-				return false
-			}
-	
-			if (away) {
-				city = trip.city
-				country = trip.country || 'Australia'
-				currentTrip = `(${dateFns.format(new Date(trip.start), 'DD MMM')} - ${dateFns.format(new Date(trip.end), 'DD MMM')})`
-	
-				return true
-			}
-		})
-	
-		events.some(event => {
-			let atConf = false
-			if (dateFns.isSameDay(today, new Date(event.start))) {
-				atConf = true
-			} else if (dateFns.isAfter(today, new Date(event.start))) {
-				if (dateFns.isBefore(today, new Date(event.end))) {
-					atConf = true
-				} else if (dateFns.isSameDay(today, new Date(event.end))) {
-					atConf = true
+
+				if(today == start) {
+					away = true
+					city = trip.city
+					country = trip.country || 'Australia'
+					currentTrip = `(${start.getDate()} ${start.getMonth()})`
 				}
-			} else {
-				return false
-			}
+
+				return today <= start
+			})
+			futureEvents = events.filter(event => {
+				const startDate = new Date(event.start),
+				start = new Date(`${startDate.getFullYear()}-${startDate.getMonth() + 1}-${startDate.getDate()}`)
+
+				if(event.end) {
+					const endDate = new Date(event.end),
+					end = new Date(`${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`)
+
+					if(today >= start && today <= end) {
+						atConf = true
+						conf = `at ${event.name}`
+					}
+
+					return today <= end
+				}
+
+				if(today == start) {
+					atConf = true
+					conf = `at ${event.name}`
+				}
+
+				return today <= start
+			})
 	
-			if (atConf) {
-				conf = `at ${event.name}`
 	
-				return true
-			}
-		})
-	
-		tripList = travel.map(trip => {
-			let country = trip.country || 'Australia',
-				start = dateFns.format(new Date(trip.start), 'DD MMM'),
-				end = trip.end ? `- ${dateFns.format(new Date(trip.end), 'DD MMM')}` : false,
+		tripList = futureTrips.map(trip => {
+			const startDate = new Date(trip.start),
+				start = `${startDate.getDate()} ${months[startDate.getMonth()]}`,
+				country = trip.country || 'Australia',
 				classes = country.toLowerCase().replace(' ', '-')
-	
-			if (dateFns.isAfter(new Date(trip.start), today)) {
-				return `<li class="${classes}">${trip.city}, ${country}: ${start} ${end}</li>`
+
+			let end = ''
+
+			if(trip.end) {
+				const endDate = new Date(trip.end)
+				end = ` - ${endDate.getDate()} ${months[endDate.getMonth()]}`
 			}
+	
+			return `<li class="${classes}">${trip.city}, ${country}: ${start}${end}</li>`
 		})
 	
-		confList = events.map(event => {
-			let start = dateFns.format(new Date(event.start), 'DD MMM'),
-				end = event.end ? `- ${dateFns.format(new Date(event.end), 'DD MMM')}` : '',
+		confList = futureEvents.map(event => {
+			const startDate = new Date(event.start),
+				start = `${startDate.getDate()} ${months[startDate.getMonth()]}`,
 				name = event.name,
 				classes = event.type
-	
-			if (dateFns.isAfter(new Date(event.start), today)) {
-				return `<li class="${classes}">${name}: ${start} ${end}</li>`
+
+			let end = ''
+
+			if(event.end) {
+				const endDate = new Date(event.end)
+				end = ` - ${endDate.getDate()} ${months[endDate.getMonth()]}`
 			}
+	
+			return `<li class="${classes}">${name}: ${start}${end}</li>`
 		})
 	
 		let countryClass = country.toLowerCase().replace(' ', '-')
+
+		if(futureTrips.length) {
+			trips.innerHTML = `<ul>${tripList.join('')}</ul>`
+		}
+		else {
+			trips.innerHTML = `<p>🤣, not any time soon</p>`
+		}
+
+		if(futureEvents.length) {
+			conferences.innerHTML = `<ul>${confList.join('')}</ul>`
+		}
+		else {
+			conferences.innerHTML = `<p>Be right back, taking a much needed break</p>`
+		}
 	
 		location.innerHTML = `${city}, ${country} ${currentTrip}`
 		location.classList.add(countryClass)
 		conference.innerHTML = conf ? conf : ''
-		trips.innerHTML = tripList.join('')
-		conferences.innerHTML = confList.join('')
 	})
 }
 	
