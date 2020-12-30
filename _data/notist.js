@@ -6,6 +6,9 @@ url = process.env.NOTIST_FEED;
 
 // expose these results as data to eleventy.
 module.exports = async () => {
+	if(!url) {
+		return false
+	}
 	return await fetch(url)
 		.then(res => res.json())
 		.then(results => {
