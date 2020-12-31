@@ -4,6 +4,7 @@ const url = process.env.NOTIST_FEED,
 axios  = require('axios');
 
 module.exports = () => {
+	console.log(`url is ${process.env.NOTIST_FEED}`)
 	if(!url) {
 		return false
 	}
