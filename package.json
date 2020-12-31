@@ -18,6 +18,8 @@
     "@jamshop/eleventy-plugin-svg": "^1.0.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "markdown-it": "^12.0.4"
+    "markdown-it": "^12.0.4",
+    "path": "^0.12.7",
+    "sass": "^1.32.0"
   }
 }

@@ -24,6 +24,7 @@ module.exports = function(eleventyConfig) {
 		watch: true,
 	})
 	eleventyConfig.addWatchTarget('./_includes/')
+	eleventyConfig.addWatchTarget('./src/')
 
 	// Static Files
 	eleventyConfig.addPassthroughCopy({'src/img': 'img'})

@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
-		<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/>
-		<link rel="stylesheet" href="/main.css"/>
-		<link rel="shortcut icon" href="/img/amy_small.png"/>
 
-		{# Meta Info #}
-		<title>{{pagetitle}}</title>
-		<meta name="description" content="{{description}}"/>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="shortcut icon" href="/img/amy_small.png" />
 
-		{# OG Social #}
-		<meta property="og:title" content="{{pagetitle}}"/>
-		<meta property="og:description" content="{{description}}">
-		<meta property="og:image" content="/img/socials/linkedin_wide.png"/>
-		<meta name="author" content="Amy Kapernick"/>
-		<meta property="og:url" content="https://amyskapers.dev"/>
+	{# Meta Info #}
+	<title>{{pagetitle}}</title>
+	<meta name="description" content="{{description}}" />
 
-		{# Twitter #}
-		<meta name="twitter:card" content="summary_large_image"/>
-		<meta name="twitter:site" content="@amys_kapers"/>
-		<meta property="twitter:image" content="/img/socials/twitter_wide.png"/>
-		<meta name="twitter:creator" content="@amys_kapers"/>
-	</head>
+	{# OG Social #}
+	<meta property="og:title" content="{{pagetitle}}" />
+	<meta property="og:description" content="{{description}}">
+	<meta property="og:image" content="/img/socials/linkedin_wide.png" />
+	<meta name="author" content="Amy Kapernick" />
+	<meta property="og:url" content="https://amyskapers.dev" />
 
-	<body>
-		<main>
-			{% block content %}{% endblock %}
-		</main>
+	{# Twitter #}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@amys_kapers" />
+	<meta property="twitter:image" content="/img/socials/twitter_wide.png" />
+	<meta name="twitter:creator" content="@amys_kapers" />
+</head>
 
-		{% include 'partials/footer.html' %}
+<body>
+	{% include 'partials/header.html' %}
 
-		<script src="/js/main.js"></script>
-	</body>
+	<main>
+		{% block content %}{% endblock %}
+	</main>
+
+	{% include 'partials/footer.html' %}
+
+	<script src="/js/main.js"></script>
+</body>
+
 </html>
