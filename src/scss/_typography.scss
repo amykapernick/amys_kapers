@@ -1,16 +1,11 @@
 @use './variables.scss';
 
-* {
-	box-sizing: border-box;
-	text-decoration-skip-ink: auto;
-}
-
 body {
+	color: variables.$neutral;
+	font-family: variables.$font_main;
 	font-size: 18px;
 	font-weight: 600;
-	font-family: variables.$font_main;
 	line-height: 1.5;
-	color: variables.$neutral;
 }
 
 a {

@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "main": "index.njk",
   "scripts": {
-    "start": "eleventy --serve",
+    "start": "ELEVENTY_ENV=dev eleventy --serve",
     "build": "eleventy"
   },
   "repository": {
@@ -18,8 +18,15 @@
     "@jamshop/eleventy-plugin-svg": "^1.0.1",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-loader": "^4.0.2",
     "markdown-it": "^12.0.4",
     "path": "^0.12.7",
-    "sass": "^1.32.0"
+    "sass": "^1.32.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-property-sort-order-smacss": "^7.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0"
   }
 }

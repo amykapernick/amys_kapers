@@ -1,2 +1,38 @@
 @import './global.scss';
-@import './_typography.scss';
+@import './typography.scss';
+
+@import './header.scss';
+
+@import './home.scss';
+
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+.logo {
+	.cls-1{
+		isolation:isolate;
+	}
+
+	.cls-10,.cls-2,.cls-5,.cls-6,.cls-7,.cls-8{
+		mix-blend-mode:multiply;
+	}
+
+	.cls-11,.cls-12{
+		fill:#414042;
+		font-size:11px;
+	}
+
+	.cls-11{
+		font-family:Quicksand-Medium, Quicksand;
+		font-weight:500;
+	}
+
+	.cls-12{
+		font-family:Lato-Hairline, Lato;
+		font-weight:100;
+	}
+}

@@ -1,0 +1,125 @@
+@use 'variables.scss';
+
+header {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	padding: 20px 20px 50px;
+
+	.logo {
+		width: 80vw;
+		max-width: 800px;
+	}
+
+	.hexagon {
+		position: absolute;
+		z-index: -1;
+		bottom: 0;
+		width: 120vw;
+		fill: variables.$background;
+	}
+
+	.blob_2, .squiggle, .paw {
+		display: none;
+	}
+
+	.blob_left {
+		svg {
+			fill: variables.$pink;
+		}
+	}
+
+	.blob_right {
+		svg {
+			fill: variables.$green;
+		}
+	}
+
+	.squiggle {
+		fill: variables.$yellow;
+	}
+
+	.paw {
+		fill: variables.$purple;
+	}
+}
+
+@media(min-width: 60em) {
+	header {
+		padding: 150px 50px;
+
+		.logo {
+			width: 60vw;
+		}
+
+		.hexagon {
+			width: 150vw;
+		}
+
+		.blob_2, .squiggle, .paw {
+			display: block;
+			position: absolute;
+		}
+
+		.blob_left {
+			svg {
+				top: 70px;
+				left: -200px;
+				width: 400px;
+				transform: rotate(-80deg);
+			}
+		}
+
+		.blob_right {
+			svg {
+				top: -50px;
+				right: -50px;
+				width: 350px;
+			}
+		}
+
+		.squiggle {
+			top: 200px;
+			right: 0;
+			width: 200px;
+		}
+
+		.paw {
+			bottom: 50px;
+			left: 20px;
+			width: 100px;
+		}
+	}
+}
+
+@media(min-width: 75em) {
+	header {
+		padding: 170px 50px;
+
+		.blob_left {
+			svg {
+				top: 100px;
+				left: -300px;
+				width: 600px;
+			}
+		}
+
+		.blob_right {
+			svg {
+				top: -40px;
+				right: -60px;
+				width: 400px;
+			}
+		}
+
+		.squiggle {
+			top: 300px;
+			right: -10px;
+			width: 250px;
+		}
+
+		.paw {
+			bottom: 100px;
+		}
+	}
+}
