@@ -40,6 +40,9 @@ module.exports = function(eleventyConfig) {
 	)})
 	eleventyConfig.addFilter('renderHtml', (string) => (new markdownIt().render(string)))
 	eleventyConfig.addNunjucksShortcode('filterTalks', (title, events) => {
+		if(!events) {
+			return
+		}
 		const talks = events.filter(event => title === event.title)
 		return (
 			`<ul>
