@@ -4,6 +4,10 @@ const url = process.env.NOTIST_FEED,
 axios  = require('axios');
 
 module.exports = () => {
+	if(!url) {
+		return false
+	}
+
 	return new Promise((resolve, reject) => {
 		axios.get(url).then((response) => {
 			const talkData = response.data.data[0].relationships.data,
