@@ -8,6 +8,8 @@ module.exports = () => {
 		return false
 	}
 
+	console.log(url)
+
 	return new Promise((resolve, reject) => {
 		axios.get(url).then((response) => {
 			const talkData = response.data.data[0].relationships.data,
