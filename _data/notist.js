@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const url = process.env.NOTIST_FEED,
+const url = process.env.NOTIST_FEED || 'https://noti.st/amyskapers.json',
 axios  = require('axios');
 
 module.exports = () => {
