@@ -44,6 +44,99 @@ header {
 	}
 }
 
+.intro_section {
+	margin-bottom: 50px;
+	font-size: 1.5em;
+	text-transform: uppercase;
+
+	.options {
+		min-height: 3em;
+		color: variables.$darkpurple;
+
+		span {
+			&.an {
+				&:before {
+					color: variables.$neutral;
+				}
+			}
+		}
+	}
+
+	.image_blob {
+		path {
+			fill: variables.$purple;
+		}
+
+		image {
+			width: 100%;
+			height: 100%;
+			margin-bottom: -10%;
+		}
+	}
+
+	blockquote {
+		max-width: 400px;
+		margin: 20px auto;
+	}
+
+	.image {
+		position: relative;
+		max-width: 400px;
+		margin: 0 auto;
+		padding: 0 20px 50px;
+
+		.blob_2 {
+			display: block;
+			position: absolute;
+			z-index: -1;
+			right: -20px;
+			bottom: 0;
+			width: 120%;
+			transform: rotate(-50deg);
+			fill: variables.$yellow;
+		}
+	}
+}
+
+@media(min-width: 40em) {
+	.intro_section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 20px;
+
+		blockquote {
+			flex: 0 0 auto;
+			width: 300px;
+			margin: 0;
+			text-align: right;
+		}
+
+		.rotate {
+			width: auto;
+			margin-left: auto;
+
+			.options {
+				text-align: left;
+			}
+		}
+
+		.image {
+			flex: 1 1 30vw;
+			max-width: 500px;
+
+			svg {
+				max-width: unset;
+			}
+
+			.blob_2 {
+				right: auto;
+				left: 0;
+			}
+		}
+	}
+}
+
 @media(min-width: 60em) {
 	header {
 		padding: 150px 50px;
@@ -90,6 +183,29 @@ header {
 			width: 100px;
 		}
 	}
+
+	.intro_section {
+		margin-top: -100px;
+		padding: 50px 5vw 100px;
+		font-size: 2em;
+
+		blockquote {
+			width: 400px;
+			margin-right: 50px;
+		}
+
+		.image {
+			.blob_2 {
+				bottom: -50px;
+			}
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	.intro_section {
+		padding: 50px 10vw 100px;
+	}
 }
 
 @media(min-width: 75em) {
@@ -120,6 +236,19 @@ header {
 
 		.paw {
 			bottom: 100px;
+		}
+	}
+}
+
+@media(min-width: 80em) {
+	.intro_section {
+		width: 90vw;
+		max-width: 1300px;
+		padding: 50px 50px 100px;
+		font-size: 2.5em;
+
+		blockquote {
+			width: 500px;
 		}
 	}
 }

@@ -4,13 +4,6 @@ const url = process.env.NOTIST_FEED || 'https://noti.st/amyskapers.json',
 axios  = require('axios');
 
 module.exports = () => {
-	console.log(`url is ${process.env.NOTIST_FEED}`)
-	if(!url) {
-		return false
-	}
-
-	console.log(url)
-
 	return new Promise((resolve, reject) => {
 		axios.get(url).then((response) => {
 			const talkData = response.data.data[0].relationships.data,

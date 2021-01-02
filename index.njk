@@ -3,26 +3,29 @@
 {% extends 'layouts/main.njk' %}
 
 {% block content %}
-<section>
+<section class="intro_section">
 	<blockquote>
 		<p>Hi, I'm Amy</p>
 
-		<p>
-			I'm a<span class="rotate">
-				<span>&nbsp;Front End Developer</span>
-				<span>&nbsp;Speaker</span>
-				<span>&nbsp;Dog Lover</span>
-				<span>&nbsp; MVP</span>
-				<span>&nbsp;Writer</span>
-				<span>n Organiser</span>
-				<span>&nbsp;Mentor</span>
-				<span>&nbsp;Champion</span>
-				<span>n Evangelist</span>
-				<span>&nbsp;Conference Addict</span>
+		<p class="rotate">
+			I'm a <span class="options">
+				<span>Front End Developer</span>
+				<span>Speaker</span>
+				<span>Dog Lover</span>
+				<span>MVP</span>
+				<span>Writer</span>
+				<span class="an">Organiser</span>
+				<span>Mentor</span>
+				<span>Champion</span>
+				<span class="an">Evangelist</span>
+				<span>Conference Addict</span>
 			</span>
 		</p>
 	</blockquote>
-	{% svg 'graphics/image_blob_2' %}
+	<div class="image">
+		{% svg 'graphics/image_blob_2' %}
+		{% svg 'graphics/blob_2' %}
+	</div>
 </section>
 
 <section>

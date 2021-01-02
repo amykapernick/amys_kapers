@@ -1,0 +1,92 @@
+@mixin rotateWords($num, $int) {
+	@for $i from 1 through $num {
+		&:nth-child(#{$i}) {
+			animation-name: fade#{$i};
+		}
+	}
+}
+
+@mixin fadeEffect($num) {
+	@for $i from 1 through $num {
+		$j: 100 / $num;
+
+		@keyframes fade#{$i} {
+			0% {
+				position: absolute;
+				opacity: 0;
+			}
+
+			100% {
+				position: absolute;
+				opacity: 0;
+			}
+
+			$y: (($i * $j) - $j) * 1%;
+			$z: (($i * $j) - 1) * 1%;
+
+			@if $y > 0 {
+				#{$y - 1} {
+					position: absolute;
+					opacity: 0;
+				}
+
+				#{$y - 0.1} {
+					position: static;
+				}
+			}
+
+			#{$y} {
+				position: static;
+				opacity: 1;
+			}
+
+			#{$z - 1} {
+				position: static;
+				opacity: 1;
+			}
+
+			#{$z} {
+				position: static;
+				opacity: 0;
+			}
+
+			#{$z + 0.1} {
+				position: absolute;
+			}
+		}
+	}
+}
+
+
+$num: 10;
+$int: 2.5s;
+$duration: $num * $int;
+
+@include fadeEffect($num);
+
+.rotate {
+	display: flex;
+	white-space: nowrap;
+
+	.options {
+		margin-left: 1ch;
+
+		span{
+			position: absolute;
+			animation-duration: $duration;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			opacity: 0;
+			white-space: break-spaces;
+
+			@include rotateWords($num, $int);
+
+			&.an {
+				&:before {
+					content: 'n';
+					margin: 0 1ch 0 -1ch;
+				}
+			}
+		}
+	}
+}
