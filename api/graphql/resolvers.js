@@ -12,13 +12,34 @@ const client = new CosmosClient({
 
 const resolvers = {
 	Query: {
-		tasks: async () => {
-			const results = await tasks()
+		tasks: async (obj, {list, section}) => {
+			let results = await tasks()
+
+			if(section) {
+				results = results.filter((task) => section === task.section)
+			}
+
+			if(list) {
+				results = results.filter((task) => list === task.list)
+			}
 
 			return results
 		},
-		sections: async () => {
-			const results = await sections()
+		sections: async (obj, {period}) => {
+			let results = await sections()
+
+			if(period) {
+				results = results.filter((section) => period === section.period)
+			}
+
+			return results
+		},
+		events: async (obj, {section}) => {
+			let results = await events()
+
+			if(section) {
+				results = results.filter((event) => section === event.section)
+			}
 
 			return results
 		},
@@ -36,7 +57,17 @@ const resolvers = {
 			const results = await sections()
 
 			return results.find((section) => section.sectionId === sectionId)
-		}
+		},
+		event: async (obj, {id}) => {
+			const results = await events()
+
+			return results.find((event) => event.id === id)
+		},
+		note: async (obj, {section}) => {
+			const results = await notes()
+
+			return results.find((note) => note.section === section)
+		},
 	},
 	Section: {
 		tasks: async (parent) => {
@@ -88,6 +119,13 @@ const resolvers = {
 			return results.find((section) => parent.section === section.sectionId)
 		}
 	},
+	Event: {
+		section: async (parent) => {
+			const results = await sections()
+
+			return results.find((section) => parent.section === section.sectionId)
+		}
+	},
 	Mutation: {
 		addTask: async (obj, args, context) => {
 			if(context.userId) {
@@ -108,7 +146,6 @@ const resolvers = {
 		addSection: async (obj, args, context) => {
 			const results = await sections()
 			if(context.userId) {
-				
 				if(!results.some(section => section.sectionId == args.section.sectionId)) {
 					await client
 					.database('bullet-journal')
@@ -141,44 +178,6 @@ const resolvers = {
 			}
 			return await events()
 		},
-		addNote: async (obj, args, context) => {
-			const results = await notes()
-
-			if(context.userId) {
-				if(!results.some(note => note.section == args.note.section)) {
-					await client
-					.database('bullet-journal')
-					.container('notes')
-					.items
-					.create({
-						...args.note
-					})
-
-					const newResults = await notes()
-		
-					return newResults
-				}	
-				else {
-					const note = results.find(note => note.section == args.note.section)
-
-					await client
-					.database('bullet-journal')
-					.container('notes')
-					.item(note.id)
-					.replace({
-						...note,
-						...args.note,
-						noteId: uuid(),
-					})
-
-					const newResults = await notes()
-		
-					return newResults
-				}			
-			}
-
-			return results
-		},
 		deleteTask: async (obj, args, context) => {
 			const results = await tasks()
 
@@ -193,6 +192,27 @@ const resolvers = {
 					.delete()
 
 					const newResults = await tasks()
+		
+					return newResults
+				}					
+			}
+
+			return results
+		},
+		deleteEvent: async (obj, args, context) => {
+			const results = await events()
+
+			if(context.userId) {
+				const selectedEvent = results.find(event => event.id == args.event)
+
+				if(selectedTask) {
+					await client
+					.database('bullet-journal')
+					.container('events')
+					.item(selectedEvent.id, selectedEvent.section)
+					.delete()
+
+					const newResults = await events()
 		
 					return newResults
 				}					
@@ -238,6 +258,86 @@ const resolvers = {
 		
 					return newResults.find(task => task.id == args.task.id)
 				}					
+			}
+
+			return results
+		},
+		editEvent: async (obj, args, context) => {
+			const results = await events()
+
+			if(context.userId) {
+				const selectedEvent = results.find(event => event.id == args.event.id)
+				
+				if(selectedEvent) {
+					if(args.event.section) {
+						await client
+							.database('bullet-journal')
+							.container('events')
+							.item(selectedEvent.id, selectedEvent.section)
+							.delete()
+
+						await client
+							.database('bullet-journal')
+							.container('events')
+							.items
+							.create({
+								...selectedEvent,
+								...args.event,
+							})
+					}
+					else {
+						await client
+						.database('bullet-journal')
+						.container('events')
+						.item(selectedEvent.id, selectedEvent.section)
+						.replace({
+							...selectedEvent,
+							...args.event,
+						})
+					}
+
+					const newResults = await events()
+		
+					return newResults.find(event => event.id == args.event.id)
+				}					
+			}
+
+			return results
+		},
+		editNote: async (obj, args, context) => {
+			const results = await notes()
+
+			if(context.userId) {
+				if(!results.some(note => note.section == args.note.section)) {
+					await client
+					.database('bullet-journal')
+					.container('notes')
+					.items
+					.create({
+						...args.note
+					})
+
+					const newResults = await notes()
+		
+					return newResults
+				}	
+				else {
+					const note = results.find(note => note.section == args.note.section)
+
+					await client
+					.database('bullet-journal')
+					.container('notes')
+					.item(note.id)
+					.replace({
+						...note,
+						...args.note,
+						noteId: uuid(),
+					})
+
+					const newResults = await notes()
+		
+					return newResults
+				}			
 			}
 
 			return results
