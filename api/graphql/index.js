@@ -15,7 +15,7 @@ const server = new ApolloServer({
 	typeDefs, 
 	resolvers,
 	introspection: true,
-	playground: process.env.NODE_ENV === "dev",
+	playground: true,
 	context: ({req}) => {
 		const fakeUser = {
 			userId: 'userId'
