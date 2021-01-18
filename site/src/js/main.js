@@ -8,7 +8,7 @@ if (typeof document !== 'undefined') {
 			trips = section.querySelector('.trips'),
 			conferences = section.querySelector('.conferences')
 
-		fetch('http://localhost:7071/api/events')
+		fetch('/api/events')
 		.then(res => res.json())
 		.then(res => {
 			if(res.length) {
@@ -26,7 +26,7 @@ if (typeof document !== 'undefined') {
 			}
 		})
 
-		fetch('http://localhost:7071/api/travel')
+		fetch('/api/travel')
 		.then(res => res.json())
 		.then(res => {
 			if(res.length) {
@@ -44,7 +44,7 @@ if (typeof document !== 'undefined') {
 			}
 		})
 
-		fetch('http://localhost:7071/api/current')
+		fetch('/api/current')
 		.then(res => res.json())
 		.then(res => {
 			location.innerHTML = `${res.city}, ${res.country}`
