@@ -5,8 +5,8 @@
 		"type": "organising"
 	},
 	{
-		"start": "2020-12-30",
-		"end": "2020-12-29",
+		"start": "2020-12-29",
+		"end": "2020-12-31",
 		"name": "Current Conference",
 		"type": "organising"
 	},
@@ -49,5 +49,10 @@
 		"end": "2019-12-10",
 		"name": "YOW! Brisbane",
 		"type": "attending"
+	},
+	{
+		"start": "2021-01-23",
+		"name": "Global Diversity CFP Day",
+		"type": "organising"
 	}
 ]

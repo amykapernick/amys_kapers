@@ -23,14 +23,14 @@ module.exports = function(eleventyConfig) {
 		notify: true,
 		watch: true,
 	})
-	eleventyConfig.addWatchTarget('./_includes/')
-	eleventyConfig.addWatchTarget('./src/')
+	eleventyConfig.addWatchTarget('./site/_includes/')
+	eleventyConfig.addWatchTarget('./site/src/')
 
 	// Static Files
-	eleventyConfig.addPassthroughCopy({'src/img': 'img'})
-	eleventyConfig.addPassthroughCopy({'src/fonts': 'fonts'})
-	eleventyConfig.addPassthroughCopy({'src/js': 'js'})
-	eleventyConfig.addPassthroughCopy({'src/files': 'files'})
+	eleventyConfig.addPassthroughCopy({'site/src/img': 'img'})
+	eleventyConfig.addPassthroughCopy({'site/src/fonts': 'fonts'})
+	eleventyConfig.addPassthroughCopy({'site/src/js': 'js'})
+	eleventyConfig.addPassthroughCopy({'site/src/files': 'files'})
 
 	// Filters and Shortcodes
 	eleventyConfig.addNunjucksShortcode('debug', (data) => {
