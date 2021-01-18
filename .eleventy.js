@@ -62,7 +62,7 @@ module.exports = function(eleventyConfig) {
 
 	// Plugins
 	eleventyConfig.addPlugin(svgPlugin, {
-		input: "src/img/"
+		input: "site/src/img/"
 	  });
 	  
 
@@ -79,7 +79,10 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.setLibrary('md', markdown)
 
 	// Other Config
-	module.exports = {
+	return {
+		dir: {
+			input: "site"
+		},
 		markdownTemplateEngine: 'njk'
 	}
 }

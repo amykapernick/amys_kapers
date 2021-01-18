@@ -1,0 +1,53 @@
+[
+	{
+		"start": "2021-8-14",
+		"name": "DDD Perth",
+		"type": "organising"
+	},
+	{
+		"start": "2020-12-30",
+		"end": "2020-12-29",
+		"name": "Current Conference",
+		"type": "organising"
+	},
+	{
+		"start": "2020-01-29",
+		"end": "2020-01-31",
+		"name": "NDC London",
+		"type": "speaking"
+	},
+	{
+		"start": "2020-02-13",
+		"end": "2020-02-14",
+		"name": "Ignite the Tour (Sydney)",
+		"type": "speaking"
+	},
+	{
+		"start": "2020-04-21",
+		"end": "2020-04-24",
+		"name": "NDC Porto",
+		"type": "speaking"
+	},
+	{
+		"start": "2019-11-04",
+		"end": "2019-11-08",
+		"name": "Microsoft Ignite",
+		"type": "attending"
+	},
+	{
+		"start": "2019-11-23",
+		"name": "DDD Adelaide",
+		"type": "speaking"
+	},
+	{
+		"start": "2019-11-30",
+		"name": "DDD Brisbane",
+		"type": "speaking"
+	},
+	{
+		"start": "2019-12-09",
+		"end": "2019-12-10",
+		"name": "YOW! Brisbane",
+		"type": "attending"
+	}
+]
