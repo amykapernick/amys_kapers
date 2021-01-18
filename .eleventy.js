@@ -29,7 +29,6 @@ module.exports = function(eleventyConfig) {
 	// Static Files
 	eleventyConfig.addPassthroughCopy({'site/src/img': 'img'})
 	eleventyConfig.addPassthroughCopy({'site/src/fonts': 'fonts'})
-	eleventyConfig.addPassthroughCopy({'site/src/js': 'js'})
 	eleventyConfig.addPassthroughCopy({'site/src/files': 'files'})
 
 	// Filters and Shortcodes
