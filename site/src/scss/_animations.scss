@@ -6,6 +6,14 @@
 	}
 }
 
+@mixin rotateWordsGrid($num, $int) {
+	@for $i from 1 through $num {
+		&:nth-child(#{$i}) {
+			animation-name: fadeGrid#{$i};
+		}
+	}
+}
+
 @mixin fadeEffect($num) {
 	@for $i from 1 through $num {
 		$j: 100 / $num;
@@ -57,21 +65,73 @@
 	}
 }
 
+@mixin fadeEffectGrid($num) {
+	@for $i from 1 through $num {
+		$j: 100 / $num;
+
+		@keyframes fadeGrid#{$i} {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+
+			$y: (($i * $j) - $j) * 1%;
+			$z: (($i * $j) - 1) * 1%;
+
+			@if $y > 0 {
+				#{$y - 1} {
+					opacity: 0;
+				}
+
+				#{$y - 0.1} {
+				}
+			}
+
+			#{$y} {
+				opacity: 1;
+			}
+
+			#{$z - 1} {
+				opacity: 1;
+			}
+
+			#{$z} {
+				opacity: 0;
+			}
+
+			#{$z + 0.1} {
+			}
+		}
+	}
+}
 
 $num: 10;
 $int: 2.5s;
 $duration: $num * $int;
 
 @include fadeEffect($num);
+@include fadeEffectGrid($num);
 
 .rotate {
 	display: flex;
 	white-space: nowrap;
 
-	.options {
-		margin-left: 1ch;
+	p {
+		margin: 0;
+	}
 
-		span{
+	.options {
+		margin: 0;
+		margin-left: 1ch;
+		padding: 0;
+		list-style: none;
+
+		li {
+			@include rotateWords($num, $int);
+
 			position: absolute;
 			animation-duration: $duration;
 			animation-timing-function: linear;
@@ -79,13 +139,32 @@ $duration: $num * $int;
 			opacity: 0;
 			white-space: break-spaces;
 
-			@include rotateWords($num, $int);
+
 
 			&.an {
 				&:before {
 					content: 'n';
 					margin: 0 1ch 0 -1ch;
 				}
+			}
+		}
+	}
+
+	@supports(grid-template-areas: '.') {
+		display: grid;
+		grid-template-columns: max-content min-content;
+		justify-content: start;
+
+		.options {
+			display: grid;
+			// max-width: 12ch;
+			min-height: unset;
+
+			li {
+				@include rotateWordsGrid($num, $int);
+
+				position: relative;
+				grid-area: 1 / 1 / span 1 / span 1;
 			}
 		}
 	}

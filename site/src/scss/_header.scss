@@ -46,6 +46,7 @@ header {
 
 .intro_section {
 	margin-bottom: 50px;
+	padding: 0 20px;
 	font-size: 1.5em;
 	text-transform: uppercase;
 
@@ -53,7 +54,7 @@ header {
 		min-height: 3em;
 		color: variables.$darkpurple;
 
-		span {
+		li {
 			&.an {
 				&:before {
 					color: variables.$neutral;
@@ -94,6 +95,12 @@ header {
 			width: 120%;
 			transform: rotate(-50deg);
 			fill: variables.$yellow;
+		}
+	}
+
+	@supports(grid-template-areas: '.') {
+		.rotate {
+			justify-content: end;
 		}
 	}
 }
