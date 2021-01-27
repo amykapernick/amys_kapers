@@ -45,6 +45,7 @@ header {
 }
 
 .intro_section {
+	position: relative;
 	margin-bottom: 50px;
 	padding: 0 20px;
 	font-size: 1.5em;
@@ -98,10 +99,13 @@ header {
 		}
 	}
 
-	@supports(grid-template-areas: '.') {
-		.rotate {
-			justify-content: end;
-		}
+	.blob_small {
+		display: none;
+		position: absolute;
+		right: -50px;
+		bottom: -50px;
+		width: 100px;
+		fill: variables.$pink;
 	}
 }
 
@@ -131,6 +135,8 @@ header {
 		.image {
 			flex: 1 1 30vw;
 			max-width: 500px;
+			margin: 0;
+			margin-left: 50px;
 
 			svg {
 				max-width: unset;
@@ -139,6 +145,16 @@ header {
 			.blob_2 {
 				right: auto;
 				left: 0;
+			}
+		}
+
+		.blob_small {
+			display: block;
+		}
+
+		@supports(grid-template-areas: '.') {
+			.rotate {
+				justify-content: end;
 			}
 		}
 	}
@@ -198,13 +214,16 @@ header {
 
 		blockquote {
 			width: 400px;
-			margin-right: 50px;
 		}
 
 		.image {
 			.blob_2 {
 				bottom: -50px;
 			}
+		}
+
+		.blob_small {
+			right: -25px;
 		}
 	}
 }
@@ -251,11 +270,21 @@ header {
 	.intro_section {
 		width: 90vw;
 		max-width: 1300px;
+		margin-right: auto;
+		margin-left: auto;
 		padding: 50px 50px 100px;
 		font-size: 2.5em;
 
 		blockquote {
 			width: 500px;
+		}
+
+		.image {
+			margin-left: 100px;
+		}
+
+		.blob_small {
+			right: calc(-5vw - 10px);
 		}
 	}
 }

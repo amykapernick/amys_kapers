@@ -39,4 +39,12 @@ section {
 	justify-content: center;
 	padding: 0 20px;
 	text-align: center;
+
+	.graphic {
+		order: -1;
+
+		svg {
+			width: 90%;
+		}
+	}
 }
