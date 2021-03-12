@@ -1,18 +1,14 @@
-@use 'variables.scss';
-
-section {
-	svg {
-		max-width: 400px;
-	}
-}
+@use 'variables.scss' as var;
 
 .icons {
-	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin: -10px;
 	padding: 0;
 	list-style: none;
 
 	li {
-		margin: 0;
+		margin: 10px;
 		padding: 0;
 	}
 
@@ -22,7 +18,8 @@ section {
 	}
 
 	a {
-		color: variables.$purple;
+		display: block;
+		color: var.$purple;
 
 		svg, img {
 			& + span {
@@ -30,21 +27,246 @@ section {
 				right: -200vw;
 			}
 		}
+
+		&:hover {
+			svg, img {
+				outline: 4px solid var.$pink;
+			}
+		}
+	}
+}
+
+.image_blob {
+	image {
+		width: 100%;
+		height: 100%;
 	}
 }
 
 .section {
 	display: flex;
+	position: relative;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin: 40px auto;
 	padding: 0 20px;
 	text-align: center;
 
 	.graphic {
-		order: -1;
+		order: -2;
+		width: 90%;
+		max-width: 400px;
+	}
 
-		svg {
+	.heart {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 100px;
+		color: var.$orange;
+		mix-blend-mode: multiply;
+	}
+
+	.image {
+		position: relative;
+		padding: 0 0 10%;
+
+		.blob, .paw {
+			position: absolute;
+		}
+
+		.blob {
+			z-index: -1;
+			bottom: -15%;
+			left: 15%;
 			width: 90%;
+			transform: rotate(90deg) scaleX(-1);
+			color: var.$pink;
+		}
+
+		.paw {
+			top: 0;
+			right: 0;
+			width: 100px;
+			color: var.$yellow;
+		}
+	}
+}
+
+@media(min-width: 40em) {
+	.section {
+		flex-wrap: nowrap;
+		align-content: center;
+		align-items: center;
+		margin-bottom: 50px;
+		text-align: left;
+
+		.graphic {
+			flex: 1 0 50%;
+			max-width: 300px;
+			margin: 0 20px 0 0;
+		}
+
+		&:nth-child(2n - 1), &.special {
+			text-align: right;
+
+			.graphic {
+				order: 2;
+				margin-right: 0;
+				margin-left: 20px;
+			}
+
+			.icons {
+				justify-content: flex-end;
+			}
+		}
+
+		.heart {
+			top: auto;
+			bottom: 0;
+			left: -20px;
+		}
+
+		.image {
+			padding: 0 0 10%;
+
+			.blob {
+				bottom: -10%;
+				left: 20%;
+				width: 90%;
+			}
+		}
+	}
+}
+
+@media(min-width: 50em) {
+	.section {
+		justify-content: center;
+		padding: 0 50px;
+
+		&:before {
+			content: '';
+			flex: 1 0 auto;
+			order: 1;
+			width: 20px;
+			max-width: 180px;
+			margin: 0 30px;
+			border-bottom: 2px dotted var.$purple;
+		}
+
+		> * {
+			flex-basis: 40%;
+			order: 1;
+			max-width: 300px;
+		}
+
+		.graphic {
+			margin: 0;
+		}
+
+		&:nth-child(2n - 1), &.special {
+			> * {
+				order: 0;
+			}
+
+			.graphic {
+				margin: 0;
+			}
+		}
+
+		&.special {
+			&:before {
+				content: normal;
+			}
+
+			.graphic {
+				margin-left: 50px;
+			}
+		}
+
+		.heart {
+			left: 0;
+		}
+
+		.image {
+			.blob {
+				bottom: -20px;
+				left: 50px;
+			}
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	.section {
+		margin: 0;
+		padding: 20px 5vw;
+
+		&:before {
+			margin: 0 50px;
+		}
+
+		.graphic {
+			max-width: 400px;
+		}
+
+		&.special {
+			.graphic {
+				margin-left: 90px;
+			}
+		}
+
+		.heart {
+			left: calc(5vw + 50px);
+		}
+
+		.image {
+			.paw {
+				top: 50px;
+			}
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	.section {
+		padding: 20px 10vw;
+
+		.icons {
+			flex-wrap: nowrap;
+		}
+
+		.image {
+			padding-bottom: 0;
+
+			.paw {
+				top: 50px;
+			}
+
+			.blob {
+				bottom: -130px;
+			}
+		}
+	}
+}
+
+@media(min-width: 80em) {
+	.section {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto 50px;
+		padding: 0;
+
+		&:before {
+			margin: 0 90px;
+		}
+
+		.graphic {
+			max-width: 450px;
+		}
+
+		.heart {
+			left: -20px;
 		}
 	}
 }

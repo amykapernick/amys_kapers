@@ -1,15 +1,15 @@
-@use './variables.scss';
+@use './variables.scss' as var;
 
 body {
-	color: variables.$neutral;
-	font-family: variables.$font_main;
+	color: var.$neutral;
+	font-family: var.$font_main;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 1.5;
 }
 
 a {
-	color: variables.$blue;
+	color: var.$blue;
 }
 
 pre, code {

@@ -1,6 +1,14 @@
-* {
+@use './variables.scss' as var;
+
+*, *:before, *:after {
 	box-sizing: border-box;
+	outline-offset: 0.2em;
 	text-decoration-skip-ink: auto;
+	font-family: inherit;
+}
+
+*:focus {
+	outline: 3px solid var.$yellow;
 }
 
 body, html {
