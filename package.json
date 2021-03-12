@@ -4,7 +4,8 @@
   "main": "index.njk",
   "scripts": {
     "start": "ELEVENTY_ENV=dev eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "clean": "rm -rf _site"
   },
   "repository": {
     "type": "git",

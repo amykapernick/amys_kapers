@@ -16,7 +16,7 @@ header {
 		z-index: -1;
 		bottom: 0;
 		width: 120vw;
-		fill: variables.$background;
+		color: variables.$background;
 	}
 
 	.blob_2, .squiggle, .paw {
@@ -25,22 +25,22 @@ header {
 
 	.blob_left {
 		svg {
-			fill: variables.$pink;
+			color: variables.$pink;
 		}
 	}
 
 	.blob_right {
 		svg {
-			fill: variables.$green;
+			color: variables.$green;
 		}
 	}
 
 	.squiggle {
-		fill: variables.$yellow;
+		color: variables.$yellow;
 	}
 
 	.paw {
-		fill: variables.$purple;
+		color: variables.$purple;
 	}
 }
 
@@ -66,7 +66,7 @@ header {
 
 	.image_blob {
 		path {
-			fill: variables.$purple;
+			color: variables.$purple;
 		}
 
 		image {
@@ -95,7 +95,7 @@ header {
 			bottom: 0;
 			width: 120%;
 			transform: rotate(-50deg);
-			fill: variables.$yellow;
+			color: variables.$yellow;
 		}
 	}
 
@@ -105,7 +105,7 @@ header {
 		right: -50px;
 		bottom: -50px;
 		width: 100px;
-		fill: variables.$pink;
+		color: variables.$pink;
 	}
 }
 
