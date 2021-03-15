@@ -233,10 +233,19 @@
 </section>
 
 <section id="where" class="where">
-	<h2>Where is Amy?</h2>
-	<p>Right now Amy is in <span class="location"></span>
-		<span class="conference"></span>
-	</p>
+	{% svg 'graphics/blob_hexagon' %}
+	<div>
+		{% svg 'graphics/globe' %}
+		<h2>Where is Amy?</h2>
+		<p>Right now Amy is in <span class="location"></span>
+			<span class="conference"></span>
+		</p>
+	</div>
+	{% svg 'graphics/squiggle' %}
+	<a href="#main">
+		{% svg 'graphics/arrow' %}
+		<span class="sr-only">Back to top</span>
+	</a>
 	<h3>Coming Up Next</h3>
 	<h4>Trips</h4>
 	<div class="trips">
@@ -246,6 +255,7 @@
 	<div class="conferences">
 		<p>Loading upcoming events</p>
 	</div>
+
 </section>
 
 {% endblock %}

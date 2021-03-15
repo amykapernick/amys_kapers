@@ -1,8 +1,8 @@
-@use 'variables.scss' as var;
+@use '../variables.scss' as var;
 
-@import './_parts/section.scss';
-@import './_parts/illustrations.scss';
-@import './_parts/background.scss';
+@import '../_parts/section.scss';
+@import '../_parts/illustrations.scss';
+@import '../_parts/background.scss';
 
 .icons {
 	display: flex;

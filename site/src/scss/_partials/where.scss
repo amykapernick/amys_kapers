@@ -1,6 +1,8 @@
-@use './variables.scss' as var;
+@use '../variables.scss' as var;
 
 .where {
+	background: pink;
+
 	h2 {
 		color: var.$darkpurple;
 		font-size: 1.41em;

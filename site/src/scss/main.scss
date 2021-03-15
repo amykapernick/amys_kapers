@@ -2,10 +2,11 @@
 @import './typography.scss';
 @import './animations.scss';
 
-@import './header.scss';
+@import './_partials/header.scss';
+@import './_partials/footer.scss';
 
-@import './home.scss';
-@import './where.scss';
+@import './_partials/home.scss';
+@import './_partials/where.scss';
 
 @font-face {
 	font-family: Montserrat;

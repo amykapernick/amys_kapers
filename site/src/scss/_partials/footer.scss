@@ -1,0 +1,123 @@
+@use '../variables.scss' as var;
+
+footer {
+	position: relative;
+	margin-top: 80px;
+	padding: 20px;
+	color: var.$navy;
+
+	p {
+		width: calc(100% - 100px);
+	}
+
+	a {
+		color: inherit;
+	}
+
+	.background {
+		position: absolute;
+		z-index: -1;
+		top: -60px;
+		left: 50%;
+		max-height: calc(100% + 60px);
+		margin: 0;
+		overflow: hidden;
+		transform: translateX(-50%);
+
+		.hexagon {
+			display: block;
+			position: static;
+			width: 200vw;
+			color: var.$background;
+		}
+	}
+
+	.graphic {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+	}
+
+	.leaf {
+		width: 100px;
+		margin-right: 10px;
+		margin-bottom: -20px;
+		transform: scaleX(-1);
+		color: var.$red;
+	}
+}
+
+@media(min-width: 40em) {
+	footer {
+		margin-top: 100px;
+
+		.background {
+			top: -100px;
+			max-height: calc(100% + 100px);
+		}
+	}
+}
+
+@media(min-width: 50em) {
+	footer {
+		padding: 20px 50px;
+	}
+}
+
+@media(min-width: 60em) {
+	footer {
+		padding: 20px 5vw;
+
+		.background {
+			left: 40%;
+		}
+
+		.leaf {
+			width: 200px;
+			margin-bottom: -100px;
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	footer {
+		padding: 20px 10vw;
+	}
+}
+
+@media(min-width: 80em) {
+	footer {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 200px auto 0;
+		padding: 20px 0;
+
+		.background {
+			top: -250px;
+			max-height: calc(100% + 250px);
+		}
+
+		.graphic {
+			right: -10vw;
+		}
+
+		.leaf {
+			width: 270px;
+		}
+	}
+}
+
+@media(min-width: 90em) {
+	footer {
+		.background {
+
+			left: -900px;
+			transform: translateX(0);
+
+			.hexagon {
+				width: 3000px;
+			}
+		}
+	}
+}
