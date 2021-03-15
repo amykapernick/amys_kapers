@@ -19,6 +19,20 @@
 @font-face {
 	font-family: Montserrat;
 	font-style: italic;
+	font-weight: 500;
+	src: url('../fonts/Montserrat-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: Montserrat;
+	font-style: italic;
 	font-weight: 600;
 	src: url('../fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
 }

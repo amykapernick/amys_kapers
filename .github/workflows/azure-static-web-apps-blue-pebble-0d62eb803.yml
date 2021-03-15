@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - dev
+      - prod
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
       - dev
+      - prod
 
 jobs:
   build_and_deploy_job:
