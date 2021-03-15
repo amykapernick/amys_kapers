@@ -9,7 +9,8 @@ body {
 }
 
 a {
-	color: var.$blue;
+	color: var.$darkpurple;
+	font-weight: bolder;
 
 	&:hover {
 		text-decoration: none;
