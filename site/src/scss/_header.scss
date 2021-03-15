@@ -6,6 +6,10 @@ header {
 	justify-content: center;
 	padding: 20px 20px 50px;
 
+	.cls-1 {
+		fill: var.$neutral;
+	}
+
 	.logo {
 		width: 80vw;
 		max-width: 800px;
@@ -49,6 +53,7 @@ header {
 	margin-bottom: 50px;
 	padding: 0 20px;
 	font-size: 1.5em;
+	font-weight: 700;
 	text-transform: uppercase;
 
 	.options {

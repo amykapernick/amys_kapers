@@ -96,63 +96,72 @@
 	</div>
 </section>
 
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/blog' %}
-	</span>
-	<div class="content">
-		<p>I write blog posts. Sometimes I blog about tech, sometimes about the web, sometimes about life.</p>
-		<p>Other times I live stream while I'm working on side projects, sometimes JavaScript, other times CSS.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://amygoestoperth.com.au" target="_blank">
-					{% svg "icons/blog" %}
-					<span>Amy's Kapers</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.twitch.tv/amyskapers" target="_blank">
-					{% svg "icons/twitch" %}
-					<span>Twitch</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
+<div class="background">
+	{% svg 'graphics/blob_background' %}
+	{% svg 'graphics/leaf_thin' %}
+	{% svg 'graphics/dots' %}
 
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/office_team' %}
-	</span>
-	<div class="content">
-		<p>I'm a Microsoft MVP. This means I do a lot of work in my community and sharing what I've learnt in conference talks and blog posts.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595?fullname=amy%20kapernick" target="_blank">
-					{% svg "icons/mvp" %}
-					<span>Microsoft MVPs</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/blog' %}
+		</span>
+		<div class="content">
+			<p>I write blog posts. Sometimes I blog about tech, sometimes about the web, sometimes about life.</p>
+			<p>Other times I live stream while I'm working on side projects, sometimes JavaScript, other times CSS.</p>
+			<ul class="icons">
+				<li>
+					<a href="https://amygoestoperth.com.au" target="_blank">
+						{% svg "icons/blog" %}
+						<span>Amy's Kapers</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.twitch.tv/amyskapers" target="_blank">
+						{% svg "icons/twitch" %}
+						<span>Twitch</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
 
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/community' %}
-	</span>
-	<div class="content">
-		<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://www.twilio.com/champions" target="_blank">
-					{% svg "icons/twilio" %}
-					<span>Twilio Champions</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/office_team' %}
+		</span>
+		<div class="content">
+			<p>I'm a Microsoft MVP. This means I do a lot of work in my community and sharing what I've learnt in conference talks and blog posts.</p>
+			<ul class="icons">
+				<li>
+					<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595?fullname=amy%20kapernick" target="_blank">
+						{% svg "icons/mvp" %}
+						<span>Microsoft MVPs</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/community' %}
+		</span>
+		<div class="content">
+			<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
+			<ul class="icons">
+				<li>
+					<a href="https://www.twilio.com/champions" target="_blank">
+						{% svg "icons/twilio" %}
+						<span>Twilio Champions</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	{% svg 'graphics/blob' %}
+	{% svg 'graphics/flower_2' %}
+</div>
 
 <section class="section">
 	<span class="graphic">
@@ -212,6 +221,8 @@
 	</div>
 </section>
 
+{% svg 'graphics/flower' %}
+
 <section class="section special">
 	<div class="graphic image">
 		{% svg 'graphics/image_blob' %}
@@ -221,7 +232,7 @@
 	<p>I have a grey and white border collie who likes long walks on the beach and snuggling on the couch.</p>
 </section>
 
-<section id="where">
+<section id="where" class="where">
 	<h2>Where is Amy?</h2>
 	<p>Right now Amy is in <span class="location"></span>
 		<span class="conference"></span>

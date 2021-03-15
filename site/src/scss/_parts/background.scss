@@ -1,0 +1,248 @@
+@use '../variables.scss' as var;
+
+.background {
+	position: relative;
+	z-index: 0;
+	margin: 80px auto;
+	color: #ffffff;
+
+	.blob_background {
+		position: absolute;
+		top: -50px;
+		right: 0;
+		bottom: -50px;
+		width: auto;
+		height: calc(100% + 100px);
+		color: var.$purple;
+	}
+
+	.section {
+		&:before {
+			border-color: #ffffff;
+		}
+	}
+
+	.leaf_thin, .dots, .blob, .flower {
+		display: none;
+		position: absolute;
+	}
+
+	.leaf_thin {
+		top: -120px;
+		left: 0;
+		width: 300px;
+		color: var.$green;
+	}
+
+	.dots {
+		top: -200px;
+		right: -100px;
+		width: 200px;
+		color: var.$red;
+	}
+
+	.blob {
+		right: -250px;
+		bottom: -280px;
+		width: 300px;
+		color: var.$blue;
+	}
+
+	.flower {
+		bottom: -130px;
+		left: -80px;
+		width: 200px;
+		color: var.$pink;
+	}
+
+	.icons {
+		a {
+			color: inherit;
+		}
+	}
+}
+
+@media(min-width: 40em) {
+	.background {
+		margin-top: 100px;
+		padding-top: 20px;
+
+		.blob_background {
+			top: -80px;
+			height: calc(100% + 150px);
+		}
+
+		.section {
+			text-align: left;
+
+			> * {
+				order: 0;
+			}
+
+			.graphic {
+				order: -2;
+				margin-right: 20px;
+				margin-left: 0;
+			}
+
+			.icons {
+				justify-content: flex-start;
+			}
+
+			&:nth-child(2n), &.special {
+				text-align: right;
+
+				> * {
+					order: 1;
+				}
+
+				.graphic {
+					order: 2;
+					margin-right: 0;
+					margin-left: 20px;
+				}
+
+				.icons {
+					justify-content: flex-end;
+				}
+			}
+		}
+	}
+}
+
+@media(min-width: 50em) {
+	.background {
+		margin-top: 180px;
+
+		.blob_background {
+			top: -150px;
+			height: calc(100% + 200px);
+		}
+
+		.section {
+			&:nth-child(2n), &.special {
+				> * {
+					order: 0;
+				}
+
+				.graphic {
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	.background {
+		margin-top: 50px;
+
+		.leaf_thin, .dots, .blob, .flower {
+			display: block;
+		}
+
+		.blob_background {
+			right: -50%;
+			height: calc(100% + 250px);
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	.background {
+		margin-top: 100px;
+
+		.blob_background {
+			top: -200px;
+			right: auto;
+			left: -65%;
+			height: calc(100% + 300px);
+		}
+
+		.leaf_thin {
+			top: -180px;
+			width: 400px;
+		}
+
+		.dots {
+			top: -300px;
+			right: -100px;
+			width: 300px;
+		}
+
+		.blob {
+			right: -250px;
+			bottom: -200px;
+			width: 400px;
+		}
+
+		.flower {
+			bottom: -180px;
+		}
+	}
+}
+
+@media(min-width: 80em) {
+	.background {
+		margin-top: 150px;
+		margin-bottom: 200px;
+		padding-top: 70px;
+
+		.blob_background {
+			height: calc(100% + 400px);
+		}
+
+		.leaf_thin {
+			top: -240px;
+			left: -150px;
+			width: 600px;
+		}
+
+		.dots {
+			top: -350px;
+			right: -150px;
+			width: 330px;
+		}
+
+		.blob {
+			bottom: -350px;
+		}
+
+		.flower {
+			bottom: -250px;
+			left: -50px;
+		}
+	}
+}
+
+@media(min-width: 90em) {
+	.background {
+		margin-top: 200px;
+
+		.blob_background {
+			right: 0;
+			left: auto;
+		}
+
+		.leaf_thin {
+			top: -320px;
+			left: calc(50vw - 600px - 200px);
+			width: 700px;
+		}
+
+		.dots {
+			right: calc(50vw - 600px - 200px);
+		}
+
+		.blob {
+			right: calc(50vw - 600px - 600px);
+			bottom:-425px;
+			width: 600px;
+		}
+
+		.flower {
+			bottom: -320px;
+			left: calc(50vw - 600px - 170px);
+		}
+	}
+}
