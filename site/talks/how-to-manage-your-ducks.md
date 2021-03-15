@@ -1,5 +1,4 @@
 ---
-tags: talks
 title: 'How to Manage Your Ducks: Being a More Sustainable You'
 ---
 Ever feel like everything's a struggle? Like you're constantly overwhelmed by life? While we can endure it and pull through, this is hardly sustainable. Sometimes, it's just too ducking hard.

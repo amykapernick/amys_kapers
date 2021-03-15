@@ -1,6 +1,6 @@
 @use '../variables.scss' as var;
 
-section {
+section, article {
 	z-index: 1;
 	margin: 40px auto;
 	padding: 0 20px;
@@ -23,7 +23,7 @@ section {
 }
 
 @media(min-width: 40em) {
-	section {
+	section, article  {
 		margin-bottom: 50px;
 	}
 
@@ -52,7 +52,7 @@ section {
 }
 
 @media(min-width: 50em) {
-	section {
+	section, article  {
 		padding: 0 50px;
 	}
 
@@ -102,7 +102,7 @@ section {
 }
 
 @media(min-width: 60em) {
-	section {
+	section, article  {
 		margin: 0;
 		padding: 20px 5vw;
 	}
@@ -125,13 +125,13 @@ section {
 }
 
 @media(min-width: 70em) {
-	section {
+	section, article  {
 		padding: 20px 10vw;
 	}
 }
 
 @media(min-width: 80em) {
-	section {
+	section, article  {
 		width: 90vw;
 		max-width: 1200px;
 		margin: 0 auto 50px;

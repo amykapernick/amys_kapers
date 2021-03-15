@@ -22,3 +22,8 @@ body {
 	width: 100vw;
 	margin: 0;
 }
+
+.sr-only {
+	position: absolute;
+	right: -200vw;
+}

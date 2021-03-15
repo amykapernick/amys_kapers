@@ -56,6 +56,11 @@ header {
 	font-weight: 700;
 	text-transform: uppercase;
 
+	mark {
+		background: none;
+		color: var.$darkpurple;
+	}
+
 	.options {
 		min-height: 3em;
 		color: var.$darkpurple;

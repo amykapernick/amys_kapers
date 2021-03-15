@@ -1,5 +1,4 @@
 ---
-tags: talks
 title: Wait, I have to test the front end too?
 ---
 Testing is important right? Your project can't be run unless all your unit and integration tests are written (and pass), but are you also testing the front end?

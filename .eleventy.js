@@ -43,18 +43,20 @@ module.exports = function(eleventyConfig) {
 			return
 		}
 		const talks = events.filter(event => title === event.title)
+		const talksList = talks.map(talk => (
+			`<li>
+				<h3>
+					<a href="${talk.link}" target="_blank">
+						${talk.event.title}
+					</a>
+				</h3> 
+				- ${months[talk.date.getMonth()]} ${talk.date.getFullYear()}
+			</li>`
+		))
+
 		return (
 			`<ul>
-				${talks.map(talk => (
-					`<li>
-						<h3>
-							<a href="${talk.link}" target="_blank">
-								${talk.event.title}
-							</a>
-						</h3> 
-						- ${months[talk.date.getMonth()]} ${talk.date.getFullYear()}
-					</li>`
-				))}
+				${talksList.join('')}
 			</ul>`
 		)
 	})

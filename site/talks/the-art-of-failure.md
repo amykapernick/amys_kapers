@@ -1,5 +1,4 @@
 ---
-tags: talks
 title: The Art of Failure
 ---
 Failure has a lot of negative connotations and is something we actively try to avoid. But failure is an important part of life, we need to change our relationship with failure and embrace it, rather than avoid it.

@@ -1,7 +1,6 @@
 ---
 title: Front End Web Fundamentals
 length: 2 days
-tags: workshops
 ---
 
 Where is the border between frontend and backend web development? Yeah, exactly. It is becoming increasingly common for developers to work in both areas, yet only have the skillset for one. This often results in relying on third party frameworks or components like Bootstrap to pull a layout together, further weighing down the application with unnecessary code libraries and resulting technical debt.
