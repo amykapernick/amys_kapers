@@ -24,7 +24,7 @@ module.exports = async function (context, req) {
 
         const tripData = currentTrips.map((trip) => ({
             ...trip,
-            classes: slugify(trip.country || 'Australia'),
+            classes: slugify(trip.country || 'australia'),
             city: trip.city || 'Perth',
             country: trip.country || 'Australia'
         }))
