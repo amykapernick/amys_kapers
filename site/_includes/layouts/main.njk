@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="shortcut icon" href="/img/amy_small.png" />
+
+	{% if env.env == "dev" %}
+	{% include 'partials/dev_styles.html' %}
+	{% endif %}
+
+	{# Meta Info #}
+	<title>{{pagetitle}}</title>
+	<meta name="description" content="{{description}}" />
+
+	{# OG Social #}
+	<meta property="og:title" content="{{pagetitle}}" />
+	<meta property="og:description" content="{{description}}">
+	<meta property="og:image" content="/img/socials/linkedin_wide.png" />
+	<meta name="author" content="Amy Kapernick" />
+	<meta property="og:url" content="https://amyskapers.dev" />
+
+	{# Twitter #}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@amys_kapers" />
+	<meta property="twitter:image" content="/img/socials/twitter_wide.png" />
+	<meta name="twitter:creator" content="@amys_kapers" />
+</head>
+
+<body>
+	{% include 'partials/header.html' %}
+
+	<main id="main">
+		{% block content %}{% endblock %}
+	</main>
+
+	{% include 'partials/footer.html' %}
+
+	<script src="/js/main.js"></script>
+</body>
+
+</html>

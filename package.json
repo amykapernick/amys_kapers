@@ -1,38 +1,33 @@
 {
   "name": "amys_kapers",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
   "main": "index.njk",
   "scripts": {
-    "start": "eleventy --serve --port=$PORT",
-    "gulp": " gulp css && gulp watch",
-    "build": "gulp css && eleventy"
+    "start": "ELEVENTY_ENV=dev eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amykapernick/amys_kapers.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/amykapernick/amys_kapers/issues"
-  },
-  "homepage": "https://github.com/amykapernick/amys_kapers#readme",
+  "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev)",
+  "license": "MIT",
+  "homepage": "https://amyskapers.dev",
   "dependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
-    "axios": "^0.19.2",
-    "clean-css": "^4.2.3",
-    "date-fns": "^2.12.0",
+    "@11ty/eleventy": "^0.11.1",
+    "@jamshop/eleventy-plugin-svg": "^2.0.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
-    "eleventy-plugin-respimg": "^0.1.2",
-    "eleventy-plugin-svg-contents": "^0.5.1",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.1.0",
-    "markdown-it": "^10.0.0",
-    "node-fetch": "^2.6.0",
-    "node-sass": "^4.14.1",
-    "path": "^0.12.7"
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-loader": "^4.0.2",
+    "markdown-it": "^12.0.4",
+    "path": "^0.12.7",
+    "sass": "^1.32.8",
+    "stylelint": "^13.12.0",
+    "stylelint-config-property-sort-order-smacss": "^7.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0"
   }
 }

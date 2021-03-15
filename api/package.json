@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start --cors *",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "date-fns": "^2.16.1"
+  },
+  "devDependencies": {}
+}

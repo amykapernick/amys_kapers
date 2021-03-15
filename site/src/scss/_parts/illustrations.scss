@@ -1,0 +1,147 @@
+@use '../variables.scss' as var;
+
+.section {
+	.heart {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 100px;
+		color: var.$orange;
+		mix-blend-mode: multiply;
+	}
+
+	.image {
+		position: relative;
+		padding: 0 0 10%;
+
+		.blob, .paw {
+			position: absolute;
+		}
+
+		.blob {
+			z-index: -1;
+			bottom: -15%;
+			left: 15%;
+			width: 90%;
+			transform: rotate(90deg) scaleX(-1);
+			color: var.$pink;
+		}
+
+		.paw {
+			top: 0;
+			right: 0;
+			width: 100px;
+			color: var.$yellow;
+		}
+	}
+}
+
+.image_blob {
+	image {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.flower {
+	position: absolute;
+	left: -170px;
+	width: 200px;
+	margin-top: -200px;
+	color: var.$purple;
+}
+
+@media(min-width: 40em) {
+	.section {
+		.heart {
+			top: auto;
+			bottom: 0;
+			left: -20px;
+		}
+
+		.image {
+			padding: 0 0 10%;
+
+			.blob {
+				bottom: -10%;
+				left: 20%;
+				width: 90%;
+			}
+		}
+	}
+
+	.flower {
+		left: -100px;
+		margin-top: -100px;
+	}
+}
+
+@media(min-width: 50em) {
+	.section {
+		.heart {
+			left: 0;
+		}
+
+		.image {
+			.blob {
+				bottom: -20px;
+				left: 50px;
+			}
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	.section {
+		.heart {
+			left: calc(5vw + 50px);
+		}
+
+		.image {
+			.paw {
+				top: 50px;
+			}
+		}
+	}
+
+	.flower {
+		left: -350px;
+		width: 500px;
+		margin-top: -300px;
+	}
+}
+
+@media(min-width: 70em) {
+	.section {
+		.image {
+			padding-bottom: 0;
+
+			.paw {
+				top: 50px;
+			}
+
+			.blob {
+				bottom: -130px;
+			}
+		}
+	}
+
+	.flower {
+		left: -300px;
+		margin-top: -350px;
+	}
+}
+
+@media(min-width: 80em) {
+	.section {
+		.heart {
+			left: -20px;
+		}
+	}
+
+	.flower {
+		left: calc(50vw - 600px - 500px);
+		width: 640px;
+		margin-top: -450px;
+	}
+}

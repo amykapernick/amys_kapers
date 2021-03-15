@@ -1,0 +1,45 @@
+{% set pagetitle = "Workshops | Amy Kapernick" %}
+{% set description = "I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more indepth focus on front end tech, both internally and alongside other events." %}
+{% extends 'layouts/main.njk' %}
+
+{% block content %}
+
+<h1 class="sr-only">Talks</h1>
+
+<section class="intro_section">
+	<blockquote>
+		<p>Hi, I'm Amy</p>
+
+		<div class="rotate">
+			<p>I'm a <mark>Speaker</mark></p>
+		</div>
+	</blockquote>
+	<div class="image">
+		{% svg 'graphics/image_blob_2' %}
+		{% svg 'graphics/blob_2' %}
+	</div>
+	{% svg 'graphics/blob_small' %}
+</section>
+
+<section>
+	<p>I am currently running a variety of workshops on front end tech, both in-person and online.</p>
+	<p>Want me to run a workshop at your company or event? The workshops I'm running are below, and you can contact me on <a href="https://twitter.com/amys_kapers" target="_blank">Twitter</a> or <a href="https://www.linkedin.com/in/amykapernick" target="_blank">LinkedIn</a>
+	</p>
+</section>
+
+
+
+{% for workshop in collections.workshops %}
+
+<article>
+	<h2>
+		<a href="{{ workshop.url }}">{{workshop.data.title}}</a>
+	</h2>
+
+	{{workshop.data.page.excerpt | renderHtml | safe}}
+
+</article>
+
+{% endfor %}
+
+{% endblock %}

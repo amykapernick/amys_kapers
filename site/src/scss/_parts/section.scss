@@ -1,0 +1,150 @@
+@use '../variables.scss' as var;
+
+section, article {
+	z-index: 1;
+	margin: 40px auto;
+	padding: 0 20px;
+	font-weight: 500;
+}
+
+.section {
+	display: flex;
+	position: relative;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-weight: 500;
+	text-align: center;
+
+	.graphic {
+		order: -2;
+		width: 90%;
+		max-width: 400px;
+	}
+}
+
+@media(min-width: 40em) {
+	section, article  {
+		margin-bottom: 50px;
+	}
+
+	.section {
+		flex-wrap: nowrap;
+		align-content: center;
+		align-items: center;
+		text-align: left;
+
+		.graphic {
+			flex: 1 0 50%;
+			max-width: 300px;
+			margin: 0 20px 0 0;
+		}
+
+		&:nth-child(2n - 1), &.special {
+			text-align: right;
+
+			.graphic {
+				order: 2;
+				margin-right: 0;
+				margin-left: 20px;
+			}
+		}
+	}
+}
+
+@media(min-width: 50em) {
+	section, article  {
+		padding: 0 50px;
+	}
+
+	.section {
+		justify-content: center;
+
+		&:before {
+			content: '';
+			flex: 1 0 auto;
+			order: 1;
+			width: 20px;
+			max-width: 180px;
+			margin: 0 30px;
+			border-bottom: 2px dotted var.$purple;
+		}
+
+		> * {
+			flex-basis: 40%;
+			order: 1;
+			max-width: 300px;
+		}
+
+		.graphic {
+			margin: 0;
+		}
+
+		&:nth-child(2n - 1), &.special {
+			> * {
+				order: 0;
+			}
+
+			.graphic {
+				margin: 0;
+			}
+		}
+
+		&.special {
+			&:before {
+				content: normal;
+			}
+
+			.graphic {
+				margin-left: 50px;
+			}
+		}
+	}
+}
+
+@media(min-width: 60em) {
+	section, article  {
+		margin: 0;
+		padding: 20px 5vw;
+	}
+
+	.section {
+		&:before {
+			margin: 0 50px;
+		}
+
+		.graphic {
+			max-width: 400px;
+		}
+
+		&.special {
+			.graphic {
+				margin-left: 90px;
+			}
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	section, article  {
+		padding: 20px 10vw;
+	}
+}
+
+@media(min-width: 80em) {
+	section, article  {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto 50px;
+		padding: 0;
+	}
+
+	.section {
+		&:before {
+			margin: 0 90px;
+		}
+
+		.graphic {
+			max-width: 450px;
+		}
+	}
+}

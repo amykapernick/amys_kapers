@@ -1,0 +1,64 @@
+@use '../variables.scss' as var;
+
+@import '../_parts/section.scss';
+@import '../_parts/illustrations.scss';
+@import '../_parts/background.scss';
+
+.icons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: -10px;
+	padding: 0;
+	list-style: none;
+
+	li {
+		margin: 10px;
+		padding: 0;
+	}
+
+	svg, img {
+		width: auto;
+		height: 50px;
+	}
+
+	a {
+		display: block;
+		color: var.$purple;
+
+		svg, img {
+			& + span {
+				position: absolute;
+				right: -200vw;
+			}
+		}
+
+		&:hover {
+			svg, img {
+				outline: 4px solid var.$pink;
+			}
+		}
+	}
+}
+
+@media(min-width: 40em) {
+	.icons {
+		justify-content: flex-start;
+	}
+
+	.section {
+		&:nth-child(2n - 1), &.special {
+			.icons {
+				justify-content: flex-end;
+			}
+		}
+	}
+}
+
+@media(min-width: 70em) {
+	.section {
+		.icons {
+			flex-wrap: nowrap;
+		}
+	}
+}

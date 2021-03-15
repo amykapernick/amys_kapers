@@ -1,0 +1,50 @@
+[
+	{
+		"start": "2020-04-20",
+		"end": "2020-04-28",
+		"city": "Porto",
+		"country": "Portugal"
+	},
+	{
+		"start": "2020-03-14",
+		"end": "2020-03-21",
+		"city": "Seattle",
+		"country": "United States"
+	},
+	{
+		"start": "2020-01-27",
+		"end": "2020-02-03",
+		"city": "London",
+		"country": "United Kingdom"
+	},
+	{
+		"start": "2020-02-12",
+		"end": "2020-02-15",
+		"city": "Sydney"
+	},
+	{
+		"start": "2019-11-29",
+		"end": "2019-12-14",
+		"city": "Brisbane"
+	},
+	{
+		"start": "2019-12-14",
+		"end": "2019-12-28",
+		"city": "Queensland"
+	},
+	{
+		"start": "2019-11-02",
+		"end": "2019-11-09",
+		"city": "Orlando",
+		"country": "United States"
+	},
+	{
+		"start": "2019-11-22",
+		"end": "2019-11-24",
+		"city": "Adelaide"
+	},
+	{
+		"start": "2021-01-18",
+		"city": "Perth"
+	}
+]
