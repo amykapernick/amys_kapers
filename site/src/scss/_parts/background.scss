@@ -73,27 +73,29 @@
 		}
 
 		.section {
-			text-align: left;
+			&:nth-child(2n - 1) {
+				text-align: left;
 
-			> * {
-				order: 0;
-			}
+				> * {
+					order: 1;
+				}
 
-			.graphic {
-				order: -2;
-				margin-right: 20px;
-				margin-left: 0;
-			}
+				.graphic {
+					order: -2;
+					margin-right: 20px;
+					margin-left: 0;
+				}
 
-			.icons {
-				justify-content: flex-start;
+				.icons {
+					justify-content: flex-start;
+				}
 			}
 
 			&:nth-child(2n), &.special {
 				text-align: right;
 
 				> * {
-					order: 1;
+					// order: 1;
 				}
 
 				.graphic {
