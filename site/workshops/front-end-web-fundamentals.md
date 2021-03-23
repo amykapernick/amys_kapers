@@ -11,13 +11,12 @@ This hands-on workshop covers modern front end fundamentals, enabling you to cre
 
 ## Topics
 
-- Building Layouts
+- CSS Layouts
 - Semantic HTML
 - Modern CSS
 - Accessibility Testing
 - Visual Regression Testing
-- End to End Testing
-- Performance Testing
+- UI Testing
 
 ## Who Should Attend
 
