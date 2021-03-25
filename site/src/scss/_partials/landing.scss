@@ -1,0 +1,38 @@
+.landing {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 900px;
+	min-height: 400px;
+	margin: 40px auto;
+	font-size: 1.2em;
+	text-align: center;
+
+	h1 {
+		margin: 0;
+		font-size: 2.2em;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+}
+
+@media(min-width: 50em) {
+	.landing {
+		margin-bottom: 50px;
+	}
+}
+
+@media(min-width: 60em) {
+	.landing {
+		min-height: 500px;
+		margin: 0 auto;
+		padding: 20px 50px;
+		font-size: 1.5em;
+
+		h1 {
+			font-size: 3em;
+		}
+	}
+}

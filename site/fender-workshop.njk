@@ -1,0 +1,109 @@
+---
+permalink: /front-end-fundamentals-workshop/index.html
+---
+{% set class = "header-reduced" %}
+{% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
+{% set description = "This hands-on workshop covers modern front end fundamentals, enabling you to create a layout and components without the need for any third party code." %}
+{% extends 'layouts/main.njk' %}
+
+{% block content %}
+
+<article class="content">
+	<h1>Front End Web Fundamentals</h1>
+	<p>Where is the border between frontend and backend web development? Yeah, exactly. It is becoming increasingly common for developers to work in both areas, yet only have the skillset for one. This often results in relying on third party frameworks or components like Bootstrap to pull a layout together, further weighing down the application with unnecessary code libraries and resulting technical debt.</p>
+	<p>This hands-on workshop covers modern front end fundamentals, enabling you to create a layout and components without the need for any third party code. You learn core accessibility concepts to make your project more accessible without having to write complex code, take shortcuts or deal with browser specific implementations.</p>
+	<h2>Topics</h2>
+	<ul>
+		<li>CSS Layouts</li>
+		<li>Semantic HTML</li>
+		<li>Modern CSS</li>
+		<li>Accessibility Testing</li>
+		<li>Visual Regression Testing</li>
+		<li>UI Testing</li>
+	</ul>
+	<h2>Who Should Attend</h2>
+	<p>This workshop is aimed at anyone who works with front end code on a semi-regular basis and would like to brush up on the fundamental concepts.</p>
+	<h2>Pre-requisites</h2>
+	<p>Some experience with front end code desirable, a basic understanding of HTML and CSS. Some experience with JavaScript is also useful, but not essential.</p>
+	<h2>Computer Setup</h2>
+	<ul>
+		<li>Code editor</li>
+		<li>Node (at least v12)</li>
+		<li>Git</li>
+	</ul>
+
+	<h2>Workshop Details</h2>
+	<p>The next workshop will be run on the 29th and 30th April, 2020, in the Perth CBD. Each day will run from 9am, to ~5pm, with a 45min lunch break (as well as a morning and afternoon tea break).</p>
+	<p>Lunch will not be provided, but kitchen facilities are available if you'd like to bring your own (otherwise take the chance to stretch your legs and grab some food somewhere in the city. There will be tea and coffee making facilities available, and some snacks will be provided (but feel free to bring your own as well).</p>
+
+	<h3>Pricing</h3>
+	<p>There are one or two day tickets available. There are also discounts available for multiple ticket purchases.</p>
+	<ul>
+		<li>2 days - $1500</li>
+		<li>1 day - $800</li>
+		<li>2+ tickets - 10% discount</li>
+		<li>3+ tickets - 20% discount</li>
+	</ul>
+	<p>If purchasing more than 5 tickets, let us know and we can discuss a bulk purchase, or running a separate workshop for you.</p>
+
+	<h2>Secure your spot</h2>
+	<p>Don't want to miss out on all the front end fun(damentals)? Fill in the form below to secure your place.</p>
+	<p>If you can't make these dates, fill out the form and select the relevant option. We'll let you know when we book in another workshop and give you first dibs at the tickets.</p>
+	<form id="book" action="{{env.formWorkshopBooking}}" method="POST">
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" />
+		<label for="email">Email Address</label>
+		<input type="text" name="email" id="email" />
+		<label for="company">Company</label>
+		<input type="text" name="company" id="company" />
+		<label for="tickets">Number of Tickets</label>
+		<select name="tickets" id="tickets">
+			<option value="1" default>1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6+">6+</option>
+		</select>
+		<fieldset>
+			<div>
+				<legend>Ticket Type</legend>
+				<input type="radio" name="type" id="type_days_2" value="days_2" />
+				<label for="type_days_2">29 and 30 April - Full Workshop</label>
+				<input type="radio" name="type" id="type_days_1_html_css" value="days_1_html_css" />
+				<label for="type_days_1_html_css">29 April - Semantic HTML and CSS Layouts</label>
+				<input type="radio" name="type" id="type_days_1_testing" value="days_1_testing" />
+				<label for="type_days_1_testing">30 April - Front End Testing</label>
+				<input type="radio" name="type" id="type_other" value="other" />
+				<label for="type_other">I can't make this workshop, but want to know when the next one is</label>
+			</div>
+		</fieldset>
+		<fieldset>
+			<div>
+				<legend>Do you agree to the <a href="#terms">booking terms</a> below?</legend>
+				<input type="radio" name="agree" id="agree_yes" value="yes" />
+				<label for="agree_yes">Yes</label>
+				<input type="radio" name="agree" id="agree_no" value="no" checked />
+				<label for="agree_no">No</label>
+			</div>
+		</fieldset>
+
+		<button type="submit">Submit</button>
+	</form>
+
+	<h2 id="terms">Booking Terms</h2>
+	<p>Payment is required to secure your spot, with preference offered on a first-come first-served basis.</p>
+	<p>If cancelling more than 30 days before the event, 100% of the ticket price (less any payment fees) will be refunded. If cancelling more than 14 days before the event, 75% of the ticket price will be refunded. If cancelling more than 7 days before the event, 50% of the ticket price will be refunded. Any cancellations 7 days or less before the event will not receive a refund.</p>
+	<p>If at any time before the event you are unable to attend, your ticket can be transferred to another person, at no charge.</p>
+	<p>By attending this event, you are agreeing to the COVID restrictions, and will inform us if you:</p>
+	<ul>
+		<li>Have travelled out of WA within the last 14 days</li>
+		<li>Have come into contact with anyone who has travelled outside of WA within the last 14 days</li>
+		<li>Have experienced any cold/flu like symptoms in the last 14 days or are feeling unwell</li>
+		<li>Have been tested for COVID in the last 14 days</li>
+		<li>Have come into contact with anyone who has been tested for COVID within the last 14 days</li>
+	</ul>
+
+</article>
+
+{% endblock %}

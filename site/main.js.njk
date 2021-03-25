@@ -4,55 +4,61 @@ permalink: /js/main.js
 const slugify = (string) => string.toLowerCase().replace(' ', '-')
 
 if (typeof document !== 'undefined') {
-document.addEventListener('DOMContentLoaded', () => {
-const section = document.querySelector('#where'),
-location = section.querySelector('.location'),
-conference = section.querySelector('.conference'),
-trips = section.querySelector('.trips'),
-conferences = section.querySelector('.conferences')
+	document.addEventListener('DOMContentLoaded', () => {
+		const section = document.querySelector('#where')
 
-fetch('{{env.api}}/events')
-.then(res => res.json())
-.then(res => {
-if(res.length) {
-conferences.innerHTML = '<ul></ul>'
+		if(!section) {
+			return
+		}
 
-const conferenceList = conferences.querySelector('ul'),
-eventItems = res.map(({classes, name, start, end}) => (
-`<li>${name}: ${start}${end}</li>`
-))
+		const location = section.querySelector('.location')
+		const conference = section.querySelector('.conference')
+		const trips = section.querySelector('.trips')
+		const conferences = section.querySelector('.conferences')
 
-conferenceList.innerHTML = eventItems.join('')
+		fetch('{{env.api}}/events')
+			.then(res => res.json())
+			.then(res => {
+				if(res.length) {
+					conferences.innerHTML = '<ul></ul>'
+
+					const conferenceList = conferences.querySelector('ul')
+					const eventItems = res.map(({classes, name, start, end}) => (
+						`<li>${name}: ${start}${end}</li>`
+					))
+
+					conferenceList.innerHTML = eventItems.join('')
+				}
+				else {
+					conferences.innerHTML = `<p>Be right back, taking a much needed break</p>`
+				}
+			})
+
+		fetch('{{env.api}}/travel')
+			.then(res => res.json())
+			.then(res => {
+				if(res.length) {
+					trips.innerHTML = '<ul></ul>'
+
+					const tripsList = trips.querySelector('ul'),
+					tripItems = res.map(({classes, country, city, start, end}) => (
+					`<li><img alt="" src="/img/countries/${classes}.svg" />${city}, ${country}: ${start}${end}</li>`
+					))
+
+					tripsList.innerHTML = tripItems.join('')
+				}
+				else {
+					trips.innerHTML = '<p>🤣, not any time soon</p>'
+				}
+			})
+
+		fetch('{{env.api}}/current')
+			.then(res => res.json())
+			.then(res => {
+				location.innerHTML = `<img alt="" src="/img/countries/${slugify(res.country)}.svg" /> ${res.city}, ${res.country}`
+				conference.innerHTML = res.conference
+				conference.classList.add(res.confClasses)
+			})
+	})
 }
-else {
-conferences.innerHTML = `<p>Be right back, taking a much needed break</p>`
-}
-})
 
-fetch('{{env.api}}/travel')
-.then(res => res.json())
-.then(res => {
-if(res.length) {
-trips.innerHTML = '<ul></ul>'
-
-const tripsList = trips.querySelector('ul'),
-tripItems = res.map(({classes, country, city, start, end}) => (
-`<li><img alt="" src="/img/countries/${classes}.svg" />${city}, ${country}: ${start}${end}</li>`
-))
-
-tripsList.innerHTML = tripItems.join('')
-}
-else {
-trips.innerHTML = '<p>🤣, not any time soon</p>'
-}
-})
-
-fetch('{{env.api}}/current')
-.then(res => res.json())
-.then(res => {
-location.innerHTML = `<img alt="" src="/img/countries/${slugify(res.country)}.svg" /> ${res.city}, ${res.country}`
-conference.innerHTML = res.conference
-conference.classList.add(res.confClasses)
-})
-})
-}

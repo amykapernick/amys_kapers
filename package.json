@@ -5,7 +5,8 @@
   "scripts": {
     "start": "ELEVENTY_ENV=dev eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "api": "cd api && fnm use 12 && npm start"
   },
   "repository": {
     "type": "git",

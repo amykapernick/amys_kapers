@@ -122,6 +122,16 @@ header {
 	}
 }
 
+body {
+	&.header-reduced {
+		header {
+			.logo {
+				max-width: 450px;
+			}
+		}
+	}
+}
+
 @media(min-width: 40em) {
 	.intro_section {
 		display: flex;
@@ -240,11 +250,35 @@ header {
 			right: -25px;
 		}
 	}
+
+	body {
+		&.header-reduced {
+			header {
+				padding: 100px 50px;
+
+				.logo {
+					max-width: 500px;
+				}
+
+				.blob_2, .squiggle, .paw {
+					display: none;
+				}
+			}
+		}
+	}
 }
 
 @media(min-width: 70em) {
 	.intro_section {
 		padding: 50px 10vw 0;
+	}
+
+	body {
+		&.header-reduced {
+			header {
+				margin-bottom: 50px;
+			}
+		}
 	}
 }
 
@@ -299,6 +333,19 @@ header {
 
 		.blob_small {
 			right: calc(-5vw - 10px);
+		}
+	}
+
+	body {
+		&.header-reduced {
+			header {
+				margin-bottom: 100px;
+				padding: 100px 50px 150px;
+
+				.logo {
+					max-width: 600px;
+				}
+			}
 		}
 	}
 }

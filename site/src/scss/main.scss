@@ -1,6 +1,7 @@
 @import './global.scss';
 @import './typography.scss';
 @import './animations.scss';
+@import './_parts/forms.scss';
 
 @import './_partials/header.scss';
 @import './_partials/footer.scss';
@@ -8,6 +9,8 @@
 @import './_partials/home.scss';
 @import './_partials/where.scss';
 @import './_partials/talks.scss';
+@import './_partials/landing.scss';
+@import './_partials/content.scss';
 
 @font-face {
 	font-family: Montserrat;
