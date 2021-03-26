@@ -20,7 +20,7 @@ module.exports = async function (context, req) {
     decodeURIComponent(req.body).split(`&`).forEach((i) => {
         const values = i.split(`=`);
 
-        params[values[0].replace('+', ' ')] = values[1].replace('+', ' ');
+        params[values[0].replace(/+/g, ' ')] = values[1].replace(/+/g, ' ');
     });
 
     const html = `
@@ -31,7 +31,7 @@ module.exports = async function (context, req) {
         <li>Company: ${params.company}</li>
         <li>Tickets: ${params.tickets}</li>
         <li>Ticket Type: ${types[params.type]}</li>
-        <li>Notes: <p>${params.notes.replace('+', ' ')}</p></li>
+        <li>Notes: <p>${params.notes.replace(/+/g, ' ')}</p></li>
     </ul>
 `
 
