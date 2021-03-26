@@ -13,8 +13,6 @@ module.exports = async function (context, req) {
         other: `I can't make this workshop, but want to know when the next one is`
     }
 
-    context.log(process.env.SENDGRID_API_KEY)
-
     let params = {} 
     
     decodeURIComponent(req.body).split(`&`).forEach((i) => {
@@ -44,8 +42,6 @@ module.exports = async function (context, req) {
         subject: `New Workshop Booking: ${params.name}`,
         html
     }
-
-    context.log(msg)
 
     await sgMail
         .send(msg)
