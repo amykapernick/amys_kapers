@@ -16,7 +16,7 @@
   "license": "MIT",
   "homepage": "https://amyskapers.dev",
   "dependencies": {
-    "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy": "^0.12.1",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
