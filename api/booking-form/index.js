@@ -14,6 +14,8 @@ module.exports = async function (context, req) {
         other: `I can't make this workshop, but want to know when the next one is`
     }
 
+    context.log(process.env.SENDGRID_API_KEY)
+
     let params = {} 
     
     decodeURIComponent(req.body).split(`&`).forEach((i) => {
@@ -46,7 +48,18 @@ module.exports = async function (context, req) {
 
     context.log(msg)
 
-    await sgMail.send(msg)
+    await sgMail
+        .send(msg)
+        .then((res) => {
+            context.log(res)
+        },
+        (err) => {
+            context.log(err)
+        })
+        .catch((err) => {
+            context.log('Error!')
+            context.log(err)
+        })
 
     context.res = {
         // status: 200, /* Defaults to 200 */
