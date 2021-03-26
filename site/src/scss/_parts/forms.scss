@@ -5,7 +5,7 @@ form {
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 20px;
-	background: #f5f5f5;
+	background: var.$background;
 	text-align: left;
 
 	@media(min-width: 40em) {
@@ -15,11 +15,6 @@ form {
 
 	@media(min-width: 60em) {
 		padding: 100px;
-		border-width: 10px;
-	}
-
-	@media(min-width: 80em) {
-		padding: 200px;
 		border-width: 10px;
 	}
 }
@@ -49,14 +44,14 @@ legend {
 	width: 100%;
 }
 
-input, textarea {
+input, textarea, select {
 	display: block;
 	flex: 1 1 100%;
 	margin: 0;
 	padding: 5px 25px;
-	border: 2px solid #48abdd;
-	background: #48abdd;
-	color: #0d0d0d;
+	border: 2px solid var.$darkpurple_light_50;
+	background: var.$darkpurple_light_50;
+	color: var.$neutral;
 	font-size: 1em;
 
 	&::placeholder {
@@ -89,7 +84,7 @@ input, textarea {
 		z-index: -100;
 		opacity: 0;
 
-		&[checked] {
+		&:checked {
 			+ label {
 				&:after {
 					content: '';
@@ -124,8 +119,8 @@ input, textarea {
 				width: 20px;
 				height: 20px;
 				margin-right: 1ch;
-				border: 2px solid #48abdd;
-				background: #48abdd;
+				border: 2px solid var.$darkpurple;
+				background: var.$darkpurple;
 			}
 
 			&:after {
@@ -151,7 +146,7 @@ input, textarea {
 	}
 
 	&[type='checkbox'] {
-		&[checked] {
+		&:checked {
 			+ label {
 				&:after {
 					content: '✓';
@@ -167,17 +162,17 @@ input, textarea {
 			}
 
 			&:after {
-				left: 4px;
-				width: 16px;
-				height: 16px;
+				left: 2.5px;
+				width: 14px;
+				height: 14px;
 				background: #ffffff;
 			}
 
 			@media(min-width: 60em) {
 				&:after {
 					left: 5px;
-					width: 19px;
-					height: 19px;
+					width: 16px;
+					height: 17px;
 				}
 			}
 		}
@@ -210,17 +205,36 @@ fieldset {
 	@media(min-width: 40em) {
 		> div {
 			label {
-				flex-basis: 40%;
+				flex-basis: auto;
+				flex-grow: 0;
+				width: auto;
+
+				&.long {
+					flex-basis: 100%;
+				}
+			}
+
+			input[type='radio'], input[type='checkbox'] {
+				+ label {
+					width: auto;
+				}
+			}
+
+			&.long {
+				label {
+					flex-basis: 100%;
+				}
 			}
 		}
 	}
 }
 
 button {
+	margin-top: 40px;
 	padding: 0.6em 1em 0.5em;
 	border: none;
-	border: 2px solid var.$purple;
-	background: var.$purple;
+	border: 4px solid var.$darkpurple;
+	background: var.$darkpurple;
 	color: #ffffff;
 	font-size: 1.25em;
 	font-weight: 700;
@@ -228,8 +242,12 @@ button {
 	text-transform: uppercase;
 
 	&:hover {
-		border-color: #ffffff;
+		border-color: var.$darkpurple;
 		background: #ffffff;
-		color: var.$purple;
+		color: var.$darkpurple;
+	}
+
+	@media(min-width: 60em) {
+		margin-top: 80px;
 	}
 }
