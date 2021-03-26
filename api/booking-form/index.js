@@ -50,10 +50,26 @@ module.exports = async function (context, req) {
         },
         (err) => {
             context.log(err)
+
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                status: 302,
+                headers: {
+                    location: process.env.FORM_PAGE
+                }
+            };
         })
         .catch((err) => {
             context.log('Error!')
             context.log(err)
+
+            context.res = {
+                // status: 200, /* Defaults to 200 */
+                status: 302,
+                headers: {
+                    location: process.env.FORM_PAGE
+                }
+            };
         })
 
     context.res = {
