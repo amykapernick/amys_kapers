@@ -18,18 +18,23 @@ module.exports = async function (context, req) {
     decodeURIComponent(req.body).split(`&`).forEach((i) => {
         const values = i.split(`=`);
 
-        params[values[0].replace(/\+/g, ' ')] = values[1].replace(/\+/g, ' ');
+        if(values?.[0]) {
+            params[values[0].replace(/\+/g, ' ')] = values[1].replace(/\+/g, ' ');
+        }
     });
+
+    context.log('Params:')
+    context.log(params)
 
     const html = `
     <p>New Workshop Booking:</p>
     <ul>
-        <li>Name: ${params.name}</li>
-        <li>Email: ${params.email}</li>
-        <li>Company: ${params.company}</li>
-        <li>Tickets: ${params.tickets}</li>
-        <li>Ticket Type: ${types[params.type]}</li>
-        <li>Notes: <p>${params.notes.replace(/\+/g, ' ')}</p></li>
+        <li>Name: ${params?.name}</li>
+        <li>Email: ${params?.email}</li>
+        <li>Company: ${params?.company}</li>
+        <li>Tickets: ${params?.tickets}</li>
+        <li>Ticket Type: ${types[params?.type]}</li>
+        <li>Notes: <p>${params?.notes?.replace(/\+/g, ' ')}</p></li>
     </ul>
 `
 
