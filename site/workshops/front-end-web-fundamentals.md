@@ -7,6 +7,8 @@ Where is the border between frontend and backend web development? Yeah, exactly.
 
 This hands-on workshop covers modern front end fundamentals, enabling you to create a layout and components without the need for any third party code. You learn core accessibility concepts to make your project more accessible without having to write complex code, take shortcuts or deal with browser specific implementations.
 
+Once that is done, we then move on to testing our application, making sure that our accessibility improvements are there, watching for any unintended changes and making sure that the application works as it's supposed to. Through automated tools that can be implemented as part of a deployment pipeline, to manual tools to check on the fly, there are plenty of options to ensure the front end is being tested as thoroughly as the back end.
+
 <!-- excerpt -->
 
 ## Topics
@@ -20,14 +22,8 @@ This hands-on workshop covers modern front end fundamentals, enabling you to cre
 
 ## Who Should Attend
 
-This workshop is aimed at anyone who works with front end code on a semi-regular basis and would like to brush up on the fundamental concepts.
+This workshop is aimed at anyone who works with front end code on a regular basis and needs to keep up to date with the constantly changing world of front end development. Even if you're just brushing up on your skills, this is the workshop for you.
 
 ## Pre-requisites
 
-Some experience with front end code desirable, a basic understanding of HTML and CSS.
-
-## Computer Setup
-
-- Code editor
-- Node (at least v12)
-- Git
+Some experience with front end code desirable, a basic understanding of HTML and CSS. Some experience with JavaScript is also useful, but not essential.
