@@ -27,3 +27,20 @@ This workshop is aimed at anyone who works with front end code on a regular basi
 ## Pre-requisites
 
 Some experience with front end code desirable, a basic understanding of HTML and CSS. Some experience with JavaScript is also useful, but not essential.
+
+## Length
+
+This workshop is two full days: 
+
+- Day 1: Semantic HTML and CSS Layouts
+- Day 2: Front End Testing
+
+## Interested?
+
+This workshop is run primarily as an internal workshop for companies. [Get in touch](/contact) to book in your team! If being run internally, this workshop can also be split into full day or half day segments, to work best for your team.
+
+Currently the following dates are available for anyone to attend:
+
+- [29-30 April: Perth, WA](/front-end-fundamentals-workshop)
+
+If none of these dates work for you, [get in touch](/contact) to be the first to hear of other upcoming dates.

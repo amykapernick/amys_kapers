@@ -1,15 +1,17 @@
 @use '../variables.scss' as var;
 
 .content {
-	margin-bottom: 100px;
-
 	h1 {
 		text-align: center;
 	}
 }
 
+article.content {
+	margin-bottom: 100px;
+}
+
 @media(min-width: 40em) {
-	.content {
+	article.content {
 		margin-bottom: 150px;
 	}
 }
@@ -38,5 +40,9 @@
 			font-size: 3.5em;
 			text-decoration-thickness: 8px;
 		}
+	}
+
+	article.content {
+		margin-bottom: 300px;
 	}
 }

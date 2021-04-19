@@ -6,11 +6,11 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 
 module.exports = async function (context, req) {
+    context.log(req)
     const types = {
-        days_2: '29 and 30 April - Full Workshop',
-        days_1_html_css: '29 April - Semantic HTML and CSS Layouts',
-        days_1_testing: '30 April - Front End Testing',
-        other: `I can't make this workshop, but want to know when the next one is`
+        workshop: 'Workshop',
+        talk: 'Talk',
+        other: `Something Else`
     }
 
     let params = {} 
@@ -27,14 +27,13 @@ module.exports = async function (context, req) {
     context.log(params)
 
     const html = `
-    <p>New Workshop Booking:</p>
+    <p>New Enquiry:</p>
     <ul>
-        <li>Name: ${params && params.name}</li>
-        <li>Email: ${params && params.email}</li>
-        <li>Company: ${params && params.company}</li>
-        <li>Tickets: ${params && params.tickets}</li>
-        <li>Ticket Type: ${types[params && params.type]}</li>
-        <li>Notes: <p>${(params && params.notes) && params.notes.replace(/\+/g, ' ')}</p></li>
+    <li>Name: ${params && params.name}</li>
+    <li>Email: ${params && params.email}</li>
+    <li>Company: ${params && params.company}</li>
+        <li>Type: ${types[params && params.type]}</li>
+        <li>Message: <p>${(params && params.message) && params.message.replace(/\+/g, ' ')}</p></li>
     </ul>
 `
 
@@ -44,7 +43,7 @@ module.exports = async function (context, req) {
             name: params.name,
             email: params.email
         },
-        subject: `New Workshop Booking: ${params.name}`,
+        subject: `New Enquiry: ${params.name}`,
         html
     }
 
@@ -81,7 +80,7 @@ module.exports = async function (context, req) {
         // status: 200, /* Defaults to 200 */
         status: 302,
         headers: {
-            location: process.env.BOOKING_REDIRECT
+            location: process.env.CONTACT_REDIRECT
         }
     };
 }
