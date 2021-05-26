@@ -15,7 +15,7 @@ Once that is done, we then move on to testing our application, making sure that 
 
 - CSS Layouts
 - Semantic HTML
-- Modern CSS
+- Modern CSS Layouts
 - Accessibility Testing
 - Visual Regression Testing
 - UI Testing
@@ -39,8 +39,4 @@ This workshop is two full days:
 
 This workshop is run primarily as an internal workshop for companies. [Get in touch](/contact) to book in your team! If being run internally, this workshop can also be split into full day or half day segments, to work best for your team.
 
-Currently the following dates are available for anyone to attend:
-
-- [29-30 April: Perth, WA](/front-end-fundamentals-workshop)
-
-If none of these dates work for you, [get in touch](/contact) to be the first to hear of other upcoming dates.
+Don't want to miss out on all the front end fun(damentals)? [Get in touch](/contact) to find out when the next public workshop is being held.
