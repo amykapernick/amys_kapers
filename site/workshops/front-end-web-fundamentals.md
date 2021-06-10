@@ -41,6 +41,6 @@ This workshop is run primarily as an internal workshop for companies. [Get in to
 
 Currently the following dates are available for anyone to attend:
 
-- [27-28 July: Brisbane, QLD](/front-end-fundamentals-workshop)
+- [26-27 July: Brisbane, QLD](/front-end-fundamentals-workshop)
 
 Don't want to miss out on all the front end fun(damentals)? [Get in touch](/contact) to find out when the next public workshop is being held.
