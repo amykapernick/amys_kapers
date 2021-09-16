@@ -18,7 +18,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
