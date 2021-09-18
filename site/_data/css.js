@@ -3,7 +3,8 @@ const sass = require("sass"),
 
 const compileScss = () => {
   const result = sass.renderSync({
-    file: path.join(__dirname, "../src/scss/main.scss")
+    file: path.join(__dirname, "../src/scss/main.scss"),
+    outputStyle: 'compressed'
   });
 
   if (!result.css) {

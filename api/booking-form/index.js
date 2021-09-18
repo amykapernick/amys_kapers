@@ -57,7 +57,6 @@ module.exports = async function (context, req) {
             context.log(err)
 
             context.res = {
-                // status: 200, /* Defaults to 200 */
                 status: 302,
                 headers: {
                     location: process.env.FORM_PAGE
@@ -69,7 +68,6 @@ module.exports = async function (context, req) {
             context.log(err)
 
             context.res = {
-                // status: 200, /* Defaults to 200 */
                 status: 302,
                 headers: {
                     location: process.env.FORM_PAGE
@@ -78,7 +76,6 @@ module.exports = async function (context, req) {
         })
 
     context.res = {
-        // status: 200, /* Defaults to 200 */
         status: 302,
         headers: {
             location: process.env.BOOKING_REDIRECT

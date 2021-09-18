@@ -94,10 +94,6 @@
 			&:nth-child(2n), &.special {
 				text-align: right;
 
-				> * {
-					// order: 1;
-				}
-
 				.graphic {
 					order: 2;
 					margin-right: 0;

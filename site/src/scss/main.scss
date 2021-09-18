@@ -16,6 +16,7 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
+	font-display: block;
 	src: url('../fonts/Montserrat-SemiBold.ttf') format('truetype');
 }
 
@@ -23,6 +24,7 @@
 	font-family: Montserrat;
 	font-style: italic;
 	font-weight: 500;
+	font-display: block;
 	src: url('../fonts/Montserrat-MediumItalic.ttf') format('truetype');
 }
 
@@ -30,6 +32,7 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 500;
+	font-display: block;
 	src: url('../fonts/Montserrat-Medium.ttf') format('truetype');
 }
 
@@ -37,6 +40,7 @@
 	font-family: Montserrat;
 	font-style: italic;
 	font-weight: 600;
+	font-display: block;
 	src: url('../fonts/Montserrat-SemiBoldItalic.ttf') format('truetype');
 }
 
@@ -44,6 +48,7 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 400;
+	font-display: block;
 	src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
@@ -51,6 +56,7 @@
 	font-family: Montserrat;
 	font-style: italic;
 	font-weight: 400;
+	font-display: block;
 	src: url('../fonts/Montserrat-Italic.ttf') format('truetype');
 }
 
@@ -58,6 +64,7 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 700;
+	font-display: block;
 	src: url('../fonts/Montserrat-Bold.ttf') format('truetype');
 }
 
@@ -65,6 +72,7 @@
 	font-family: Montserrat;
 	font-style: italic;
 	font-weight: 700;
+	font-display: block;
 	src: url('../fonts/Montserrat-BoldItalic.ttf') format('truetype');
 }
 
@@ -72,32 +80,6 @@
 	font-family: 'Source Code Pro';
 	font-style: normal;
 	font-weight: 400;
+	font-display: block;
 	src: url('../fonts/SourceCodePro-Regular.ttf') format('truetype');
-}
-
-// TODO: Remove later
-
-.logo {
-	.cls-1{
-		isolation:isolate;
-	}
-
-	.cls-10,.cls-2,.cls-5,.cls-6,.cls-7,.cls-8{
-		mix-blend-mode:multiply;
-	}
-
-	.cls-11,.cls-12{
-		fill:#414042;
-		font-size:11px;
-	}
-
-	.cls-11{
-		font-family:Quicksand-Medium, Quicksand;
-		font-weight:500;
-	}
-
-	.cls-12{
-		font-family:Lato-Hairline, Lato;
-		font-weight:100;
-	}
 }

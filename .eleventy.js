@@ -46,7 +46,7 @@ module.exports = function(eleventyConfig) {
 		const talksList = talks.map(talk => (
 			`<li>
 				<h3>
-					<a href="${talk.link}" target="_blank">
+					<a href="${talk.link}" target="_blank" rel="nofollow">
 						${talk.event.title}
 					</a>
 				</h3> 

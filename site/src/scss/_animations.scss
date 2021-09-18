@@ -139,8 +139,6 @@ $duration: $num * $int;
 			opacity: 0;
 			white-space: break-spaces;
 
-
-
 			&.an {
 				&:before {
 					content: 'n';
@@ -157,7 +155,6 @@ $duration: $num * $int;
 
 		.options {
 			display: grid;
-			// max-width: 12ch;
 			min-height: unset;
 
 			li {
