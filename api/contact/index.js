@@ -12,6 +12,7 @@ module.exports = async function (context, req) {
         talk: 'Talk',
         other: `Something Else`
     }
+    const spam = ['eric.jones.z.mail@gmail.com']
 
     let params = {} 
     
@@ -25,6 +26,15 @@ module.exports = async function (context, req) {
 
     context.log('Params:')
     context.log(params)
+
+    if(spam.includes(params.email)) {
+        context.res = {
+            status: 403,
+            headers: {
+                location: process.env.FORM_PAGE
+            }
+        };
+    }
 
     const html = `
     <p>New Enquiry:</p>
