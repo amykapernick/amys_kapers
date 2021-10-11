@@ -1,6 +1,6 @@
 require('dotenv').config()
 const {Client} = require('@notionhq/client')
-const options = require('../../site/_data/forms/workshopPrep')
+const options = require('../_data/forms/workshopPrep')
 
 const notion = new Client({
     auth: process.env.NOTION_API
