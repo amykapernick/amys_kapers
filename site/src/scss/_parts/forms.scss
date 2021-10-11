@@ -1,4 +1,5 @@
 @use '../variables.scss' as var;
+@use '../mixins.scss';
 
 form {
 	display: flex;
@@ -49,20 +50,14 @@ input, textarea, select {
 	flex: 1 1 100%;
 	margin: 0;
 	padding: 5px 25px;
-	border: 2px solid rgba(var.$darkpurple, 0.5);
-	background: rgba(var.$darkpurple, 0.5);
+	border: 2px solid rgba(var.$darkpurple, 0.4);
+	background: rgba(var.$darkpurple, 0.4);
 	color: var.$neutral;
 	font-size: 1em;
 
 	&::placeholder {
 		color: #0d0d0d;
 		font-style: italic;
-	}
-
-	&[type='password'] {
-		&::-ms-reveal {
-			display: none;
-		}
 	}
 
 	&:invalid {
@@ -76,105 +71,6 @@ input, textarea, select {
 	&:valid {
 		&[required] {
 			border-color: var.$green;
-		}
-	}
-
-	&[type='checkbox'], &[type='radio'] {
-		position: absolute;
-		z-index: -100;
-		opacity: 0;
-
-		&:checked {
-			+ label {
-				&:after {
-					content: '';
-				}
-			}
-		}
-
-		&:focus {
-			+ label {
-				outline: 3px solid var.$yellow;
-			}
-		}
-
-		& + label {
-			display: flex;
-			position: relative;
-			align-items: center;
-			width: 100%;
-			margin: 26px 10px;
-			font-style: italic;
-			font-weight: 400;
-			text-transform: none;
-			cursor: pointer;
-
-			&:before, &:after {
-				display: block;
-				flex: 0 0 auto;
-			}
-
-			&:before {
-				content: '';
-				width: 20px;
-				height: 20px;
-				margin-right: 1ch;
-				border: 2px solid var.$darkpurple;
-				background: var.$darkpurple;
-			}
-
-			&:after {
-				position: absolute;
-				left: 3px;
-				color: var.$neutral;
-				font-size: 1.3em;
-			}
-
-			@media(min-width: 60em) {
-				&:before {
-					width: 25px;
-					height: 25px;
-				}
-			}
-
-			@media(min-width: 90em) {
-				&:after {
-					font-size: 1.1em;
-				}
-			}
-		}
-	}
-
-	&[type='checkbox'] {
-		&:checked {
-			+ label {
-				&:after {
-					content: '✓';
-				}
-			}
-		}
-	}
-
-	&[type='radio'] {
-		& + label {
-			&:before, &:after {
-				border-radius: 50%;
-			}
-
-			&:after {
-				left: 2.5px;
-				width: 14px;
-				height: 14px;
-				background: #ffffff;
-			}
-
-			@media(min-width: 60em) {
-				&:after {
-					left: 5px;
-					width: 16px;
-					height: 17px;
-				}
-			}
 		}
 	}
 }
@@ -249,5 +145,209 @@ button {
 
 	@media(min-width: 60em) {
 		margin-top: 80px;
+	}
+}
+
+input {
+	&[type='password'] {
+		&::-ms-reveal {
+			display: none;
+		}
+	}
+
+	&[type='checkbox'], &[type='radio'] {
+		position: absolute;
+		z-index: -100;
+		opacity: 0;
+
+		& + label {
+			display: flex;
+			position: relative;
+			align-items: center;
+			width: 100%;
+			margin: 26px 10px;
+			font-style: italic;
+			font-weight: 400;
+			text-transform: none;
+			cursor: pointer;
+
+			&:before, &:after {
+				display: block;
+				flex: 0 0 auto;
+			}
+
+			&:before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				margin-right: 1ch;
+				border: 2px solid var.$darkpurple;
+				background: var.$darkpurple;
+			}
+
+			&:after {
+				position: absolute;
+				left: 3px;
+				color: var.$neutral;
+				font-size: 1.3em;
+			}
+
+			@media(min-width: 60em) {
+				&:before {
+					width: 25px;
+					height: 25px;
+				}
+			}
+
+			@media(min-width: 90em) {
+				&:after {
+					font-size: 1.1em;
+				}
+			}
+		}
+
+		&:checked {
+			+ label {
+				&:after {
+					content: '';
+				}
+			}
+		}
+
+		&:focus {
+			+ label {
+				outline: 3px solid var.$yellow;
+			}
+		}
+
+		&[value='other'] {
+			+ label {
+				+ input[type='text'] {
+					display: none;
+				}
+			}
+
+			&:checked {
+				+ label {
+					flex: 0 0 auto;
+					width: auto;
+
+					+ input[type='text'] {
+						display: block;
+						flex-basis: auto;
+						align-self: center;
+					}
+				}
+			}
+		}
+	}
+
+	&[type='checkbox'] {
+		&:checked {
+			+ label {
+				&:after {
+					content: '✓';
+				}
+			}
+		}
+	}
+
+	&[type='radio'] {
+		& + label {
+			&:before, &:after {
+				border-radius: 50%;
+			}
+
+			&:after {
+				left: 2.5px;
+				width: 14px;
+				height: 14px;
+				background: #ffffff;
+			}
+
+			@media(min-width: 60em) {
+				&:after {
+					left: 5px;
+					width: 15px;
+					height: 15px;
+				}
+			}
+		}
+	}
+
+	&[type='range'] {
+		padding: 0;
+		border: none;
+		background: none;
+		accent-color: var.$darkpurple;
+
+		&::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb {
+			width: 20px;
+			height: 20px;
+			margin: 0;
+			border: none;
+			border-radius: 50%;
+			background: var.$darkpurple;
+			color: var.$darkpurple;
+			cursor: pointer;
+			-webkit-appearance: none;
+			appearance: none;
+		}
+
+		&::-moz-range-progress, &::-ms-fill-upper, &::-ms-fill-lower {
+			width: 100%;
+			height: 10px;
+			border: none;
+			border-radius: 20px;
+			background: var.$darkpurple;
+			cursor: pointer;
+		}
+
+		&::-moz-range-track, &::-ms-track, &::-webkit-slider-runnable-track {
+			width: 100%;
+			height: 10px;
+			border: none;
+			border-radius: 20px;
+			background: var.$neutral_light_10;
+			cursor: pointer;
+		}
+	}
+}
+
+.range {
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+
+	input {
+		&[type='range'] {
+			margin: 0 calc((50% / var(--opts)));
+		}
+	}
+
+	datalist {
+		display: grid;
+		grid-template-columns: 50px repeat(calc(var(--opts)), 1fr 50px);
+		width: 100%;
+		font-size: 0.6em;
+		white-space: break-spaces;
+		overflow-wrap: break-word;
+
+		option						{
+			@include mixins.range_labels;
+
+			display: block;
+			grid-column: span 3;
+			width: 100%;
+			max-width: 100%;
+			margin: 10px 0 0;
+			padding: 0;
+			text-align: center;
+			white-space: pre-wrap;
+
+			&:nth-child(2n) {
+				order: 2;
+			}
+		}
 	}
 }

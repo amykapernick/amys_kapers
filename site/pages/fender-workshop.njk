@@ -27,10 +27,10 @@ permalink: /front-end-fundamentals-workshop/index.html
 	<p>This workshop is aimed at anyone who works with front end code on a regular basis and needs to keep up to date with the constantly changing world of front end development. Even if you're just brushing up on your skills, this is the workshop for you.</p>
 	<h2>Pre-requisites</h2>
 	<p>Some experience with front end code desirable, a basic understanding of HTML and CSS. Some experience with JavaScript is also useful, but not essential.</p>
-
+{# 
 	<h2>Workshop Details</h2>
 	<p>The workshop will be run on the 26th and 27th July, 2021, in person in the Brisbane CBD. Each day will run from 9am to ~5pm, with a 45min lunch break (as well as a morning and afternoon tea break).</p>
-	<p>Lunch will be provided, and there are tea and coffee making facilities available. Snacks will also be provided but feel free to bring your own to help your brain keep going!</p>
+	<p>Lunch will be provided, and there are tea and coffee making facilities available. Snacks will also be provided but feel free to bring your own to help your brain keep going!</p> #}
 	<h3>Pricing</h3>
 	<p>There are one or two day tickets available. There are also discounts available for multiple ticket purchases.</p>
 	<ul>
@@ -42,34 +42,6 @@ permalink: /front-end-fundamentals-workshop/index.html
 	<h2>Secure your spot</h2>
 	<p>Don't want to miss out on all the front end fun(damentals)? Fill in the form below to secure your place.</p>
 	<p>If you can't make these dates, <a href="/contact">get in touch</a> and we'll let you know when we book in another workshop and give you first dibs at the tickets.</p>
-	<iframe id="iframe-container" src="https://events.humanitix.com/front-end-fundamentals-workshop/tickets?w=true&p=%239440a0" width="100%" height="600px" frameborder="0"></iframe>
-    <script async>
-        var humanitix = {
-            findPos: function(obj) {
-                var curtop = 0;
-                if (obj.offsetParent) {
-                do {
-                    curtop += obj.offsetTop;
-                } while ((obj = obj.offsetParent));
-                return [curtop];
-                }
-            }
-        };
-        window.addEventListener('message', function (e) {
-            if (e.origin !== "https://events.humanitix.com"){
-                return;
-            }   
-            var messageData = e.data;
-            var iframeEl = document.getElementById('iframe-container');
-            if (iframeEl && messageData && !isNaN(messageData.scrollHeight)){
-                iframeEl.style.height = messageData.scrollHeight + 'px';
-            }
-            if (iframeEl && messageData && messageData.pageChange) {
-              window.scroll(0, humanitix.findPos(iframeEl));
-          }
-
-        }, false);</script>
-
 	<h2 id="terms">Booking Terms</h2>
 	<p>Payment is required to secure your spot, with preference offered on a first-come first-served basis.</p>
 	<p>If cancelling more than 30 days before the event, 100% of the ticket price (less any payment fees) will be refunded. If cancelling more than 14 days before the event, 75% of the ticket price will be refunded. If cancelling more than 7 days before the event, 50% of the ticket price will be refunded. Any cancellations 7 days or less before the event will not receive a refund.</p>
