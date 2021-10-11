@@ -7,9 +7,11 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
+    "@notionhq/client": "^0.4.2",
     "@sendgrid/mail": "^7.4.2",
     "date-fns": "^2.19.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.5"
   },
   "devDependencies": {}
 }

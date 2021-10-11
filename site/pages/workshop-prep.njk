@@ -2,7 +2,7 @@
 permalink: /workshop/index.html
 ---
 {% set class = "header-reduced" %}
-{% set pagetitle = "Workshop Prep | Amy Kapernick" %}
+{% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
 {% set description = "A few questions to prepare for your upcoming workshop" %}
 {% set permalink = "/contact" %}
 {% extends 'layouts/main.njk' %}
@@ -10,128 +10,120 @@ permalink: /workshop/index.html
 {% block content %}
 
 	<article class="workshop-prep">
-		<h1>Workshop Prep</h1>
-		<form id="workshop-prep" action="{{env.api}}{{env.formContact}}" method="post">
+		<h1>Front End Web Fundamentals Workshop</h1>
+		<form id="workshop-prep" action="{{env.api}}{{env.formWorkshopPrep}}" method="post">
 			<label for="name">Name</label>
 			<input type="text" name="name" id="name" required/>
 			<fieldset>
 				<div>
 					<legend>What operating system do you use?</legend>
-					<input type="radio" name="type" id="os_mac" value="mac"/>
-					<label for="os_mac">macOS</label>
-					<input type="radio" name="type" id="os_windows" value="windows"/>
-					<label for="os_windows">Windows</label>
-					<input type="radio" name="type" id="os_linux" value="linux"/>
-					<label for="os_linux">Linux</label>
+					{% for opt in forms.workshopPrep.os %}					
+						<input 
+							type="radio" 
+							name="os" 
+							id="os_{{opt.value}}" 
+							value="{{opt.value}}"
+						/>
+						<label for="os_{{opt.value}}">{{opt.label}}</label>
+					{% endfor %}
 				</div>
 			</fieldset>
 			<fieldset>
 				<div class="long">
 					<legend>What is your main dev browser?</legend>
-					<input type="radio" name="type" id="browser_firefox" value="firefox"/>
-					<label for="browser_firefox">Firefox</label>
-					<input type="radio" name="type" id="os_chrome" value="chrome"/>
-					<label for="os_chrome">Chrome</label>
-					<input type="radio" name="type" id="os_edge" value="edge"/>
-					<label for="os_edge">Edge</label>
-					<input type="radio" name="type" id="os_safari" value="safari"/>
-					<label for="os_safari">Safari</label>
-					<input type="radio" name="type" id="os_ie" value="ie"/>
-					<label for="os_ie">Internet Explorer</label>
-					<input type="radio" name="type" id="os_other" value="other"/>
-					<label for="os_other">Other</label>
-					<input name="type" type="text" />
+					{% for opt in forms.workshopPrep.browser %}					
+						<input 
+							type="radio" 
+							name="browser" 
+							id="browser_{{opt.value}}" 
+							value="{{opt.value}}"
+						/>
+						<label for="browser_{{opt.value}}">{{opt.label}}</label>
+					{% endfor %}
+					<input 
+						type="radio" 
+						name="browser" 
+						id="browser_other" 
+						value="other"
+					/>
+					<label for="browser_other">Other</label>
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="node_cli">How comfortable are you using Node and the command line?</label>
-				<div class="range"  style="--opts: 6">
+				<div class="range"  style="--opts: {{forms.workshopPrep.node_cli.opts | length}}">
 					<input 
 						type="range" 
 						name="node_cli" 
 						id="node_cli" 
 						list="node_cli_opts" 
-						max="5" 
-						min="0" 
-						step="1"
+						max="{{forms.workshopPrep.node_cli.max}}" 
+						min="{{forms.workshopPrep.node_cli.min}}" 
+						step="{{forms.workshopPrep.node_cli.step}}"
 					/>
 					<datalist id="node_cli_opts">
-						<option value="0">Never used it before</option>
-						<option value="1">I think I used it once</option>
-						<option value="2">Can follow a tutorial</option>
-						<option value="3">Fine as long as it works</option>
-						<option value="4">Use it regularly</option>
-						<option value="5">I can exit vim without Google</option>
+						{% for opt in forms.workshopPrep.node_cli.opts %}
+							<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
 					</datalist>
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="node_version">What version of Node do you have installed?</label>
-				<div class="range"  style="--opts: 6">	
+				<div class="range"  style="--opts: {{forms.workshopPrep.node_version.opts | length}}">
 					<input 
 						type="range" 
 						name="node_version" 
 						id="node_version" 
 						list="node_version_opts" 
-						max="16" 
-						min="6" 
-						step="1"
+						max="{{forms.workshopPrep.node_version.max}}" 
+						min="{{forms.workshopPrep.node_version.min}}" 
+						step="{{forms.workshopPrep.node_version.step}}"
 					/>
 					<datalist id="node_version_opts">
-						<option value="6">6.x.x</option>
-						<option value="8">8.x.x</option>
-						<option value="10">10.x.x</option>
-						<option value="12">12.x.x</option>
-						<option value="14">14.x.x</option>
-						<option value="16">16.x.x</option>
+						{% for opt in forms.workshopPrep.node_version.opts %}
+							<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
 					</datalist>
 				</div>
 			</fieldset>
 			<fieldset>
 				<label for="css_skills">How comfortable are you using CSS?</label>
-				<div class="range"  style="--opts: 6">
-					
+				<div class="range"  style="--opts: {{forms.workshopPrep.css_skills.opts | length}}">
 					<input 
 						type="range" 
 						name="css_skills" 
 						id="css_skills" 
 						list="css_skills_opts" 
-						max="5" 
-						min="0" 
-						step="1"
+						max="{{forms.workshopPrep.css_skills.max}}" 
+						min="{{forms.workshopPrep.css_skills.min}}" 
+						step="{{forms.workshopPrep.css_skills.step}}"
 					/>
 					<datalist id="css_skills_opts">
-						<option value="0">Never used it before</option>
-						<option value="1">Tweaks, sizing, colours</option>
-						<option value="2">Bootstrap, Tailwind, etc</option>
-						<option value="3">Relatively confident</option>
-						<option value="4">Use it regularly</option>
-						<option value="5">Build pixel-perfect page</option>
+						{% for opt in forms.workshopPrep.css_skills.opts %}
+							<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
 					</datalist>
 				</div>
 			</fieldset>
 			<label for="html">Without Google, list 20 HTML elements</label>
-			<textarea id="html"></textarea>
+			<textarea id="html" name="html"></textarea>
 			<fieldset>
 				<label for="js_skills">How comfortable are you using JavaScript?</label>
-				<div class="range"  style="--opts: 6">
-					
+				<div class="range"  style="--opts: {{forms.workshopPrep.js_skills.opts | length}}">
 					<input 
 						type="range" 
 						name="js_skills" 
 						id="js_skills" 
 						list="js_skills_opts" 
-						max="5" 
-						min="0" 
-						step="1"
+						max="{{forms.workshopPrep.js_skills.max}}" 
+						min="{{forms.workshopPrep.js_skills.min}}" 
+						step="{{forms.workshopPrep.js_skills.step}}"
 					/>
 					<datalist id="js_skills_opts">
-						<option value="0">Never used it before</option>
-						<option value="1">Used it once or twice</option>
-						<option value="2">Can follow a tutorial</option>
-						<option value="3">Fine as long as it works</option>
-						<option value="4">Use it regularly</option>
-						<option value="5">I use JS for everything</option>
+						{% for opt in forms.workshopPrep.js_skills.opts %}
+							<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
 					</datalist>
 				</div>
 			</fieldset>
