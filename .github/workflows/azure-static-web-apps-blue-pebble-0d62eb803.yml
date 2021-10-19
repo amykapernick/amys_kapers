@@ -38,6 +38,7 @@ jobs:
           FORM_WORKSHOP_BOOKING: ${{ secrets.FORM_WORKSHOP_BOOKING }}
           FORM_CONTACT: ${{secrets.FORM_CONTACT}}
           FORM_WORKSHOP_PREP: ${{secrets.FORM_WORKSHOP_PREP}}
+          FORM_WORKSHOP_FEEDBACK: ${{secrets.FORM_WORKSHOP_FEEDBACK}}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
