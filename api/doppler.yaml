@@ -1,0 +1,3 @@
+setup:
+        project: personal-website-api
+        config: dev
