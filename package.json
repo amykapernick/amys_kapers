@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "main": "index.njk",
   "scripts": {
-    "start": "ELEVENTY_ENV=dev eleventy --serve",
+    "start": "doppler run npm run dev",
+    "dev": "ELEVENTY_ENV=dev eleventy --serve",
     "build": "eleventy",
     "clean": "rm -rf _site",
     "api": "cd api && fnm use 12 && npm start"
