@@ -39,8 +39,6 @@ This workshop is two full days:
 
 This workshop is run primarily as an internal workshop for companies. [Get in touch](/contact) to book in your team! If being run internally, this workshop can also be split into full day or half day segments, to work best for your team.
 
-Currently the following dates are available for anyone to attend:
-
-- [26-27 July: Brisbane, QLD](/front-end-fundamentals-workshop)
+Currently there are no upcoming public workshops.
 
 Don't want to miss out on all the front end fun(damentals)? [Get in touch](/contact) to find out when the next public workshop is being held.
