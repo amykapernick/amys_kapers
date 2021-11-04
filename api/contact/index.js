@@ -1,8 +1,6 @@
 require('dotenv').config()
 
-const sgMail = require('@sendgrid/mail')
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+const sendEmail = require('../utils/sendEmail')
 
 
 module.exports = async function (context, req) {
@@ -12,8 +10,7 @@ module.exports = async function (context, req) {
         talk: 'Talk',
         other: `Something Else`
     }
-    const spam = ['eric.jones.z.mail@gmail.com']
-
+    
     let params = {} 
     
     decodeURIComponent(req.body).split(`&`).forEach((i) => {
@@ -27,26 +24,16 @@ module.exports = async function (context, req) {
     context.log('Params:')
     context.log(params)
 
-    if(spam.includes(params.email)) {
-        context.res = {
-            status: 403,
-            headers: {
-                location: process.env.FORM_PAGE
-            }
-        };
-    }
-
     const html = `
-    <p>New Enquiry:</p>
-    <ul>
-    <li>Name: ${params && params.name}</li>
-    <li>Email: ${params && params.email}</li>
-    <li>Company: ${params && params.company}</li>
-        <li>Type: ${types[params && params.type]}</li>
-        <li>Message: <p>${(params && params.message) && params.message.replace(/\+/g, ' ')}</p></li>
-    </ul>
-`
-
+        <p>New Enquiry:</p>
+        <ul>
+        <li>Name: ${params && params.name}</li>
+        <li>Email: ${params && params.email}</li>
+        <li>Company: ${params && params.company}</li>
+            <li>Type: ${types[params && params.type]}</li>
+            <li>Message: <p>${(params && params.message) && params.message.replace(/\+/g, ' ')}</p></li>
+        </ul>
+    `
     const msg = {
         to: process.env.FORM_EMAIL,
         from: {
@@ -57,37 +44,12 @@ module.exports = async function (context, req) {
         html
     }
 
-    await sgMail
-        .send(msg)
-        .then((res) => {
-            context.log(res)
+    await sendEmail({
+        params: {
+            ...params,
+            msg,
         },
-        (err) => {
-            context.log(err)
-
-            context.res = {
-                status: 302,
-                headers: {
-                    location: process.env.FORM_PAGE
-                }
-            };
-        })
-        .catch((err) => {
-            context.log('Error!')
-            context.log(err)
-
-            context.res = {
-                status: 302,
-                headers: {
-                    location: process.env.FORM_PAGE
-                }
-            };
-        })
-
-    context.res = {
-        status: 302,
-        headers: {
-            location: process.env.CONTACT_REDIRECT
-        }
-    };
+        context,
+        res
+    })
 }
