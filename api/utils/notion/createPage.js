@@ -43,11 +43,18 @@ module.exports = async ({params, fields, context}) => {
 		else if(section.type == 'multi_select') {
 			const opts = []
 
-			val.forEach(e => {
-                opts.push({
-                    name: e
+            if(Array.isArray(val)) {
+                val.forEach(e => {
+                    opts.push({
+                        name: e
+                    })
                 })
-            })
+            }
+            else {
+                opts.push({
+                    name: val
+                })
+            }
 
             data[section.name] = {
                 [section.type]: opts
