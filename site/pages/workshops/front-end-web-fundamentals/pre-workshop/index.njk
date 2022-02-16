@@ -35,6 +35,15 @@
 			</div>
 		</fieldset>
 		<fieldset>
+			<div>
+				<legend>What code editor/IDE do you use?</legend>
+				{% for opt in forms.workshopPrep.ide %}
+				<input type="radio" name="ide" id="ide_{{opt.value}}" value="{{opt.value}}" />
+				<label for="ide_{{opt.value}}">{{opt.label}}</label>
+				{% endfor %}
+			</div>
+		</fieldset>
+		<fieldset>
 			<label for="node_cli">How comfortable are you using Node and the command line?</label>
 			<div class="range" style="--opts: {{forms.workshopPrep.node_cli.opts | length}}">
 				<input type="range" name="node_cli" id="node_cli" list="node_cli_opts" max="{{forms.workshopPrep.node_cli.max}}" min="{{forms.workshopPrep.node_cli.min}}" step="{{forms.workshopPrep.node_cli.step}}" />

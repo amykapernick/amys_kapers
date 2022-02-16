@@ -7,6 +7,10 @@ module.exports = {
 		name: 'Node and CLI',
 		type: 'select'
 	},
+	ide: {
+		name: 'IDE',
+		type: 'select'
+	},
 	js_skills: {
 		name: 'JavaScript Skills',
 		type: 'select'

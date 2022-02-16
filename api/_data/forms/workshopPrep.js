@@ -35,6 +35,28 @@ module.exports = {
 			label: 'Internet Explorer'
 		}
 	],
+	ide: [
+		{
+			value: 'code',
+			label: 'VS Code'
+		},
+		{
+			value: 'vs',
+			label: 'Visual Studio'
+		},
+		{
+			value: 'sublime',
+			label: 'Sublime'
+		},
+		{
+			value: 'jetbrains',
+			label: 'JetBrains (any of them)'
+		},
+		{
+			value: 'other',
+			label: 'Other'
+		}
+	],
 	node_cli: {
 		max: 5,
 		min: 0,

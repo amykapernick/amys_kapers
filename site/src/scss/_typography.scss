@@ -22,6 +22,13 @@ pre, code {
 	font-weight: 400;
 }
 
+pre {
+	padding: 10px 20px;
+	border-radius: 10px ;
+	background: var.$neutral_light_90;
+	color: var.$background;
+}
+
 h1, h2, h3 {
 	font-weight: 700;
 	text-transform: uppercase;
