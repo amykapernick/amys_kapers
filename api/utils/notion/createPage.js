@@ -1,17 +1,32 @@
 require('dotenv').config()
 const {Client} = require('@notionhq/client')
+const Sentry = require('@sentry/node')
 
 const notion = new Client({
     auth: process.env.NOTION_API
 })
 
-module.exports = async ({params, fields, res, context, title}) => {
+Sentry.init({
+	dsn: process.env.SENTRY_DSN
+})
+
+module.exports = async ({params, fields, context}) => {
 	let data = {}
+    let props = {}
+
+    console.log({params, fields})
 
 	Object.entries(params).forEach(([key, val]) => {
         const section = fields[key]
 
-		if(!section || !section.type || !section.name) return;
+		if(!section) {
+            props[key] = val
+
+            return;
+        }
+        else if(!section.type || !section.name) {
+            return;
+        }
 
         if(section.type == 'rich_text') {
             data[section.name] = {
@@ -29,7 +44,7 @@ module.exports = async ({params, fields, res, context, title}) => {
 			const opts = []
 
 			val.forEach(e => {
-                el.push({
+                opts.push({
                     name: e
                 })
             })
@@ -48,29 +63,53 @@ module.exports = async ({params, fields, res, context, title}) => {
         
     })
 
+    console.log({data, props})
+
 	await notion.pages.create({
-			parent: fields.data.parent,
+			parent: {
+                database_id: props.notion_page
+            },
 			properties: {
-				title,
+				title: {
+                    title: [
+                        {
+                            text: {
+                                content: params.name || 'Anonymous'
+                            }
+                        }
+                    ]
+                },
 				...data,
 			}
 		})
-		.then(res => context.log(res))
+		.then(response => {
+            const url = params.redirect
+            context.log({response})
+
+            context.res = {
+                status: 302,
+                headers: {
+                    Location: url
+                },
+                body: {}
+            }
+
+            context.done()
+        })
 		.catch(err => {
-			context.log(err)
+			context.log({err})
 
-			res = {
-				status: 302,
-				headers: {
-					location: params.page
-				}
-			};
+			Sentry.captureException(err)
+            Sentry.flush(2000)
+
+            context.res = {
+                status: err.code || 400,
+                headers: {
+                    Location: params.page
+                },
+                body: {}
+            }
+
+            context.done()
 		})
-
-    res = {
-        status: 302,
-        headers: {
-            location: params.redirect
-        }
-    };
 }

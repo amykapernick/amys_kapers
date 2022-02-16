@@ -1,6 +1,3 @@
----
-permalink: null
----
 {% set class = "header-reduced" %}
 {% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
 {% set description = "A few questions to prepare for your upcoming workshop" %}
@@ -12,8 +9,9 @@ permalink: null
 <article class="workshop-prep">
 	<h1>Front End Web Fundamentals Workshop</h1>
 	<form id="workshop-prep" action="{{env.api}}{{env.formWorkshopPrep}}" method="post">
-		<input type="hidden" name="redirect" value="/see-you-there" />
+		<input type="hidden" name="redirect" value="{{env.siteUrl}}/workshops/see-you-there" />
 		<input type="hidden" name="page" value="{{permalink}}" />
+		<input type="hidden" name="notion_page" value="{{env.pageWorkshopPrep}}" />
 		<label for="name">Name</label>
 		<input type="text" name="name" id="name" required />
 		<fieldset>

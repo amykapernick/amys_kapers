@@ -17,19 +17,19 @@
   "license": "MIT",
   "homepage": "https://amyskapers.dev",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.0",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
-    "axios": "^0.21.1",
-    "dotenv": "^10.0.0",
-    "eslint": "^7.28.0",
-    "eslint-config-airbnb-base": "^14.2.1",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-loader": "^4.0.2",
-    "markdown-it": "^12.0.6",
+    "markdown-it": "^12.3.2",
     "path": "^0.12.7",
-    "sass": "^1.34.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-property-sort-order-smacss": "^7.1.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.19.0"
+    "sass": "^1.49.7",
+    "stylelint": "^14.5.0",
+    "stylelint-config-property-sort-order-smacss": "^8.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.1.0"
   }
 }

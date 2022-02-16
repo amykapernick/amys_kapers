@@ -1,9 +1,4 @@
 module.exports = {
-	data: {
-		parent: {
-			database_id: '93c566ec267e4b70bf7808b501f32809'
-		}
-	}, 
 	sections: {
 		name: 'Sections',
 		type: 'select'
@@ -18,7 +13,7 @@ module.exports = {
 	},
 	a11y: {
 		name: 'Accessibility Testing',
-		type: 'seelect'
+		type: 'select'
 	},
 	visual_regression: {
 		name: 'Visual Regression Testing',
@@ -42,6 +37,6 @@ module.exports = {
 	},
 	testimonial: {
 		name: 'Testimonial',
-		type: 'text'
+		type: 'rich_text'
 	}
 }

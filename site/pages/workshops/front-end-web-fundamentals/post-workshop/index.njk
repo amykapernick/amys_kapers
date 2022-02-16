@@ -1,6 +1,3 @@
----
-permalink: /workshop/index.html
----
 {% set class = "header-reduced" %}
 {% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
 {% set description = "A few questions about your recent workshop" %}
@@ -12,8 +9,9 @@ permalink: /workshop/index.html
 <article class="workshop-prep">
 	<h1>Front End Web Fundamentals Workshop</h1>
 	<form id="workshop-prep" action="{{env.api}}{{env.formWorkshopFeedback}}" method="post">
-		<input type="hidden" name="redirect" value="/see-you-there" />
+		<input type="hidden" name="redirect" value="{{env.siteUrl}}/workshops/see-you-there" />
 		<input type="hidden" name="page" value="{{permalink}}" />
+		<input type="hidden" name="notion_page" value="{{env.pageWorkshopFeedback}}" />
 		<fieldset>
 			<div class="long">
 				<legend>What was your favourite section of the workshop?</legend>

@@ -19,6 +19,10 @@ module.exports = {
 		{
 			value: 'ui',
 			label: 'UI Testing (Cypress)'
+		},
+		{
+			value: 'all',
+			label: "I can't choose, it was all amazing!"
 		}
 	],
 	html: {

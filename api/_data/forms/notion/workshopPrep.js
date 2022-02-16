@@ -1,9 +1,4 @@
 module.exports = {
-	data: {
-		parent: {
-			database_id: 'ba395e09748a4cc78ba767b309f7294c'
-		}
-	}, 
 	os: {
 		name: 'Operating System',
 		type: 'select'
