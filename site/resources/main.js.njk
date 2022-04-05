@@ -3,13 +3,15 @@ permalink: /js/main.js
 ---
 const slugify = (string) => string.toLowerCase().replace(' ', '-')
 
-if (typeof document !== 'undefined') {
-	document.addEventListener('DOMContentLoaded', () => {
-		const section = document.querySelector('#where')
+console.log('running script 3')
 
-		if(!section) {
-			return
-		}
+if (typeof document !== 'undefined') {
+	console.log('running script 2')
+	const section = document.querySelector('#where')
+
+	console.log('running script')
+
+	if(section) {
 
 		const location = section.querySelector('.location')
 		const conference = section.querySelector('.conference')
@@ -59,6 +61,8 @@ if (typeof document !== 'undefined') {
 				conference.innerHTML = res.conference
 				conference.classList.add(res.confClasses)
 			})
-	})
+	}
+
+	
 }
 
