@@ -13,5 +13,11 @@
 		"start": "2022-09-14",
 		"end": "2022-09-25",
 		"city": "Queensland"
+	},
+	{
+		"start": "2022-09-25",
+		"end": "2022-10-01",
+		"city": "Oslo",
+		"country": "Norway"
 	}
 ]

@@ -9,5 +9,11 @@
 		"start": "2022-09-10",
 		"name": "DDD Perth",
 		"type": "organising"
+	},
+	{
+		"start": "2022-09-26",
+		"end": "2022-09-30",
+		"name": "NDC Oslo",
+		"type": "speaking"
 	}
 ]
