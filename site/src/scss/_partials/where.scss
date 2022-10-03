@@ -82,10 +82,56 @@
 		width: 100%;
 		clear: both;
 		overflow: hidden;
+
+		.current,
+		.location {
+			display: flex;
+			align-items: center;
+
+			img {
+				display: block;
+				width: auto;
+				height: 1em;
+				margin-right: 1ch;
+			}
+		}
+
+		.location {
+			margin-left: 1ch;
+		}
 	}
 
 	.upcoming {
 		width: 100%;
+
+		ul {
+			padding: 0;
+
+			li {
+				display: flex;
+				align-items: center;
+				margin-bottom: 0.5em;
+			}
+
+			img {
+				display: block;
+				width: auto;
+				height: 1em;
+				margin-right: 1ch;
+			}
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			color: inherit;
+			font-weight: inherit;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.globe {
@@ -134,7 +180,7 @@
 				border-left: 2px dotted var.$purple;
 			}
 
-			> * {
+			>* {
 				width: 45%;
 			}
 

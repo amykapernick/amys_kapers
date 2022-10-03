@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "doppler run npm run dev",
-    "dev": "func start --cors *"
+    "start": "func start",
+    "dev": "doppler run npm start -- --cors *"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "dependencies": {
-    "@notionhq/client": "^0.4.13",
-    "@sendgrid/mail": "^7.6.1",
-    "@sentry/node": "^6.17.8",
-    "date-fns": "^2.28.0",
-    "dotenv": "^16.0.0",
-    "node-fetch": "^3.2.0"
-  },
-  "devDependencies": {}
+    "@notionhq/client": "^2.2.0",
+    "@sendgrid/mail": "^7.7.0",
+    "@sentry/node": "^7.14.0",
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.2.10"
+  }
 }

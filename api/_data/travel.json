@@ -19,5 +19,21 @@
 		"end": "2022-10-01",
 		"city": "Oslo",
 		"country": "Norway"
+	},
+	{
+		"start": "2022-10-09",
+		"end": "2022-10-15",
+		"city": "Sydney"
+	},
+	{
+		"start": "2022-12-23",
+		"end": "2022-12-31",
+		"city": "Brisbane"
+	},
+	{
+		"start": "2022-11-08",
+		"end": "2022-11-14",
+		"city": "Vilinus",
+		"country": "Lithuania"
 	}
 ]

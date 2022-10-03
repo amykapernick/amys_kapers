@@ -1,7 +1,13 @@
 ---
-permalink: /js/main.js
+	permalink: /js/main.js
 ---
 const slugify = (string) => string.toLowerCase().replace(' ', '-')
+const icons = {
+	speaking: "mic",
+	organising: "notes",
+	attending: "badge",
+	workshop: "presentation"
+}
 
 console.log('running script 3')
 
@@ -11,7 +17,7 @@ if (typeof document !== 'undefined') {
 
 	console.log('running script')
 
-	if(section) {
+	if (section) {
 
 		const location = section.querySelector('.location')
 		const conference = section.querySelector('.conference')
@@ -21,13 +27,22 @@ if (typeof document !== 'undefined') {
 		fetch('{{env.api}}/events')
 			.then(res => res.json())
 			.then(res => {
-				if(res.length) {
+				if (res.length) {
 					conferences.innerHTML = '<ul></ul>'
 
 					const conferenceList = conferences.querySelector('ul')
-					const eventItems = res.map(({classes, name, start, end}) => (
-						`<li>${name}: ${start}${end}</li>`
-					))
+					const eventItems = res.map(({ type, name, start, end, url }) => {
+						const svgs = type?.map(t => (`<img alt="${type} icon" src="/img/icons/${icons[t]}.svg" />`)).join('')
+						let content = `${svgs} ${name}: ${start}${end}`
+
+						if (url) {
+							content = `<a href="${url}" target="_blank">${content}</a>`
+						}
+
+						return (
+							`<li>${content}</li>`
+						)
+					})
 
 					conferenceList.innerHTML = eventItems.join('')
 				}
@@ -39,13 +54,13 @@ if (typeof document !== 'undefined') {
 		fetch('{{env.api}}/travel')
 			.then(res => res.json())
 			.then(res => {
-				if(res.length) {
+				if (res.length) {
 					trips.innerHTML = '<ul></ul>'
 
 					const tripsList = trips.querySelector('ul'),
-					tripItems = res.map(({classes, country, city, start, end}) => (
-					`<li><img alt="" src="/img/countries/${classes}.svg" />${city}, ${country}: ${start}${end}</li>`
-					))
+						tripItems = res.map(({ country_code, country, city, start, end }) => (
+							`<li><img alt="Flag of ${country}" src="/img/countries/${country_code}.svg" />${city}, ${country}: ${start}${end}</li>`
+						))
 
 					tripsList.innerHTML = tripItems.join('')
 				}
@@ -56,13 +71,13 @@ if (typeof document !== 'undefined') {
 
 		fetch('{{env.api}}/current')
 			.then(res => res.json())
-			.then(res => {
-				location.innerHTML = `<img alt="" src="/img/countries/${slugify(res.country)}.svg" /> ${res.city}, ${res.country}`
-				conference.innerHTML = res.conference
-				conference.classList.add(res.confClasses)
+			.then(({ country, city, country_code, confClasses, conference }) => {
+				location.innerHTML = `<img alt="Flag of ${country}" src="/img/countries/${country_code}.svg" /> ${city}, ${country}`
+				conference.innerHTML = conference
+				conference.classList.add(confClasses)
 			})
 	}
 
-	
+
 }
 

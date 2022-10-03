@@ -3,17 +3,44 @@
 		"start": "2022-06-20",
 		"end": "2022-06-24",
 		"name": "NDC Melbourne",
-		"type": "speaking"
+		"type": [
+			"speaking"
+		]
 	},
 	{
 		"start": "2022-09-10",
 		"name": "DDD Perth",
-		"type": "organising"
+		"type": [
+			"organising",
+			"speaking"
+		],
+		"url": "https://dddperth.com/agenda/2022"
 	},
 	{
 		"start": "2022-09-26",
 		"end": "2022-09-30",
 		"name": "NDC Oslo",
+		"type": [
+			"speaking",
+			"workshop"
+		],
+		"url": "https://noti.st/events/jWYZPb/ndc-oslo"
+	},
+	{
+		"start": "2022-10-12",
+		"end": "2022-10-14",
+		"name": "NDC Sydney",
 		"type": "speaking"
+	},
+	{
+		"start": "2022-11-09",
+		"end": "2022-11-11",
+		"name": "Build Stuff",
+		"type": "speaking"
+	},
+	{
+		"start": "2022-10-21",
+		"name": "UX Camp Perth",
+		"url": "https://www.uxcamp.co/"
 	}
 ]

@@ -1,32 +1,35 @@
-const {parse, isSameDay, isAfter, isBefore} = require('date-fns')
+const { parse, isSameDay, isAfter, isBefore } = require('date-fns')
 const formatDate = require('../utils/formatDate')
+const countryCode = require('../utils/countryCode')
 
 module.exports = async function (context, req) {
     const events = require('../_data/events.json'),
-    trips = require('../_data/travel.json'),
-    today = new Date()
-    
+        trips = require('../_data/travel.json'),
+        today = new Date()
+
     let currentDetails = {
         city: 'Perth',
         country: 'Australia',
         conference: '',
         trip: '',
+        country_code: 'au'
     }
 
     trips.some((trip) => {
-        const start = parse(trip.start, 'yyyy-MM-dd', new Date()),
-        end = trip.end ? parse(trip.end, 'yyyy-MM-dd', new Date()) : false,
-        setTrip = (trip) => {
+        const start = parse(trip.start, 'yyyy-MM-dd', new Date())
+        const end = trip.end ? parse(trip.end, 'yyyy-MM-dd', new Date()) : false
+        const setTrip = (trip) => {
             currentDetails = {
                 ...currentDetails,
                 trip: `${formatDate(trip.start, 'dd-MMM')}${trip.end ? ` - ${formatDate(trip.end)}` : ''}`,
                 city: trip.city || currentDetails.city,
-                country: trip.country || currentDetails.country
-                
+                country: trip.country || currentDetails.country,
+                country_code: countryCode(trip?.country || currentDetails.country)
+
             }
         }
 
-        if(isSameDay(start, today) || isSameDay(end, today)) {
+        if (isSameDay(start, today) || isSameDay(end, today)) {
             setTrip(trip)
             return true
         }
@@ -40,16 +43,16 @@ module.exports = async function (context, req) {
 
     events.some((event) => {
         const start = parse(event.start, 'yyyy-MM-dd', new Date()),
-        end = event.end ? parse(event.end, 'yyyy-MM-dd', new Date()) : false,
-        setEvent = (event) => {
-            currentDetails = {
-                ...currentDetails,
-                conference: `at ${event.name}`,
-                confClasses: event.type
+            end = event.end ? parse(event.end, 'yyyy-MM-dd', new Date()) : false,
+            setEvent = (event) => {
+                currentDetails = {
+                    ...currentDetails,
+                    conference: `at ${event.name}`,
+                    eventType: event.type
+                }
             }
-        }
 
-        if(isSameDay(start, today) || isSameDay(end, today)) {
+        if (isSameDay(start, today) || isSameDay(end, today)) {
             setEvent(event)
             return true
         }

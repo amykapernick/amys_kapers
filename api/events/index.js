@@ -1,10 +1,10 @@
-const {parse, compareAsc, isBefore, isSameDay} = require('date-fns')
+const { parse, compareAsc, isBefore, isSameDay } = require('date-fns')
 const formatDate = require('../utils/formatDate')
 const slugify = (string) => string.toLowerCase().replace(' ', '-')
 
 module.exports = async function (context, req) {
     const events = require('../_data/events.json'),
-    today = new Date()
+        today = new Date()
 
     const currentEvents = events
         .filter((event) => {
@@ -18,14 +18,14 @@ module.exports = async function (context, req) {
         )))
         .map(event => ({
             ...event,
-            start: formatDate(event.start, 'dd-MMM'),
-            end: event.end ? ` - ${formatDate(event.end)}` : ''
+            start: formatDate(event.start, 'dd MMM'),
+            end: event.end ? ` - ${formatDate(event.end, 'dd MMM')}` : ''
         }))
 
-        const eventData = currentEvents.map((event) => ({
-            ...event,
-            classes: event.type
-        }))
+    const eventData = currentEvents.map(({ type = ['attending'], ...event_args }) => ({
+        ...event_args,
+        type: Array.isArray(type) ? type : [type],
+    }))
 
 
     context.res = {
