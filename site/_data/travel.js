@@ -3,7 +3,7 @@ const { isSameMonth, setDate, getYear, getDay, getDate, getMonth, parseISO } = r
 
 module.exports = async () => {
 
-	return fetch(`${process.env.API_URL}/travel?filter=all`, {
+	return fetch(`${process.env.SITE_URL}${process.env.API_URL}/travel?filter=all`, {
 		duration: "1m",
 		type: "json"
 	}).then(res => {
