@@ -84,7 +84,8 @@
 		overflow: hidden;
 
 		.current,
-		.location {
+		.location,
+		.conference {
 			display: flex;
 			align-items: center;
 
@@ -92,12 +93,25 @@
 				display: block;
 				width: auto;
 				height: 1em;
-				margin-right: 1ch;
+				margin-right: 0.4ch;
 			}
 		}
 
-		.location {
-			margin-left: 1ch;
+		.location,
+		.conference {
+			margin-left: 0.4ch;
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			color: inherit;
+			font-weight: inherit;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 

@@ -3,10 +3,22 @@
 ---
 const slugify = (string) => string.toLowerCase().replace(' ', '-')
 const icons = {
-	speaking: "mic",
-	organising: "notes",
-	attending: "badge",
-	workshop: "presentation"
+	speaking: {
+		img: "mic",
+		alt: "speaking"
+	},
+	organising: {
+		img: "notes",
+		alt: "organising"
+	},
+	attending: {
+		img: "badge",
+		alt: ""
+	},
+	workshop: {
+		img: "presentation",
+		alt: "running a workshop"
+	}
 }
 
 console.log('running script 3')
@@ -20,7 +32,7 @@ if (typeof document !== 'undefined') {
 	if (section) {
 
 		const location = section.querySelector('.location')
-		const conference = section.querySelector('.conference')
+		const currentConference = section.querySelector('.conference')
 		const trips = section.querySelector('.trips')
 		const conferences = section.querySelector('.conferences')
 
@@ -32,7 +44,7 @@ if (typeof document !== 'undefined') {
 
 					const conferenceList = conferences.querySelector('ul')
 					const eventItems = res.map(({ type, name, start, end, url }) => {
-						const svgs = type?.map(t => (`<img alt="${type} icon" src="/img/icons/${icons[t]}.svg" />`)).join('')
+						const svgs = type?.map(t => (`<img alt="${type} icon" src="/img/icons/${icons[t].img}.svg" />`)).join('')
 						let content = `${svgs} ${name}: ${start}${end}`
 
 						if (url) {
@@ -71,10 +83,20 @@ if (typeof document !== 'undefined') {
 
 		fetch('{{env.api}}/current')
 			.then(res => res.json())
-			.then(({ country, city, country_code, confClasses, conference }) => {
+			.then(({ country, city, country_code, eventType, conference, eventUrl }) => {
 				location.innerHTML = `<img alt="Flag of ${country}" src="/img/countries/${country_code}.svg" /> ${city}, ${country}`
-				conference.innerHTML = conference
-				conference.classList.add(confClasses)
+
+				let conferenceInfo = `${conference}`
+
+				if (eventType) {
+					conferenceInfo = `${eventType.map(t => (`<img alt="${icons[t].alt}" src="/img/icons/${icons[t].img}.svg" />`)).join('')} ${conferenceInfo}`
+				}
+
+				if (eventUrl) {
+					conferenceInfo = `<a href="${eventUrl}" target="_blank">${conferenceInfo}</a>`
+				}
+
+				currentConference.innerHTML = conferenceInfo
 			})
 	}
 
