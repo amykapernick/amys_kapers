@@ -1,20 +1,20 @@
 const fetch = require("@11ty/eleventy-fetch");
-const { isSameMonth, setDate, getDay, getDate, getMonth, parseISO, getYear } = require('date-fns');
+const { isSameMonth, setDate, getYear, getDay, getDate, getMonth, parseISO } = require('date-fns');
 
 module.exports = async () => {
 
-	return fetch(`${process.env.API_URL}/events?filter=all`, {
+	return fetch(`${process.env.API_URL}/travel?filter=all`, {
 		duration: "1m",
 		type: "json"
 	}).then(res => {
-		let allEvents = []
-		const events = []
+		let allTrips = []
+		const trips = []
 
-		allEvents = res || []
+		allTrips = res || []
 
-		allEvents.forEach(event => {
-			const start = parseISO(event?.dates?.start)
-			const end = event?.dates?.end ? parseISO(event?.dates?.end) : start
+		allTrips.forEach(trip => {
+			const start = parseISO(trip?.dates?.start)
+			const end = trip?.dates?.end ? parseISO(trip?.dates?.end) : start
 			const setGrid = ({ start: s, end: e = s }) => {
 				const data = {
 					offset: getDay(setDate(s, 1)) + getDate(s),
@@ -38,28 +38,28 @@ module.exports = async () => {
 					},
 				]
 
-				events.push(...[
+				trips.push(...[
 					{
-						...event,
+						...trip,
 						...dates[0],
 						...setGrid({ ...dates[0] })
 					},
 					{
-						...event,
+						...trip,
 						...dates[1],
 						...setGrid({ ...dates[1] })
 					}
 				])
 			}
 			else {
-				events.push({
-					...event,
+				trips.push({
+					...trip,
 					...setGrid({ start, end })
 				})
 			}
 		})
 
-		return events
+		return trips
 	}).catch(err => {
 		console.log({ err })
 	})

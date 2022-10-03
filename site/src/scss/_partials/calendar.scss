@@ -1,32 +1,51 @@
-@font-face {
-	font-family: 'Recursive';
-	src: url('./fonts/recursive.ttf') format('truetype');
-}
+@use '../variables.scss' as var;
+@use 'sass:color';
 
-body {
-	margin: 0;
-	padding: 0;
+.calendar {
+
+	padding-right: 100px;
+	overflow-x: auto;
 	background: #36454f;
-	font-family: 'Recursive', Arial, sans-serif;
+
+	&:before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		left: 50%;
+		width: 100vw;
+		height: 200px;
+		transform: translateX(-50%);
+		background: inherit;
+	}
 }
 
 .year {
 	display: grid;
+	position: relative;
+	z-index: 2;
 	grid-template-rows: auto 1fr;
+	min-width: 1800px;
 	min-height: 100vh;
-	padding: 10px 20px;
+	padding: 10px 50px 10px 20px;
 }
 
 h1 {
-	margin-top: 0;
-	color: #85caf6;
-	font-size: 3em;
 	text-align: center;
 }
 
+h1,
 h2 {
+	margin-top: 0;
+	color: #85caf6;
+}
+
+p {
 	margin: 0 0 1em;
 	color: #36454f;
+	font-size: 1.17em;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .dates {
@@ -47,31 +66,37 @@ h2 {
 	justify-content: flex-start;
 	padding: 5px;
 	background: rgba(133, 202, 246, 0.8);
+
+	&[data-day='Sat'],
+	&[data-day='Sun'] {
+		background: #85caf6;
+	}
+
+	&:before {
+		content: attr(data-day);
+		position: absolute;
+		top: -1.3em;
+		color: #eef1f6;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+
+	&[data-monthName] {
+		&:after {
+			content: attr(data-monthName);
+			position: absolute;
+			z-index: -1;
+			left: calc(var(--offset) * 50px);
+			transform: translateY(-15px);
+			color: #ca8ef6;
+			font-size: 3em;
+			font-weight: bold;
+		}
+	}
 }
 
-.date[data-day='Sat'],
-.date[data-day='Sun'] {
-	background: #85caf6;
-}
-
-.date:before {
-	content: attr(data-day);
-	position: absolute;
-	top: -1.3em;
-	color: #eef1f6;
-}
-
-.date[data-monthName]:after {
-	content: attr(data-monthName);
-	position: absolute;
-	z-index: -1;
-	left: calc(var(--offset) * 50px);
-	color: #ca8ef6;
-	font-size: 3em;
-	font-weight: bold;
-}
-
-.event {
+.event,
+.trip {
 	display: flex;
 	position: relative;
 	grid-column: var(--offset) / span var(--length);
@@ -80,20 +105,49 @@ h2 {
 	align-self: end;
 	justify-content: center;
 	padding: 5px;
-	border: 2px solid var(--border);
-	background: #86f394;
-	background: var(--colour);
+	border: 2px solid var.$green;
+	background: lighten(var.$green, 30%);
+	font-size: 0.6em;
+
+	&:before {
+		content: var(--icon);
+		display: none;
+		position: absolute;
+		top: -0.8em;
+		left: -0.8em;
+		font-size: 0.8em;
+	}
+
+	&:hover {
+		&:before {
+			display: block;
+		}
+	}
+
+	&[data-status='cancelled'] {
+		border-color: var.$red;
+		background-color: lighten(var.$red, 30%);
+	}
+
+	&[data-status='moved'] {
+		border-color: var.$orange;
+		background-color: lighten(var.$orange, 30%);
+	}
+
+	&[data-status='online'] {
+		border-color: var.$pink;
+		background-color: lighten(var.$pink, 30%);
+	}
 }
 
-.event:before {
-	content: var(--icon);
-	display: none;
-	position: absolute;
-	top: -0.8em;
-	left: -0.8em;
-	font-size: 0.8em;
+.event {
+	z-index: 5;
+	text-align: center;
 }
 
-.event:hover:before {
-	display: block;
+.trip {
+	justify-content: flex-start;
+	border-color: var.$darkpurple;
+	background-color: lighten(var.$darkpurple, 30%);
+	font-size: 0.4em;
 }

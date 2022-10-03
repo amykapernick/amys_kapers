@@ -3,15 +3,23 @@ const formatDate = require('../utils/formatDate')
 const countryCode = require('../utils/countryCode')
 
 module.exports = async function (context, req) {
-    const trips = require('../_data/travel.json'),
-        today = new Date()
+    const trips = require('../_data/travel.json')
+    const today = new Date()
 
-    const currentTrips = trips
-        .filter((trip) => {
-            const date = trip.end ? parse(trip.end, 'yyyy-MM-dd', new Date()) : parse(trip.start, 'yyyy-MM-dd', new Date())
+    const filter = req?.query?.filter
 
-            return isSameDay(today, date) || isBefore(today, date)
-        })
+    let currentTrips = trips
+
+    if (filter !== 'all') {
+        currentTrips = currentTrips
+            .filter((trip) => {
+                const date = trip.end ? parse(trip.end, 'yyyy-MM-dd', new Date()) : parse(trip.start, 'yyyy-MM-dd', new Date())
+
+                return isSameDay(today, date) || isBefore(today, date)
+            })
+    }
+
+    currentTrips = currentTrips
         .sort((a, b) => (compareAsc(
             parse(a.start, 'yyyy-MM-dd', new Date()),
             parse(b.start, 'yyyy-MM-dd', new Date())
@@ -19,15 +27,16 @@ module.exports = async function (context, req) {
         .map(trip => ({
             ...trip,
             start: formatDate(trip.start, 'dd MMM'),
-            end: trip.end ? ` - ${formatDate(trip.end)}` : ''
+            end: trip.end ? ` - ${formatDate(trip.end)}` : '',
+            dates: {
+                end: trip.end && formatDate(trip.end, 'yyyy-MM-dd'),
+                start: formatDate(trip.start, 'yyyy-MM-dd')
+            },
         }))
 
     const tripData = currentTrips.map(({ country = 'Australia', city = 'Perth', ...trip_args }) => ({
         ...trip_args,
-        dates: {
-            end: trip_args?.end,
-            start: trip_args?.start
-        },
+
         city: city,
         country: country,
         country_code: countryCode(country),

@@ -42,5 +42,11 @@
 		"start": "2022-10-21",
 		"name": "UX Camp Perth",
 		"url": "https://www.uxcamp.co/"
+	},
+	{
+		"start": "2023-01-23",
+		"end": "2023-01-27",
+		"name": "NDC London",
+		"type": "speaking"
 	}
 ]

@@ -6,7 +6,7 @@
     "start": "doppler run npm run dev",
     "dev": "ELEVENTY_ENV=dev eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site",
+    "clean": "rm -rf _site .cache",
     "api": "cd api && npm run dev"
   },
   "repository": {
@@ -21,8 +21,10 @@
   "homepage": "https://amyskapers.dev",
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-fetch": "^3.0.0",
     "@jamshop/eleventy-plugin-svg": "^2.0.0",
     "axios": "^0.27.2",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",

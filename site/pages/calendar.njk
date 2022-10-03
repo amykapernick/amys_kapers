@@ -2,38 +2,49 @@
 permalink: /calendar/index.html
 layout: layouts/calendar.njk
 ---
-
-<div class="year y-2022">
-		<h1>2022</h1>
+<h1>Calendar</h1>
+<div class="calendar">
+	{% for year, days in calendarYears %}
+	<div class="year y-{{year}}">
+		<h2>{{year}}</h2>
 		<div class="dates">
-			{% for day in year %}
-			<div data-monthName="{{day.monthName}}" data-day="{{day.day}}" style="--month: {{day.month}}; --offset: {{day.offset}};" class="date">
-				<h2>{{day.date}}</h2>
-			</div>
+			{% for day in days %}
+				<div data-monthName="{{day.monthName}}" data-day="{{day.day}}" style="--month: {{day.month}}; --offset: {{day.offset}};" class="date">
+					<p>{{day.date}}</p>
+				</div>
 			{% endfor %}
 
 			{% for event in events %}
-			{% switch event.status %}
-			{% case "cancelled" %}
-			{% set colour = '#f2778f' %}
-			{% set border = '#e6103a' %}
-			{% set icon = '❌' %}
-			{% case "moved" %}
-			{% set colour = '#FFA07A' %}
-			{% set border = '#ff540f' %}
-			{% set icon = '➡' %}
-			{% case "online" %}
-			{% set colour = '#FFFACD' %}
-			{% set border = '#ffe814' %}
-			{% set icon = '🌐' %}
-			{% default %}
-			{% set colour = '#86f394' %}
-			{% set border = '#0cf22a' %}
-			{% set icon = '' %}
-			{% endswitch %}
-			<div class="event" data-status="{{event.status}}" style="--offset: {{event.offset}}; --length: {{event.length}}; --row: {{event.row}}; --colour: {{colour}}; --border: {{border}}; --icon: '{{icon}}'">
-				{{event.title}}
-			</div>
+				{% if event.year == year %}
+					{% switch event.status %}
+						{% case "cancelled" %}
+							{% set icon = '❌' %}
+						{% case "moved" %}
+							{% set icon = '➡' %}
+						{% case "online" %}
+							{% set icon = '🌐' %}
+					{% endswitch %}
+					<div 
+						class="event" 
+						data-status="{{event.status}}" 
+						style="--offset: {{event.offset}}; --length: {{event.length}}; --row: {{event.row}};--icon: '{{icon}}'"
+					>
+						{{icon}} {{event.name}}
+					</div>
+				{% endif %}
+			{% endfor %}
+			{% for trip in travel %}
+				{% if trip.year == year %}
+					<div 
+						class="trip" 
+						style="--offset: {{trip.offset}}; --length: {{trip.length}}; --row: {{trip.row}};"
+					>
+						{{trip.city}}, {{trip.country}}
+					</div>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
+	{% endfor %}
+	
+</div>
