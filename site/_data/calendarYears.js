@@ -5,7 +5,9 @@ const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 module.exports = async () => {
-	return fetch(`${process.env.API_URL}/events?filter=all`, {
+	console.log({ url: `${process.env.SITE_URL}${process.env.API_URL}/events?filter=all` })
+
+	return fetch(`${process.env.SITE_URL}${process.env.API_URL}/events?filter=all`, {
 		duration: "10s",
 		type: "json"
 	}).then(res => {
