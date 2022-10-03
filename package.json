@@ -7,11 +7,14 @@
     "dev": "ELEVENTY_ENV=dev eleventy --serve",
     "build": "eleventy",
     "clean": "rm -rf _site",
-    "api": "cd api && fnm use 12 && npm start"
+    "api": "cd api && npm run dev"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/amykapernick/amys_kapers.git"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev)",
   "license": "MIT",
