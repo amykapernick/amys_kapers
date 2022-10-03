@@ -2,10 +2,14 @@ const fetch = require("@11ty/eleventy-fetch");
 const { isSameMonth, setDate, getYear, getDay, getDate, getMonth, parseISO } = require('date-fns');
 
 module.exports = async () => {
+	let url = `${process.env.API_URL}/travel?filter=all`
 
-	console.log({ url: `${process.env.SITE_URL}${process.env.API_URL}/events?filter=all` })
+	return;
 
-	return fetch(`${process.env.SITE_URL}${process.env.API_URL}/travel?filter=all`, {
+	if (process.env.ELEVENTY_ENV !== 'dev') {
+		url = `${process.env.SITE_URL}${url}`
+	}
+	return fetch(url, {
 		duration: "1m",
 		type: "json"
 	}).then(res => {

@@ -2,12 +2,11 @@
 layout: partials/layout.njk
 ---
 
-{% include 'partials/header.html' %}
+	{% include 'partials/header.html' %}
+	<main id="main">
+		{{ content | safe }}
+	</main>
 
-<main id="main">
-	{{ content | safe }}
-</main>
+	{% include 'partials/footer.html' %}
 
-{% include 'partials/footer.html' %}
-
-<script async src="/js/main.js"></script>
+	<script async src="/js/main.js"></script>

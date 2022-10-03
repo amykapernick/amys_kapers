@@ -1,9 +1,11 @@
 ---
 permalink: /calendar/index.html
 layout: layouts/calendar.njk
+pagetitle: 'Calendar - Year in a View'
 ---
-<h1>Calendar</h1>
+
 <div class="calendar">
+	<h1>Calendar</h1>
 	{% for year, days in calendarYears %}
 	<div class="year y-{{year}}">
 		<h2>{{year}}</h2>
