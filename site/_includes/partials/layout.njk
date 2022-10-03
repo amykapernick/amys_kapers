@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+
+<head>
+	{% set favicon = '/img/amy_small.png' %}
+	<meta charset="utf-8" />
+	<meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+	<link rel="preload" href="/css/main.min.css"  as="style" onload="this.rel='stylesheet'" />
+	<noscript><link rel="stylesheet" href="/css/main.min.css"></noscript>
+	<link rel="shortcut icon" href="{{env.siteUrl}}{{favicon}}" />
+	<link rel="shortcut icon" href="{{env.siteUrl}}{{favicon}}" />
+	<link rel="icon" sizes="192x192" href="{{env.siteUrl}}{{favicon}}" />
+	<link rel="apple-touch-icon" href="{{env.siteUrl}}{{favicon}}" />
+	<meta name="theme-color" content="#9440a0" />
+	<link rel="mask-icon" href="{{env.siteUrl}}{{favicon}}" color="#9440a0" />
+	<base href="{{env.siteUrl}}/" />
+
+	{% if env.env == "dev" %}
+	{% include 'partials/dev_styles.html' %}
+	{% endif %}
+
+	{# Meta Info #}
+	<title>{{pagetitle}}</title>
+	<meta name="description" content="{{description}}" />
+
+	{# OG Social #}
+	<meta property="og:title" content="{{pagetitle}}" />
+	<meta property="og:description" content="{{description}}">
+	<meta property="og:image" content="{{env.siteUrl}}/img/socials/default.png" />
+	<meta name="author" content="Amy Kapernick" />
+	<meta property="og:url" content="{{env.siteUrl}}{{permalink}}" />
+
+	{# Twitter #}
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@amys_kapers" />
+	<meta property="twitter:image" content="{{env.siteUrl}}/img/socials/default.png" />
+	<meta name="twitter:creator" content="@amys_kapers" />
+	<meta property="twitter:title" content="{{pagetitle}}" />
+	<meta property="twitter:description" content="{{description}}" />
+</head>
+
+<body class={{class}}>
+	{{ content | safe }}
+</body>
+
+</html>

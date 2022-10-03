@@ -1,127 +1,68 @@
 ---
 permalink: /index.html
+layout: layouts/main.njk
 ---
 {% set pagetitle = "Amy Kapernick" %}
 {% set description = "Amy is a freelance developer, who spends her time volunteering at various community events in Perth, works as an evangelist for YOW! and is a Twilio Champion and Microsoft MVP. In her spare time she blogs about tech, the web and life and speaks at various conferences all over the world." %}
-{% extends 'layouts/main.njk' %}
 
-{% block content %}
-<section class="intro_section">
-	<blockquote>
-		<p>Hi, I'm Amy</p>
+	<section class="intro_section">
+		<blockquote>
+			<p>Hi, I'm Amy</p>
 
-		<div class="rotate">
-			<p>I'm a</p>
-			<ul class="options">
-				<li>Front End Developer</li>
-				<li>Speaker</li>
-				<li>Dog Lover</li>
-				<li>MVP</li>
-				<li>Writer</li>
-				<li class="an">Organiser</li>
-				<li>Mentor</li>
-				<li>Champion</li>
-				<li class="an">Evangelist</li>
-				<li>Conference Addict</li>
-			</ul>
+			<div class="rotate">
+				<p>I'm a</p>
+				<ul class="options">
+					<li>Front End Developer</li>
+					<li>Speaker</li>
+					<li>Dog Lover</li>
+					<li>MVP</li>
+					<li>Writer</li>
+					<li class="an">Organiser</li>
+					<li>Mentor</li>
+					<li>Champion</li>
+					<li class="an">Evangelist</li>
+					<li>Conference Addict</li>
+				</ul>
+			</div>
+		</blockquote>
+		<div class="image">
+			{% svg 'graphics/image_blob_2' %}
+			{% svg 'graphics/blob_2' %}
 		</div>
-	</blockquote>
-	<div class="image">
-		{% svg 'graphics/image_blob_2' %}
-		{% svg 'graphics/blob_2' %}
-	</div>
-	{% svg 'graphics/blob_small' %}
-</section>
-
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/development' %}
-	</span>
-	<div class="content">
-		<p>I help businesses get online, and stay online.</p>
-		<p>At AimHigher we build modern & professional websites purpose made to be easily maintained by anyone, regardless of technical skill. </p>
-		<ul class="icons">
-			<li>
-				<a href="https://aimhigherweb.design" target="_blank" rel="nofollow">
-					{% svg "icons/aimhigher" %}
-					<span>AimHigher Web</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-	{% svg 'graphics/heart' %}
-</section>
-
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/conference' %}
-	</span>
-	<div class="content">
-		<p>I <a href="/talks">speak at conferences</a> about front end development, the web, mental health and life.</p>
-		<p>I also run in person and online <a href="/workshops">workshops</a> for a more in-depth focus on front end tech, both internally and alongside other events.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://speaking.amyskapers.dev" target="_blank" rel="nofollow">
-					{% svg "icons/notist" %}
-					<span>Notist</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
-
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/coding' %}
-	</span>
-	<div class="content">
-		<p>I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and Muses Code JS (formerly NodeGirls).</p>
-		<ul class="icons">
-			<li>
-				<a href="https://techoutsiders.com.au/amy-kapernick/" target="_blank" rel="nofollow">
-					{% svg "icons/techoutsiders" %}
-					<span>Tech Outsiders</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://musescodejs.org/perth.html" target="_blank" rel="nofollow">
-					{% svg "icons/musesjs" %}
-					<span>Muses Code JS</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://shecodes.com.au/" target="_blank" rel="nofollow">
-					{% svg "icons/shecodes" %}
-					<span>She Codes</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
-
-<div class="background">
-	{% svg 'graphics/blob_background' %}
-	{% svg 'graphics/leaf_thin' %}
-	{% svg 'graphics/dots' %}
+		{% svg 'graphics/blob_small' %}
+	</section>
 
 	<section class="section">
 		<span class="graphic">
-			{% svg 'graphics/blog' %}
+			{% svg 'graphics/development' %}
 		</span>
 		<div class="content">
-			<p>I write blog posts. Sometimes I blog about tech, sometimes about the web, sometimes about life.</p>
-			<p>Other times I live stream while I'm working on side projects, sometimes JavaScript, other times CSS.</p>
+			<p>I help businesses get online, and stay online.</p>
+			<p>At AimHigher we build modern & professional websites purpose made to be easily maintained by anyone, regardless of technical skill. </p>
 			<ul class="icons">
 				<li>
-					<a href="https://amygoestoperth.com.au" target="_blank" rel="nofollow">
-						{% svg "icons/blog" %}
-						<span>Amy's Kapers</span>
+					<a href="https://aimhigherweb.design" target="_blank" rel="nofollow">
+						{% svg "icons/aimhigher" %}
+						<span>AimHigher Web</span>
 					</a>
 				</li>
+			</ul>
+		</div>
+		{% svg 'graphics/heart' %}
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/conference' %}
+		</span>
+		<div class="content">
+			<p>I <a href="/talks">speak at conferences</a> about front end development, the web, mental health and life.</p>
+			<p>I also run in person and online <a href="/workshops">workshops</a> for a more in-depth focus on front end tech, both internally and alongside other events.</p>
+			<ul class="icons">
 				<li>
-					<a href="https://www.twitch.tv/amyskapers" target="_blank" rel="nofollow">
-						{% svg "icons/twitch" %}
-						<span>Twitch</span>
+					<a href="https://speaking.amyskapers.dev" target="_blank" rel="nofollow">
+						{% svg "icons/notist" %}
+						<span>Notist</span>
 					</a>
 				</li>
 			</ul>
@@ -130,138 +71,195 @@ permalink: /index.html
 
 	<section class="section">
 		<span class="graphic">
-			{% svg 'graphics/office_team' %}
+			{% svg 'graphics/coding' %}
 		</span>
 		<div class="content">
-			<p>I'm a Microsoft MVP. This means I do a lot of work in my community and sharing what I've learnt in conference talks and blog posts.</p>
+			<p>I mentor at events, helping more girls and women get involved in tech. This includes She Codes (formerly Perth Web Girls) and Muses Code JS (formerly NodeGirls).</p>
 			<ul class="icons">
 				<li>
-					<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595" target="_blank" rel="nofollow">
-						{% svg "icons/mvp" %}
-						<span>Microsoft MVPs</span>
+					<a href="https://techoutsiders.com.au/amy-kapernick/" target="_blank" rel="nofollow">
+						{% svg "icons/techoutsiders" %}
+						<span>Tech Outsiders</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://musescodejs.org/perth.html" target="_blank" rel="nofollow">
+						{% svg "icons/musesjs" %}
+						<span>Muses Code JS</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://shecodes.com.au/" target="_blank" rel="nofollow">
+						{% svg "icons/shecodes" %}
+						<span>She Codes</span>
 					</a>
 				</li>
 			</ul>
 		</div>
 	</section>
 
-	<section class="section">
-		<span class="graphic">
-			{% svg 'graphics/community' %}
-		</span>
-		<div class="content">
-			<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
-			<ul class="icons">
-				<li>
-					<a href="https://www.twilio.com/champions" target="_blank" rel="nofollow">
-						{% svg "icons/twilio" %}
-						<span>Twilio Champions</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</section>
-
-	{% svg 'graphics/blob' %}
-	{% svg 'graphics/flower_2' %}
-</div>
-
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/writing' %}
-	</span>
-	<div class="content">
-		<p>Sometimes I write interesting things on socials, but mostly it's just pictures of my dog.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://twitter.com/amys_kapers" target="_blank" rel="nofollow">
-					{% svg "icons/twitter" %}
-					<span>Twitter</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/amys_kapers/" target="_blank" rel="nofollow">
-					{% svg "icons/instagram" %}
-					<span>Instagram</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://github.com/amykapernick" target="_blank" rel="nofollow">
-					{% svg "icons/github" %}
-					<span>GitHub</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://codepen.io/amys_kapers" target="_blank" rel="nofollow">
-					{% svg "icons/codepen" %}
-					<span>Codepen</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://www.linkedin.com/in/amykapernick" target="_blank" rel="nofollow">
-					{% svg "icons/linkedin" %}
-					<span>LinkedIn</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
-
-<section class="section">
-	<span class="graphic">
-		{% svg 'graphics/team' %}
-	</span>
-	<div class="content">
-		<p>I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local businesses and community groups to see how we can help them and get them involved in our conferences.</p>
-		<ul class="icons">
-			<li>
-				<a href="https://yowconference.com" target="_blank" rel="nofollow">
-					{% svg "icons/yow" %}
-					<span>YOW! Conference</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-</section>
-
-{% svg 'graphics/flower' %}
-
-<section class="section special">
-	<div class="graphic image">
-		{% svg 'graphics/image_blob' %}
-		{% svg 'graphics/paw' %}
-		{% svg 'graphics/blob' %}
-	</div>
-	<p>I have a grey and white border collie who likes long walks on the beach and snuggling on the couch.</p>
-</section>
-
-<section id="where" class="where">
 	<div class="background">
-		{% svg 'graphics/blob_hexagon' %}
-	</div>
-	<div class="summary">
-		{% svg 'graphics/globe' %}
-		<h2>Where is Amy?</h2>
-		<p class="current">Right now Amy is in <span class="location"><img alt="" src="/img/countries/australia.svg"> Perth, Australia</span> <span class="conference"></span>
-		</p>
-	</div>
-	{% svg 'graphics/squiggle' %}
-	<a class="top" href="#main">
-		{% svg 'graphics/arrow' %}
-		<span class="sr-only">Back to top</span>
-	</a>
-	<h3 class="sr-only">Coming Up Next</h3>
-	<div class="upcoming">
-		<h4>Trips</h4>
-		<div class="trips">
-			<p>Loading upcoming trips</p>
-		</div>
-		<h4>Events</h4>
-		<div class="conferences">
-			<p>Loading upcoming events</p>
-		</div>
+		{% svg 'graphics/blob_background' %}
+		{% svg 'graphics/leaf_thin' %}
+		{% svg 'graphics/dots' %}
+
+		<section class="section">
+			<span class="graphic">
+				{% svg 'graphics/blog' %}
+			</span>
+			<div class="content">
+				<p>I write blog posts. Sometimes I blog about tech, sometimes about the web, sometimes about life.</p>
+				<p>Other times I live stream while I'm working on side projects, sometimes JavaScript, other times CSS.</p>
+				<ul class="icons">
+					<li>
+						<a href="https://amygoestoperth.com.au" target="_blank" rel="nofollow">
+							{% svg "icons/blog" %}
+							<span>Amy's Kapers</span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.twitch.tv/amyskapers" target="_blank" rel="nofollow">
+							{% svg "icons/twitch" %}
+							<span>Twitch</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section">
+			<span class="graphic">
+				{% svg 'graphics/office_team' %}
+			</span>
+			<div class="content">
+				<p>I'm a Microsoft MVP. This means I do a lot of work in my community and sharing what I've learnt in conference talks and blog posts.</p>
+				<ul class="icons">
+					<li>
+						<a href="https://mvp.microsoft.com/en-us/publicprofile/5003595" target="_blank" rel="nofollow">
+							{% svg "icons/mvp" %}
+							<span>Microsoft MVPs</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section">
+			<span class="graphic">
+				{% svg 'graphics/community' %}
+			</span>
+			<div class="content">
+				<p>I'm a Twilio Champion. This means I help Twilio to build better communities.</p>
+				<ul class="icons">
+					<li>
+						<a href="https://www.twilio.com/champions" target="_blank" rel="nofollow">
+							{% svg "icons/twilio" %}
+							<span>Twilio Champions</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		{% svg 'graphics/blob' %}
+		{% svg 'graphics/flower_2' %}
 	</div>
 
-</section>
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/writing' %}
+		</span>
+		<div class="content">
+			<p>Sometimes I write interesting things on socials, but mostly it's just pictures of my dog.</p>
+			<ul class="icons">
+				<li>
+					<a href="https://twitter.com/amys_kapers" target="_blank" rel="nofollow">
+						{% svg "icons/twitter" %}
+						<span>Twitter</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/amys_kapers/" target="_blank" rel="nofollow">
+						{% svg "icons/instagram" %}
+						<span>Instagram</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/amykapernick" target="_blank" rel="nofollow">
+						{% svg "icons/github" %}
+						<span>GitHub</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://codepen.io/amys_kapers" target="_blank" rel="nofollow">
+						{% svg "icons/codepen" %}
+						<span>Codepen</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.linkedin.com/in/amykapernick" target="_blank" rel="nofollow">
+						{% svg "icons/linkedin" %}
+						<span>LinkedIn</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
 
-{% endblock %}
+	<section class="section">
+		<span class="graphic">
+			{% svg 'graphics/team' %}
+		</span>
+		<div class="content">
+			<p>I work as an evangelist for YOW! Conferences. This means I spent a lot of time at community events and working with local businesses and community groups to see how we can help them and get them involved in our conferences.</p>
+			<ul class="icons">
+				<li>
+					<a href="https://yowconference.com" target="_blank" rel="nofollow">
+						{% svg "icons/yow" %}
+						<span>YOW! Conference</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	{% svg 'graphics/flower' %}
+
+	<section class="section special">
+		<div class="graphic image">
+			{% svg 'graphics/image_blob' %}
+			{% svg 'graphics/paw' %}
+			{% svg 'graphics/blob' %}
+		</div>
+		<p>I have a grey and white border collie who likes long walks on the beach and snuggling on the couch.</p>
+	</section>
+
+	<section id="where" class="where">
+		<div class="background">
+			{% svg 'graphics/blob_hexagon' %}
+		</div>
+		<div class="summary">
+			{% svg 'graphics/globe' %}
+			<h2>Where is Amy?</h2>
+			<p class="current">Right now Amy is in <span class="location"><img alt="" src="/img/countries/australia.svg"> Perth, Australia</span> <span class="conference"></span>
+			</p>
+		</div>
+		{% svg 'graphics/squiggle' %}
+		<a class="top" href="#main">
+			{% svg 'graphics/arrow' %}
+			<span class="sr-only">Back to top</span>
+		</a>
+		<h3 class="sr-only">Coming Up Next</h3>
+		<div class="upcoming">
+			<h4>Trips</h4>
+			<div class="trips">
+				<p>Loading upcoming trips</p>
+			</div>
+			<h4>Events</h4>
+			<div class="conferences">
+				<p>Loading upcoming events</p>
+			</div>
+		</div>
+
+	</section>
+
