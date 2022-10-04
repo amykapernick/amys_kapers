@@ -4,8 +4,6 @@ const { isSameMonth, setDate, getDay, getDate, getMonth, parseISO, getYear } = r
 module.exports = async () => {
 	let url = `${process.env.API_URL}/events?filter=all`
 
-	return;
-
 	if (!url.includes('http')) {
 		url = `${process.env.SITE_URL}${url}`
 	}

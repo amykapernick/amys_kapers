@@ -4,8 +4,6 @@ const { isSameMonth, setDate, getYear, getDay, getDate, getMonth, parseISO } = r
 module.exports = async () => {
 	let url = `${process.env.API_URL}/travel?filter=all`
 
-	return;
-
 	if (!url.includes('http')) {
 		url = `${process.env.SITE_URL}${url}`
 	}
