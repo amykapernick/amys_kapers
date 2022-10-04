@@ -6,9 +6,11 @@ module.exports = async () => {
 
 	return;
 
-	if (process.env.ELEVENTY_ENV !== 'dev') {
+	if (!url.includes('http')) {
 		url = `${process.env.SITE_URL}${url}`
 	}
+
+
 	return fetch(url, {
 		duration: "1m",
 		type: "json"

@@ -7,11 +7,14 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 module.exports = async () => {
 	let url = `${process.env.API_URL}/events?filter=all`
 
-	return;
+	console.log({ url })
 
-	if (process.env.ELEVENTY_ENV !== 'dev') {
+	if (!url.includes('http')) {
 		url = `${process.env.SITE_URL}${url}`
 	}
+
+	console.log({ url })
+
 	return fetch(url, {
 		duration: "10s",
 		type: "json"
