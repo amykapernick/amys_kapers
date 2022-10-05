@@ -35,5 +35,10 @@
 		"end": "2022-11-14",
 		"city": "Vilinus",
 		"country": "Lithuania"
+	},
+	{
+		"start": "2022-12-01",
+		"end": "2022-12-04",
+		"city": "Brisbane"
 	}
 ]
