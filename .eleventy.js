@@ -1,23 +1,23 @@
 require('dotenv').config()
 
 const markdownIt = require('markdown-it'),
-svgPlugin = require('@jamshop/eleventy-plugin-svg'),
-months = [
-	'January',
-	'February',
-	'March',
-	'April',
-	'May',
-	'June',
-	'July',
-	'August',
-	'September',
-	'October',
-	'November',
-	'December'
-]
+	svgPlugin = require('@jamshop/eleventy-plugin-svg'),
+	months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May',
+		'June',
+		'July',
+		'August',
+		'September',
+		'October',
+		'November',
+		'December'
+	]
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 	// Dev Config
 	eleventyConfig.setBrowserSyncConfig({
 		notify: true,
@@ -27,21 +27,25 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addWatchTarget('./site/src/')
 
 	// Static Files
-	eleventyConfig.addPassthroughCopy({'site/src/img': 'img'})
-	eleventyConfig.addPassthroughCopy({'site/src/fonts': 'fonts'})
-	eleventyConfig.addPassthroughCopy({'site/src/files': 'files'})
+	eleventyConfig.addPassthroughCopy({ 'site/src/img': 'img' })
+	eleventyConfig.addPassthroughCopy({ 'site/src/fonts': 'fonts' })
+	eleventyConfig.addPassthroughCopy({ 'site/src/files': 'files' })
 
 	// Filters and Shortcodes
 	eleventyConfig.addNunjucksShortcode('debug', (data) => {
 		console.log(data)
 		return (
-		`<pre>${JSON.stringify(data)}</pre>`
-	)})
+			`<pre>${JSON.stringify(data)}</pre>`
+		)
+	})
 	eleventyConfig.addFilter('renderHtml', (string) => (new markdownIt().render(string)))
 	eleventyConfig.addNunjucksShortcode('filterTalks', (title, events) => {
-		if(!events) {
+		if (!events) {
 			return
 		}
+
+		console.log({ title, events })
+
 		const talks = events.filter(event => title === event.title)
 		const talksList = talks.map(talk => (
 			`<li>
@@ -64,8 +68,8 @@ module.exports = function(eleventyConfig) {
 	// Plugins
 	eleventyConfig.addPlugin(svgPlugin, {
 		input: "site/src/img/"
-	  });
-	  
+	});
+
 
 	// Markdown Options
 	const markdown = markdownIt({

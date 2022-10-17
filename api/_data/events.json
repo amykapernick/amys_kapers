@@ -36,7 +36,8 @@
 		"start": "2022-11-09",
 		"end": "2022-11-11",
 		"name": "Build Stuff",
-		"type": "speaking"
+		"type": "speaking",
+		"url": "https://www.buildstuff.events/agenda"
 	},
 	{
 		"start": "2022-10-21",
@@ -47,7 +48,8 @@
 		"start": "2023-01-23",
 		"end": "2023-01-27",
 		"name": "NDC London",
-		"type": "speaking"
+		"type": "speaking",
+		"url": "https://ndclondon.com/speakers/amy-kapernick"
 	},
 	{
 		"start": "2022-12-03",
