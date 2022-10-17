@@ -1,10 +1,9 @@
-{% set class = "header-reduced" %}
-{% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
-{% set description = "A few questions to prepare for your upcoming workshop" %}
-{% set permalink = "/workshop" %}
-{% extends 'layouts/main.njk' %}
-
-{% block content %}
+---
+layout: layouts/main.njk
+pagetitle: "Front End Web Fundamentals Workshop | Amy Kapernick"
+description: "A few questions to prepare for your upcoming workshop"
+class: "header-reduced"
+---
 
 <article class="workshop-prep">
 	<h1>Front End Web Fundamentals Workshop</h1>
@@ -93,5 +92,3 @@
 	</form>
 
 </article>
-
-{% endblock %}

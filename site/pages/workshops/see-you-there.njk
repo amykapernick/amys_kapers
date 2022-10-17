@@ -1,24 +1,12 @@
-
-{% set pagetitle = "Front End Web Fundamentals Workshop | Amy Kapernick" %}
-{% set description = "A few questions to prepare for your upcoming workshop" %}
-{% extends 'layouts/main.njk' %}
-
-{% block content %}
+---
+layout: layouts/main.njk
+pagetitle: "Pre-Workshop | Amy Kapernick"
+description: "A few questions to prepare for your upcoming workshop" 
+---
 
 <article class="landing">
 	<h1>Thank You</h1>
 
 	<p>Thanks for filling out the form, see you at the workshop!</p>
 
-	<p>In preparation, make sure you have the following ready to go:</p>
-	<ul>
-		<li>Installed NodeJS version <code>14.15.0</code> or higher</li>
-		<li>Headphones (you'll need them for day 2)</li>
-		<li>Cypress installed globally (this will take a while to install)
-			<pre>npm install -g cypress</pre>
-		</li>
-	</ul>
-
 </article>
-
-{% endblock %}

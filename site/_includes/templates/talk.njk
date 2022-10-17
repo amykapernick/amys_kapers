@@ -1,14 +1,11 @@
-{% set class = "header-reduced" %}
-{% set pagetitle = title + " | Amy Kapernick" %}
-{% set description = "I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events." %}
-{% extends 'layouts/main.njk' %}
-
-{% block content %}
+---
+layout: layouts/main.njk
+description: "I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events."
+class: "header-reduced"
+---
 
 <article class="content">
 	<h1>{{title}}</h1>
 
 	<div>{{content | safe}}</div>
 </article>
-
-{% endblock %}

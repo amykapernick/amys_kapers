@@ -1,5 +1,5 @@
 ---
-title: How to Build a Quokka Bot
+title: How to Build a QuokkaBot
 ---
 Quokkas are the happiest animal in Australia that surprisingly isn't trying to kill you. But can you really be sure that what you're looking at is a Quokka and not something more dangerous?
 
