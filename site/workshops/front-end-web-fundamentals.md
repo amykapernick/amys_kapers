@@ -9,16 +9,29 @@ This hands on workshop covers modern front end fundamentals, enabling you to cre
 
 Once that is done, we then move on to testing our application, making sure that our accessibility improvements are there, watching for any unintended changes and making sure that the application works as it's supposed to. Through automated tools that can be implemented as part of a deployment pipeline, to manual tools to check on the fly, there are plenty of options to ensure the front end is being tested as thoroughly as the back end.
 
+After the tests are written, we'll then integrate them as part of an approval and deployment pipeline. Automating the tests for pull requests, running through GitHub actions and ensuring that code is fully tested before it reaches the production branch of your repo. 
+
 <!-- excerpt -->
 
 ## Topics
 
-- CSS Layouts
 - Semantic HTML
-- Modern CSS Layouts
-- Accessibility Testing
+- Accessibility
+- CSS Layouts
+- Modern CSS
+- Accessibility Testing (automated and manual tests)
 - Visual Regression Testing
 - UI Testing
+- Setting up an automated testing pipeline
+
+## Tools
+
+This workshop involves using various testing tools, and involves getting started with the tools from the beginning without any prior experience. Where possible, open source tools are used.
+
+- Accessibility Testing: aXe and Pa11y
+- Visual Regression Testing: Percy
+- UI Testing: Playwright
+- Automating tests: GitHub Actions
 
 ## Who Should Attend
 
@@ -26,14 +39,14 @@ This workshop is aimed at anyone who works with front end code on a regular basi
 
 ## Pre-requisites
 
-Some experience with front end code desirable, a basic understanding of HTML and CSS. Some experience with JavaScript is also useful, but not essential.
+Some experience with front end code desirable, a basic understanding of HTML and CSS as fundamental concepts won't be covered. Some experience with JavaScript is also useful as the tests will be written in JavaScript.
 
 ## Length
 
 This workshop is two full days: 
 
-- Day 1: Semantic HTML and CSS Layouts
-- Day 2: Front End Testing
+- Day 1: Semantic HTML, Accessibility and CSS Layouts
+- Day 2: Front End Testing and Testing Pipelines
 
 ## Interested?
 
