@@ -55,5 +55,15 @@
 		"start": "2022-12-03",
 		"name": "DDD Brisbane",
 		"type": "attending"
+	},
+	{
+		"start": "2023-05-22",
+		"end": "2023-05-26",
+		"name": "NDC Oslo",
+		"type": [
+			"speaking",
+			"workshop"
+		],
+		"url": "https://ndcoslo.com/speakers/amy-kapernick"
 	}
 ]
