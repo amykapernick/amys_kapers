@@ -40,5 +40,23 @@
 		"start": "2022-12-01",
 		"end": "2022-12-04",
 		"city": "Brisbane"
+	},
+	{
+		"start": "2023-01-22",
+		"end": "2023-01-29",
+		"city": "London",
+		"country": "United Kingdom"
+	},
+	{
+		"start": "2023-05-19",
+		"end": "2023-05-28",
+		"city": "Oslo",
+		"country": "Norway"
+	},
+	{
+		"start": "2023-05-28",
+		"end": "2023-06-19",
+		"city": "London",
+		"country": "United Kingdom"
 	}
 ]
