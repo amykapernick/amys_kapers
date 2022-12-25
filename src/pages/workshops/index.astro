@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/default.astro";
+import SVG from "../../parts/svg.astro";
+import PostExcerpt from "@igor.dvlpr/astro-post-excerpt";
+
+const workshopFiles = await Astro.glob("../../../workshops/**/*.md");
+
+const workshops = [];
+
+workshopFiles.forEach((workshop) => {
+	const matches = workshop.file.match(/\/(?<slug>(?:\w|\w|-)+)\.md$/i);
+	const { slug } = matches?.groups;
+
+	workshops.push({ ...workshop, permalink: `/workshops/${slug}`, slug });
+});
+
+const content = {
+	pageTitle: "Workshops | Amy Kapernick",
+	description:
+		"I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.",
+};
+---
+
+<Layout content={content}>
+	<h1 class="sr-only">Workshops</h1>
+	<section class="intro_section">
+		<blockquote>
+			<p>Hi, I'm Amy</p>
+
+			<div class="rotate">
+				<p>I'm a <mark>Speaker</mark></p>
+			</div>
+		</blockquote>
+		<div class="image">
+			<SVG name="graphics/image_blob_2.svg" />
+			<SVG name="graphics/blob_2.svg" />
+		</div>
+		<SVG name="graphics/blob_small.svg" />
+	</section>
+
+	<section>
+		<p>
+			I am currently running a variety of workshops on front end tech,
+			both in person and online.
+		</p>
+		<p>
+			Want me to run a workshop at your company or event? The workshops
+			I'm running are below, and you can <a href="/contact"
+				>get in touch here</a
+			>
+		</p>
+	</section>
+
+	{
+		workshops.map((workshop) => (
+			<article>
+				<h2>
+					<a href={workshop.permalink}>
+						{workshop.frontmatter.title}
+					</a>
+				</h2>
+				<!-- TODO: Fix excerpt to be full to the cutoff -->
+				<PostExcerpt post={workshop} addEllipsis={false} />
+			</article>
+		))
+	}
+</Layout>

@@ -1,0 +1,98 @@
+---
+import Layout from "../../../layouts/default.astro";
+
+const content = {
+	pageTitle: "Front End Web Fundamentals Workshop | Amy Kapernick",
+	description: "A few questions to prepare for your upcoming workshop"
+};
+---
+
+<Layout content={content}>
+	<article class="workshop-prep">
+		<h1>Front End Web Fundamentals Workshop</h1>
+		<form id="workshop-prep" action="{{env.api}}{{env.formWorkshopPrep}}" method="post">
+			<input type="hidden" name="redirect" value="{{env.siteUrl}}/workshops/see-you-there" />
+			<input type="hidden" name="page" value="{{permalink}}" />
+			<input type="hidden" name="notion_page" value="{{env.pageWorkshopPrep}}" />
+			<label for="name">Name</label>
+			<input type="text" name="name" id="name" required />
+			<fieldset>
+				<div>
+					<legend>What operating system do you use?</legend>
+					{% for opt in forms.workshopPrep.os %}
+					<input type="radio" name="os" id="os_{{opt.value}}" value="{{opt.value}}" />
+					<label for="os_{{opt.value}}">{{opt.label}}</label>
+					{% endfor %}
+				</div>
+			</fieldset>
+			<fieldset>
+				<div class="long">
+					<legend>What is your main dev browser?</legend>
+					{% for opt in forms.workshopPrep.browser %}
+					<input type="radio" name="browser" id="browser_{{opt.value}}" value="{{opt.value}}" />
+					<label for="browser_{{opt.value}}">{{opt.label}}</label>
+					{% endfor %}
+					<input type="radio" name="browser" id="browser_other" value="other" />
+					<label for="browser_other">Other</label>
+				</div>
+			</fieldset>
+			<fieldset>
+				<div>
+					<legend>What code editor/IDE do you use?</legend>
+					{% for opt in forms.workshopPrep.ide %}
+					<input type="radio" name="ide" id="ide_{{opt.value}}" value="{{opt.value}}" />
+					<label for="ide_{{opt.value}}">{{opt.label}}</label>
+					{% endfor %}
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="node_cli">How comfortable are you using Node and the command line?</label>
+				<div class="range" style="--opts: {{forms.workshopPrep.node_cli.opts | length}}">
+					<input type="range" name="node_cli" id="node_cli" list="node_cli_opts" max="{{forms.workshopPrep.node_cli.max}}" min="{{forms.workshopPrep.node_cli.min}}" step="{{forms.workshopPrep.node_cli.step}}" />
+					<datalist id="node_cli_opts">
+						{% for opt in forms.workshopPrep.node_cli.opts %}
+						<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
+					</datalist>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="node_version">What version of Node do you have installed?</label>
+				<div class="range" style="--opts: {{forms.workshopPrep.node_version.opts | length}}">
+					<input type="range" name="node_version" id="node_version" list="node_version_opts" max="{{forms.workshopPrep.node_version.max}}" min="{{forms.workshopPrep.node_version.min}}" step="{{forms.workshopPrep.node_version.step}}" />
+					<datalist id="node_version_opts">
+						{% for opt in forms.workshopPrep.node_version.opts %}
+						<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
+					</datalist>
+				</div>
+			</fieldset>
+			<fieldset>
+				<label for="css_skills">How comfortable are you using CSS?</label>
+				<div class="range" style="--opts: {{forms.workshopPrep.css_skills.opts | length}}">
+					<input type="range" name="css_skills" id="css_skills" list="css_skills_opts" max="{{forms.workshopPrep.css_skills.max}}" min="{{forms.workshopPrep.css_skills.min}}" step="{{forms.workshopPrep.css_skills.step}}" />
+					<datalist id="css_skills_opts">
+						{% for opt in forms.workshopPrep.css_skills.opts %}
+						<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
+					</datalist>
+				</div>
+			</fieldset>
+			<label for="html">Without Google, list 20 HTML elements</label>
+			<textarea id="html" name="html"></textarea>
+			<fieldset>
+				<label for="js_skills">How comfortable are you using JavaScript?</label>
+				<div class="range" style="--opts: {{forms.workshopPrep.js_skills.opts | length}}">
+					<input type="range" name="js_skills" id="js_skills" list="js_skills_opts" max="{{forms.workshopPrep.js_skills.max}}" min="{{forms.workshopPrep.js_skills.min}}" step="{{forms.workshopPrep.js_skills.step}}" />
+					<datalist id="js_skills_opts">
+						{% for opt in forms.workshopPrep.js_skills.opts %}
+						<option value="{{opt.value}}">{{opt.label}}</option>
+						{% endfor %}
+					</datalist>
+				</div>
+			</fieldset>
+			<button type="submit">Submit</button>
+		</form>
+	
+	</article>
+</Layout>

@@ -1,0 +1,365 @@
+---
+import Layout from "../layouts/default.astro";
+import SVG from "../parts/svg.astro";
+
+const content = {
+	pageTitle: "Amy Kapernick",
+	description:
+		"Amy is a freelance developer, who spends her time volunteering at various community events in Perth, works as an evangelist for YOW! and is a Twilio Champion and Microsoft MVP. In her spare time she blogs about tech, the web and life and speaks at various conferences all over the world.",
+};
+---
+
+<Layout content={content}>
+	<section class="intro_section">
+		<blockquote>
+			<p>Hi, I'm Amy</p>
+
+			<div class="rotate">
+				<p>I'm a</p>
+				<ul class="options">
+					<li>Front End Developer</li>
+					<li>Speaker</li>
+					<li>Dog Lover</li>
+					<li>MVP</li>
+					<li>Writer</li>
+					<li class="an">Organiser</li>
+					<li>Mentor</li>
+					<li>Champion</li>
+					<li class="an">Advocate</li>
+					<li>Conference Addict</li>
+				</ul>
+			</div>
+		</blockquote>
+		<div class="image">
+			<SVG name="graphics/image_blob_2.svg" />
+			<SVG name="graphics/blob_2.svg" />
+		</div>
+		<SVG name="graphics/blob_small.svg" />
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			<SVG name="graphics/development.svg" />
+		</span>
+		<div class="content">
+			<p>I help businesses get online, and stay online.</p>
+			<p>
+				At AimHigher we build modern & professional websites purpose
+				made to be easily maintained by anyone, regardless of technical
+				skill.
+			</p>
+			<ul class="icons">
+				<li>
+					<a
+						href="https://aimhigherweb.design"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/aimhigher.svg" />
+						<span>AimHigher Web</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<SVG name="graphics/heart.svg" />
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			<SVG name="graphics/conference.svg" />
+		</span>
+		<div class="content">
+			<p>
+				I <a href="/talks">speak at conferences</a> about front end development,
+				the web, mental health and life.
+			</p>
+			<p>
+				I also run in person and online <a href="/workshops"
+					>workshops</a
+				> for a more in-depth focus on front end tech, both internally and
+				alongside other events.
+			</p>
+			<ul class="icons">
+				<li>
+					<a
+						href="https://speaking.amyskapers.dev"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/notist.svg" />
+						<span>Notist</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			<SVG name="graphics/coding.svg" />
+		</span>
+		<div class="content">
+			<p>
+				I mentor at events, helping more girls and women get involved in
+				tech. This includes She Codes (formerly Perth Web Girls) and
+				Muses Code JS (formerly NodeGirls).
+			</p>
+			<ul class="icons">
+				<li>
+					<a
+						href="https://techoutsiders.com.au/amy-kapernick/"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/techoutsiders.svg" />
+						<span>Tech Outsiders</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://musescodejs.org/perth.html"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/musesjs.svg" />
+						<span>Muses Code JS</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://shecodes.com.au/"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/shecodes.svg" />
+						<span>She Codes</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="background">
+		<SVG name="graphics/blob_background.svg" />
+		<SVG name="graphics/leaf_thin.svg" />
+		<SVG name="graphics/dots.svg" />
+
+		<section class="section">
+			<span class="graphic">
+				<SVG name="graphics/blog.svg" />
+			</span>
+			<div class="content">
+				<p>
+					I write blog posts. Sometimes I blog about tech, sometimes
+					about the web, sometimes about life.
+				</p>
+				<ul class="icons">
+					<li>
+						<a
+							href="https://amygoestoperth.com.au"
+							target="_blank"
+							rel="nofollow"
+						>
+							<SVG name="icons/blog.svg" />
+							<span>Amy's Kapers</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section">
+			<span class="graphic">
+				<SVG name="graphics/office_team.svg" />
+			</span>
+			<div class="content">
+				<p>
+					I'm a Microsoft MVP. This means I do a lot of work in my
+					community and sharing what I've learnt in conference talks
+					and blog posts.
+				</p>
+				<ul class="icons">
+					<li>
+						<a
+							href="https://mvp.microsoft.com/en-us/publicprofile/5003595"
+							target="_blank"
+							rel="nofollow"
+						>
+							<SVG name="icons/mvp.svg" />
+							<span>Microsoft MVPs</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="section">
+			<span class="graphic">
+				<SVG name="graphics/community.svg" />
+			</span>
+			<div class="content">
+				<p>
+					I'm a Twilio Champion. This means I help Twilio to build
+					better communities.
+				</p>
+				<ul class="icons">
+					<li>
+						<a
+							href="https://www.twilio.com/champions"
+							target="_blank"
+							rel="nofollow"
+						>
+							<SVG name="icons/twilio.svg" />
+							<span>Twilio Champions</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<SVG name="graphics/blob.svg" />
+		<SVG name="graphics/flower_2.svg" />
+	</div>
+
+	<section class="section">
+		<span class="graphic">
+			<SVG name="graphics/writing.svg" />
+		</span>
+		<div class="content">
+			<p>
+				Sometimes I write interesting things on socials, but mostly it's
+				just pictures of my dog.
+			</p>
+			<ul class="icons">
+				<li>
+					<a
+						href="https://twitter.com/amys_kapers"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/twitter.svg" />
+						<span>Twitter</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.instagram.com/amys_kapers/"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/instagram.svg" />
+						<span>Instagram</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://github.com/amykapernick"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/github.svg" />
+						<span>GitHub</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://codepen.io/amys_kapers"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/codepen.svg" />
+						<span>Codepen</span>
+					</a>
+				</li>
+				<li>
+					<a
+						href="https://www.linkedin.com/in/amykapernick"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/linkedin.svg" />
+						<span>LinkedIn</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section">
+		<span class="graphic">
+			<SVG name="graphics/team.svg" />
+		</span>
+		<div class="content">
+			<p>
+				I'm on the committee for DDD Perth as Vice-Chair and Director of
+				Conference Content. We're the biggest tech conference in
+				Australia, not-for-profit and entirely volunteer run.
+			</p>
+			<p>
+				In this role, I plan and run workshops for writing talk
+				proposals, help build out the final agenda, mentor and run
+				training for any speakers that need an extra hand or want
+				feedback on their presentations before the big day.
+			</p>
+			<ul class="icons">
+				<li>
+					<a
+						href="https://dddperth.com/"
+						target="_blank"
+						rel="nofollow"
+					>
+						<SVG name="icons/dddperth.svg" />
+						<span>DDD Perth</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<SVG name="graphics/flower.svg" />
+
+	<section class="section special">
+		<div class="graphic image">
+			<SVG name="graphics/image_blob.svg" />
+			<SVG name="graphics/paw.svg" />
+			<SVG name="graphics/blob.svg" />
+		</div>
+		<p>
+			I have a grey and white border collie who likes long walks on the
+			beach and snuggling on the couch.
+		</p>
+	</section>
+
+	<section id="where" class="where">
+		<div class="background">
+			<SVG name="graphics/blob_hexagon.svg" />
+		</div>
+		<div class="summary">
+			<SVG name="graphics/globe.svg" />
+			<h2>Where is Amy?</h2>
+			<p class="current">
+				Right now Amy is in <span class="location"
+					><img alt="" src="/img/countries/australia.svg" /> Perth, Australia</span
+				>
+				<span class="conference"></span>
+			</p>
+		</div>
+		<SVG name="graphics/squiggle.svg" />
+		<a class="top" href="#main">
+			<SVG name="graphics/arrow.svg" />
+			<span class="sr-only">Back to top</span>
+		</a>
+		<h3 class="sr-only">Coming Up Next</h3>
+		<div class="upcoming">
+			<h4>Trips</h4>
+			<div class="trips">
+				<p>Loading upcoming trips</p>
+			</div>
+			<h4>Events</h4>
+			<div class="conferences">
+				<p>Loading upcoming events</p>
+			</div>
+		</div>
+	</section>
+	<script slot="after-footer" async src="/js/main.js"></script>
+</Layout>

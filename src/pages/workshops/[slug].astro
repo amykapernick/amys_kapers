@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/talk.astro";
+
+export async function getStaticPaths() {
+	const workshops = await Astro.glob("../../../workshops/**/*.md");
+
+	const allWorkshops = [];
+
+	workshops.forEach((talk) => {
+		if (talk?.frontmatter?.external) return;
+
+		const matches = talk.file.match(/\/(?<slug>(?:\w|\w|-)+)\.md$/i);
+		const { slug } = matches?.groups;
+
+		allWorkshops.push({ params: { slug } });
+	});
+
+	return allWorkshops;
+}
+
+const { slug } = Astro.params;
+
+const workshops = await Astro.glob("../../../workshops/**/*.md");
+
+const workshop = workshops.find(({ file }) =>
+	new RegExp(`${slug}.md`, "i").test(file)
+);
+
+const { frontmatter } = workshop;
+
+const workshopContent = {
+	description:
+		"I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.",
+	...frontmatter,
+};
+
+const Content = workshop.Content;
+---
+
+<Layout content={workshopContent}>
+	<Content />
+</Layout>
