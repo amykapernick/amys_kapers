@@ -52,16 +52,19 @@ const content = {
 	</section>
 
 	{
-		workshops.map((workshop) => (
-			<article>
-				<h2>
-					<a href={workshop.permalink}>
-						{workshop.frontmatter.title}
-					</a>
-				</h2>
-				<!-- TODO: Fix excerpt to be full to the cutoff -->
-				<PostExcerpt post={workshop} addEllipsis={false} />
-			</article>
-		))
+		workshops.map((workshop) => {
+			console.log({ workshop });
+
+			return (
+				<article>
+					<h2>
+						<a href={workshop.permalink}>
+							{workshop.frontmatter.title}
+						</a>
+					</h2>
+					<div set:html={workshop.frontmatter.excerpt} />
+				</article>
+			);
+		})
 	}
 </Layout>

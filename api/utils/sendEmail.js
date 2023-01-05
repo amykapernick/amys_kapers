@@ -4,11 +4,11 @@ const sgMail = require('@sendgrid/mail')
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-module.exports = async ({res, context, params, page}) => {
-	const spam = ['eric.jones.z.mail@gmail.com']
+module.exports = async ({ context, params }) => {
+    const spam = ['eric.jones.z.mail@gmail.com']
 
-	if(spam.includes(params.email)) {
-		context.log(`Spam inquiry ${params.email}`)
+    if (spam.includes(params.email)) {
+        context.log(`Spam inquiry ${params.email}`)
         res = {
             status: 403,
             headers: {
@@ -17,38 +17,42 @@ module.exports = async ({res, context, params, page}) => {
         };
     }
 
-	await sgMail
-        .send(params.msg)
+    await sgMail
+        .send({
+            to: process.env.FORM_EMAIL,
+            ...params.msg
+        })
         .then((res) => {
             context.log(res)
         },
-        (err) => {
-            context.log('Error!')
-            context.log(err)
+            (err) => {
+                context.log('Error!')
+                context.log(err)
 
-            res = {
-                status: 302,
-                headers: {
-                    location: params.page
+                return {
+                    status: 302,
+                    headers: {
+                        location: params.page
+                    }
                 }
-            };
-        })
+            })
         .catch((err) => {
             context.log('Error!')
             context.log(err)
 
-            res = {
+            return {
                 status: 302,
                 headers: {
                     location: params.page
                 }
-            };
+            }
         })
 
-	res = {
-		status: 302,
-		headers: {
-			location: params.redirect
-		}
-	};
+    return {
+        status: 302,
+        headers: {
+            // location: params.redirect
+            location: 'http://localhost:3000/thanks'
+        }
+    }
 }

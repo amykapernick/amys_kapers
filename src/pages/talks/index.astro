@@ -1,11 +1,20 @@
 ---
-import Layout from '../../layouts/default.astro'
-import SVG from '../../parts/svg.astro'
+import { format } from "date-fns";
+import Layout from "../../layouts/default.astro";
+import SVG from "../../parts/svg.astro";
+import parseTalks from "../../utils/parseTalks";
+import TalkEvent from "../../parts/talk/event.astro";
+import TalkDescription from "../../parts/talk/description.astro";
+
+const { talks } = await fetch(import.meta.env.NOTIST_FEED)
+	.then((res) => res.json())
+	.then((res) => parseTalks(res?.data?.[0]?.relationships?.data));
 
 const content = {
-	pageTitle: 'Talks | Amy Kapernick',
-	description: 'I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.'
-}
+	pageTitle: "Talks | Amy Kapernick",
+	description:
+		"I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.",
+};
 ---
 
 <Layout content={content}>
@@ -13,7 +22,7 @@ const content = {
 	<section class="intro_section">
 		<blockquote>
 			<p>Hi, I'm Amy</p>
-	
+
 			<div class="rotate">
 				<p>I'm a <mark>Speaker</mark></p>
 			</div>
@@ -24,25 +33,46 @@ const content = {
 		</div>
 		<SVG name="graphics/blob_small.svg" />
 	</section>
-	
+
 	<section>
-		<p>I am currently giving a variety of talks about the front end of the web, and mental health.</p>
-		<p>Want me to speak at your event? The talks I've given recently are below, and you can <a href="/contact">get in touch here</a>.
+		<p>
+			I am currently giving a variety of talks about the front end of the
+			web, and mental health.
 		</p>
-		<p>Looking for something more in-depth? I also run various <a href="/workshops">workshops</a> on front end tech, both in person and online.</p>
+		<p>
+			Want me to speak at your event? The talks I've given recently are
+			below, and you can <a href="/contact">get in touch here</a>.
+		</p>
+		<p>
+			Looking for something more in-depth? I also run various <a
+				href="/workshops">workshops</a
+			> on front end tech, both in person and online.
+		</p>
 	</section>
-	
-	{% for talk in collections.talks %}
-	
-	<article>
-		<h2 id={{ talk.url }}>{{talk.data.title}}</h2>
-		{{ talk.templateContent | safe }}
-	
-		<details class="past-talks">
-			<summary>Previous Presentations</summary>
-			{% filterTalks talk.data.title, notist.events.past %}
-		</details>
-	</article>
-	
-	{% endfor %}
+
+	{
+		Object.entries(talks).map(([slug, talk]) => (
+			<article id={slug}>
+				<h2>{talk.title}</h2>
+				<TalkDescription url={talk.related} />
+				<details class="past-talks">
+					<summary>Events</summary>
+					<ul>
+						{talk.events.map((version) => (
+							<li>
+								<a
+									href={version.url}
+									target="_blank"
+									rel="nofollow"
+								>
+									<TalkEvent url={version.event} />
+								</a>
+								- {format(version.date, "MMMM yyyy")}
+							</li>
+						))}
+					</ul>
+				</details>
+			</article>
+		))
+	}
 </Layout>

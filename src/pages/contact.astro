@@ -13,11 +13,12 @@ const content = {
 		<h1>Get in Touch</h1>
 		<form
 			id="contact"
-			action="{{env.api}}{{env.formContact}}"
+			action={`${import.meta.env.API_URL}/forms`}
 			method="post"
 		>
+			<input type="hidden" name="form" value="contact" />
 			<input type="hidden" name="redirect" value="/thanks" />
-			<input type="hidden" name="page" value="{{permalink}}" />
+			<input type="hidden" name="page" value={Astro.url.pathname} />
 			<label for="name">Name</label>
 			<input type="text" name="name" id="name" required />
 			<label for="email">Email Address</label>

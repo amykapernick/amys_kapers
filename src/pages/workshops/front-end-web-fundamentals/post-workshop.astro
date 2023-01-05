@@ -1,113 +1,230 @@
 ---
 import Layout from "../../../layouts/default.astro";
+import {
+	sections,
+	html,
+	css,
+	a11y,
+	visual_regression,
+	ui,
+	pacing,
+} from "../../../../_data/forms/workshopFeedback";
 
 const content = {
 	pageTitle: "Front End Web Fundamentals Workshop | Amy Kapernick",
-	description: "A few questions about your recent workshop"
+	description: "A few questions about your recent workshop",
 };
 ---
 
 <Layout content={content}>
 	<article class="workshop-prep">
 		<h1>Front End Web Fundamentals Workshop</h1>
-		<form id="workshop-prep" action="{{env.api}}{{env.formWorkshopFeedback}}" method="post">
-			<input type="hidden" name="redirect" value="{{env.siteUrl}}/workshops/see-you-there" />
-			<input type="hidden" name="page" value="{{permalink}}" />
-			<input type="hidden" name="notion_page" value="{{env.pageWorkshopFeedback}}" />
+		<form
+			id="workshop-prep"
+			action={`${import.meta.env.API_URL}/workshop-feedback`}
+			method="post"
+		>
+			<input
+				type="hidden"
+				name="redirect"
+				value={`${Astro.url.origin}/workshops/see-you-there`}
+			/>
+			<input type="hidden" name="page" value={Astro.url.pathname} />
+			<input type="hidden" name="function" value="workshop-feedback" />
+			<input
+				type="hidden"
+				name="notion_page"
+				value={import.meta.env.PAGE_WORKSHOP_FEEDBACK}
+			/>
 			<fieldset>
 				<div class="long">
-					<legend>What was your favourite section of the workshop?</legend>
-					{% for opt in forms.workshopFeedback.sections %}
-					<input type="radio" name="sections" id="sections_{{opt.value}}" value="{{opt.value}}" />
-					<label for="sections_{{opt.value}}">{{opt.label}}</label>
-					{% endfor %}
+					<legend
+						>What was your favourite section of the workshop?</legend
+					>
+					{
+						sections.map((opt) => (
+							<>
+								<input
+									type="radio"
+									name="sections"
+									id={`sections_${opt.value}`}
+									value={opt.value}
+								/>
+								<label for={`sections_${opt.value}`}>
+									{opt.label}
+								</label>
+							</>
+						))
+					}
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="html">How would you rate the Semantic HTML section?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.html.opts | length}}">
-					<input type="range" name="html" id="html" list="html_opts" max="{{forms.workshopFeedback.html.max}}" min="{{forms.workshopFeedback.html.min}}" step="{{forms.workshopFeedback.html.step}}" />
+				<label for="html"
+					>How would you rate the Semantic HTML section?</label
+				>
+				<div class="range" style={{ "--opts": html.opts.length }}>
+					<input
+						type="range"
+						name="html"
+						id="html"
+						list="html_opts"
+						max={html.max}
+						min={html.min}
+						step={html.step}
+					/>
 					<datalist id="html_opts">
-						{% for opt in forms.workshopFeedback.html.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							html.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="css">How would you rate the CSS Layouts section?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.css.opts | length}}">
-					<input type="range" name="css" id="css" list="css_opts" max="{{forms.workshopFeedback.css.max}}" min="{{forms.workshopFeedback.css.min}}" step="{{forms.workshopFeedback.css.step}}" />
+				<label for="css"
+					>How would you rate the CSS Layouts section?</label
+				>
+				<div class="range" style={{ "--opts": css.opts.length }}>
+					<input
+						type="range"
+						name="css"
+						id="css"
+						list="css_opts"
+						max={css.max}
+						min={css.min}
+						step={css.step}
+					/>
 					<datalist id="css_opts">
-						{% for opt in forms.workshopFeedback.css.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							css.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="a11y">How would you rate the Accessibility Testing section?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.a11y.opts | length}}">
-					<input type="range" name="a11y" id="a11y" list="a11y_opts" max="{{forms.workshopFeedback.a11y.max}}" min="{{forms.workshopFeedback.a11y.min}}" step="{{forms.workshopFeedback.a11y.step}}" />
+				<label for="a11y"
+					>How would you rate the Accessibility Testing section?</label
+				>
+				<div class="range" style={{ "--opts": a11y.opts.length }}>
+					<input
+						type="range"
+						name="a11y"
+						id="a11y"
+						list="a11y_opts"
+						max={a11y.max}
+						min={a11y.min}
+						step={a11y.step}
+					/>
 					<datalist id="a11y_opts">
-						{% for opt in forms.workshopFeedback.a11y.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							a11y.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="visual_regression">How would you rate the Visual Regression testing section?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.visual_regression.opts | length}}">
-					<input type="range" name="visual_regression" id="visual_regression" list="visual_regression_opts" max="{{forms.workshopFeedback.visual_regression.max}}" min="{{forms.workshopFeedback.visual_regression.min}}" step="{{forms.workshopFeedback.visual_regression.step}}" />
+				<label for="visual_regression"
+					>How would you rate the Visual Regression testing section?</label
+				>
+				<div
+					class="range"
+					style={{ "--opts": visual_regression.opts.length }}
+				>
+					<input
+						type="range"
+						name="visual_regression"
+						id="visual_regression"
+						list="visual_regression_opts"
+						max={visual_regression.max}
+						min={visual_regression.min}
+						step={visual_regression.step}
+					/>
 					<datalist id="visual_regression_opts">
-						{% for opt in forms.workshopFeedback.visual_regression.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							visual_regression.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="ui">How would you rate the UI Testing section?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.ui.opts | length}}">
-					<input type="range" name="ui" id="ui" list="ui_opts" max="{{forms.workshopFeedback.ui.max}}" min="{{forms.workshopFeedback.ui.min}}" step="{{forms.workshopFeedback.ui.step}}" />
+				<label for="ui"
+					>How would you rate the UI Testing section?</label
+				>
+				<div class="range" style={{ "--opts": ui.opts.length }}>
+					<input
+						type="range"
+						name="ui"
+						id="ui"
+						list="ui_opts"
+						max={ui.max}
+						min={ui.min}
+						step={ui.step}
+					/>
 					<datalist id="ui_opts">
-						{% for opt in forms.workshopFeedback.ui.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							ui.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
+
 			<fieldset>
-				<label for="pacing">How would you rate the pacing of the workshop?</label>
-				<div class="range" style="--opts: {{forms.workshopFeedback.pacing.opts | length}}">
-					<input type="range" name="pacing" id="pacing" list="pacing_opts" max="{{forms.workshopFeedback.pacing.max}}" min="{{forms.workshopFeedback.pacing.min}}" step="{{forms.workshopFeedback.pacing.step}}" />
+				<label for="pacing"
+					>How would you rate the pacing of the workshop?</label
+				>
+				<div class="range" style={{ "--opts": pacing.opts.length }}>
+					<input
+						type="range"
+						name="pacing"
+						id="pacing"
+						list="pacing_opts"
+						max={pacing.max}
+						min={pacing.min}
+						step={pacing.step}
+					/>
 					<datalist id="pacing_opts">
-						{% for opt in forms.workshopFeedback.pacing.opts %}
-						<option value="{{opt.value}}">{{opt.label}}</option>
-						{% endfor %}
+						{
+							pacing.opts.map((opt) => (
+								<option value={opt.value}>{opt.label}</option>
+							))
+						}
 					</datalist>
 				</div>
 			</fieldset>
-	
-			<label for="feedback">Anything you really enjoyed or would have liked to know more about?</label>
+
+			<label for="feedback"
+				>Anything you really enjoyed or would have liked to know more
+				about?</label
+			>
 			<textarea id="feedback" name="feedback"></textarea>
-	
+
 			<label for="comments">Any other comments or feedback?</label>
 			<textarea id="comments" name="comments"></textarea>
 			<label for="name">Name (optional)</label>
 			<input type="text" name="name" id="name" />
-			<label for="testimonial">Would you like to give a testimonial about the workshop?</label>
-			<small>If you give a testimonial, please make sure to give your name as well</small>
+			<label for="testimonial"
+				>Would you like to give a testimonial about the workshop?</label
+			>
+			<small
+				>If you give a testimonial, please make sure to give your name
+				as well</small
+			>
 			<textarea id="testimonial" name="testimonial"></textarea>
 			<button type="submit">Submit</button>
 		</form>
-	
 	</article>
 </Layout>
