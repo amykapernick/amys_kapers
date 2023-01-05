@@ -1,0 +1,14 @@
+---
+import Layout from "../partials/layout.astro";
+import Header from "../partials/header.astro";
+import Footer from "../partials/footer.astro";
+---
+
+<style lang="scss"></style>
+
+<Layout content={Astro.props?.content}>
+	<Header slot="header" />
+	<slot />
+	<Footer slot="footer" />
+	<slot name="after-footer" slot="after-footer" />
+</Layout>

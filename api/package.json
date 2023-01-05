@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "dev": "doppler run npm start -- --cors *"
+    "dev": "doppler run npm start -- --cors * --javascript"
   },
   "engines": {
     "node": "16.x"

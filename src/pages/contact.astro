@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/default.astro";
+
+const content = {
+	pageTitle: "Get in Touch | Amy Kapernick",
+	description: "Get in Touch with Amy",
+	class: "header_reduced",
+};
+---
+
+<Layout content={content}>
+	<article class="content">
+		<h1>Get in Touch</h1>
+		<form
+			id="contact"
+			action={`${import.meta.env.API_URL}/forms`}
+			method="post"
+		>
+			<input type="hidden" name="form" value="contact" />
+			<input type="hidden" name="redirect" value="/thanks" />
+			<input type="hidden" name="page" value={Astro.url.pathname} />
+			<label for="name">Name</label>
+			<input type="text" name="name" id="name" required />
+			<label for="email">Email Address</label>
+			<input type="text" name="email" id="email" required />
+			<label for="company">Company</label>
+			<input type="text" name="company" id="company" />
+			<fieldset>
+				<div class="long">
+					<legend>What are you looking for?</legend>
+					<input
+						type="radio"
+						name="type"
+						id="type_workshop"
+						value="workshop"
+					/>
+					<label for="type_workshop">Workshop</label>
+					<input
+						type="radio"
+						name="type"
+						id="type_talk"
+						value="talk"
+					/>
+					<label for="type_talk">Talk</label>
+					<input
+						type="radio"
+						name="type"
+						id="type_other"
+						value="other"
+					/>
+					<label for="type_other">Something Else</label>
+				</div>
+			</fieldset>
+			<label for="message">Message</label>
+			<textarea name="message" id="message"></textarea>
+
+			<button type="submit">Submit</button>
+		</form>
+	</article>
+</Layout>

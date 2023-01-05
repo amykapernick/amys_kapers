@@ -1,0 +1,59 @@
+<style>
+	div::before {
+		content: 'Mobile';
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: calc(50vw - 3em);
+		width: 6em;
+		padding: 10px 20px;
+		border-radius: 0 0 20px 20px;
+		background: #000000;
+		color: #ffffff;
+		text-align: center;
+	}
+
+	@media (min-width: 30em) {
+		div::before {
+			content: '30em';
+		}
+	}
+
+	@media (min-width: 40em) {
+		div::before {
+			content: '40em';
+		}
+	}
+
+	@media (min-width: 50em) {
+		div::before {
+			content: '50em';
+		}
+	}
+
+	@media (min-width: 60em) {
+		div::before {
+			content: '60em';
+		}
+	}
+
+	@media (min-width: 70em) {
+		div::before {
+			content: '70em';
+		}
+	}
+
+	@media (min-width: 80em) {
+		div::before {
+			content: '80em';
+		}
+	}
+
+	@media (min-width: 90em) {
+		div::before {
+			content: '90em';
+		}
+	}
+</style>
+
+<div></div>

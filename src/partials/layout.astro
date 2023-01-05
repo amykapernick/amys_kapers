@@ -1,0 +1,75 @@
+---
+import DevStyles from "./devStyles.astro";
+import Favicon from "../img/amy_small.png";
+
+import "../scss/main.scss";
+
+const env = import.meta.env.MODE;
+
+const siteData = {
+	title: "Amy Kapernick",
+	description:
+		"Amy is a freelance developer, who spends her time volunteering at various community events in Perth, works as an evangelist for YOW! and is a Twilio Champion and Microsoft MVP. In her spare time she blogs about tech, the web and life and speaks at various conferences all over the world.",
+};
+
+const content = {
+	...siteData,
+	...Astro?.props?.content,
+	...Astro?.props?.content?.meta,
+};
+
+const { title, description } = content;
+---
+
+<!DOCTYPE html>
+<html lang="en-AU">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,shrink-to-fit=no"
+		/>
+		<link rel="shortcut icon" href={Favicon?.src} />
+		<link rel="icon" sizes="192x192" href={Favicon?.src} />
+		<link rel="apple-touch-icon" href={Favicon?.src} />
+		<meta name="theme-color" content="#9440a0" />
+		<link rel="mask-icon" href={Favicon?.src} color="#9440a0" />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<!-- TODO: Update social data -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content="/img/socials/default.png" />
+		<meta name="author" content="Amy Kapernick" />
+		<meta property="og:url" content="https://blog.amyskapers.dev" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@amys_kapers" />
+		<meta property="twitter:image" content="/img/socials/default.png" />
+		<meta name="twitter:creator" content="@amys_kapers" />
+
+		<slot name="head" />
+
+		<script
+			src="https://cdn.usefathom.com/script.js"
+			data-site="NTUXVCQN"
+			defer
+		></script>
+	</head>
+
+	<body class={Astro.props.class}>
+		{env === "development" && <DevStyles />}
+
+		<slot name="header" />
+
+		<main id="main">
+			<slot />
+		</main>
+
+		<slot name="footer" />
+		<slot name="after-footer" />
+	</body>
+</html>
