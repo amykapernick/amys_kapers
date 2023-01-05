@@ -25,5 +25,5 @@ Some experience with front end code desirable, a basic understanding of HTML and
 ## Computer Setup
 
 - Code editor
-- Node (at least v12)
+- Node (at least v16)
 - Git
