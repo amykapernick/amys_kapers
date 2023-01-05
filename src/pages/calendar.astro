@@ -62,7 +62,7 @@ const calendarTrips = parseEvents(travel);
 									{event.icon} {event.name}
 								</div>
 							))}
-						{calendarEvents
+						{calendarTrips
 							.filter((trip) => trip.year == year)
 							.map((trip) => (
 								<div

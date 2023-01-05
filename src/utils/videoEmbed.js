@@ -2,8 +2,6 @@ const videoUrl = ({ url, provider }) => {
 	if (provider === 'youtube') {
 		const videoId = url.match(/(?:v=|be\/)(?<videoId>(\d|\w|-)+)/i)?.groups.videoId
 
-		console.log({ videoId })
-
 		return `https://www.youtube.com/embed/${videoId}`
 	}
 }

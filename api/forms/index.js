@@ -33,7 +33,7 @@ module.exports = async function (context, req) {
             html
         }
 
-        console.log({ msg })
+        context.log({ msg })
 
         await sendEmail({
             params: {

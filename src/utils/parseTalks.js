@@ -30,14 +30,8 @@ const parseTalks = (talkData) => {
 			talks[talkInfo.slug].date = talkInfo.date
 		}
 
-		// console.log({ talk })
-
 		talks[talkInfo.slug].events.push({
 			...talkInfo,
-			// event: {
-			// 	...event,
-			// 	...event?.attributes,
-			// }
 		})
 	})
 

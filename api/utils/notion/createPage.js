@@ -1,5 +1,5 @@
 require('dotenv').config()
-const {Client} = require('@notionhq/client')
+const { Client } = require('@notionhq/client')
 const Sentry = require('@sentry/node')
 
 const notion = new Client({
@@ -7,43 +7,43 @@ const notion = new Client({
 })
 
 Sentry.init({
-	dsn: process.env.SENTRY_DSN
+    dsn: process.env.SENTRY_DSN
 })
 
-module.exports = async ({params, fields, context}) => {
-	let data = {}
+module.exports = async ({ params, fields, context }) => {
+    let data = {}
     let props = {}
 
-    console.log({params, fields})
+    context.log({ params, fields })
 
-	Object.entries(params).forEach(([key, val]) => {
+    Object.entries(params).forEach(([key, val]) => {
         const section = fields[key]
 
-		if(!section) {
+        if (!section) {
             props[key] = val
 
             return;
         }
-        else if(!section.type || !section.name) {
+        else if (!section.type || !section.name) {
             return;
         }
 
-        if(section.type == 'rich_text') {
+        if (section.type == 'rich_text') {
             data[section.name] = {
                 [section.type]: [
                     {
                         type: "text",
                         text: {
-                                content: val
+                            content: val
                         }
                     },
                 ]
             }
         }
-		else if(section.type == 'multi_select') {
-			const opts = []
+        else if (section.type == 'multi_select') {
+            const opts = []
 
-            if(Array.isArray(val)) {
+            if (Array.isArray(val)) {
                 val.forEach(e => {
                     opts.push({
                         name: e
@@ -67,31 +67,31 @@ module.exports = async ({params, fields, context}) => {
                 }
             }
         }
-        
+
     })
 
-    console.log({data, props})
+    context.log({ data, props })
 
-	await notion.pages.create({
-			parent: {
-                database_id: props.notion_page
-            },
-			properties: {
-				title: {
-                    title: [
-                        {
-                            text: {
-                                content: params.name || 'Anonymous'
-                            }
+    await notion.pages.create({
+        parent: {
+            database_id: props.notion_page
+        },
+        properties: {
+            title: {
+                title: [
+                    {
+                        text: {
+                            content: params.name || 'Anonymous'
                         }
-                    ]
-                },
-				...data,
-			}
-		})
-		.then(response => {
+                    }
+                ]
+            },
+            ...data,
+        }
+    })
+        .then(response => {
             const url = params.redirect
-            context.log({response})
+            context.log({ response })
 
             context.res = {
                 status: 302,
@@ -103,10 +103,10 @@ module.exports = async ({params, fields, context}) => {
 
             context.done()
         })
-		.catch(err => {
-			context.log({err})
+        .catch(err => {
+            context.log({ err })
 
-			Sentry.captureException(err)
+            Sentry.captureException(err)
             Sentry.flush(2000)
 
             context.res = {
@@ -118,5 +118,5 @@ module.exports = async ({params, fields, context}) => {
             }
 
             context.done()
-		})
+        })
 }
