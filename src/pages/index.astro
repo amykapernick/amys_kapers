@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/default.astro";
 import SVG from "../parts/svg.astro";
+import EventsTravelFeed from "../parts/eventsTravelFeed.astro";
 
 const content = {
 	pageTitle: "Amy Kapernick",
@@ -330,36 +331,5 @@ const content = {
 		</p>
 	</section>
 
-	<section id="where" class="where">
-		<div class="background">
-			<SVG name="graphics/blob_hexagon.svg" />
-		</div>
-		<div class="summary">
-			<SVG name="graphics/globe.svg" />
-			<h2>Where is Amy?</h2>
-			<p class="current">
-				Right now Amy is in <span class="location"
-					><img alt="" src="/img/countries/australia.svg" /> Perth, Australia</span
-				>
-				<span class="conference"></span>
-			</p>
-		</div>
-		<SVG name="graphics/squiggle.svg" />
-		<a class="top" href="#main">
-			<SVG name="graphics/arrow.svg" />
-			<span class="sr-only">Back to top</span>
-		</a>
-		<h3 class="sr-only">Coming Up Next</h3>
-		<div class="upcoming">
-			<h4>Trips</h4>
-			<div class="trips">
-				<p>Loading upcoming trips</p>
-			</div>
-			<h4>Events</h4>
-			<div class="conferences">
-				<p>Loading upcoming events</p>
-			</div>
-		</div>
-	</section>
-	<script slot="after-footer" async src="/js/main.js"></script>
+	<EventsTravelFeed />
 </Layout>
