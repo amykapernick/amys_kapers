@@ -2,27 +2,42 @@
 import calendarYears from "../utils/calendar/years";
 import Layout from "../layouts/calendar.astro";
 import parseEvents from "../utils/calendar/parseEvents";
+import parseTravel from "../utils/calendar/parseTravel";
 
 const content = {
 	pageTitle: "Calendar - Year in a View",
 };
 
-let url = `${process.env.API_URL}`;
+let url = `${import.meta.env.API_URL}`;
 
 if (!url.includes("http")) {
-	url = `${process.env.SITE_URL}${url}`;
+	url = `${import.meta.env.SITE_URL}${url}`;
 }
 
-const events = await fetch(`${url}/events?filter=all`).then((res) =>
-	res.json()
-);
-const travel = await fetch(`${url}/travel?filter=all`).then((res) =>
-	res.json()
-);
+const events = await fetch(`${url}/events?filter=all`)
+	.then((res) => {
+		console.log({ res });
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_events", err });
+
+		return [];
+	});
+const travel = await fetch(`${url}/travel?filter=all`)
+	.then((res) => {
+		console.log({ res });
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_travel", err });
+
+		return [];
+	});
 
 const calendarDates = calendarYears(events);
 const calendarEvents = parseEvents(events);
-const calendarTrips = parseEvents(travel);
+const calendarTrips = parseTravel(travel);
 ---
 
 <Layout content={content}>

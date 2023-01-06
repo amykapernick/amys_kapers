@@ -8,7 +8,12 @@ import TalkDescription from "../../parts/talk/description.astro";
 
 const { talks } = await fetch(import.meta.env.NOTIST_FEED)
 	.then((res) => res.json())
-	.then((res) => parseTalks(res?.data?.[0]?.relationships?.data));
+	.then((res) => parseTalks(res?.data?.[0]?.relationships?.data))
+	.catch((err) => {
+		console.log({ type: "fetch_talks", err });
+
+		return {};
+	});
 
 const content = {
 	pageTitle: "Talks | Amy Kapernick",

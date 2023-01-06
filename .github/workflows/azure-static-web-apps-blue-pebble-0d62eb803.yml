@@ -30,7 +30,7 @@ jobs:
           action: "upload"
           app_location: "/"
           api_location: "api"
-          output_location: "static"
+          output_location: "dist"
         env:
           NOTIST_FEED: ${{ secrets.NOTIST_FEED }}
           API_URL: ${{ secrets.API_URL }}
