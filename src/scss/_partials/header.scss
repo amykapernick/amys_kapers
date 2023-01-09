@@ -23,7 +23,9 @@ header {
 		color: var.$background;
 	}
 
-	.blob_2, .squiggle, .paw {
+	.blob_2,
+	.squiggle,
+	.paw {
 		display: none;
 	}
 
@@ -123,7 +125,7 @@ header {
 }
 
 body {
-	&.header-reduced {
+	&.header_reduced {
 		header {
 			.logo {
 				max-width: 450px;
@@ -195,7 +197,9 @@ body {
 			width: 150vw;
 		}
 
-		.blob_2, .squiggle, .paw {
+		.blob_2,
+		.squiggle,
+		.paw {
 			display: block;
 			position: absolute;
 		}
@@ -252,7 +256,7 @@ body {
 	}
 
 	body {
-		&.header-reduced {
+		&.header_reduced {
 			header {
 				padding: 100px 50px;
 
@@ -260,7 +264,9 @@ body {
 					max-width: 500px;
 				}
 
-				.blob_2, .squiggle, .paw {
+				.blob_2,
+				.squiggle,
+				.paw {
 					display: none;
 				}
 			}
@@ -274,7 +280,7 @@ body {
 	}
 
 	body {
-		&.header-reduced {
+		&.header_reduced {
 			header {
 				margin-bottom: 50px;
 			}
@@ -337,7 +343,7 @@ body {
 	}
 
 	body {
-		&.header-reduced {
+		&.header_reduced {
 			header {
 				margin-bottom: 100px;
 				padding: 100px 50px 150px;

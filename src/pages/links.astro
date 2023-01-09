@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/default.astro";
+
+const content = {
+	pageTitle: "Get in Touch | Amy Kapernick",
+	description: "Get in Touch with Amy",
+	class: "header_reduced",
+};
+
+const links = [
+	{
+		name: "Twitter",
+		url: "https://twitter.com/amys_kapers",
+	},
+	{
+		name: "Mastadon",
+		url: "https://aus.social/@amys_kapers",
+	},
+	{
+		name: "GitHub",
+		url: "https://github.com/amykapernick/blog",
+	},
+	{
+		name: "Front End Web Fundamentals Workshop",
+		url: "/front-end-fundamentals-workshop",
+	},
+	{
+		name: "Blog",
+		url: "https://blog.amyskapers.dev",
+	},
+	{
+		name: "Website",
+		url: "https://amyskapers.dev",
+	},
+	{
+		name: "Notist",
+		url: "https://speaking.amyskapers.dev",
+	},
+];
+---
+
+<style lang="scss">
+	@use "../scss/variables" as var;
+
+	ul {
+		list-style: none;
+		margin: 0 auto;
+		padding: 0;
+		max-width: 500px;
+		text-align: center;
+	}
+
+	li {
+		margin: 0 0 1px;
+		padding: 0;
+
+		&:nth-child(2n) {
+			a {
+				background: none;
+			}
+		}
+	}
+
+	a {
+		display: block;
+		padding: 10px;
+		background: rgba(var.$darkpurple, 0.2);
+	}
+</style>
+
+<Layout content={content}>
+	<article class="content">
+		<h1>Links</h1>
+		<ul>
+			{
+				links.map((link) => (
+					<li>
+						<a
+							href={link.url}
+							target={
+								link.url.startsWith("/") ? "_self" : "_blank"
+							}
+						>
+							{link.name}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</article>
+</Layout>

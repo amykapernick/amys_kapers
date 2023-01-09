@@ -18,6 +18,8 @@ const content = {
 	...Astro?.props?.content?.meta,
 };
 
+const classes = [content?.class, Astro.props?.class].filter(Boolean);
+
 const { title, description } = content;
 ---
 
@@ -60,7 +62,7 @@ const { title, description } = content;
 		></script>
 	</head>
 
-	<body class={Astro.props.class}>
+	<body class={classes.join(" ")}>
 		{env === "development" && <DevStyles />}
 
 		<slot name="header" />
