@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 module.exports = async ({ context, params }) => {
-    const spam = ['eric.jones.z.mail@gmail.com']
+    const spam = ['eric.jones.z.mail@gmail.com', 'ericjonesmyemail@gmail.com']
 
     if (spam.includes(params.email)) {
         context.log(`Spam inquiry ${params.email}`)
