@@ -6,7 +6,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 module.exports = async ({ context, params }) => {
     // TODO: Integrate with a spam catching service
-    const spam = ['eric.jones.z.mail@gmail.com', 'ericjonesmyemail@gmail.com', 'katytrilly9@gmail.com', 'celeste.wooden@gmail.com']
+    const spam = ['eric.jones.z.mail@gmail.com', 'ericjonesmyemail@gmail.com', 'katytrilly9@gmail.com', 'celeste.wooden@gmail.com', 'angelaballj774@yahoo.com', 'paige.ericson@gmail.com', 'ermelinda.greenlee@outlook.com']
 
     if (spam.includes(params.email)) {
         context.log(`Spam inquiry ${params.email}`)
