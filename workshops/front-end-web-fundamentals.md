@@ -1,11 +1,11 @@
 ---
-title: Front End Web Fundamentals
+title: Modern Front End Fundamentals
 length: 2 days
 ---
 
-Where is the border between frontend and backend web development? Yeah, exactly. It is becoming increasingly common for developers to work in both areas, yet only have the skillset for one. This often results in relying on third party frameworks or components like Bootstrap to pull a layout together, further weighing down the application with unnecessary code libraries and resulting technical debt.
+What does a modern front end actually look like? It's one that built using semantic HTML, the layouts are built with modern CSS and no frameworks, is accessible to all users no matter their abilities or how they consume the site and all this is backed up with a completely automated testing pipeline to ensure code changes only affect what we intended.
 
-This hands on workshop covers modern front end fundamentals, enabling you to create a layout and components without the need for any third party code. You learn core accessibility concepts to make your project more accessible without having to write complex code, take shortcuts or deal with browser specific implementations.
+Unless you're working in the front end on a daily basis, it's hard to keep up to date and ensure that your front end is still modern. This hands on workshop covers modern front end fundamentals, enabling you to create a layout and components without the need for any third party code. You learn core accessibility concepts to make your project more accessible without having to write complex code, take shortcuts or deal with browser specific implementations.
 
 Once that is done, we then move on to testing our application, making sure that our accessibility improvements are there, watching for any unintended changes and making sure that the application works as it's supposed to. Through automated tools that can be implemented as part of a deployment pipeline, to manual tools to check on the fly, there are plenty of options to ensure the front end is being tested as thoroughly as the back end.
 
