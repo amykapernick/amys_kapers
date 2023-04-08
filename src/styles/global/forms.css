@@ -1,12 +1,11 @@
-@use '../variables.scss' as var;
-@use '../mixins.scss';
+@import './mixins';
 
 form {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 20px;
-	background: var.$background;
+	background: $background;
 	text-align: left;
 
 	@media(min-width: 40em) {
@@ -24,7 +23,7 @@ label, legend {
 	display: block;
 	min-width: 100px;
 	margin: 40px 0 16px;
-	font-family: var.$font_main;
+	font-family: $font_main;
 	font-weight: 600;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
@@ -50,9 +49,9 @@ input, textarea, select {
 	flex: 1 1 100%;
 	margin: 0;
 	padding: 5px 25px;
-	border: 2px solid rgba(var.$darkpurple, 0.4);
-	background: rgba(var.$darkpurple, 0.4);
-	color: var.$neutral;
+	border: 2px solid rgba($darkpurple, 0.4);
+	background: rgba($darkpurple, 0.4);
+	color: $neutral;
 	font-size: 1em;
 
 	&::placeholder {
@@ -64,13 +63,13 @@ input, textarea, select {
 		box-shadow: none;
 
 		&:focus {
-			border-color: var.$orange;
+			border-color: $orange;
 		}
 	}
 
 	&:valid {
 		&[required] {
-			border-color: var.$green;
+			border-color: $green;
 		}
 	}
 }
@@ -129,8 +128,8 @@ button {
 	margin-top: 40px;
 	padding: 0.6em 1em 0.5em;
 	border: none;
-	border: 4px solid var.$darkpurple;
-	background: var.$darkpurple;
+	border: 4px solid $darkpurple;
+	background: $darkpurple;
 	color: #ffffff;
 	font-size: 1.25em;
 	font-weight: 700;
@@ -138,9 +137,9 @@ button {
 	text-transform: uppercase;
 
 	&:hover {
-		border-color: var.$darkpurple;
+		border-color: $darkpurple;
 		background: #ffffff;
-		color: var.$darkpurple;
+		color: $darkpurple;
 	}
 
 	@media(min-width: 60em) {
@@ -181,14 +180,14 @@ input {
 				width: 20px;
 				height: 20px;
 				margin-right: 1ch;
-				border: 2px solid var.$darkpurple;
-				background: var.$darkpurple;
+				border: 2px solid $darkpurple;
+				background: $darkpurple;
 			}
 
 			&:after {
 				position: absolute;
 				left: 3px;
-				color: var.$neutral;
+				color: $neutral;
 				font-size: 1.3em;
 			}
 
@@ -279,7 +278,7 @@ input {
 		padding: 0;
 		border: none;
 		background: none;
-		accent-color: var.$darkpurple;
+		accent-color: $darkpurple;
 
 		&::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb {
 			width: 20px;
@@ -287,8 +286,8 @@ input {
 			margin: 0;
 			border: none;
 			border-radius: 50%;
-			background: var.$darkpurple;
-			color: var.$darkpurple;
+			background: $darkpurple;
+			color: $darkpurple;
 			cursor: pointer;
 			-webkit-appearance: none;
 			appearance: none;
@@ -299,7 +298,7 @@ input {
 			height: 10px;
 			border: none;
 			border-radius: 20px;
-			background: var.$darkpurple;
+			background: $darkpurple;
 			cursor: pointer;
 		}
 
@@ -308,7 +307,7 @@ input {
 			height: 10px;
 			border: none;
 			border-radius: 20px;
-			background: var.$neutral_light_10;
+			background: $neutral_light_10;
 			cursor: pointer;
 		}
 	}
@@ -334,7 +333,7 @@ input {
 		overflow-wrap: break-word;
 
 		option						{
-			@include mixins.range_labels;
+			@include range_labels;
 
 			display: block;
 			grid-column: span 3;

@@ -1,15 +1,13 @@
-@use './variables.scss' as var;
-
 body {
-	color: var.$neutral;
-	font-family: var.$font_main;
+	color: $neutral;
+	font-family: $font_main;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 1.5;
 }
 
 a {
-	color: var.$darkpurple;
+	color: $darkpurple;
 	font-weight: bolder;
 
 	&:hover {
@@ -25,8 +23,8 @@ pre, code {
 pre {
 	padding: 10px 20px;
 	border-radius: 10px ;
-	background: var.$neutral_light_90;
-	color: var.$background;
+	background: $neutral_light_90;
+	color: $background;
 }
 
 h1, h2, h3 {
@@ -39,11 +37,11 @@ h1 {
 }
 
 h1, h2 {
-	color: var.$darkpurple;
+	color: $darkpurple;
 }
 
 h3 {
-	color: var.$navy;
+	color: $navy;
 }
 
 h1, h2, h3, h4, h5 {
