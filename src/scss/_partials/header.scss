@@ -1,55 +1,5 @@
 @use '../variables.scss' as var;
 
-header {
-	display: flex;
-	position: relative;
-	justify-content: center;
-	padding: 20px 20px 50px;
-
-	.cls-1 {
-		fill: var.$neutral;
-	}
-
-	.logo {
-		width: 80vw;
-		max-width: 800px;
-	}
-
-	.hexagon {
-		position: absolute;
-		z-index: -1;
-		bottom: 0;
-		width: 120vw;
-		color: var.$background;
-	}
-
-	.blob_2,
-	.squiggle,
-	.paw {
-		display: none;
-	}
-
-	.blob_left {
-		svg {
-			color: var.$pink;
-		}
-	}
-
-	.blob_right {
-		svg {
-			color: var.$green;
-		}
-	}
-
-	.squiggle {
-		color: var.$yellow;
-	}
-
-	.paw {
-		color: var.$purple;
-	}
-}
-
 .intro_section {
 	position: relative;
 	margin-bottom: 50px;
@@ -124,16 +74,6 @@ header {
 	}
 }
 
-body {
-	&.header_reduced {
-		header {
-			.logo {
-				max-width: 450px;
-			}
-		}
-	}
-}
-
 @media(min-width: 40em) {
 	.intro_section {
 		display: flex;
@@ -186,54 +126,6 @@ body {
 }
 
 @media(min-width: 60em) {
-	header {
-		padding: 150px 50px;
-
-		.logo {
-			width: 60vw;
-		}
-
-		.hexagon {
-			width: 150vw;
-		}
-
-		.blob_2,
-		.squiggle,
-		.paw {
-			display: block;
-			position: absolute;
-		}
-
-		.blob_left {
-			svg {
-				top: 70px;
-				left: -200px;
-				width: 400px;
-				transform: rotate(-80deg);
-			}
-		}
-
-		.blob_right {
-			svg {
-				top: -50px;
-				right: -50px;
-				width: 350px;
-			}
-		}
-
-		.squiggle {
-			top: 200px;
-			right: 0;
-			width: 200px;
-		}
-
-		.paw {
-			bottom: 50px;
-			left: 20px;
-			width: 100px;
-		}
-	}
-
 	.intro_section {
 		margin-top: -100px;
 		margin-bottom: 0;
@@ -254,69 +146,11 @@ body {
 			right: -25px;
 		}
 	}
-
-	body {
-		&.header_reduced {
-			header {
-				padding: 100px 50px;
-
-				.logo {
-					max-width: 500px;
-				}
-
-				.blob_2,
-				.squiggle,
-				.paw {
-					display: none;
-				}
-			}
-		}
-	}
 }
 
 @media(min-width: 70em) {
 	.intro_section {
 		padding: 50px 10vw 0;
-	}
-
-	body {
-		&.header_reduced {
-			header {
-				margin-bottom: 50px;
-			}
-		}
-	}
-}
-
-@media(min-width: 75em) {
-	header {
-		padding: 170px 50px;
-
-		.blob_left {
-			svg {
-				top: 100px;
-				left: -300px;
-				width: 600px;
-			}
-		}
-
-		.blob_right {
-			svg {
-				top: -40px;
-				right: -60px;
-				width: 400px;
-			}
-		}
-
-		.squiggle {
-			top: 300px;
-			right: -10px;
-			width: 250px;
-		}
-
-		.paw {
-			bottom: 100px;
-		}
 	}
 }
 
@@ -339,19 +173,6 @@ body {
 
 		.blob_small {
 			right: calc(-5vw - 10px);
-		}
-	}
-
-	body {
-		&.header_reduced {
-			header {
-				margin-bottom: 100px;
-				padding: 100px 50px 150px;
-
-				.logo {
-					max-width: 600px;
-				}
-			}
 		}
 	}
 }

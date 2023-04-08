@@ -9,7 +9,7 @@ console.log({ ...Astro.props?.content });
 <style lang="scss"></style>
 
 <Layout content={Astro.props?.content}>
-	<Header slot="header" />
+	<Header slot="header" size={Astro.props?.header} />
 	<slot />
 	<Footer slot="footer" />
 	<slot name="after-footer" slot="after-footer" />

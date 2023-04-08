@@ -1,0 +1,6 @@
+---
+import SVG from "./svg.astro";
+
+const {name, colour, ...props} = Astro.props;
+---
+<SVG name={name} {...props} />
