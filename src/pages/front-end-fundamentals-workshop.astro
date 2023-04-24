@@ -1,5 +1,6 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "@layouts/default";
+import Testimonial from '@parts/testimonial'
 
 const content = {
 	title: "Modern Front End Fundamentals Workshop | Amy Kapernick",
@@ -123,7 +124,7 @@ const content = {
 			If you're still not sure, check out these testimonials from previous
 			workshop participants:
 		</p>
-		<blockquote class="testimonial">
+		<Testimonial>
 			<p>
 				I attended Amy's CSS workshop, after having seen her speak at
 				NDC London. After only a few hours I already had a much better
@@ -131,16 +132,16 @@ const content = {
 				tags apparently) and I can now put together a robust CSS
 				framework for my web development. Thanks Amy.
 			</p>
-		</blockquote>
-		<blockquote class="testimonial">
+		</Testimonial>
+		<Testimonial>
 			<p>
 				You don't know what you don't know this workshop really opened
 				my eyes to the amount of accessibility we dismiss on the daily.
 				Leant some useful tools and techniques to keep future work
 				accessible for all.
 			</p>
-		</blockquote>
-		<blockquote class="testimonial">
+		</Testimonial>
+		<Testimonial>
 			<p>
 				Really great workshop. As someone who isn't the biggest fan of
 				frontend development, this workshop really made me appreciate
@@ -148,6 +149,6 @@ const content = {
 				without a css framework, but also make them accessible as well
 				which is something I always overlook.
 			</p>
-		</blockquote>
+		</Testimonial>
 	</article>
 </Layout>

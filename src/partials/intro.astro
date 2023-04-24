@@ -1,0 +1,208 @@
+---
+import Layout from "@layouts/default";
+import SVG from "@parts/svg";
+import EventsTravelFeed from "@parts/eventsTravelFeed";
+import RotatingWords from "@parts/rotatingWords";
+import Section from '@parts/section'
+import Image from '@img/amy_background.png'
+---
+
+<style>
+	.intro {
+		position: relative;
+		margin-bottom: 50px;
+		padding: 0 20px;
+		font-size: 1.5em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	mark {
+		background: none;
+		color: $purple_dark;
+	}
+
+	blockquote {
+		max-width: 400px;
+		margin: 20px auto;
+
+		& p {
+			text-align: center;
+		}
+	}
+
+	.image {
+		position: relative;
+		max-width: 400px;
+		margin: 0 auto;
+		padding: 0 20px 50px;
+
+		& .blob {
+			display: block;
+			position: absolute;
+			z-index: -1;
+			right: -20px;
+			bottom: 0;
+			width: 120%;
+			transform: rotate(-50deg);
+			color: $yellow;
+		}
+	}
+
+	.graphic {
+		display: none;
+		position: absolute;
+		right: -50px;
+		bottom: -50px;
+		width: 100px;
+		color: $pink;
+	}
+
+	.options {
+		min-height: 3em;
+		color: $purple_dark;
+
+		& li {
+			&.an {
+				&:before {
+					color: $neutral;
+				}
+			}
+		}
+	}
+
+	.image_blob {
+		transform: scaleX(-1);
+		width: 100%;
+
+		& :global(path) {
+			color: $purple;
+		}
+
+		& :global(image) {
+			width: 100%;
+			height: 100%;
+			margin-bottom: -10%;
+			clip-path: url('#_ImageBlobHeader');
+		}
+	}
+
+	@media(min-width: 40em) {
+		.intro {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+
+			
+		}
+
+		blockquote {
+			flex: 0 0 auto;
+			width: 300px;
+			margin: 0;
+			text-align: right;
+		}
+
+		.rotate {
+			width: auto;
+			margin-left: auto;
+
+			.options {
+				text-align: left;
+			}
+		}
+
+		.image {
+			flex: 1 0 30%;
+			max-width: 500px;
+			margin: 0;
+			margin-left: 50px;
+
+			svg {
+				max-width: unset;
+			}
+
+			.blob_2 {
+				right: auto;
+				left: 0;
+			}
+		}
+
+		.graphic {
+			display: block;
+		}
+
+		@supports(grid-template-areas: '.') {
+			.rotate {
+				justify-content: end;
+			}
+		}
+	}
+
+	@media(min-width: 60em) {
+		.intro {
+			margin-top: -100px;
+			margin-bottom: 0;
+			padding: 50px 5vw;
+			font-size: 2em;
+
+			
+		}
+
+		blockquote {
+			width: 400px;
+		}
+
+		.image {
+			.blob_2 {
+				bottom: -50px;
+			}
+		}
+
+		.graphic {
+			right: -25px;
+		}
+	}
+
+	@media(min-width: 70em) {
+		.intro {
+			padding: 50px 10vw 0;
+		}
+	}
+
+	@media(min-width: 80em) {
+		.intro {
+			width: 90vw;
+			max-width: 1300px;
+			margin-right: auto;
+			margin-left: auto;
+			padding: 50px 50px 100px;
+			font-size: 2.5em;
+		}
+
+		blockquote {
+			width: 500px;
+		}
+
+		.image {
+			margin-left: 100px;
+		}
+
+		.graphic {
+			right: calc(-5vw - 10px);
+		}
+	}
+</style>
+
+<Section class="intro">
+	<blockquote>
+		<p>Hi, I'm Amy 👋</p>
+		<RotatingWords class="rotate" />
+	</blockquote>
+	<div class="image">
+		<SVG name="graphics/image_blob_2.svg" src={Image.src} class="image_blob" />
+		<SVG name="graphics/blob_2.svg" class="blob" />
+	</div>
+	<SVG name="graphics/blob_small.svg" class="graphic" />
+</Section>

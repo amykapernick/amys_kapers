@@ -2,7 +2,7 @@
 import path from "path";
 import { readFileSync } from "fs";
 
-const { name, ...args } = Astro.props;
+const { name, src, ...args } = Astro.props;
 
 const imagePath = path.join(process.cwd(), "src/img", name);
 
@@ -16,7 +16,12 @@ Object.entries(args).forEach(([key, value]) => {
 	props += `${key}="${value}" `;
 });
 
-const image = imageData?.replace(/^<svg /, `<svg ${props}`);
+let image = imageData?.replace(/^<svg /, `<svg ${props}`);
+
+if(src) {
+	image = image.replace(`{imgsrc}`, src)
+}
+
 ---
 
 <Fragment set:html={image} />

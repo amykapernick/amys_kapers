@@ -1,0 +1,38 @@
+---
+import { format } from "date-fns";
+import Layout from "@layouts/default";
+import SVG from "@parts/svg";
+import parseTalks from "@utils/parseTalks";
+import TalkEvent from "@parts/talk/event";
+import TalkDescription from "@parts/talk/description";
+
+const {talks = {}} = Astro.props
+
+console.log({talks, props: Astro.props})
+---
+
+<>{
+	Object.entries(talks).map(([slug, talk]) => (
+		<article id={slug}>
+			<h2>{talk.title}</h2>
+			<TalkDescription url={talk.related} />
+			<details class="past-talks">
+				<summary>Events</summary>
+				<ul>
+					{talk.events.map((version) => (
+						<li>
+							<a
+								href={version.url}
+								target="_blank"
+								rel="nofollow"
+							>
+								<TalkEvent url={version.event} />
+							</a>
+							- {format(version.date, "MMMM yyyy")}
+						</li>
+					))}
+				</ul>
+			</details>
+		</article>
+	))
+}</>

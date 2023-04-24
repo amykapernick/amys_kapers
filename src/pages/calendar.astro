@@ -1,8 +1,9 @@
 ---
-import calendarYears from "../utils/calendar/years";
-import Layout from "../layouts/calendar.astro";
-import parseEvents from "../utils/calendar/parseEvents";
-import parseTravel from "../utils/calendar/parseTravel";
+import calendarYears from "@utils/calendar/years";
+import Layout from "@layouts/calendar";
+import Calendar from '@partials/calendar'
+import parseEvents from "@utils/calendar/parseEvents";
+import parseTravel from "@utils/calendar/parseTravel";
 
 const content = {
 	title: "Calendar - Year in a View",
@@ -43,59 +44,6 @@ const calendarTrips = parseTravel(travel);
 <Layout content={content}>
 	<div class="calendar">
 		<h1>Calendar</h1>
-		{
-			Object.entries(calendarDates).map(([year, days]) => (
-				<div class={`year y-${year}`}>
-					<h2>{year}</h2>
-					<div class="dates">
-						{days.map((day) => (
-							<div
-								data-monthName={day.monthName}
-								data-day={day.day}
-								style={{
-									"--month": day.month,
-									"--offset": day.offset,
-								}}
-								class="date"
-							>
-								<p>{day.date}</p>
-							</div>
-						))}
-						{calendarEvents
-							.filter((event) => event.year == year)
-							.map((event) => (
-								<div
-									class="event"
-									data-status={event.status}
-									style={{
-										"--offset": event.offset,
-										"--length": event.length,
-										"--row": event.row,
-										"--icon": event.icon,
-									}}
-								>
-									{event.icon} {event.name}
-								</div>
-							))}
-						{calendarTrips
-							.filter((trip) => trip.year == year)
-							.map((trip) => (
-								<div
-									class="trip"
-									data-status={trip.status}
-									style={{
-										"--offset": trip.offset,
-										"--length": trip.length,
-										"--row": trip.row,
-										"--icon": trip.icon,
-									}}
-								>
-									{trip.city}, {trip.country}
-								</div>
-							))}
-					</div>
-				</div>
-			))
-		}
+		<Calendar {...{calendarDates, calendarEvents, calendarTrips}} />
 	</div>
 </Layout>

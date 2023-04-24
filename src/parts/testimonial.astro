@@ -1,6 +1,5 @@
-@use '../variables.scss'as var;
-
-.testimonial {
+<style>
+blockquote {
 	position: relative;
 	max-width: 700px;
 	margin: 0;
@@ -17,13 +16,13 @@
 		line-height: 1;
 	}
 
-	&:before {
+	blockquote {
 		content: '“';
 		top: -0;
 		left: -0.25em;
 	}
 
-	&:after {
+	blockquote {
 		content: '”';
 		right: -0.1em;
 		bottom: -0.4em;
@@ -31,7 +30,7 @@
 }
 
 @media(min-width: 40em) {
-	.testimonial {
+	blockquote {
 		width: 80vw;
 		padding: 20px 40px;
 
@@ -42,7 +41,7 @@
 }
 
 @media(min-width: 60em) {
-	.testimonial {
+	blockquote {
 		padding: 50px;
 
 		&:before {
@@ -56,3 +55,9 @@
 		}
 	}
 }
+
+</style>
+
+<blockquote>
+	<slot />
+</blockquote>

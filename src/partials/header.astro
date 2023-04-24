@@ -1,9 +1,9 @@
 ---
-import SVG from "../parts/svg.astro";
-import Graphic from '../parts/graphic.astro'
+import SVG from "@parts/svg";
+import Graphic from '@parts/graphic'
 ---
 
-<style>
+<style lang="css">
 	header {
 		display: flex;
 		position: relative;
@@ -20,36 +20,19 @@ import Graphic from '../parts/graphic.astro'
 		max-width: 800px;
 	}
 
-	.hexagon {
+	.background {
 		position: absolute;
 		z-index: -1;
 		bottom: 0;
 		width: 120vw;
-		color: $background;
+		height: auto;
 	}
 
 	.blob,
 	.squiggle,
 	.paw {
 		display: none;
-	}
-
-	.blob {
-		&.left {
-			color: $pink;
-		}
-
-		&.right {
-			color: $green;
-		}
-	}
-
-	.squiggle {
-		color: $yellow;
-	}
-
-	.paw {
-		color: $purple;
+		height: auto;
 	}
 
 	.reduced {
@@ -58,16 +41,16 @@ import Graphic from '../parts/graphic.astro'
 		}
 	}
 
-	@media(min-width: 60em) {
+	@media(min-width: 50em) {
 		header {
-			padding: 150px 50px;
+			padding: 100px 50px;
 		}
 
 		.logo {
 			width: 60vw;
 		}
 
-		.hexagon {
+		.background {
 			width: 150vw;
 		}
 
@@ -80,22 +63,22 @@ import Graphic from '../parts/graphic.astro'
 
 		.blob {
 			&.left {
-				top: 70px;
+				top: 20px;
 				left: -200px;
 				width: 400px;
 				transform: rotate(-80deg);
 			}
 
 			&.right {
-				top: -50px;
-				right: -50px;
+				top: -80px;
+				right: -80px;
 				width: 350px;
 			}
 		}
 
 		.squiggle {
 			top: 200px;
-			right: 0;
+			right: -100px;
 			width: 200px;
 		}
 
@@ -106,16 +89,49 @@ import Graphic from '../parts/graphic.astro'
 		}
 
 		.reduced {
-			padding: 100px 50px;
+			padding: 50px;
 
-			& .logo {
-				max-width: 500px;
+			& .background {
+				width: 120vw;
 			}
 
 			& .blob,
 			& .squiggle,
 			& .paw {
 				display: none;
+			}
+		}
+	}
+
+	@media(min-width: 60em) {
+		header {
+			padding: 150px 50px;
+		}
+
+		.blob {
+			&.right {
+				top: -50px;
+				right: -50px;
+			}
+
+			&.left {
+				top: 80px;
+			}
+		}
+
+		.paw {
+			bottom: 60px;
+		}
+
+		.squiggle {
+			right: 0;
+		}
+		
+		.reduced {
+			padding: 100px 50px;
+
+			& .logo {
+				max-width: 500px;
 			}
 		}
 	}
@@ -146,20 +162,20 @@ import Graphic from '../parts/graphic.astro'
 		}
 
 		.squiggle {
-			top: 300px;
+			top: 250px;
 			right: -10px;
 			width: 250px;
 		}
 
 		.paw {
 			bottom: 100px;
+			left: 5vw;
 		}
 	}
 
 	@media(min-width: 80em) {
 		.reduced {
-			margin-bottom: 100px;
-			padding: 100px 50px 150px;
+			padding: 100px 50px 100px;
 
 			& .logo {
 				max-width: 600px;
@@ -171,15 +187,15 @@ import Graphic from '../parts/graphic.astro'
 </style>
 
 <header class={Astro.props?.size || ''}>
-	<Graphic name="graphics/blob_hexagon.svg" class="hexagon" />
+	<Graphic name="graphics/blob_hexagon.svg" colour="background" class="background" />
 
-	<Graphic name="graphics/blob_2.svg" class="blob left" />
+	<Graphic name="graphics/blob_2.svg" colour="pink" class="blob left" />
 
-	<Graphic name="graphics/blob_2.svg" class="blob right" />
+	<Graphic name="graphics/blob_2.svg" colour="green" class="blob right" />
 
-	<Graphic name="graphics/squiggle.svg" class="squiggle" />
+	<Graphic name="graphics/squiggle.svg" colour="yellow" class="squiggle" />
 
-	<Graphic name="graphics/paw.svg" class="paw" />
+	<Graphic name="graphics/paw.svg" colour="purple" class="paw" />
 
-	<a href="/"><Graphic name="logo.svg" class="logo" /></a>
+	<a href="/"><SVG name="logo.svg" class="logo" /></a>
 </header>

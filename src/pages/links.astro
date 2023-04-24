@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "@layouts/default";
 
 const content = {
 	title: "Get in Touch | Amy Kapernick",
@@ -44,7 +44,7 @@ const links = [
 ---
 
 <style lang="scss">
-	@use "../scss/variables" as var;
+	@use "../styles/variables" as var;
 
 	ul {
 		list-style: none;
@@ -68,7 +68,7 @@ const links = [
 	a {
 		display: block;
 		padding: 10px;
-		background: rgba(var.$darkpurple, 0.2);
+		background: rgba(var.$purple_dark, 0.2);
 	}
 </style>
 

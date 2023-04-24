@@ -1,11 +1,16 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
-import rehypeFigure from './src/utils/rehypeFigure';
-import { markdownRemarkExtract } from './src/utils/markdownExcerpt';
+import rehypeFigure from '../src/utils/rehypeFigure';
+import { markdownRemarkExtract } from '../src/utils/markdownExcerpt';
 
 export default defineConfig({
 	site: 'https://amyskapers.dev',
+	vite: {
+		css: {
+			postcss: `./config`
+		}
+	},
 	markdown: {
 		syntaxHighlight: 'prism',
 		rehypePlugins: [

@@ -1,12 +1,9 @@
-@use '../variables.scss' as var;
-@use '../mixins.scss';
-
 form {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	padding: 20px;
-	background: var.$background;
+	background: $background;
 	text-align: left;
 
 	@media(min-width: 40em) {
@@ -24,7 +21,7 @@ label, legend {
 	display: block;
 	min-width: 100px;
 	margin: 40px 0 16px;
-	font-family: var.$font_main;
+	font-family: $font_main;
 	font-weight: 600;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
@@ -50,9 +47,9 @@ input, textarea, select {
 	flex: 1 1 100%;
 	margin: 0;
 	padding: 5px 25px;
-	border: 2px solid rgba(var.$darkpurple, 0.4);
-	background: rgba(var.$darkpurple, 0.4);
-	color: var.$neutral;
+	border: 2px solid rgba($purple_dark, 0.4);
+	background: rgba($purple_dark, 0.4);
+	color: $neutral;
 	font-size: 1em;
 
 	&::placeholder {
@@ -64,13 +61,13 @@ input, textarea, select {
 		box-shadow: none;
 
 		&:focus {
-			border-color: var.$orange;
+			border-color: $orange;
 		}
 	}
 
 	&:valid {
 		&[required] {
-			border-color: var.$green;
+			border-color: $green;
 		}
 	}
 }
@@ -87,20 +84,20 @@ fieldset {
 	padding: 0;
 	border: none;
 
-	> div {
+	& > div {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 -10px -26px;
 
-		label {
+		& label {
 			flex: 1 1 auto;
 			margin-top: 0;
 		}
 	}
 
 	@media(min-width: 40em) {
-		> div {
-			label {
+		& > div {
+			& label {
 				flex-basis: auto;
 				flex-grow: 0;
 				width: auto;
@@ -110,14 +107,14 @@ fieldset {
 				}
 			}
 
-			input[type='radio'], input[type='checkbox'] {
+			& input[type='radio'], & input[type='checkbox'] {
 				+ label {
 					width: auto;
 				}
 			}
 
 			&.long {
-				label {
+				& label {
 					flex-basis: 100%;
 				}
 			}
@@ -129,8 +126,8 @@ button {
 	margin-top: 40px;
 	padding: 0.6em 1em 0.5em;
 	border: none;
-	border: 4px solid var.$darkpurple;
-	background: var.$darkpurple;
+	border: 4px solid $purple_dark;
+	background: $purple_dark;
 	color: #ffffff;
 	font-size: 1.25em;
 	font-weight: 700;
@@ -138,9 +135,9 @@ button {
 	text-transform: uppercase;
 
 	&:hover {
-		border-color: var.$darkpurple;
+		border-color: $purple_dark;
 		background: #ffffff;
-		color: var.$darkpurple;
+		color: $purple_dark;
 	}
 
 	@media(min-width: 60em) {
@@ -181,14 +178,14 @@ input {
 				width: 20px;
 				height: 20px;
 				margin-right: 1ch;
-				border: 2px solid var.$darkpurple;
-				background: var.$darkpurple;
+				border: 2px solid $purple_dark;
+				background: $purple_dark;
 			}
 
 			&:after {
 				position: absolute;
 				left: 3px;
-				color: var.$neutral;
+				color: $neutral;
 				font-size: 1.3em;
 			}
 
@@ -215,24 +212,24 @@ input {
 		}
 
 		&:focus {
-			+ label {
+			& + label {
 				outline: 3px solid var.$yellow;
 			}
 		}
 
 		&[value='other'] {
-			+ label {
-				+ input[type='text'] {
+			& + label {
+				& + input[type='text'] {
 					display: none;
 				}
 			}
 
 			&:checked {
-				+ label {
+				& + label {
 					flex: 0 0 auto;
 					width: auto;
 
-					+ input[type='text'] {
+					& + input[type='text'] {
 						display: block;
 						flex-basis: auto;
 						align-self: center;
@@ -244,7 +241,7 @@ input {
 
 	&[type='checkbox'] {
 		&:checked {
-			+ label {
+			& + label {
 				&:after {
 					content: '✓';
 				}
@@ -279,7 +276,7 @@ input {
 		padding: 0;
 		border: none;
 		background: none;
-		accent-color: var.$darkpurple;
+		accent-color: $purple_dark;
 
 		&::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb {
 			width: 20px;
@@ -287,8 +284,8 @@ input {
 			margin: 0;
 			border: none;
 			border-radius: 50%;
-			background: var.$darkpurple;
-			color: var.$darkpurple;
+			background: $purple_dark;
+			color: $purple_dark;
 			cursor: pointer;
 			-webkit-appearance: none;
 			appearance: none;
@@ -299,7 +296,7 @@ input {
 			height: 10px;
 			border: none;
 			border-radius: 20px;
-			background: var.$darkpurple;
+			background: $purple_dark;
 			cursor: pointer;
 		}
 
@@ -308,7 +305,7 @@ input {
 			height: 10px;
 			border: none;
 			border-radius: 20px;
-			background: var.$neutral_light_10;
+			background: $neutral_light_10;
 			cursor: pointer;
 		}
 	}
@@ -319,13 +316,13 @@ input {
 	margin: 0;
 	padding: 0;
 
-	input {
+	& input {
 		&[type='range'] {
 			margin: 0 calc((50% / var(--opts)));
 		}
 	}
 
-	datalist {
+	& datalist {
 		display: grid;
 		grid-template-columns: 50px repeat(calc(var(--opts)), 1fr 50px);
 		width: 100%;
@@ -333,8 +330,8 @@ input {
 		white-space: break-spaces;
 		overflow-wrap: break-word;
 
-		option						{
-			@include mixins.range_labels;
+		& option {
+			@include range_labels;
 
 			display: block;
 			grid-column: span 3;

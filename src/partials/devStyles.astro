@@ -1,5 +1,6 @@
 <style>
-	div::before {
+	div {
+		&::before {
 		content: 'Mobile';
 		position: fixed;
 		z-index: 1000;
@@ -14,46 +15,49 @@
 	}
 
 	@media (min-width: 30em) {
-		div::before {
+		&::before {
 			content: '30em';
 		}
 	}
 
 	@media (min-width: 40em) {
-		div::before {
+		&::before {
 			content: '40em';
 		}
 	}
 
 	@media (min-width: 50em) {
-		div::before {
+		&::before {
 			content: '50em';
 		}
 	}
 
 	@media (min-width: 60em) {
-		div::before {
+		&::before {
 			content: '60em';
 		}
 	}
 
 	@media (min-width: 70em) {
-		div::before {
+		&::before {
 			content: '70em';
 		}
 	}
 
 	@media (min-width: 80em) {
-		div::before {
+		&::before {
 			content: '80em';
 		}
 	}
 
 	@media (min-width: 90em) {
-		div::before {
+		&::before {
 			content: '90em';
 		}
 	}
+	}
+
+	
 </style>
 
 <div></div>

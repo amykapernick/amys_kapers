@@ -1,4 +1,6 @@
-@use './variables.scss' as var;
+@import './fonts';
+@import './typo';
+@import './forms';
 
 *,
 *:before,
@@ -10,7 +12,7 @@
 }
 
 *:focus {
-	outline: 3px solid var.$yellow;
+	outline: 3px solid $yellow;
 }
 
 body,
