@@ -63,5 +63,11 @@
 		"end": "2023-06-19",
 		"city": "London",
 		"country": "United Kingdom"
+	},
+	{
+		"start": "2023-07-28",
+		"end": "2023-09-01",
+		"city": "Copenhagen",
+		"country": "Denmark"
 	}
 ]
