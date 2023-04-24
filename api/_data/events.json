@@ -65,5 +65,21 @@
 			"workshop"
 		],
 		"url": "https://ndcoslo.com/speakers/amy-kapernick"
+	},
+	{
+		"start": "2023-08-28",
+		"end": "2023-09-01",
+		"name": "Copenhagen Developers Festival",
+		"type": [
+			"speaking",
+			"workshop"
+		],
+		"url":  "https://cphdevfest.com/speakers/amy-kapernick"
+	},
+	{
+		"start": "2023-10-07",
+		"name": "DDD Perth",
+		"type": "organising",
+		"url": "https://dddperth.com"
 	}
 ]
