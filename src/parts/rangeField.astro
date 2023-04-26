@@ -1,0 +1,69 @@
+---
+	const { options, label, step = 1, max, min, name } = Astro.props
+---
+
+<style>
+	@import '@mixins';
+
+	div {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+
+		& input {
+			&[type='range'] {
+				margin: 0 calc((50% / var(--opts)));
+			}
+		}
+
+		& datalist {
+			display: grid;
+			grid-template-columns: 50px repeat(calc(var(--opts)), 1fr 50px);
+			width: 100%;
+			font-size: 0.6em;
+			white-space: break-spaces;
+			overflow-wrap: break-word;
+
+			& option {
+				@include range_labels;
+
+				display: block;
+				grid-column: span 3;
+				width: 100%;
+				max-width: 100%;
+				margin: 10px 0 0;
+				padding: 0;
+				text-align: center;
+				white-space: pre-wrap;
+
+				&:nth-child(2n) {
+					order: 2;
+				}
+			}
+		}
+	}
+</style>
+
+<fieldset>
+	<label for={name}>{label}</label>
+	<div style={{ "--opts": options.length }}>
+		<input
+			type="range"
+			name={name}
+			id={name}
+			list={`${name}_opts`}
+			max={max}
+			min={min}
+			step={step}
+		/>
+		<datalist id={`${name}_opts`}>
+			{
+				options.map((opt) => (
+					<option value={opt.value}>{opt.label}</option>
+				))
+			}
+		</datalist>
+	</div>
+</fieldset>

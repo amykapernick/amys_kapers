@@ -32,7 +32,7 @@ export const browser = [
 	},
 	{
 		value: 'ie',
-		label: 'Internet Explorer'
+		label: 'IE'
 	}
 ]
 
@@ -52,17 +52,12 @@ export const ide = [
 	{
 		value: 'jetbrains',
 		label: 'JetBrains Product'
-	},
-	{
-		value: 'other',
-		label: 'Other'
 	}
 ]
 
 export const node_cli = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -94,7 +89,6 @@ export const node_cli = {
 export const css_skills = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -126,7 +120,6 @@ export const css_skills = {
 export const js_skills = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -158,7 +151,6 @@ export const js_skills = {
 export const node_version = {
 	max: 16,
 	min: 6,
-	step: 1,
 	opts: [
 		{
 			value: 6,

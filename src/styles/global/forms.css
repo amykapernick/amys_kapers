@@ -84,42 +84,7 @@ fieldset {
 	padding: 0;
 	border: none;
 
-	& > div {
-		display: flex;
-		flex-wrap: wrap;
-		margin: 0 -10px -26px;
-
-		& label {
-			flex: 1 1 auto;
-			margin-top: 0;
-		}
-	}
-
-	@media(min-width: 40em) {
-		& > div {
-			& label {
-				flex-basis: auto;
-				flex-grow: 0;
-				width: auto;
-
-				&.long {
-					flex-basis: 100%;
-				}
-			}
-
-			& input[type='radio'], & input[type='checkbox'] {
-				+ label {
-					width: auto;
-				}
-			}
-
-			&.long {
-				& label {
-					flex-basis: 100%;
-				}
-			}
-		}
-	}
+	
 }
 
 button {
@@ -311,40 +276,4 @@ input {
 	}
 }
 
-.range {
-	max-width: 100%;
-	margin: 0;
-	padding: 0;
 
-	& input {
-		&[type='range'] {
-			margin: 0 calc((50% / var(--opts)));
-		}
-	}
-
-	& datalist {
-		display: grid;
-		grid-template-columns: 50px repeat(calc(var(--opts)), 1fr 50px);
-		width: 100%;
-		font-size: 0.6em;
-		white-space: break-spaces;
-		overflow-wrap: break-word;
-
-		& option {
-			@include range_labels;
-
-			display: block;
-			grid-column: span 3;
-			width: 100%;
-			max-width: 100%;
-			margin: 10px 0 0;
-			padding: 0;
-			text-align: center;
-			white-space: pre-wrap;
-
-			&:nth-child(2n) {
-				order: 2;
-			}
-		}
-	}
-}

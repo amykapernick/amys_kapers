@@ -1,5 +1,9 @@
 ---
 import SVG from "@parts/svg";
+import Icons from "./icons.astro";
+
+const { graphic = false, icons = false } = Astro.props
+
 ---
 
 <style>
@@ -17,10 +21,10 @@ import SVG from "@parts/svg";
 	}
 
 	.graphic {
-			order: -2;
-			width: 90%;
-			max-width: 400px;
-		}
+		order: -2;
+		width: 90%;
+		max-width: 400px;
+	}
 
 	@media(min-width: 40em) {
 		section {
@@ -29,7 +33,7 @@ import SVG from "@parts/svg";
 			align-items: center;
 			text-align: left;
 
-			&:nth-child(2n - 1), &.special {
+			&:nth-of-type(2n), &.special {
 				text-align: right;
 
 				& .graphic {
@@ -37,14 +41,28 @@ import SVG from "@parts/svg";
 					margin-right: 0;
 					margin-left: 20px;
 				}
+
+				& .icons {
+					justify-content: flex-end;
+				}
 			}
-		}		
+		}	
+		
+		.special {
+			& .content {
+				display: flex;
+				flex-wrap: nowrap;
+				align-content: center;
+				align-items: center;
+				justify-content: center;
+			}
+		}
 
 		.graphic {
-				flex: 1 0 50%;
-				max-width: 300px;
-				margin: 0 20px 0 0;
-			}
+			flex: 1 0 50%;
+			max-width: 300px;
+			margin: 0 20px 0 0;
+		}
 	}
 
 	@media(min-width: 50em) {
@@ -68,7 +86,7 @@ import SVG from "@parts/svg";
 				max-width: 300px;
 			}
 
-			&:nth-child(2n - 1), &.special {
+			&:nth-of-type(2n), &.special {
 				& > * {
 					order: 0;
 				}
@@ -89,6 +107,13 @@ import SVG from "@parts/svg";
 			}
 		}
 
+		.special {
+			& .content {
+				max-width: unset;
+				flex-basis: 100%;
+			}
+		}
+
 		.graphic {
 				margin: 0;
 			}
@@ -105,7 +130,7 @@ import SVG from "@parts/svg";
 
 
 			&.special {
-				.graphic {
+				& .graphic {
 					margin-left: 90px;
 				}
 			}
@@ -136,13 +161,16 @@ import SVG from "@parts/svg";
 		}
 
 		.graphic {
-				max-width: 450px;
-			}
+			max-width: 450px;
+		}
 	}
 
 </style>
 
 <section class={Astro.props.class}>
-	{Astro.props.graphic && <SVG name={Astro.props.graphic} />}
-	<slot />
+	{graphic && <SVG name={graphic} class="graphic" />}
+	<div class="content">
+		<slot />
+		{icons && <Icons icons={icons} class="icons" />}
+	</div>
 </section>

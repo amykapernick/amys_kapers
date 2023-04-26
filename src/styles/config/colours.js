@@ -11,6 +11,7 @@ const colours = {
 	yellow: '#ffce03',
 	orange: '#f78d2b',
 	navy: '#364c93',
+	white: '#ffffff',
 	neutral: [
 		{
 			main: '#000000',

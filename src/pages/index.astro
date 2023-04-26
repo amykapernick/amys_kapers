@@ -4,6 +4,7 @@ import SVG from "@parts/svg";
 import EventsTravelFeed from "@parts/eventsTravelFeed";
 import Section from '@parts/section'
 import IntroSection from '@partials/intro'
+import Graphic from "@parts/graphic";
 
 const content = {
 	title: "Amy Kapernick",
@@ -13,41 +14,102 @@ const content = {
 ---
 
 <style>
-	.intro {
+	/* .intro {
 		position: relative;
 		margin-bottom: 50px;
 		padding: 0 20px;
 		font-size: 1.5em;
 		font-weight: 700;
 		text-transform: uppercase;
-	}
-
+	} */
+/* 
 	mark {
 		background: none;
 		color: $purple_dark;
-	}
+	} */
 
-	blockquote {
+	/* blockquote {
 		max-width: 400px;
 		margin: 20px auto;
+	} */
+	.section {
+		position: relative;
+		z-index: 0;
+		margin: 80px auto;
+		color: $white;
+
+		& :global(section) {
+			border-color: $white;
+		}
+
+		& :global(a) {
+			color: inherit;
+		}
+
+		& .leaf, & .dots, & .peanut, & .flower {
+			display: none;
+			position: absolute;
+			height: auto;
+			width: auto;
+		}
+	}
+	
+	.background {
+		position: absolute;
+		top: -50px;
+		right: 0;
+		bottom: -50px;
+		width: auto;
+		height: calc(100% + 100px);
+		color: var.$purple;
 	}
 
-	.image {
+	.graphic {
 		position: relative;
 		max-width: 400px;
 		margin: 0 auto;
-		padding: 0 20px 50px;
+		padding: 0 0 10%;
+		width: 90%;
+		height: auto;
 
-		& .blob_2 {
+		& .image {
 			display: block;
-			position: absolute;
-			z-index: -1;
-			right: -20px;
-			bottom: 0;
-			width: 120%;
-			transform: rotate(-50deg);
-			color: $yellow;
+			width: 100%;
+			height: 100%;
+
+			& :global(image) {
+				width: 100%;
+				height: 100%;
+			}
 		}
+
+		& .blob {
+			z-index: -1;
+			bottom: -15%;
+			left: 15%;
+			width: 90%;
+			transform: rotate(90deg) scaleX(-1);
+			height: auto;
+			position: absolute;
+		}
+
+		& .paw {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 100px;
+			height: auto;
+		}
+	}
+
+	
+
+	.flower_2 {
+		position: absolute;
+		left: -170px;
+		width: 200px;
+		height: auto;
+		margin-top: -200px;
 	}
 
 	.blob_small {
@@ -56,9 +118,9 @@ const content = {
 		right: -50px;
 		bottom: -50px;
 		width: 100px;
-		color: $pink;
+		height: auto;
 	}
-
+/* 
 	.options {
 		min-height: 3em;
 		color: $purple_dark;
@@ -70,6 +132,15 @@ const content = {
 				}
 			}
 		}
+	} */
+
+	.heart {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 100px;
+		height: auto;
+		mix-blend-mode: multiply;
 	}
 
 	.image_blob {
@@ -88,44 +159,116 @@ const content = {
 	}
 
 	@media(min-width: 40em) {
-		.intro {
+		/* .intro {
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			padding: 20px;
+		} */
 
-			
+		.section {
+			margin-top: 100px;
+			padding-top: 20px;
+
+			& :global(section) {
+				text-align: right;
+					
+
+				& :global(.graphic) {
+					order: 2;
+					margin-right: 0;
+					margin-left: 20px;
+				}
+
+				& :global(ul) {
+					justify-content: flex-end;
+				}
+
+
+				&:nth-of-type(2n) {
+					text-align: left;
+
+					& > * {
+						order: 1;
+					}
+
+					& :global(.graphic) {
+						order: -2;
+						margin-right: 20px;
+						margin-left: 0;
+					}
+
+					& :global(ul) {
+						justify-content: flex-start;
+					}
+				}
+			}
 		}
 
-		blockquote {
+		.background {
+			top: -80px;
+			height: calc(100% + 150px);
+		}
+
+		/* blockquote {
 			flex: 0 0 auto;
 			width: 300px;
 			margin: 0;
 			text-align: right;
+		} */
+
+		.heart {
+			top: auto;
+			bottom: 0;
+			left: -20px;
 		}
 
-		.rotate {
+		/* .blob, .paw {
+			padding: 0 0 10%;
+		} */
+
+		.blob {
+			bottom: -10%;
+			left: 20%;
+			width: 90%;
+		}
+
+		.flower_2 {
+			left: -100px;
+			margin-top: -100px;
+		}
+
+		/* .rotate {
 			width: auto;
 			margin-left: auto;
 
 			.options {
 				text-align: left;
 			}
+		} */
+
+		.graphic {
+			order: 2;
+			margin-right: 0;
+			flex: 1 0 50%;
+			margin-left: 20px;
+			max-width: 300px;
 		}
 
 		.image {
-			flex: 1 1 30vw;
-			max-width: 500px;
-			margin: 0;
-			margin-left: 50px;
+			/* flex: 1 1 30vw; */
+			/* max-width: 500px; */
+			/* margin: 0; */
+			/* margin-left: 50px; */
 
-			svg {
-				max-width: unset;
+			& svg {
+				/* max-width: unset; */
 			}
 
-			.blob_2 {
-				right: auto;
-				left: 0;
+			& .blob {
+				bottom: -10%;
+				left: 20%;
+				width: 90%;
 			}
 		}
 
@@ -133,29 +276,122 @@ const content = {
 			display: block;
 		}
 
-		@supports(grid-template-areas: '.') {
+		/* @supports(grid-template-areas: '.') {
 			.rotate {
 				justify-content: end;
+			}
+		} */
+	}
+
+	@media(min-width: 50em) {
+		.heart {
+			left: 0;
+		}
+
+		.section {
+			margin-top: 180px;
+		}
+
+		.background {
+			top: -150px;
+			height: calc(100% + 200px);
+		}
+
+		.graphic {
+			& .blob {
+				bottom: -20px;
+				left: 50px;
+			}
+		}
+
+		/* .blob, .paw {
+			bottom: -20px;
+			left: 50px;
+		} */
+
+		.special {
+			& p {
+				max-width: 300px;
 			}
 		}
 	}
 
 	@media(min-width: 60em) {
-		.intro {
+		/* .intro {
 			margin-top: -100px;
 			margin-bottom: 0;
 			padding: 50px 5vw;
 			font-size: 2em;
 
 			
+		} */
+
+		.section {
+			margin-top: 50px;
+
+			& .leaf, & .dots, & .peanut, & .flower {
+				display: block;
+			}
+
+			& .leaf {
+				top: -120px;
+				left: 0;
+				width: 300px;
+			}
+
+			& .dots {
+				top: -200px;
+				right: -100px;
+				width: 200px;
+			}
+
+			& .peanut {
+				right: -250px;
+				bottom: -280px;
+				width: 300px;
+			}
+
+			& .flower {
+				bottom: -130px;
+				left: -80px;
+				width: 200px;
+			}
 		}
 
-		blockquote {
-			width: 400px;
+		.background {
+			right: -50%;
+			height: calc(100% + 250px);
 		}
+
+		.heart {
+			left: calc(5vw + 50px);
+		}
+
+		/* .paw {
+			top: 50px;
+		} */
+
+		.graphic {
+			margin-left: 90px;
+			max-width: 400px;
+
+			& .paw {
+				top: 50px;
+			}
+		}
+
+		.flower_2 {
+			left: -350px;
+			width: 500px;
+			margin-top: -300px;
+		}
+
+		/* blockquote {
+			width: 400px;
+		} */
 
 		.image {
-			.blob_2 {
+			& .blob_2 {
 				bottom: -50px;
 			}
 		}
@@ -166,310 +402,375 @@ const content = {
 	}
 
 	@media(min-width: 70em) {
-		.intro {
+		/* .intro {
 			padding: 50px 10vw 0;
+		} */
+
+		.section {
+			margin-top: 100px;
+
+			& .leaf {
+				top: -180px;
+				width: 400px;
+			}
+
+			& .dots {
+				top: -300px;
+				right: -100px;
+				width: 300px;
+			}
+
+			& .peanut {
+				right: -250px;
+				bottom: -200px;
+				width: 400px;
+			}
+
+			& .flower {
+				bottom: -180px;
+			}
+		}
+
+		.graphic {
+			padding-bottom: 0;
+
+			& .blob {
+				bottom: -130px;
+			}
+		}
+
+		.background {
+			top: -200px;
+			right: auto;
+			left: -65%;
+			height: calc(100% + 300px);
+		}
+
+		/* .blob, .paw {
+			padding-bottom: 0;
+		}
+
+		.paw {
+			top: 50px;
+		} */
+
+		.blob {
+			/* bottom: -130px; */
+		}
+
+		.flower_2 {
+			left: -300px;
+			margin-top: -350px;
 		}
 	}
 
 	@media(min-width: 80em) {
-		.intro {
+		/* .intro {
 			width: 90vw;
 			max-width: 1300px;
 			margin-right: auto;
 			margin-left: auto;
 			padding: 50px 50px 100px;
 			font-size: 2.5em;
+		} */
+
+		.section {
+			margin-top: 150px;
+			margin-bottom: 200px;
+			padding-top: 70px;
+
+			& .leaf {
+				top: -240px;
+				left: -150px;
+				width: 600px;
+			}
+
+			& .dots {
+				top: -350px;
+				right: -150px;
+				width: 330px;
+			}
+
+			& .peanut {
+				bottom: -350px;
+			}
+
+			& .flower {
+				bottom: -250px;
+				left: -50px;
+			}
 		}
 
-		blockquote {
-			width: 500px;
+		.background {
+			height: calc(100% + 400px);
 		}
+
+		.heart {
+			left: -20px;
+		}
+
+		.graphic {
+			max-width: 450px;
+		}
+
+		/* blockquote {
+			width: 500px;
+		} */
 
 		.image {
-			margin-left: 100px;
+			/* margin-left: 100px; */
 		}
 
 		.blob_small {
 			right: calc(-5vw - 10px);
 		}
+
+		.flower_2 {
+			left: calc(50vw - 600px - 500px);
+			width: 640px;
+			margin-top: -450px;
+		}
 	}
+
+	@media(min-width: 90em) {
+		.section {
+			margin-top: 200px;
+
+			& .leaf_thin {
+				top: -320px;
+				left: calc(50vw - 600px - 200px);
+				width: 700px;
+			}
+
+			& .dots {
+				right: calc(50vw - 600px - 200px);
+			}
+
+			& .peanut {
+				right: calc(50vw - 600px - 600px);
+				bottom:-425px;
+				width: 600px;
+			}
+
+			& .flower {
+				bottom: -320px;
+				left: calc(50vw - 600px - 170px);
+			}
+		}
+
+		.background {
+			right: 0;
+			left: auto;
+		}
+	}
+
 </style>
 
 <Layout content={content}>
 	<IntroSection />
 
-	<Section graphic="graphics/development.svg">
-		<div class="content">
-			<p>I help businesses get online, and stay online.</p>
-			<p>
-				At AimHigher we build modern & professional websites purpose
-				made to be easily maintained by anyone, regardless of technical
-				skill.
-			</p>
-			<ul class="icons">
-				<li>
-					<a
-						href="https://aimhigherweb.design"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/aimhigher.svg" />
-						<span>AimHigher Web</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<SVG name="graphics/heart.svg" class="heart" />
+	<Section
+		graphic="graphics/development.svg"
+		icons={[
+			{
+				label: 'AimHigher Web',
+				url: 'https://aimhigherweb.design',
+				icon: 'icons/aimhigher.svg'
+			}
+		]}
+	>
+		<p>I help businesses get online, and stay online.</p>
+		<p>
+			At AimHigher we build modern & professional websites purpose
+			made to be easily maintained by anyone, regardless of technical
+			skill.
+		</p>
+		<Graphic name="graphics/heart.svg" class="heart" colour="orange" />
 	</Section>
 
-	<Section graphic="graphics/conference.svg">
-		<div class="content">
-			<p>
-				I <a href="/talks">speak at conferences</a> about front end development,
-				the web, mental health and life.
-			</p>
-			<p>
-				I also run in person and online <a href="/workshops"
-					>workshops</a
-				> for a more in-depth focus on front end tech, both internally and
-				alongside other events.
-			</p>
-			<ul class="icons">
-				<li>
-					<a
-						href="https://speaking.amyskapers.dev"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/notist.svg" />
-						<span>Notist</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+	<Section
+		graphic="graphics/conference.svg"
+		icons={[
+			{
+				icon: 'icons/notist.svg',
+				href: 'https://speaking.amyskapers.dev',
+				title: 'Notist',
+			},
+		]}
+	>
+		<p>
+			I <a href="/talks">speak at conferences</a> about front end development,
+			the web, mental health and life.
+		</p>
+		<p>
+			I also run in person and online <a href="/workshops"
+				>workshops</a
+			> for a more in-depth focus on front end tech, both internally and
+			alongside other events.
+		</p>
 	</Section>
 
-	<Section graphic="graphics/coding.svg">
-		<div class="content">
-			<p>
-				I mentor at events, helping more girls and women get involved in
-				tech. This includes She Codes (formerly Perth Web Girls) and
-				Muses Code JS (formerly NodeGirls).
-			</p>
-			<ul class="icons">
-				<li>
-					<a
-						href="https://techoutsiders.com.au/amy-kapernick/"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/techoutsiders.svg" />
-						<span>Tech Outsiders</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://musescodejs.org/perth.html"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/musesjs.svg" />
-						<span>Muses Code JS</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://shecodes.com.au/"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/shecodes.svg" />
-						<span>She Codes</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+	<Section
+		graphic="graphics/coding.svg"
+		icons={[
+			{
+				label: 'Tech Outsiders',
+				icon: 'icons/techoutsiders.svg',
+				url: 'https://techoutsiders.com.au/amy-kapernick/'
+			},
+			{
+				label: 'Muses Code JS',
+				icon: 'icons/musesjs.svg',
+				url: 'https://musescodejs.org/perth.html'
+			},
+			{
+				label: 'She Codes',
+				icon: 'icons/shecodes.svg',
+				url: 'https://shecodes.com.au/'
+			}
+		]}
+	>
+		<p>
+			I mentor at events, helping more girls and women get involved in
+			tech. This includes She Codes (formerly Perth Web Girls) and
+			Muses Code JS (formerly NodeGirls).
+		</p>
 	</Section>
 
-	<Section>
-		<SVG name="graphics/blob_background.svg" class="blob_background" />
-		<SVG name="graphics/leaf_thin.svg" class="leaf_thin" />
-		<SVG name="graphics/dots.svg" class="dots" />
+	<div class="section">
+		<Graphic name="graphics/blob_background.svg" class="background" colour="purple" />
+		<Graphic name="graphics/leaf_thin.svg" class="leaf" colour="green" />
+		<Graphic name="graphics/dots.svg" class="dots" colour="red" />
 
-		<Section graphic="graphics/blog.svg">
-			<div class="content">
-				<p>
-					I write blog posts. Sometimes I blog about tech, sometimes
-					about the web, sometimes about life.
-				</p>
-				<ul class="icons">
-					<li>
-						<a
-							href="https://amygoestoperth.com.au"
-							target="_blank"
-							rel="nofollow"
-						>
-							<SVG name="icons/blog.svg" />
-							<span>Amy's Kapers</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+		<Section
+			graphic="graphics/blog.svg"
+			icons={[
+				{
+					label: "Amy's Kapers",
+					icon: 'icons/blog.svg',
+					url: 'https://blog.amyskapers.dev'
+				}
+			]}	
+		>
+			<p>
+				I write blog posts. Sometimes I blog about tech, sometimes
+				about the web, sometimes about life.
+			</p>
 		</Section>
 
-		<Section graphic="graphics/office_team.svg">
-			<div class="content">
-				<p>
-					I'm a Microsoft MVP. This means I do a lot of work in my
-					community and sharing what I've learnt in conference talks
-					and blog posts.
-				</p>
-				<ul class="icons">
-					<li>
-						<a
-							href="https://mvp.microsoft.com/en-us/publicprofile/5003595"
-							target="_blank"
-							rel="nofollow"
-						>
-							<SVG name="icons/mvp.svg" />
-							<span>Microsoft MVPs</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+		<Section
+			graphic="graphics/office_team.svg"
+			icons={[
+				{
+					label: 'Microsoft MVP Profile',
+					icon: 'icons/mvp.svg',
+					url: 'https://mvp.microsoft.com/en-us/publicprofile/5003595'
+				}
+			]}
+		>
+			<p>
+				I'm a Microsoft MVP. This means I do a lot of work in my
+				community and sharing what I've learnt in conference talks
+				and blog posts.
+			</p>
 		</Section>
 
-		<Section graphic="graphics/community.svg">
-			<div class="content">
-				<p>
-					I'm a Twilio Champion. This means I help Twilio to build
-					better communities.
-				</p>
-				<ul class="icons">
-					<li>
-						<a
-							href="https://www.twilio.com/champions"
-							target="_blank"
-							rel="nofollow"
-						>
-							<SVG name="icons/twilio.svg" />
-							<span>Twilio Champions</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+		<Section
+			graphic="graphics/community.svg"
+			icons={[
+				{
+					label: 'Twilio Champions',
+					icon: 'icons/twilio.svg',
+					url: 'https://www.twilio.com/champions'
+				}
+			]}
+		>
+			<p>
+				I'm a Twilio Champion. This means I help Twilio to build
+				better communities.
+			</p>
 		</Section>
 
-		<SVG name="graphics/blob.svg" />
-		<SVG name="graphics/flower_2.svg" class="flower" />
+		<Graphic name="graphics/blob.svg" colour="blue" class="peanut" />
+		<Graphic name="graphics/flower_2.svg" class="flower" colour="pink" />
+	</div>
+
+	<Section
+		graphic="graphics/writing.svg"
+		icons={[
+			{
+				label: 'Twitter',
+				icon: 'icons/twitter.svg',
+				url: 'https://twitter.com/amys_kapers',
+				me: true
+			},
+			{
+				label: 'Instagram',
+				icon: 'icons/instagram.svg',
+				url: 'https://www.instagram.com/amys_kapers/',
+				me: true
+			},
+			{
+				label: 'LinkedIn',
+				icon: 'icons/linkedin.svg',
+				url: 'https://www.linkedin.com/in/amykapernick/',
+				me: true
+			},
+			{
+				label: 'GitHub',
+				icon: 'icons/github.svg',
+				url: 'https://github.com/amykapernick',
+				me: true
+			},
+			{
+				label: 'CodePen',
+				icon: 'icons/codepen.svg',
+				url: 'https://codepen.io/amys_kapers',
+				me: true
+			},
+			{
+				label: 'Mastadon',
+				icon: 'icons/mastodon.svg',
+				url: 'https://hachyderm.io/@amys_kapers',
+			}
+		]}
+	>
+		<p>
+			Sometimes I write interesting things on socials, but mostly it's
+			just pictures of my dog.
+		</p>
 	</Section>
 
-	<Section graphic="graphics/writing.svg">
-		<div class="content">
-			<p>
-				Sometimes I write interesting things on socials, but mostly it's
-				just pictures of my dog.
-			</p>
-			<ul class="icons">
-				<li>
-					<a
-						href="https://twitter.com/amys_kapers"
-						target="_blank me"
-						rel="nofollow"
-					>
-						<SVG name="icons/twitter.svg" />
-						<span>Twitter</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.instagram.com/amys_kapers/"
-						target="_blank me"
-						rel="nofollow"
-					>
-						<SVG name="icons/instagram.svg" />
-						<span>Instagram</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://github.com/amykapernick"
-						target="_blank me"
-						rel="nofollow"
-					>
-						<SVG name="icons/github.svg" />
-						<span>GitHub</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://codepen.io/amys_kapers"
-						target="_blank me"
-						rel="nofollow"
-					>
-						<SVG name="icons/codepen.svg" />
-						<span>Codepen</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://www.linkedin.com/in/amykapernick"
-						target="_blank"
-						rel="nofollow me"
-					>
-						<SVG name="icons/linkedin.svg" />
-						<span>LinkedIn</span>
-					</a>
-				</li>
-				<li>
-					<a
-						href="https://aus.social/@amyskapers"
-						target="_blank"
-						rel="nofollow me"
-					>
-						<SVG name="icons/mastodon.svg" />
-						<span>Mastodon</span>
-					</a>
-				</li>
-			</ul>
-		</div>
+	<Section
+		graphic="graphics/team.svg"
+		icons={[
+			{
+				label: 'DDD Perth',
+				icon: 'icons/dddperth.svg',
+				url: 'https://dddperth.com/'
+			}
+		]}
+	>
+		<p>
+			I'm on the committee for DDD Perth as Vice-Chair and Director of
+			Conference Content. We're the biggest tech conference in
+			Australia, not-for-profit and entirely volunteer run.
+		</p>
+		<p>
+			In this role, I plan and run workshops for writing talk
+			proposals, help build out the final agenda, mentor and run
+			training for any speakers that need an extra hand or want
+			feedback on their presentations before the big day.
+		</p>
 	</Section>
 
-	<Section graphic="graphics/team.svg">
-		<div class="content">
-			<p>
-				I'm on the committee for DDD Perth as Vice-Chair and Director of
-				Conference Content. We're the biggest tech conference in
-				Australia, not-for-profit and entirely volunteer run.
-			</p>
-			<p>
-				In this role, I plan and run workshops for writing talk
-				proposals, help build out the final agenda, mentor and run
-				training for any speakers that need an extra hand or want
-				feedback on their presentations before the big day.
-			</p>
-			<ul class="icons">
-				<li>
-					<a
-						href="https://dddperth.com/"
-						target="_blank"
-						rel="nofollow"
-					>
-						<SVG name="icons/dddperth.svg" />
-						<span>DDD Perth</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</Section>
-
-	<SVG name="graphics/flower.svg" class="flower" />
+	<Graphic name="graphics/flower.svg" class="flower_2" colour="purple"  />
 
 	<Section class="special">
-		<div class="graphic image">
-			<SVG name="graphics/image_blob.svg" />
-			<SVG name="graphics/paw.svg" class="paw" />
-			<SVG name="graphics/blob.svg" />
+		<div class="graphic">
+			<SVG name="graphics/image_blob.svg" class="image" />
+			<Graphic name="graphics/paw.svg" class="paw" colour="yellow" />
+			<Graphic name="graphics/blob.svg" class="blob" colour="pink" />
 		</div>
 		<p>
 			I have a grey and white border collie who likes long walks on the

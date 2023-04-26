@@ -28,19 +28,20 @@ const classes = ['rotate', Astro.props.class]
 	}
 
 	li {
-		/* @include rotateWords($num, $int); */
+		@include rotateWords($num, $int);
 
 		position: absolute;
 		animation-duration: $duration;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
-		/* opacity: 0; */
+		opacity: 0;
 		white-space: break-spaces;
 
 		&.an {
 			&:before {
 				content: 'n';
-				/* transform: translateX(-1ch); */
+				color: $neutral;
+				transform: translateX(-1ch);
 				position: relative;
 				left: -1ch;
 			}
@@ -59,7 +60,7 @@ const classes = ['rotate', Astro.props.class]
 			min-height: unset;
 
 			& li {
-				/* @include rotateWordsGrid($num, $int); */
+				@include rotateWordsGrid($num, $int);
 
 				&:not(:nth-child(10)) {
 					opacity: 0;

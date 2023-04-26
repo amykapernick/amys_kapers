@@ -11,12 +11,13 @@ console.log({ variables, colours })
 module.exports = {
 	plugins: [
 		staticVariables({
+			disable: "@import",
 			variables: {
 				...colours,
 				...variables
 			},
-			importPaths: ['../src/styles/mixins/*.css'],
-			importRoot: '../src/styles'
+			// importPaths: ['../src/styles/mixins/*.css'],
+			// importRoot: '../src/styles'
 		}),
 		nesting({
 			noIsPseudoSelector: true

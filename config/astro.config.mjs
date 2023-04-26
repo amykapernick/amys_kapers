@@ -9,6 +9,14 @@ export default defineConfig({
 	vite: {
 		css: {
 			postcss: `./config`
+		},
+		resolve: {
+			alias: [
+				{
+					find: '@mixins',
+					replacement: `./src/styles/mixins/index.css`
+				}
+			]
 		}
 	},
 	markdown: {

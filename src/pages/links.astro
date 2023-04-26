@@ -14,14 +14,14 @@ const links = [
 	},
 	{
 		name: "Mastadon",
-		url: "https://aus.social/@amys_kapers",
+		url: "https://hachyderm.io/@amys_kapers",
 	},
 	{
 		name: "GitHub",
 		url: "https://github.com/amykapernick/blog",
 	},
 	{
-		name: "Front End Web Fundamentals Workshop",
+		name: "Modern Front End Fundamentals Workshop",
 		url: "/front-end-fundamentals-workshop",
 	},
 	{
@@ -43,8 +43,12 @@ const links = [
 ];
 ---
 
-<style lang="scss">
-	@use "../styles/variables" as var;
+<style>
+	@import '@mixins';
+
+	article {
+		@include content;
+	}
 
 	ul {
 		list-style: none;
@@ -68,12 +72,12 @@ const links = [
 	a {
 		display: block;
 		padding: 10px;
-		background: rgba(var.$purple_dark, 0.2);
+		background: rgba($purple_dark, 0.2);
 	}
 </style>
 
-<Layout content={content}>
-	<article class="content">
+<Layout content={content} header="reduced">
+	<article>
 		<h1>Links</h1>
 		<ul>
 			{

@@ -1,4 +1,4 @@
-@import 'mixins/mixins';
+@import '@mixins';
 
 @import './global/index';
 

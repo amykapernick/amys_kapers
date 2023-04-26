@@ -6,10 +6,17 @@ const content = {
 	description: "A few questions to prepare for your upcoming workshop",
 };
 ---
+<style>
+	@import '@mixins';
 
-<Layout content={content}>
-	<article class="landing">
-		<h1>Thank You</h1>
+	article {
+		@include landing;
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
+		<h1>See you there</h1>
 
 		<p>Thanks for filling out the form, see you at the workshop!</p>
 	</article>

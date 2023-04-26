@@ -9,8 +9,16 @@ const content = {
 };
 ---
 
-<Layout content={content}>
-	<article class="content">
+<style>
+	@import '@mixins';
+
+	article {
+		@include content;
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
 		<h1>Modern Front End Fundamentals</h1>
 		<p>
 			What does a modern front end actually look like? It's one that built

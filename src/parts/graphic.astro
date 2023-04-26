@@ -2,11 +2,11 @@
 import SVG from "./svg.astro";
 
 const { name, colour, class: className, ...props } = Astro.props;
-const classes = ['graphic', className]
+const classes = ['g', className]
 ---
 
 <style>
-	.graphic {
+	.g {
 		display: block;
 		
 		&:global([data-colour]) {
