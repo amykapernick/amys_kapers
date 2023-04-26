@@ -17,7 +17,6 @@ if (!url.includes("http")) {
 
 const events = await fetch(`${url}/events?filter=all`)
 	.then((res) => {
-		console.log({ res });
 		return res.json();
 	})
 	.catch((err) => {
@@ -27,7 +26,6 @@ const events = await fetch(`${url}/events?filter=all`)
 	});
 const travel = await fetch(`${url}/travel?filter=all`)
 	.then((res) => {
-		console.log({ res });
 		return res.json();
 	})
 	.catch((err) => {

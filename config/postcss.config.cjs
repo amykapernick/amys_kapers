@@ -6,9 +6,6 @@ const rgbahex = require('postcss-hexrgba')
 const colours = require('../src/styles/config/colours')
 const variables = require('../src/styles/config/variables')
 
-console.log({ variables, colours })
-
-
 module.exports = {
 	plugins: [
 		staticVariables({

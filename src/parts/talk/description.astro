@@ -3,7 +3,7 @@ const { url } = Astro?.props;
 
 const content = await fetch(url)
 	.then((res) => {
-		console.log({url, test: res.headers.get("content-type")?.includes("json"), res})
+		console.log({url, test: res.headers.get("content-type")?.includes("json"), header: res.headers.get('content-type'), res})
 		return res.headers.get("content-type")?.includes("json")
 			? res.json()
 			: {
