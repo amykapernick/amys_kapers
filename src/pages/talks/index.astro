@@ -1,11 +1,8 @@
 ---
-import { format } from "date-fns";
 import Layout from "@layouts/default";
-import SVG from "@parts/svg";
 import parseTalks from "@utils/parseTalks";
-import TalkEvent from "@parts/talk/event";
-import TalkDescription from "@parts/talk/description";
 import TalksList from '@partials/talksList'
+import IntroSection from "@partials/intro";
 
 const { talks } = await fetch(import.meta.env.NOTIST_FEED)
 	.then((res) => res.json())
@@ -22,23 +19,19 @@ const content = {
 		"I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.",
 };
 ---
+<style>
+	@import '@mixins';
+
+	section {
+		@include section;
+	}
+</style>
 
 <Layout content={content}>
 	<h1 class="sr-only">Talks</h1>
-	<section class="intro_section">
-		<blockquote>
-			<p>Hi, I'm Amy</p>
-
-			<div class="rotate">
-				<p>I'm a <mark>Speaker</mark></p>
-			</div>
-		</blockquote>
-		<div class="image">
-			<SVG name="graphics/image_blob_2.svg" />
-			<SVG name="graphics/blob_2.svg" class="blob_2" />
-		</div>
-		<SVG name="graphics/blob_small.svg" class="blob_small blob" />
-	</section>
+	<IntroSection>
+		<p>I'm a <mark>Speaker</mark></p>
+	</IntroSection>
 
 	<section>
 		<p>I am currently giving a variety of talks about the front end of the web, and mental health.</p>

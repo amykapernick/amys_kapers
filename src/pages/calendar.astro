@@ -41,6 +41,32 @@ const calendarEvents = parseEvents(events);
 const calendarTrips = parseTravel(travel);
 ---
 
+<style>
+	.calendar {
+		padding-right: 100px;
+		overflow-x: auto;
+		background: #36454f;
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 50%;
+			width: 100vw;
+			height: 200px;
+			transform: translateX(-50%);
+			background: inherit;
+		}
+	}
+
+	h1 {
+		margin-top: 0;
+		color: #85caf6;
+		text-align: center;
+	}
+</style>
+
 <Layout content={content}>
 	<div class="calendar">
 		<h1>Calendar</h1>

@@ -11,12 +11,34 @@ const {talks = {}} = Astro.props
 console.log({talks, props: Astro.props})
 ---
 
+<style>
+	@import '@mixins';
+
+	article {
+		@include section;
+	}
+
+	h3 {
+		display: inline;
+		font-weight: 500;
+		text-transform: none;
+	}
+
+	summary {
+		color: $navy;
+		font-size: 1.5em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+</style>
+
 <>{
 	Object.entries(talks).map(([slug, talk]) => (
 		<article id={slug}>
 			<h2>{talk.title}</h2>
 			<TalkDescription url={talk.related} />
-			<details class="past-talks">
+			<details>
 				<summary>Events</summary>
 				<ul>
 					{talk.events.map((version) => (

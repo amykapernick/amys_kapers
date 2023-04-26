@@ -96,3 +96,28 @@
 	}
 	
 }
+
+@mixin section {
+	margin: 40px auto;
+	padding: 0 20px;
+
+	@media(min-width: 50em) {
+		padding: 0 50px;
+	}
+
+	@media(min-width: 60em) {
+		margin: 0;
+		padding: 20px 5vw;
+	}
+
+	@media(min-width: 70em) {
+		padding: 20px 10vw;
+	}
+
+	@media(min-width: 80em) {
+		width: 90vw;
+		max-width: 1200px;
+		margin: 0 auto 50px;
+		padding: 0;
+	}
+}

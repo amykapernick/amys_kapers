@@ -1,7 +1,5 @@
 ---
-import Layout from "@layouts/default";
 import SVG from "@parts/svg";
-import EventsTravelFeed from "@parts/eventsTravelFeed";
 import RotatingWords from "@parts/rotatingWords";
 import Section from '@parts/section'
 import Image from '@img/amy_background.png'
@@ -17,10 +15,7 @@ import Image from '@img/amy_background.png'
 		text-transform: uppercase;
 	}
 
-	mark {
-		background: none;
-		color: $purple_dark;
-	}
+	
 
 	blockquote {
 		max-width: 400px;
@@ -28,6 +23,11 @@ import Image from '@img/amy_background.png'
 
 		& p {
 			text-align: center;
+		}
+
+		& :global(mark) {
+			background: none;
+			color: $purple_dark;
 		}
 	}
 
@@ -196,7 +196,9 @@ import Image from '@img/amy_background.png'
 <Section class="intro special">
 	<blockquote>
 		<p>Hi, I'm Amy 👋</p>
-		<RotatingWords class="rotate" />
+		<slot>
+			<RotatingWords class="rotate" />
+		</slot>
 	</blockquote>
 	<div class="image">
 		<SVG name="graphics/image_blob_2.svg" src={Image.src} class="image_blob" />
