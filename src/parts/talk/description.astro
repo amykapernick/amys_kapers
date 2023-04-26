@@ -3,6 +3,9 @@ const { url } = Astro?.props;
 
 const content = await fetch(url)
 	.then((res) => {
+		if(!res.headers.get("content-type")?.includes("json")) {
+			console.log({url, res})
+		}
 		return res.headers.get("content-type")?.includes("json")
 			? res.json()
 			: {
@@ -10,9 +13,7 @@ const content = await fetch(url)
 						{
 							attributes: {
 								blurb: {
-									html: `<p>Insert description</p><p>${url}</p><p>${res.headers.get(
-										"content-type"
-									)}</p>`,
+									html: ``,
 								},
 							},
 						},
