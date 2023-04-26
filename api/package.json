@@ -4,17 +4,17 @@
   "description": "",
   "scripts": {
     "start": "func start",
-    "dev": "doppler run npm start -- --cors * --javascript"
+    "dev": "doppler run -- func start --javascript --cors *"
   },
   "engines": {
     "node": "16.x"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.0",
+    "@notionhq/client": "^2.2.4",
     "@sendgrid/mail": "^7.7.0",
-    "@sentry/node": "^7.14.0",
+    "@sentry/node": "^7.49.0",
     "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^3.3.1"
   }
 }

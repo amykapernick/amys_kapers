@@ -31,20 +31,21 @@ import Graphic from '@parts/graphic'
 		height: auto;
 		max-width: 3000px;
 	}
-
+/* 
 	.graphic {
 		position: absolute;
 		right: 0;
 		bottom: 0;
 		overflow: hidden;
-	}
+	} */
 
 	.leaf {
 		width: 100px;
-		margin-right: 10px;
-		margin-bottom: -20px;
 		transform: scaleX(-1);
 		height: auto;
+		right: 10px;
+		position: absolute;
+		bottom: -20px;
 	}
 
 	@media(min-width: 40em) {
@@ -72,7 +73,7 @@ import Graphic from '@parts/graphic'
 
 		.leaf {
 			width: 200px;
-			margin-bottom: -50px;
+			bottom: -50px;
 		}
 	}
 

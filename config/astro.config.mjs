@@ -3,6 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import rehypeFigure from '../src/utils/rehypeFigure';
 import { markdownRemarkExtract } from '../src/utils/markdownExcerpt';
+import react from "@astrojs/react";
 
 export default defineConfig({
 	site: 'https://amyskapers.dev',
@@ -34,5 +35,5 @@ export default defineConfig({
 		],
 		extendDefaultPlugins: true,
 	},
-	integrations: [sitemap(), image()]
+	integrations: [sitemap(), image(), react()]
 });  

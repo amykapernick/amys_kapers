@@ -1,38 +1,43 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@components/*": [
-				"src/components/*.astro"
-			],
-			"@fonts/*": [
-				"src/fonts/*"
-			],
-			"@partials/*": [
-				"src/partials/*.astro"
-			],
-			"@parts/*": [
-				"src/parts/*.astro"
-			],
-			"@img/*": [
-				"src/img/*",
-				"src/img/*.astro"
-			],
-			"@pages/*": [
-				"src/pages/*.astro"
-			],
-			"@styles/*": [
-				"src/styles/*"
-			],
-			"@utils/*": [
-				"src/utils/*"
-			],
-			"@layouts/*": [
-				"src/layouts/*.astro"
-			],
-			"@data/*": [
-				"_data/*"
-			]
-		},
-	}
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*.astro"
+      ],
+      "@fonts/*": [
+        "src/fonts/*"
+      ],
+      "@partials/*": [
+        "src/partials/*.astro"
+      ],
+      "@parts/*": [
+        "src/parts/*.astro"
+      ],
+      "@img/*": [
+        "src/img/*",
+        "src/img/*.astro"
+      ],
+      "@pages/*": [
+        "src/pages/*.astro"
+      ],
+      "@styles/*": [
+        "src/styles/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*.astro"
+      ],
+      "@data/*": [
+        "_data/*"
+      ],
+      "@react/*": [
+        "src/react/*.jsx"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
