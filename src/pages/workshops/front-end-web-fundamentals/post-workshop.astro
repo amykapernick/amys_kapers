@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/default.astro";
+import Layout from "@layouts/default";
 import {
 	sections,
 	html,
@@ -8,17 +8,35 @@ import {
 	visual_regression,
 	ui,
 	pacing,
-} from "../../../../_data/forms/workshopFeedback";
+} from "@data/forms/workshopFeedback";
+import RadioButtons from "@parts/radioButtons";
+import RangeField from "@parts/rangeField";
 
 const content = {
-	title: "Front End Web Fundamentals Workshop | Amy Kapernick",
+	title: "Modern Front End Fundamentals Workshop | Amy Kapernick",
 	description: "A few questions about your recent workshop",
 };
 ---
+<style>
+	@import '@mixins';
 
-<Layout content={content}>
-	<article class="workshop-prep">
-		<h1>Front End Web Fundamentals Workshop</h1>
+	article {
+		@include content;
+	}
+
+	@media(min-width: 60em) {
+		article {
+			& h1 {
+				text-decoration: none;
+				font-size: 2em;
+			}
+		}
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
+		<h1>Modern Front End Fundamentals Workshop</h1>
 		<form
 			id="workshop-prep"
 			action={`${import.meta.env.API_URL}/workshop-feedback`}
@@ -27,7 +45,7 @@ const content = {
 			<input
 				type="hidden"
 				name="redirect"
-				value={`${Astro.url.origin}/workshops/see-you-there`}
+				value={`${Astro.url.origin}/workshops/thanks`}
 			/>
 			<input type="hidden" name="page" value={Astro.url.pathname} />
 			<input type="hidden" name="function" value="workshop-feedback" />
@@ -36,176 +54,53 @@ const content = {
 				name="notion_page"
 				value={import.meta.env.PAGE_WORKSHOP_FEEDBACK}
 			/>
-			<fieldset>
-				<div class="long">
-					<legend
-						>What was your favourite section of the workshop?</legend
-					>
-					{
-						sections.map((opt) => (
-							<>
-								<input
-									type="radio"
-									name="sections"
-									id={`sections_${opt.value}`}
-									value={opt.value}
-								/>
-								<label for={`sections_${opt.value}`}>
-									{opt.label}
-								</label>
-							</>
-						))
-					}
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="html"
-					>How would you rate the Semantic HTML section?</label
-				>
-				<div class="range" style={{ "--opts": html.opts.length }}>
-					<input
-						type="range"
-						name="html"
-						id="html"
-						list="html_opts"
-						max={html.max}
-						min={html.min}
-						step={html.step}
-					/>
-					<datalist id="html_opts">
-						{
-							html.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="css"
-					>How would you rate the CSS Layouts section?</label
-				>
-				<div class="range" style={{ "--opts": css.opts.length }}>
-					<input
-						type="range"
-						name="css"
-						id="css"
-						list="css_opts"
-						max={css.max}
-						min={css.min}
-						step={css.step}
-					/>
-					<datalist id="css_opts">
-						{
-							css.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="a11y"
-					>How would you rate the Accessibility Testing section?</label
-				>
-				<div class="range" style={{ "--opts": a11y.opts.length }}>
-					<input
-						type="range"
-						name="a11y"
-						id="a11y"
-						list="a11y_opts"
-						max={a11y.max}
-						min={a11y.min}
-						step={a11y.step}
-					/>
-					<datalist id="a11y_opts">
-						{
-							a11y.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="visual_regression"
-					>How would you rate the Visual Regression testing section?</label
-				>
-				<div
-					class="range"
-					style={{ "--opts": visual_regression.opts.length }}
-				>
-					<input
-						type="range"
-						name="visual_regression"
-						id="visual_regression"
-						list="visual_regression_opts"
-						max={visual_regression.max}
-						min={visual_regression.min}
-						step={visual_regression.step}
-					/>
-					<datalist id="visual_regression_opts">
-						{
-							visual_regression.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="ui"
-					>How would you rate the UI Testing section?</label
-				>
-				<div class="range" style={{ "--opts": ui.opts.length }}>
-					<input
-						type="range"
-						name="ui"
-						id="ui"
-						list="ui_opts"
-						max={ui.max}
-						min={ui.min}
-						step={ui.step}
-					/>
-					<datalist id="ui_opts">
-						{
-							ui.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
-			<fieldset>
-				<label for="pacing"
-					>How would you rate the pacing of the workshop?</label
-				>
-				<div class="range" style={{ "--opts": pacing.opts.length }}>
-					<input
-						type="range"
-						name="pacing"
-						id="pacing"
-						list="pacing_opts"
-						max={pacing.max}
-						min={pacing.min}
-						step={pacing.step}
-					/>
-					<datalist id="pacing_opts">
-						{
-							pacing.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-
+			<RadioButtons
+				label="What was your favourite section of the workshop?"
+				name="sections"
+				options={sections}
+			/>
+			<RangeField
+				label="How would you rate the Semantic HTML section?"
+				name="html"
+				options={html.opts}
+				min={html.min}
+				max={html.max}
+			/>
+			<RangeField
+				label="How would you rate the CSS Layouts section?"
+				name="css"
+				options={css.opts}
+				min={css.min}
+				max={css.max}
+			/>
+			<RangeField
+				label="How would you rate the Accessibility Testing section?"
+				name="a11y"
+				options={a11y.opts}
+				min={a11y.min}
+				max={a11y.max}
+			/>
+			<RangeField
+				label="How would you rate the Visual Regression testing section?"
+				name="visual_regression"
+				options={visual_regression.opts}
+				min={visual_regression.min}
+				max={visual_regression.max}
+			/>
+			<RangeField
+				label="How would you rate the UI Testing section?"
+				name="ui"
+				options={ui.opts}
+				min={ui.min}
+				max={ui.max}
+			/>
+			<RangeField
+				label="How would you rate the pacing of the workshop?"
+				name="pacing"
+				options={pacing.opts}
+				min={pacing.min}
+				max={pacing.max}
+			/>
 			<label for="feedback"
 				>Anything you really enjoyed or would have liked to know more
 				about?</label

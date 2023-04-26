@@ -1,0 +1,105 @@
+@mixin rotateWords($num, $int) {
+	@for $i from 1 through $num {
+		&:nth-child($i) {
+			animation-name: fade_$i;
+		}
+	}
+}
+
+@mixin rotateWordsGrid($num, $int) {
+	@for $i from 1 through $num {
+		&:nth-child($i) {
+			animation-name: fadeGrid_$i;
+		}
+	}
+}
+
+@mixin fadeEffect($num) {
+	@for $i from 1 through $num {
+		$j: 100 / $num;
+
+		@keyframes fade_$i {
+			0% {
+				position: absolute;
+				opacity: 0;
+			}
+
+			100% {
+				position: absolute;
+				opacity: 0;
+			}
+
+			$y: (($i * $j) - $j) * 1%;
+			$z: (($i * $j) - 1) * 1%;
+
+			@if $y >0 {
+				$y - 1 {
+					position: absolute;
+					opacity: 0;
+				}
+
+				$y - 0.1 {
+					position: static;
+				}
+			}
+
+			$y {
+				position: static;
+				opacity: 1;
+			}
+
+			$z - 1 {
+				position: static;
+				opacity: 1;
+			}
+
+			$z {
+				position: static;
+				opacity: 0;
+			}
+
+			$z + 0.1 {
+				position: absolute;
+			}
+		}
+	}
+}
+
+@mixin fadeEffectGrid($num) {
+	@for $i from 1 through $num {
+		$j: 100 / $num;
+
+		@keyframes fadeGrid_$i {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+
+			$y: (($i * $j) - $j) * 1%;
+			$z: (($i * $j) - 1) * 1%;
+
+			@if $y >0 {
+				$y - 1 {
+					opacity: 0;
+				}
+			}
+
+			$y {
+				opacity: 1;
+			}
+
+			$z - 1 {
+				opacity: 1;
+			}
+
+			$z {
+				opacity: 0;
+			}
+		}
+	}
+}
+
+

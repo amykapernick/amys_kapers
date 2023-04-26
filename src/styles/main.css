@@ -1,0 +1,17 @@
+@import '@mixins';
+
+@import './global/index';
+
+/* @import './_parts/forms.scss';
+@import './_parts/testimonial.scss';
+
+@import './_partials/header.scss';
+@import './_partials/footer.scss';
+
+@import './_partials/home.scss';
+@import './_partials/where.scss';
+@import './_partials/talks.scss';
+@import './_partials/landing.scss';
+@import './_partials/content.scss';
+@import './_partials/calendar.scss';
+ */

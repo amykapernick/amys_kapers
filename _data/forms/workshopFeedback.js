@@ -27,7 +27,6 @@ export const sections = [
 export const html = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -58,7 +57,6 @@ export const html = {
 export const css = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -89,7 +87,6 @@ export const css = {
 export const a11y = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -120,7 +117,6 @@ export const a11y = {
 export const visual_regression = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -151,7 +147,6 @@ export const visual_regression = {
 export const ui = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,
@@ -182,7 +177,6 @@ export const ui = {
 export const pacing = {
 	max: 5,
 	min: 0,
-	step: 1,
 	opts: [
 		{
 			value: 0,

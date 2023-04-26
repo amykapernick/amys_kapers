@@ -1,0 +1,73 @@
+---
+	const { options, label, name, other } = Astro.props
+
+	// Find if options has an item which has a label longer than 20 characters
+	const longLabel = options.find((opt) => opt.label.length > 15)
+---
+
+<style>
+	div {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -10px -26px;
+	}
+
+	label {
+		flex: 1 1 auto;
+		margin-top: 0;
+	}
+
+	@media(min-width: 40em) {
+		label {
+			flex-basis: auto;
+			flex-grow: 0;
+			width: auto;
+		}
+		
+		input {
+			&[type='radio'], &[type='checkbox'] {
+				& + label {
+					width: auto;
+				}
+			}
+		}
+
+		.long {
+			& label {
+				flex-basis: 100%;
+			}
+		}
+	}
+</style>
+
+<fieldset>
+	<div class={longLabel && 'long'}>
+		<legend>{label}</legend>
+		{
+			options.map((opt) => (
+				<>
+					<input
+						type="radio"
+						name={name}
+						id={`${name}_${opt.value}`}
+						value={opt.value}
+					/>
+					<label for={`${name}_${opt.value}`}>
+						{opt.label}
+					</label>
+				</>
+			))
+		}
+		{other &&
+			<>
+				<input
+					type="radio"
+					name={name}
+					id={`${name}_other`}
+					value="other"
+				/>
+				<label for={`${name}_other`}>Other</label>
+			</>
+		}
+	</div>
+</fieldset>

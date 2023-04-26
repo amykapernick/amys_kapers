@@ -1,0 +1,86 @@
+---
+import SVG from "@parts/svg";
+
+const icons = Astro.props.icons.map((icon) => {
+	if(RegExp(/^http/).test(icon.url)) {
+		icon.target = '_blank'
+		icon.rel = 'nofollow'
+	}
+	else {
+		icon.target = '_self'
+		icon.rel = ''
+	}
+
+	if(icon.me) {
+		icon.rel = `${icon.rel} me`
+	}
+
+	return icon
+})
+---
+
+<style>
+	@import '@mixins';
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: -10px;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+			margin: 10px;
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			color: $purple;
+
+			&:hover {
+				& .icon {
+					outline: 4px solid $pink;
+				}
+			}
+		}
+
+		span {
+			@include sr_only; 
+		}
+
+	.icon {
+		width: auto;
+		height: 50px;
+	}
+
+	@media(min-width: 40em) {
+		ul {
+			justify-content: flex-start;
+		}
+	}
+
+	@media(min-width: 70em) {
+		ul {
+			flex-wrap: nowrap;
+		}
+	}
+
+</style>
+
+<ul class={Astro.props.class}>
+	{icons.map(icon => (
+		<li>
+			<a
+				href={icon.url}
+				target={icon.target}
+				rel={icon.rel}
+			>
+				<SVG name={icon.icon} class="icon" />
+				<span>{icon.label}</span>
+			</a>
+		</li>
+	))}
+</ul>

@@ -1,5 +1,5 @@
 ---
-title: Front End Web Fundamentals - CSS Layouts
+title: Modern Front End Fundamentals - CSS Layouts
 length: 3.5 hours
 ---
 

@@ -1,21 +1,201 @@
 ---
-import SVG from "../parts/svg.astro";
+import SVG from "@parts/svg";
+import Graphic from '@parts/graphic'
 ---
 
-<header>
-	<SVG name="graphics/blob_hexagon.svg" />
+<style>
+	header {
+		display: flex;
+		position: relative;
+		justify-content: center;
+		padding: 20px 20px 50px;
 
-	<span class="blob_left">
-		<SVG name="graphics/blob_2.svg" />
-	</span>
+		& :global(.cls-1) {
+			fill: $neutral;
+		}
+	}
 
-	<span class="blob_right">
-		<SVG name="graphics/blob_2.svg" />
-	</span>
+	.logo {
+		width: 80vw;
+		max-width: 800px;
+	}
 
-	<SVG name="graphics/squiggle.svg" />
+	.background {
+		position: absolute;
+		z-index: -1;
+		bottom: 0;
+		width: 120vw;
+		height: auto;
+	}
 
-	<SVG name="graphics/paw.svg" />
+	.blob,
+	.squiggle,
+	.paw {
+		display: none;
+		height: auto;
+	}
 
-	<a href="/"><SVG name="logo.svg" /></a>
+	.reduced {
+		& .logo {
+			max-width: 450px;
+		}
+	}
+
+	@media(min-width: 50em) {
+		header {
+			padding: 100px 50px;
+		}
+
+		.logo {
+			width: 60vw;
+		}
+
+		.background {
+			width: 150vw;
+		}
+
+		.blob,
+		.squiggle,
+		.paw {
+			display: block;
+			position: absolute;
+		}
+
+		.blob {
+			&.left {
+				top: 20px;
+				left: -200px;
+				width: 400px;
+				transform: rotate(-80deg);
+			}
+
+			&.right {
+				top: -80px;
+				right: -80px;
+				width: 350px;
+			}
+		}
+
+		.squiggle {
+			top: 200px;
+			right: -100px;
+			width: 200px;
+		}
+
+		.paw {
+			bottom: 50px;
+			left: 20px;
+			width: 100px;
+		}
+
+		.reduced {
+			padding: 50px;
+
+			& .background {
+				width: 120vw;
+			}
+
+			& .blob,
+			& .squiggle,
+			& .paw {
+				display: none;
+			}
+		}
+	}
+
+	@media(min-width: 60em) {
+		header {
+			padding: 150px 50px;
+		}
+
+		.blob {
+			&.right {
+				top: -50px;
+				right: -50px;
+			}
+
+			&.left {
+				top: 80px;
+			}
+		}
+
+		.paw {
+			bottom: 60px;
+		}
+
+		.squiggle {
+			right: 0;
+		}
+		
+		.reduced {
+			padding: 100px 50px;
+
+			& .logo {
+				max-width: 500px;
+			}
+		}
+	}
+
+	@media(min-width: 70em) {
+		.reduced {
+			margin-bottom: 50px;
+		}
+	}
+
+	@media(min-width: 75em) {
+		header {
+			padding: 170px 50px;
+		}
+
+		.blob {
+			&.left {
+				top: 100px;
+				left: -300px;
+				width: 600px;
+			}
+
+			&.right {
+				top: -40px;
+				right: -60px;
+				width: 400px;
+			}
+		}
+
+		.squiggle {
+			top: 250px;
+			right: -10px;
+			width: 250px;
+		}
+
+		.paw {
+			bottom: 100px;
+			left: 5vw;
+		}
+	}
+
+	@media(min-width: 80em) {
+		.reduced {
+			padding: 100px 50px 100px;
+
+			& .logo {
+				max-width: 600px;
+			}
+		}
+	}
+
+
+</style>
+
+<header class={Astro.props?.size || ''}>
+	<Graphic name="graphics/blob_hexagon.svg" colour="background" class="background" />
+
+	<Graphic name="graphics/blob_2.svg" colour="pink" class="blob left" />
+
+	<Graphic name="graphics/blob_2.svg" colour="green" class="blob right" />
+
+	<Graphic name="graphics/squiggle.svg" colour="yellow" class="squiggle" />
+
+	<Graphic name="graphics/paw.svg" colour="purple" class="paw" />
+
+	<a href="/"><SVG name="logo.svg" class="logo" /></a>
 </header>

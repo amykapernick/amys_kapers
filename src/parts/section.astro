@@ -1,0 +1,175 @@
+---
+import SVG from "@parts/svg";
+import Icons from "./icons.astro";
+
+const { graphic = false, icons = false } = Astro.props
+
+---
+
+<style>
+	section {
+		display: flex;
+		position: relative;
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+		z-index: 1;
+		margin: 40px auto;
+		padding: 0 20px;
+		font-weight: 500;
+	}
+
+	.graphic {
+		order: -2;
+		width: 90%;
+		max-width: 400px;
+	}
+
+	@media(min-width: 40em) {
+		section {
+			flex-wrap: nowrap;
+			align-content: center;
+			align-items: center;
+			text-align: left;
+
+			&:nth-of-type(2n), &.special {
+				text-align: right;
+
+				& .graphic {
+					order: 2;
+					margin-right: 0;
+					margin-left: 20px;
+				}
+
+				& .icons {
+					justify-content: flex-end;
+				}
+			}
+		}	
+		
+		.special {
+			& .content {
+				display: flex;
+				flex-wrap: nowrap;
+				align-content: center;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
+		.graphic {
+			flex: 1 0 50%;
+			max-width: 300px;
+			margin: 0 20px 0 0;
+		}
+	}
+
+	@media(min-width: 50em) {
+		section {
+			justify-content: center;
+			padding: 0 50px;
+
+			&:before {
+				content: '';
+				flex: 1 0 auto;
+				order: 1;
+				width: 20px;
+				max-width: 180px;
+				margin: 0 30px;
+				border-bottom: 2px dotted var.$purple;
+			}
+
+			& > * {
+				flex-basis: 40%;
+				order: 1;
+				max-width: 300px;
+			}
+
+			&:nth-of-type(2n), &.special {
+				& > * {
+					order: 0;
+				}
+
+				& .graphic {
+					margin: 0;
+				}
+			}
+
+			&.special {
+				&:before {
+					content: normal;
+				}
+
+				& .graphic {
+					margin-left: 50px;
+				}
+			}
+		}
+
+		.special {
+			& .content {
+				max-width: unset;
+				flex-basis: 100%;
+			}
+		}
+
+		.graphic {
+				margin: 0;
+			}
+	}
+
+	@media(min-width: 60em) {
+		section {
+			margin: 0;
+			padding: 20px 5vw;
+
+			&:before {
+				margin: 0 50px;
+			}
+
+
+			&.special {
+				& .graphic {
+					margin-left: 90px;
+				}
+			}
+		}
+
+		.graphic {
+				max-width: 400px;
+			}
+	}
+
+	@media(min-width: 70em) {
+		section  {
+			padding: 20px 10vw;
+		}
+	}
+
+	@media(min-width: 80em) {
+		section {
+			width: 90vw;
+			max-width: 1200px;
+			margin: 0 auto 50px;
+			padding: 0;
+
+			&:before {
+				margin: 0 90px;
+			}
+
+		}
+
+		.graphic {
+			max-width: 450px;
+		}
+	}
+
+</style>
+
+<section class={Astro.props.class}>
+	{graphic && <SVG name={graphic} class="graphic" />}
+	<div class="content">
+		<slot />
+		{icons && <Icons icons={icons} class="icons" />}
+	</div>
+</section>

@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/default.astro";
+import Layout from "@layouts/default";
 import {
 	os,
 	browser,
@@ -8,17 +8,35 @@ import {
 	css_skills,
 	js_skills,
 	node_version,
-} from "../../../../_data/forms/workshopPrep";
+} from "@data/forms/workshopPrep";
+import RangeField from "@parts/rangeField";
+import RadioButtons from "@parts/radioButtons";
 
 const content = {
-	title: "Front End Web Fundamentals Workshop | Amy Kapernick",
+	title: "Modern Front End Fundamentals Workshop | Amy Kapernick",
 	description: "A few questions to prepare for your upcoming workshop",
 };
 ---
+<style>
+	@import '@mixins';
 
-<Layout content={content}>
-	<article class="workshop-prep">
-		<h1>Front End Web Fundamentals Workshop</h1>
+	article {
+		@include content;
+	}
+
+	@media(min-width: 60em) {
+		article {
+			& h1 {
+				text-decoration: none;
+				font-size: 2em;
+			}
+		}
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
+		<h1>Modern Front End Fundamentals Workshop</h1>
 		<form
 			id="workshop-prep"
 			action={`${import.meta.env.API_URL}/workshop-prep`}
@@ -37,170 +55,53 @@ const content = {
 			/>
 			<label for="name">Name</label>
 			<input type="text" name="name" id="name" required />
-			<fieldset>
-				<div>
-					<legend>What operating system do you use?</legend>
-					{
-						os.map((opt) => (
-							<>
-								<input
-									type="radio"
-									name="os"
-									id={`os_${opt.value}`}
-									value={opt.value}
-								/>
-								<label for={`os_${opt.value}`}>
-									{opt.label}
-								</label>
-							</>
-						))
-					}
-				</div>
-			</fieldset>
-			<fieldset>
-				<div class="long">
-					<legend>What is your main dev browser?</legend>
-					{
-						browser.map((opt) => (
-							<>
-								<input
-									type="radio"
-									name="browser"
-									id={`browser_${opt.value}`}
-									value={opt.value}
-								/>
-								<label for={`browser_${opt.value}`}>
-									{opt.label}
-								</label>
-							</>
-						))
-					}
-					<input
-						type="radio"
-						name="browser"
-						id="browser_other"
-						value="other"
-					/>
-					<label for="browser_other">Other</label>
-				</div>
-			</fieldset>
-			<fieldset>
-				<div>
-					<legend>What code editor/IDE do you use?</legend>
-					{
-						ide.map((opt) => (
-							<>
-								<input
-									type="radio"
-									name="ide"
-									id={`ide_${opt.value}`}
-									value={opt.value}
-								/>
-								<label for={`ide_${opt.value}`}>
-									{opt.label}
-								</label>
-							</>
-						))
-					}
-				</div>
-			</fieldset>
-			<fieldset>
-				<label for="node_cli"
-					>How comfortable are you using Node and the command line?</label
-				>
-				<div class="range" style={{ "--opts": node_cli.opts.length }}>
-					<input
-						type="range"
-						name="node_cli"
-						id="node_cli"
-						list="node_cli_opts"
-						max={node_cli.max}
-						min={node_cli.min}
-						step={node_cli.step}
-					/>
-					<datalist id="node_cli_opts">
-						{
-							node_cli.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-			<fieldset>
-				<label for="node_version"
-					>What version of Node do you have installed?</label
-				>
-				<div
-					class="range"
-					style={{ "--opts": node_version.opts.length }}
-				>
-					<input
-						type="range"
-						name="node_version"
-						id="node_version"
-						list="node_version_opts"
-						max={node_version.max}
-						min={node_version.min}
-						step={node_version.step}
-					/>
-					<datalist id="node_version_opts">
-						{
-							node_version.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
-			<fieldset>
-				<label for="css_skills"
-					>How comfortable are you using CSS?</label
-				>
-				<div class="range" style={{ "--opts": css_skills.opts.length }}>
-					<input
-						type="range"
-						name="css_skills"
-						id="css_skills"
-						list="css_skills_opts"
-						max={css_skills.max}
-						min={css_skills.min}
-						step={css_skills.step}
-					/>
-					<datalist id="css_skills_opts">
-						{
-							css_skills.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
+			<RadioButtons
+				label="What operating system do you use?"
+				name="os"
+				options={os}
+			/>
+			<RadioButtons
+				options={browser}
+				label="What is your main dev browser?"
+				name="browser"
+				other={true}
+			/>
+			<RadioButtons
+				label="What code editor/IDE do you use?"
+				name="ide"
+				options={ide}
+				other={true}
+			/>
+			<RangeField
+				label="How comfortable are you using Node and the command line?"
+				name="node_cli"
+				options={node_cli.opts}
+				min={node_cli.min}
+				max={node_cli.max}
+			/>
+			<RangeField
+				label="What version of Node do you have installed?"
+				name="node_version"
+				options={node_version.opts}
+				min={node_version.min}
+				max={node_version.max}
+			/>
+			<RangeField
+				label="How comfortable are you using CSS?"
+				name="css_skills"
+				options={css_skills.opts}
+				min={css_skills.min}
+				max={css_skills.max}
+			/>
 			<label for="html">Without Google, list 20 HTML elements</label>
 			<textarea id="html" name="html"></textarea>
-			<fieldset>
-				<label for="js_skills"
-					>How comfortable are you using JavaScript?</label
-				>
-				<div class="range" style={{ "--opts": js_skills.opts.length }}>
-					<input
-						type="range"
-						name="js_skills"
-						id="js_skills"
-						list="js_skills_opts"
-						max={js_skills.max}
-						min={js_skills.min}
-						step={js_skills.step}
-					/>
-					<datalist id="js_skills_opts">
-						{
-							js_skills.opts.map((opt) => (
-								<option value={opt.value}>{opt.label}</option>
-							))
-						}
-					</datalist>
-				</div>
-			</fieldset>
+			<RangeField
+				label="How comfortable are you using JavaScript?"
+				name="js_skills"
+				options={js_skills.opts}
+				min={js_skills.min}
+				max={js_skills.max}
+			/>
 			<button type="submit">Submit</button>
 		</form>
 	</article>

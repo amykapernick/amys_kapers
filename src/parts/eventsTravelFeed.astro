@@ -1,157 +1,316 @@
 ---
-import SVG from "../parts/svg.astro";
-
-const api = import.meta.env.API_URL;
+import SVG from "@parts/svg";
+import Current from '@react/currentFeed'
+import Graphic from "@parts/graphic";
+import TravelFeed from '@react/travelFeed'
+import EventFeed from "@react/eventFeed";
 ---
+
+<style>
+	.where {
+		margin: 0 auto -80px;
+		padding: 80px 20px 80px;
+		font-weight: 500;
+		display: flex;
+		position: relative;
+		z-index: 0;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	h2 {
+		color: $purple_dark;
+		font-size: 1.41em;
+		margin: 0;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	h4 {
+		color: $navy;
+		font-size: 1.41em;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	a {
+		color: $green;
+
+		&:hover {
+			color: $purple;
+		}
+	}
+
+	.background {
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: -50px;
+		margin: 0;
+		overflow: hidden;
+		transform: translateX(-25%);
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -5;
+			top: 200px;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: $background;
+		}
+
+		& .blob {
+			position: static;
+			width: 170vw;
+			height: auto;
+		}
+	}
+
+	
+
+	.squiggle {
+		flex: 1 1 50%;
+		max-width: 300px;
+		height: auto;
+	}
+
+	.arrow_blob {
+		width: 100px;
+		max-width: 140px;
+		margin-left: 40px;
+		color: inherit;
+
+		& :global(.arrow) {
+			color: $white;
+		}
+	}
+
+	.summary {
+		width: 100%;
+		clear: both;
+		overflow: hidden;
+
+		& a {
+			display: flex;
+			align-items: center;
+			color: inherit;
+			font-weight: inherit;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.current {
+		display: inline-flex;
+		align-items: center;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+
+		& :global(img) {
+			display: block;
+			width: auto;
+			height: 1em;
+			margin: 0 0.6ch;
+		}
+	}
+
+	.location,
+	.conference {
+		margin-left: 0.4ch;
+	}
+
+	.upcoming {
+		width: 100%;
+		position: relative;
+		z-index: 50;
+
+		& :global(ul) {
+			padding: 0;
+			margin: 0;
+		}
+
+		& :global(li) {
+			display: flex;
+			align-content: center;
+			margin-bottom: 0.5em;
+		}
+
+		& :global(img) {
+			display: block;
+			width: auto;
+			height: 1em;
+			margin-right: 1ch;
+			margin-top: 0.25em;
+		}
+
+		& :global(a) {
+			display: flex;
+			align-content: center;
+			color: inherit;
+			font-weight: inherit;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.globe {
+		width: 100px;
+		max-width: 170px;
+		height: 100%;
+		margin-right: 20px;
+		float: left;
+	}
+
+	@media(min-width: 30em) {
+		.upcoming {
+			display: flex;
+			position: relative;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin-top: 20px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 45%;
+				border-left: 2px dotted var.$purple;
+			}
+
+			& :global(ul), & :global(p) {
+				width: 45%;
+			}
+
+			& h4 {
+				order: -1;
+				margin: 0;
+				width: 45%;
+			}
+		}
+	}
+
+	@media(min-width: 40em) {
+		.where {
+			padding-top: 150px;
+		}
+
+		.globe {
+			width: 150px;
+			margin-right: 40px;
+		}
+
+		.arrow_blob {
+			width: 140px;
+		}
+
+		.squiggle {
+			margin-left: 80px;
+		}		
+	}
+
+	@media (min-width: 50em) {
+		.where {
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-bottom: 100px;
+		}
+
+		.background {
+			bottom: -100px;
+			transform: translateX(-30%);
+		}
+
+		.squiggle {
+			max-width: 400px;
+		}
+
+		.background {
+			& .blob {
+				width: 200vw;
+			}
+		}
+	}
+
+	@media(min-width: 60em) {
+		.where {
+			padding-left: 5vw;
+			padding-right: 5vw;
+			margin-bottom: -100px;
+			padding-bottom: 150px;
+		}
+	}
+
+	@media(min-width: 70em) {
+		.where {
+			margin-top: 100px;	
+			padding-left: 10vw;
+			padding-right: 10vw;
+		}
+
+		.background {
+			bottom: -150px;
+
+			& .blob {
+				width: 3000px;
+			}
+		}	
+
+		.squiggle {
+			max-width: 500px;
+		}
+	
+	}
+
+	@media(min-width: 80em) {
+		.where {
+			width: 90vw;
+			max-width: 1200px;
+			margin-left:auto;
+			margin-right: auto;
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: 200px;
+		}
+	}
+
+	@media(min-width: 90em) {
+		.background {
+			bottom: -213px;
+		}
+	}
+
+</style>
 
 <section id="where" class="where">
 	<div class="background">
-		<SVG name="graphics/blob_hexagon.svg" />
+		<Graphic name="graphics/blob_hexagon.svg" class="blob" colour="background" />
 	</div>
 	<div class="summary">
-		<SVG name="graphics/globe.svg" />
+		<SVG name="graphics/globe.svg" class="globe" />
 		<h2>Where is Amy?</h2>
-		<p class="current">
-			Right now Amy is in <span class="location"
-				><img alt="" src="/img/countries/au.svg" /> Perth, Australia</span
-			>
-			<span class="conference"></span>
-		</p>
+		<p class="current"><Current api={import.meta.env.API_URL} /></p>
 	</div>
-	<SVG name="graphics/squiggle.svg" />
+	<Graphic name="graphics/squiggle.svg" class="squiggle" colour="purple" />
 	<a class="top" href="#main">
-		<SVG name="graphics/arrow.svg" />
+		<Graphic name="graphics/arrow.svg" class="arrow_blob" />
 		<span class="sr-only">Back to top</span>
 	</a>
 	<h3 class="sr-only">Coming Up Next</h3>
 	<div class="upcoming">
 		<h4>Trips</h4>
-		<div class="trips">
-			<p>Loading upcoming trips</p>
-		</div>
+		<TravelFeed client:load api={import.meta.env.API_URL} />
 		<h4>Events</h4>
-		<div class="conferences">
-			<p>Loading upcoming events</p>
-		</div>
+		<EventFeed client:load api={import.meta.env.API_URL} type="events" />
 	</div>
 </section>
-
-<script define:vars={{ api }}>
-	const slugify = (string) => string.toLowerCase().replace(" ", "-");
-	const icons = {
-		speaking: {
-			img: "mic",
-			alt: "speaking",
-		},
-		organising: {
-			img: "notes",
-			alt: "organising",
-		},
-		attending: {
-			img: "badge",
-			alt: "",
-		},
-		workshop: {
-			img: "presentation",
-			alt: "running a workshop",
-		},
-	};
-
-	console.log("running script 3");
-
-	if (typeof document !== "undefined") {
-		console.log("running script 2");
-		const section = document.querySelector("#where");
-
-		console.log("running script");
-
-		if (section) {
-			const location = section.querySelector(".location");
-			const currentConference = section.querySelector(".conference");
-			const trips = section.querySelector(".trips");
-			const conferences = section.querySelector(".conferences");
-
-			fetch(`${api}/events`)
-				.then((res) => res.json())
-				.then((res) => {
-					if (res.length) {
-						conferences.innerHTML = "<ul></ul>";
-
-						const conferenceList = conferences.querySelector("ul");
-						const eventItems = res.map(
-							({ type, name, start, end, url }) => {
-								const svgs = type
-									?.map(
-										(t) =>
-											`<img alt="${type} icon" src="/img/icons/${icons[t].img}.svg" />`
-									)
-									.join("");
-								let content = `${svgs} ${name}: ${start}${end}`;
-
-								if (url) {
-									content = `<a href="${url}" target="_blank">${content}</a>`;
-								}
-
-								return `<li>${content}</li>`;
-							}
-						);
-
-						conferenceList.innerHTML = eventItems.join("");
-					} else {
-						conferences.innerHTML = `<p>Be right back, taking a much needed break</p>`;
-					}
-				});
-
-			fetch(`${api}/travel`)
-				.then((res) => res.json())
-				.then((res) => {
-					if (res.length) {
-						trips.innerHTML = "<ul></ul>";
-
-						const tripsList = trips.querySelector("ul"),
-							tripItems = res.map(
-								({ country_code, country, city, start, end }) =>
-									`<li><img alt="Flag of ${country}" src="/img/countries/${country_code}.svg" />${city}, ${country}: ${start}${end}</li>`
-							);
-
-						tripsList.innerHTML = tripItems.join("");
-					} else {
-						trips.innerHTML =
-							"<p>Nothing right now, I guess the suitcase can actually go away this time...</p>";
-					}
-				});
-
-			fetch(`${api}/current`)
-				.then((res) => res.json())
-				.then(
-					({
-						country,
-						city,
-						country_code,
-						eventType,
-						conference,
-						eventUrl,
-					}) => {
-						location.innerHTML = `<img alt="Flag of ${country}" src="/img/countries/${country_code}.svg" /> ${city}, ${country}`;
-
-						let conferenceInfo = `${conference}`;
-
-						if (eventType) {
-							conferenceInfo = `${eventType
-								.map(
-									(t) =>
-										`<img alt="${icons[t].alt}" src="/img/icons/${icons[t].img}.svg" />`
-								)
-								.join("")} ${conferenceInfo}`;
-						}
-
-						if (eventUrl) {
-							conferenceInfo = `<a href="${eventUrl}" target="_blank">${conferenceInfo}</a>`;
-						}
-
-						currentConference.innerHTML = conferenceInfo;
-					}
-				);
-		}
-	}
-</script>

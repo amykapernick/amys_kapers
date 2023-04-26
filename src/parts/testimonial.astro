@@ -1,0 +1,63 @@
+<style>
+	blockquote {
+		position: relative;
+		max-width: 700px;
+		margin: 0;
+		padding: 20px;
+		font-style: italic;
+
+		&::before,
+		&::after {
+			position: absolute;
+			z-index: -1;
+			opacity: 0.5;
+			color: $purple;
+			font-size: 10em;
+			line-height: 1;
+		}
+
+		&::before {
+			content: '“';
+			top: -0;
+			left: -0.25em;
+		}
+
+		&::after {
+			content: '”';
+			right: -0.1em;
+			bottom: -0.4em;
+		}
+	}
+
+	@media(min-width: 40em) {
+		blockquote {
+			width: 80vw;
+			padding: 20px 40px;
+
+			&:nth-child(2n - 1) {
+				margin-left: auto;
+			}
+		}
+	}
+
+	@media(min-width: 60em) {
+		blockquote {
+			padding: 50px;
+
+			&::before {
+				top: 0.15em;
+				left: -0.2em;
+			}
+
+			&::after {
+				right: -0.1em;
+				bottom: -0.3em;
+			}
+		}
+	}
+
+</style>
+
+<blockquote>
+	<slot />
+</blockquote>

@@ -1,0 +1,92 @@
+---
+const classes = ['rotate', Astro.props.class]
+---
+
+<style>
+	@import '../styles/mixins/animations';
+	@import '../styles/mixins/rotate';
+
+	$num: 10;
+	$int: 2.5s;
+	$duration: calc($num * $int);
+
+	.rotate {
+		display: flex;
+		white-space: nowrap;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.options {
+		margin: 0;
+		margin-left: 1ch;
+		padding: 0;
+		list-style: none;
+		color: $purple_dark;
+	}
+
+	li {
+		@include rotateWords($num, $int);
+
+		position: absolute;
+		animation-duration: $duration;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		opacity: 0;
+		white-space: break-spaces;
+
+		&.an {
+			&:before {
+				content: 'n';
+				color: $neutral;
+				transform: translateX(-1ch);
+				position: relative;
+				left: -1ch;
+			}
+		}
+	}
+
+	@supports(grid-template-areas: '.') {
+		.rotate {
+			display: grid;
+			grid-template-columns: max-content min-content;
+			justify-content: start;
+		}
+
+		.options {
+			display: grid;
+			min-height: unset;
+
+			& li {
+				@include rotateWordsGrid($num, $int);
+
+				&:not(:nth-child(10)) {
+					opacity: 0;
+				}
+				
+				text-align: left;
+				position: relative;
+				grid-area: 1 / 1 / span 1 / span 1;
+			}
+		}
+	}
+
+</style>
+
+<div class={classes.join(' ')}>
+	<p>I'm a</p>
+	<ul class="options">
+		<li>Front End Developer</li>
+		<li>Speaker</li>
+		<li>Dog Lover</li>
+		<li>MVP</li>
+		<li>Writer</li>
+		<li class="an">Organiser</li>
+		<li>Mentor</li>
+		<li>Champion</li>
+		<li class="an">Advocate</li>
+		<li>Conference Addict</li>
+	</ul>
+</div>

@@ -1,15 +1,22 @@
 ---
-import Layout from "../layouts/default.astro";
+import Layout from "@layouts/default";
 
 const content = {
 	title: "Get in Touch | Amy Kapernick",
 	description: "Get in Touch with Amy",
-	class: "header_reduced",
 };
 ---
 
-<Layout content={content}>
-	<article class="content">
+<style>
+	@import '@mixins';
+
+	article {
+		@include content;
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
 		<h1>Get in Touch</h1>
 		<form
 			id="contact"

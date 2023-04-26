@@ -1,0 +1,58 @@
+---
+import SVG from "./svg.astro";
+
+const { name, colour, class: className, ...props } = Astro.props;
+const classes = ['g', className]
+---
+
+<style>
+	.g {
+		display: block;
+		color: inherit;
+		
+		&:global([data-colour]) {
+			&[data-colour="background"] {
+				color: $background;
+			}
+
+			&[data-colour="pink"] {
+				color: $pink;
+			}
+
+			&[data-colour="blue"] {
+				color: $blue;
+			}
+
+			&[data-colour="green"] {
+				color: $green;
+			}
+
+			&[data-colour="yellow"] {
+				color: $yellow;
+			}
+
+			&[data-colour="orange"] {
+				color: $orange;
+			}
+
+			&[data-colour="red"] {
+				color: $red;
+			}
+
+			&[data-colour="purple"] {
+				color: $purple;
+			}
+
+			&[data-colour="purple_dark"] {
+				color: $purple_dark;
+			}
+
+			&[data-colour="navy"] {
+				color: $navy;
+			}
+		}
+	}
+</style>
+
+
+<SVG name={name} class={classes.join(' ')} data-colour={colour} {...props} />

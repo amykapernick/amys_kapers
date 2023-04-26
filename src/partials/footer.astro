@@ -1,9 +1,112 @@
 ---
-import SVG from "../parts/svg.astro";
+import SVG from "@parts/svg";
+import Graphic from '@parts/graphic'
 ---
 
+<style>
+	footer {
+		position: relative;
+		margin-top: 40px;
+		padding: 100px 20px 20px;
+		color: $navy;
+		overflow: hidden;
+	}
+
+	p {
+		width: calc(100% - 100px);
+	}
+
+	a {
+		color: inherit;
+	}
+
+	.background {
+		position: absolute;
+		z-index: -5;
+		top: 0;
+		left: 50%;
+		margin: 0;
+		transform: translateX(-50%);
+		width: 200vw;
+		height: auto;
+		max-width: 3000px;
+	}
+/* 
+	.graphic {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+	} */
+
+	.leaf {
+		width: 100px;
+		transform: scaleX(-1);
+		height: auto;
+		right: 10px;
+		position: absolute;
+		bottom: -20px;
+	}
+
+	@media(min-width: 40em) {
+		footer {
+			padding-top: 120px;
+			
+		}
+	}
+
+	@media(min-width: 50em) {
+		footer {
+			padding: 140px 50px 40px;
+		}
+	}
+
+	@media(min-width: 60em) {
+		footer {
+			padding-left: 10vw;
+			padding-right: 10vw;
+		}
+
+		.background {
+			left: 40%;
+		}
+
+		.leaf {
+			width: 200px;
+			bottom: -50px;
+		}
+	}
+
+	@media(min-width: 70em) {
+		footer {
+			padding-left: 10vw;
+			padding-right: 10vw;
+		}
+	}
+
+	@media(min-width: 80em) {
+		footer {
+			padding-left: calc(50vw - 600px);
+			padding-right: calc(50vw - 600px);
+		}
+
+		.leaf {
+			right: calc(50vw - 600px);
+			bottom: -50px;
+			width: 270px;
+		}
+	}
+
+	@media(min-width: 90em) {
+		.background {
+			left: 45%;
+		}
+	}
+
+</style>
+
 <footer>
-	<div class="background"><SVG name="graphics/blob_hexagon.svg" /></div>
+	<Graphic name="graphics/blob_hexagon.svg" colour="background" class="background" />
 	<p>
 		Designed by <a
 			href="https://www.instagram.com/fernanddandy"
@@ -11,7 +114,5 @@ import SVG from "../parts/svg.astro";
 			rel="nofollow">Fern and Dandy</a
 		>, built by <a href="/">Amy</a>.
 	</p>
-	<div class="graphic">
-		<SVG name="graphics/leaf.svg" />
-	</div>
+	<Graphic name="graphics/leaf.svg" colour="red" class="leaf" />
 </footer>

@@ -1,7 +1,6 @@
 ---
-import Layout from "../../layouts/default.astro";
-import SVG from "../../parts/svg.astro";
-import PostExcerpt from "@igor.dvlpr/astro-post-excerpt";
+import Layout from "@layouts/default";
+import IntroSection from '@partials/intro'
 
 const workshopFiles = await Astro.glob("../../../workshops/**/*.md");
 
@@ -21,22 +20,19 @@ const content = {
 };
 ---
 
+<style>
+	@import '@mixins';
+
+	article, section {
+		@include section;
+	}
+</style>
+
 <Layout content={content}>
 	<h1 class="sr-only">Workshops</h1>
-	<section class="intro_section">
-		<blockquote>
-			<p>Hi, I'm Amy</p>
-
-			<div class="rotate">
-				<p>I'm a <mark>Speaker</mark></p>
-			</div>
-		</blockquote>
-		<div class="image">
-			<SVG name="graphics/image_blob_2.svg" />
-			<SVG name="graphics/blob_2.svg" />
-		</div>
-		<SVG name="graphics/blob_small.svg" />
-	</section>
+	<IntroSection>
+		<p>I'm a <mark>Speaker</mark></p>
+	</IntroSection>
 
 	<section>
 		<p>

@@ -34,13 +34,16 @@ module.exports = async function (context, req) {
             },
         }))
 
-    const tripData = currentTrips.map(({ country = 'Australia', city = 'Perth', ...trip_args }) => ({
-        ...trip_args,
+    const tripData = currentTrips.map(({ country = 'Australia', city, ...trip_args }) => {
+        if (!city && country == 'Australia') city = 'Perth'
+        return ({
+            ...trip_args,
 
-        city: city,
-        country: country,
-        country_code: countryCode(country),
-    }))
+            city: city,
+            country: country,
+            country_code: countryCode(country),
+        })
+    })
 
     context.res = {
         body: tripData
