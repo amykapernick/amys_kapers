@@ -178,7 +178,7 @@ input {
 
 		&:focus {
 			& + label {
-				outline: 3px solid var.$yellow;
+				outline: 3px solid $yellow;
 			}
 		}
 

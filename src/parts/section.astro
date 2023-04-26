@@ -68,6 +68,7 @@ const { graphic = false, icons = false } = Astro.props
 		section {
 			justify-content: center;
 			padding: 0 50px;
+			border-color: $purple;
 
 			&:before {
 				content: '';
@@ -76,7 +77,8 @@ const { graphic = false, icons = false } = Astro.props
 				width: 20px;
 				max-width: 180px;
 				margin: 0 30px;
-				border-bottom: 2px dotted var.$purple;
+				border-bottom: 2px dotted transparent;
+				border-bottom-color: inherit;
 			}
 
 			& > * {

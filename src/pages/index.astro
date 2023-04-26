@@ -43,7 +43,7 @@ const content = {
 		bottom: -50px;
 		width: auto;
 		height: calc(100% + 100px);
-		color: var.$purple;
+		color: $purple;
 	}
 
 	.graphic {
@@ -111,6 +111,10 @@ const content = {
 
 			& :global(section) {
 				text-align: right;
+
+				&:before {
+					order: 2;
+				}
 					
 
 				& :global(.graphic) {
@@ -126,6 +130,10 @@ const content = {
 
 				&:nth-of-type(2n) {
 					text-align: left;
+
+					&:before {
+						order: -1;
+					}
 
 					& > * {
 						order: 1;
