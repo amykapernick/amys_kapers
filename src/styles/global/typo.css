@@ -7,7 +7,7 @@ body {
 }
 
 a {
-	color: $purple_dark;
+	color: $purple_bright;
 	font-weight: bolder;
 
 	&:hover {
@@ -37,7 +37,7 @@ h1 {
 }
 
 h1, h2 {
-	color: $purple_dark;
+	color: $purple_bright;
 }
 
 h3 {

@@ -47,8 +47,8 @@ input, textarea, select {
 	flex: 1 1 100%;
 	margin: 0;
 	padding: 5px 25px;
-	border: 2px solid rgba($purple_dark, 0.4);
-	background: rgba($purple_dark, 0.4);
+	border: 2px solid rgba($purple_bright, 0.4);
+	background: rgba($purple_bright, 0.4);
 	color: $neutral;
 	font-size: 1em;
 
@@ -91,8 +91,8 @@ button {
 	margin-top: 40px;
 	padding: 0.6em 1em 0.5em;
 	border: none;
-	border: 4px solid $purple_dark;
-	background: $purple_dark;
+	border: 4px solid $purple_bright;
+	background: $purple_bright;
 	color: #ffffff;
 	font-size: 1.25em;
 	font-weight: 700;
@@ -100,9 +100,9 @@ button {
 	text-transform: uppercase;
 
 	&:hover {
-		border-color: $purple_dark;
+		border-color: $purple_bright;
 		background: #ffffff;
-		color: $purple_dark;
+		color: $purple_bright;
 	}
 
 	@media(min-width: 60em) {
@@ -143,8 +143,8 @@ input {
 				width: 20px;
 				height: 20px;
 				margin-right: 1ch;
-				border: 2px solid $purple_dark;
-				background: $purple_dark;
+				border: 2px solid $purple_bright;
+				background: $purple_bright;
 			}
 
 			&:after {
@@ -241,7 +241,7 @@ input {
 		padding: 0;
 		border: none;
 		background: none;
-		accent-color: $purple_dark;
+		accent-color: $purple_bright;
 
 		&::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb {
 			width: 20px;
@@ -249,8 +249,8 @@ input {
 			margin: 0;
 			border: none;
 			border-radius: 50%;
-			background: $purple_dark;
-			color: $purple_dark;
+			background: $purple_bright;
+			color: $purple_bright;
 			cursor: pointer;
 			-webkit-appearance: none;
 			appearance: none;
@@ -261,7 +261,7 @@ input {
 			height: 10px;
 			border: none;
 			border-radius: 20px;
-			background: $purple_dark;
+			background: $purple_bright;
 			cursor: pointer;
 		}
 

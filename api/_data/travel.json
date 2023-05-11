@@ -64,9 +64,14 @@
 		"country": "United Kingdom"
 	},
 	{
-		"start": "2023-08-28",
-		"end": "2023-09-01",
+		"start": "2023-08-27",
+		"end": "2023-09-04",
 		"city": "Copenhagen",
 		"country": "Denmark"
+	},
+	{
+		"start": "2023-12-20",
+		"end": "2023-12-29",
+		"city": "Brisbane"
 	}
 ]
