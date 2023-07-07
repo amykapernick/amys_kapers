@@ -54,7 +54,7 @@
     "postcss-scss": "^4.0.6",
     "prettier": "^2.8.7",
     "prettier-plugin-astro": "^0.8.0",
-    "stylelint": "^15.4.0",
+    "stylelint": "^15.10.1",
     "stylelint-config-astro": "^1.0.4",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-property-sort-order-smacss": "^9.1.0",
