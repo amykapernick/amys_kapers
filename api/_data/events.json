@@ -74,12 +74,33 @@
 			"speaking",
 			"workshop"
 		],
-		"url":  "https://cphdevfest.com/speakers/amy-kapernick"
+		"url": "https://cphdevfest.com/speakers/amy-kapernick"
+	},
+	{
+		"start": "2023-10-16",
+		"end": "2023-10-20",
+		"name": "NDC Porto",
+		"type": [
+			"speaking"
+		],
+		"url": "https://ndcporto.com/speakers/amy-kapernick"
 	},
 	{
 		"start": "2023-10-07",
 		"name": "DDD Perth",
 		"type": "organising",
 		"url": "https://dddperth.com"
-	}
+	},
+	{
+		"start": "2024-01-29",
+		"end": "2024-02-02",
+		"name": "NDC London",
+		"hidden": true
+	},
+	{
+		"start": "2024-02-12",
+		"end": "2024-02-16",
+		"name": "NDC Sydney",
+		"hidden": true
+	},
 ]

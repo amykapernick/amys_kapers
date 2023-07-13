@@ -31,6 +31,7 @@ const EventFeed = (props) => {
 			}
 		})
 			.then((res) => res.json())
+			.then((res) => res.filter(({hidden}) => !hidden))
 			.then(res => setData(res))
 	}, [])
 
