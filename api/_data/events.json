@@ -102,5 +102,11 @@
 		"end": "2024-02-16",
 		"name": "NDC Sydney",
 		"hidden": true
+	},
+	{
+		"start": "2024-06-10",
+		"end": "2024-06-14",
+		"name": "NDC Oslo",
+		"hidden": true
 	}
 ]
