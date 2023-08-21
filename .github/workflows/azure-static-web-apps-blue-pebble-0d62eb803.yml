@@ -38,7 +38,6 @@ jobs:
           app_location: "/"
           api_location: "api"
           output_location: "dist"
-          skip_app_build: true
         env:
           # API variables
           FORM_WORKSHOP_BOOKING: ${{ secrets.FORM_WORKSHOP_BOOKING }}
@@ -61,7 +60,6 @@ jobs:
           app_location: "/"
           api_location: "api"
           output_location: "dist"
-          skip_app_build: true
         env:
           # API variables
           FORM_WORKSHOP_BOOKING: ${{ secrets.FORM_WORKSHOP_BOOKING }}
