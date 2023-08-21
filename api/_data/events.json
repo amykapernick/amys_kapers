@@ -92,6 +92,21 @@
 		"url": "https://dddperth.com"
 	},
 	{
+		"start": "2023-12-02",
+		"name": "DDD Brisbane",
+		"type": [
+			"attending"
+		],
+		"url": "https://dddbrisbane.com",
+		"hidden": true
+	},
+	{
+		"start": "2023-12-09",
+		"end": "2023-12-10",
+		"name": "Mish & Max's Wedding",
+		"hidden": true
+	},
+	{
 		"start": "2024-01-29",
 		"end": "2024-02-02",
 		"name": "NDC London",
@@ -104,9 +119,24 @@
 		"hidden": true
 	},
 	{
+		"start": "2024-03-16",
+		"name": "DDD Melbourne",
+		"hidden": true
+	},
+	{
+		"start": "2024-03-30",
+		"name": "Engagement Party",
+		"hidden": true
+	},
+	{
 		"start": "2024-06-10",
 		"end": "2024-06-14",
 		"name": "NDC Oslo",
+		"hidden": true
+	},
+	{
+		"start": "2024-10-05",
+		"name": "Wedding",
 		"hidden": true
 	}
 ]
