@@ -28,8 +28,8 @@ jobs:
         with:
           AUTO_ASSIGN: true
           CLOSE_ISSUES: true
-      - name: Build And Deploy API
-        id: builddeployapi
+      - name: Build And Deploy
+        id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLUE_PEBBLE_0D62EB803 }}
@@ -40,20 +40,35 @@ jobs:
           output_location: "dist"
           skip_app_build: true
         env:
+          # API variables
           FORM_WORKSHOP_BOOKING: ${{ secrets.FORM_WORKSHOP_BOOKING }}
           FORM_CONTACT: ${{secrets.FORM_CONTACT}}
           FORM_WORKSHOP_PREP: ${{secrets.FORM_WORKSHOP_PREP}}
           FORM_WORKSHOP_FEEDBACK: ${{secrets.FORM_WORKSHOP_FEEDBACK}}
-      - name: Build And Deploy Site
-        id: builddeploysite
+          # Site Variables
+          NOTIST_FEED: ${{ secrets.NOTIST_FEED }}
+          API_URL: ${{ secrets.API_URL }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+          PAGE_WORKSHOP_FEEDBACK: ${{secrets.PAGE_WORKSHOP_FEEDBACK}}
+          PAGE_WORKSHOP_PREP: ${{secrets.PAGE_WORKSHOP_PREP}}
+
+      - name: Rebuild and Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLUE_PEBBLE_0D62EB803 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
-          skip_api_build: true
+          api_location: "api"
+          output_location: "dist"
+          skip_app_build: true
         env:
+          # API variables
+          FORM_WORKSHOP_BOOKING: ${{ secrets.FORM_WORKSHOP_BOOKING }}
+          FORM_CONTACT: ${{secrets.FORM_CONTACT}}
+          FORM_WORKSHOP_PREP: ${{secrets.FORM_WORKSHOP_PREP}}
+          FORM_WORKSHOP_FEEDBACK: ${{secrets.FORM_WORKSHOP_FEEDBACK}}
+          # Site Variables
           NOTIST_FEED: ${{ secrets.NOTIST_FEED }}
           API_URL: ${{ secrets.API_URL }}
           SITE_URL: ${{ secrets.SITE_URL }}
