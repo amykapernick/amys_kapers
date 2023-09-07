@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { parse, compareAsc, set } = require('date-fns')
+const { set } = require('date-fns')
 const formatDate = require('../utils/formatDate')
 const { Client } = require('@notionhq/client')
 const notion = new Client({ auth: process.env.NOTION_EVENTS_API })

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { compareAsc, isBefore, isSameDay, format } = require('date-fns')
 const countryCode = require('../utils/countryCode')
 const parseICS = require('../utils/parseics')
