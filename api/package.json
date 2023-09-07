@@ -7,14 +7,14 @@
     "dev": "doppler run -- func start --javascript --cors *"
   },
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.4",
+    "@notionhq/client": "^2.2.13",
     "@sendgrid/mail": "^7.7.0",
-    "@sentry/node": "^7.49.0",
-    "date-fns": "^2.29.3",
-    "dotenv": "^16.0.3",
-    "node-fetch": "^3.3.1"
+    "@sentry/node": "^7.68.0",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
   }
 }

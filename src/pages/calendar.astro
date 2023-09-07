@@ -1,7 +1,7 @@
 ---
 import calendarYears from "@utils/calendar/years";
 import Layout from "@layouts/calendar";
-import Calendar from '@partials/calendar'
+import CalendarLayout from '@partials/calendar'
 import parseEvents from "@utils/calendar/parseEvents";
 import parseTravel from "@utils/calendar/parseTravel";
 
@@ -68,6 +68,6 @@ const calendarTrips = parseTravel(travel);
 <Layout content={content}>
 	<div class="calendar">
 		<h1>Calendar</h1>
-		<Calendar {...{calendarDates, calendarEvents, calendarTrips}} />
+		<CalendarLayout {...{calendarDates, calendarEvents, calendarTrips}} />
 	</div>
 </Layout>
