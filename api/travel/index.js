@@ -1,51 +1,51 @@
-const { parse, compareAsc, isBefore, isSameDay } = require('date-fns')
-const formatDate = require('../utils/formatDate')
+const { compareAsc, isBefore, isSameDay, format } = require('date-fns')
 const countryCode = require('../utils/countryCode')
+const parseICS = require('../utils/parseics')
 
 module.exports = async function (context, req) {
-    const trips = require('../_data/travel.json')
     const today = new Date()
+    const ics = await fetch(process.env.TRIPIT_URL).then(res => res.text())
+    const tripitData = parseICS(ics)
 
     const filter = req?.query?.filter
 
-    let currentTrips = trips
+    let trips = tripitData.filter(({ allDay }) => allDay)
 
     if (filter !== 'all') {
-        currentTrips = currentTrips
+        trips = trips
             .filter((trip) => {
-                const date = trip.end ? parse(trip.end, 'yyyy-MM-dd', new Date()) : parse(trip.start, 'yyyy-MM-dd', new Date())
+                const date = trip.end ? new Date(trip.end) : new Date(trip.start)
 
                 return isSameDay(today, date) || isBefore(today, date)
             })
     }
 
-    currentTrips = currentTrips
+    trips = trips
         .sort((a, b) => (compareAsc(
-            parse(a.start, 'yyyy-MM-dd', new Date()),
-            parse(b.start, 'yyyy-MM-dd', new Date())
+            new Date(a.start),
+            new Date(b.start)
         )))
         .map(trip => ({
             ...trip,
-            start: formatDate(trip.start, 'dd MMM'),
-            end: trip.end ? ` - ${formatDate(trip.end)}` : '',
+            start: format(new Date(trip.start), 'dd MMM'),
+            end: trip.end ? ` - ${format(new Date(trip.end), 'dd MMM')}` : '',
             dates: {
-                end: trip.end && formatDate(trip.end, 'yyyy-MM-dd'),
-                start: formatDate(trip.start, 'yyyy-MM-dd')
+                end: trip.end && format(new Date(trip.end), 'yyyy-MM-dd'),
+                start: format(new Date(trip.start), 'yyyy-MM-dd')
             },
         }))
+        .map(({ country = 'Australia', city, ...trip_args }) => {
+            if (!city && country == 'Australia') city = 'Perth'
+            return ({
+                ...trip_args,
 
-    const tripData = currentTrips.map(({ country = 'Australia', city, ...trip_args }) => {
-        if (!city && country == 'Australia') city = 'Perth'
-        return ({
-            ...trip_args,
-
-            city: city,
-            country: country,
-            country_code: countryCode(country),
+                city: city,
+                country: country,
+                country_code: countryCode(country),
+            })
         })
-    })
 
     context.res = {
-        body: tripData
+        body: trips
     };
 }
