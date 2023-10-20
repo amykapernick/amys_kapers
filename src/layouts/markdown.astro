@@ -1,0 +1,20 @@
+---
+import Layout from "@partials/layout";
+import Header from "@partials/header";
+import Footer from "@partials/footer";
+---
+
+<style>
+	@import '@mixins';
+
+	article {
+		@include content;
+	}
+</style>
+
+<Layout content={Astro.props?.content}>
+	<Header slot="header" size={Astro.props?.header} />
+	<slot />
+	<Footer slot="footer" />
+	<slot name="after-footer" slot="after-footer" />
+</Layout>

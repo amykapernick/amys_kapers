@@ -1,0 +1,75 @@
+---
+import Layout from "@layouts/default";
+import {
+	rating
+} from "@data/forms/workshopFeedback";
+import RangeField from "@parts/rangeField";
+
+const content = {
+	title: "Talk Feedback | Amy Kapernick",
+	description: "A few questions about the presentation",
+};
+
+const details = {
+	talk: `Your Website doesn't need JavaScript`,
+	event: 'NDC Porto 2023'
+}
+---
+<style>
+	@import '@mixins';
+
+	article {
+		@include content;
+	}
+
+	@media(min-width: 60em) {
+		article {
+			& h1 {
+				text-decoration: none;
+				font-size: 2em;
+			}
+		}
+	}
+</style>
+
+<Layout content={content} header="reduced">
+	<article>
+		<h1>{details.talk}</h1>
+		<form
+			id="workshop-prep"
+			action={`${import.meta.env.API_URL}/talk-feedback`}
+			method="post"
+		>
+			<input
+				type="hidden"
+				name="redirect"
+				value={`${Astro.url.origin}/talks/thanks`}
+			/>
+			<input type="hidden" name="page" value={Astro.url.pathname} />
+			<input type="hidden" name="function" value="talk-feedback" />
+			<input type="hidden" name="talk" value={details.talk} />
+			<input type="hidden" name="name" value={details.event} />
+			<input
+				type="hidden"
+				name="notion_page"
+				value={import.meta.env.PAGE_TALK_FEEDBACK}
+			/>
+			<RangeField
+				label="How would you rate the talk?"
+				name="rating"
+				options={rating.opts}
+				min={rating.min}
+				max={rating.max}
+			/>
+			<label for="feedback"
+				>Anything you really enjoyed or would have liked to know more
+				about?</label
+			>
+			<textarea id="feedback" name="feedback"></textarea>
+
+			<label for="comments">Any other comments or feedback?</label>
+			<textarea id="comments" name="comments"></textarea>
+			<button type="submit">Submit</button>
+		</form>
+	</article>
+</Layout>
