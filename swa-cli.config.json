@@ -1,7 +1,7 @@
 {
 	"configurations": {
 		"app": {
-			"appDevserverUrl": "http://localhost:3000",
+			"appDevserverUrl": "http://localhost:4321",
 			"apiDevserverUrl": "http://localhost:7071",
 			"run": "npm start"
 		}
