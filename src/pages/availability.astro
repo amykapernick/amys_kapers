@@ -1,0 +1,101 @@
+---
+import calendarYears from "@utils/calendar/years";
+import Layout from "@layouts/calendar";
+import CalendarLayout from '@partials/calendar'
+import parseEvents from "@utils/calendar/parseEvents";
+import parseTravel from "@utils/calendar/parseTravel";
+import parseProjects from "@utils/calendar/parseProjects";
+
+const content = {
+	title: "Calendar - Year in a View",
+};
+
+let url = `${import.meta.env.API_URL}`;
+
+if (!url.includes("http")) {
+	url = `${import.meta.env.SITE_URL}${url}`;
+}
+
+const events = await fetch(`${url}/events?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_events", err });
+
+		return [];
+	});
+const travel = await fetch(`${url}/travel?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_travel", err });
+
+		return [];
+	});
+
+const projects = await fetch(`${url}/projects?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_projects", err });
+
+		return [];
+	});
+
+const calendarDates = calendarYears(events);
+const calendarEvents = parseEvents(events);
+const calendarTrips = parseTravel(travel);
+const calendarProjects = parseProjects(projects)
+---
+
+<style>
+	.calendar {
+		padding-right: 100px;
+		overflow-x: auto;
+		background: #36454f;
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 50%;
+			width: 100vw;
+			height: 200px;
+			transform: translateX(-50%);
+			background: inherit;
+		}
+
+		& :global(.date[data-day="Sat"]) , & :global(.date[data-day="Sun"]) {
+			background: transparent;
+
+			& :global(p) {
+				display: none;
+			}
+		}
+
+		& :global(.date[data-day="Mon"]) , & :global(.date[data-day="Tues"]) {
+			background: rgba(133, 202, 246, 0.3);
+		}
+
+		& :global(.event), & :global(.trip), & :global(.project) {
+			height: var(--capacity, 100%);
+		}
+	}
+
+	h1 {
+		margin-top: 0;
+		color: #85caf6;
+		text-align: center;
+	}
+</style>
+
+<Layout content={content}>
+	<div class="calendar">
+		<h1>Availability</h1>
+		<CalendarLayout {...{calendarDates, calendarEvents, calendarTrips, calendarProjects}} anonymous={true} />
+	</div>
+</Layout>
