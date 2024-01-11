@@ -1,5 +1,5 @@
 ---
-const { calendarDates, calendarEvents, calendarTrips } = Astro.props
+const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
 ---
 
 <style>
@@ -87,6 +87,7 @@ const { calendarDates, calendarEvents, calendarTrips } = Astro.props
 		border: 2px solid $green;
 		background: rgba($green, 0.7);
 		font-size: 0.6em;
+		min-height: 1em;
 
 		&:before {
 			content: var(--icon);
@@ -164,7 +165,7 @@ const { calendarDates, calendarEvents, calendarTrips } = Astro.props
 								"--icon": event.icon,
 							}}
 						>
-							{event.icon} {event.name}
+							{!anonymous && `${event.icon} ${event.name}`}
 						</div>
 					))}
 				{calendarTrips
@@ -180,7 +181,8 @@ const { calendarDates, calendarEvents, calendarTrips } = Astro.props
 								"--icon": trip.icon,
 							}}
 						>
-							{trip.city}, {trip.country}
+							
+							{!anonymous && `${trip.city}, ${trip.country}`}
 						</div>
 					))}
 			</div>

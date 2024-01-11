@@ -1,0 +1,73 @@
+---
+import calendarYears from "@utils/calendar/years";
+import Layout from "@layouts/calendar";
+import CalendarLayout from '@partials/calendar'
+import parseEvents from "@utils/calendar/parseEvents";
+import parseTravel from "@utils/calendar/parseTravel";
+
+const content = {
+	title: "Calendar - Year in a View",
+};
+
+let url = `${import.meta.env.API_URL}`;
+
+if (!url.includes("http")) {
+	url = `${import.meta.env.SITE_URL}${url}`;
+}
+
+const events = await fetch(`${url}/events?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_events", err });
+
+		return [];
+	});
+const travel = await fetch(`${url}/travel?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_travel", err });
+
+		return [];
+	});
+
+const calendarDates = calendarYears(events);
+const calendarEvents = parseEvents(events);
+const calendarTrips = parseTravel(travel);
+---
+
+<style>
+	.calendar {
+		padding-right: 100px;
+		overflow-x: auto;
+		background: #36454f;
+
+		&:before {
+			content: '';
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 50%;
+			width: 100vw;
+			height: 200px;
+			transform: translateX(-50%);
+			background: inherit;
+		}
+	}
+
+	h1 {
+		margin-top: 0;
+		color: #85caf6;
+		text-align: center;
+	}
+</style>
+
+<Layout content={content}>
+	<div class="calendar">
+		<h1>Availability</h1>
+		<CalendarLayout {...{calendarDates, calendarEvents, calendarTrips}} anonymous={true} />
+	</div>
+</Layout>
