@@ -35,17 +35,15 @@ const travel = await fetch(`${url}/travel?filter=all`)
 		return [];
 	});
 
-// const projects = await fetch(`${url}/projects?filter=all`)
-// 	.then((res) => {
-// 		return res.json();
-// 	})
-// 	.catch((err) => {
-// 		console.log({ fetch: "calendar_projects", err });
+const projects = await fetch(`${url}/projects?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_projects", err });
 
-// 		return [];
-// 	});
-
-const projects = []
+		return [];
+	});
 
 const calendarDates = calendarYears(events);
 const calendarEvents = parseEvents(events);
