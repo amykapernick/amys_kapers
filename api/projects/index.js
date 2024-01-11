@@ -8,10 +8,10 @@ module.exports = async function (context, req) {
     const today = new Date()
     const filter = req?.query?.filter
 
-    let eventsFilter = {
+    let datesFilter = {
         and: [
             {
-                property: 'Conference',
+                property: 'Dates',
                 date: {
                     on_or_after: today
                 }
@@ -20,10 +20,10 @@ module.exports = async function (context, req) {
     }
 
     if (filter === 'all') {
-        eventsFilter = {
+        datesFilter = {
             and: [
                 {
-                    property: 'Conference',
+                    property: 'Dates',
                     date: {
                         on_or_after: set(today, { month: 0, date: 1 })
                     }
@@ -34,37 +34,17 @@ module.exports = async function (context, req) {
 
     const notionProjects = await notion.databases.query({
         database_id: process.env.PROJECTS_DB_ID,
-        // filter: eventsFilter,
-        // sorts: [
-        //     {
-        //         property: 'Conference',
-        //         direction: 'ascending'
-        //     }
-        // ]
+        filter: datesFilter,
     })
 
-    console.log({ notionProjects })
-
-    const events = notionProjects.results.map(({ properties }) => ({
-        start: properties.Conference.date.start,
-        end: properties.Conference.date.end,
-        name: properties.Name.title[0].plain_text,
-        type: properties.Type.multi_select.map(({ name }) => name.toLowerCase()),
-        url: properties.URL.url,
-        hidden: properties.Hidden.checkbox,
+    const projects = notionProjects.results.map(({ properties }) => ({
+        name: properties['Project name'].title[0].plain_text,
+        start: properties['Status'].status.name,
+        dates: properties['Dates']?.date,
+        capacity: properties['Capacity']?.number,
     }))
-        .map(event => ({
-            ...event,
-            start: formatDate(event.start, 'dd MMM'),
-            end: event.end ? ` - ${formatDate(event.end, 'dd MMM')}` : '',
-            dates: {
-                end: event.end && formatDate(event.end, 'yyyy-MM-dd'),
-                start: formatDate(event.start, 'yyyy-MM-dd')
-            },
-            hidden: event.type?.length < 1 ? true : event.hidden
-        }))
 
     context.res = {
-        body: events
+        body: projects
     };
 }

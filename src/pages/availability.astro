@@ -4,6 +4,7 @@ import Layout from "@layouts/calendar";
 import CalendarLayout from '@partials/calendar'
 import parseEvents from "@utils/calendar/parseEvents";
 import parseTravel from "@utils/calendar/parseTravel";
+import parseProjects from "@utils/calendar/parseProjects";
 
 const content = {
 	title: "Calendar - Year in a View",
@@ -34,9 +35,20 @@ const travel = await fetch(`${url}/travel?filter=all`)
 		return [];
 	});
 
+const projects = await fetch(`${url}/projects?filter=all`)
+	.then((res) => {
+		return res.json();
+	})
+	.catch((err) => {
+		console.log({ fetch: "calendar_projects", err });
+
+		return [];
+	});
+
 const calendarDates = calendarYears(events);
 const calendarEvents = parseEvents(events);
 const calendarTrips = parseTravel(travel);
+const calendarProjects = parseProjects(projects)
 ---
 
 <style>
@@ -56,6 +68,22 @@ const calendarTrips = parseTravel(travel);
 			transform: translateX(-50%);
 			background: inherit;
 		}
+
+		& :global(.date[data-day="Sat"]) , & :global(.date[data-day="Sun"]) {
+			background: transparent;
+
+			& :global(p) {
+				display: none;
+			}
+		}
+
+		& :global(.date[data-day="Mon"]) , & :global(.date[data-day="Tues"]) {
+			background: rgba(133, 202, 246, 0.3);
+		}
+
+		& :global(.event), & :global(.trip), & :global(.project) {
+			height: var(--capacity, 100%);
+		}
 	}
 
 	h1 {
@@ -68,6 +96,6 @@ const calendarTrips = parseTravel(travel);
 <Layout content={content}>
 	<div class="calendar">
 		<h1>Availability</h1>
-		<CalendarLayout {...{calendarDates, calendarEvents, calendarTrips}} anonymous={true} />
+		<CalendarLayout {...{calendarDates, calendarEvents, calendarTrips, calendarProjects}} anonymous={true} />
 	</div>
 </Layout>

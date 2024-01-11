@@ -1,5 +1,5 @@
 ---
-const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
+const { calendarDates, calendarEvents, calendarProjects, calendarTrips, anonymous } = Astro.props
 ---
 
 <style>
@@ -75,7 +75,8 @@ const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
 	}
 
 	.event,
-	.trip {
+	.trip,
+	.project {
 		display: flex;
 		position: relative;
 		grid-column: var(--offset) / span var(--length);
@@ -87,7 +88,6 @@ const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
 		border: 2px solid $green;
 		background: rgba($green, 0.7);
 		font-size: 0.6em;
-		min-height: 1em;
 
 		&:before {
 			content: var(--icon);
@@ -129,6 +129,12 @@ const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
 		justify-content: flex-start;
 		border-color: $purple_bright;
 		background-color: rgba($purple_bright, 0.7);
+		font-size: 0.4em;
+	}
+
+	.project {
+		border-color: $navy;
+		background-color: rgba($navy, 0.7);
 		font-size: 0.4em;
 	}
 </style>
@@ -183,6 +189,25 @@ const { calendarDates, calendarEvents, calendarTrips, anonymous } = Astro.props
 						>
 							
 							{!anonymous && `${trip.city}, ${trip.country}`}
+						</div>
+					))}
+					{calendarProjects
+					.filter((project) => project.year == year)
+					.map((project) => (
+						<div
+							class="project"
+							data-status={project.status}
+							data-capacity={project.capacity / 5}
+							style={{
+								"--offset": project.offset,
+								"--length": project.length,
+								"--row": project.row,
+								"--icon": project.icon,
+								"--capacity": `${(Number(project.capacity) / 5) * 100}%`
+							}}
+						>
+							
+							{!anonymous && `${project.name}`}
 						</div>
 					))}
 			</div>
