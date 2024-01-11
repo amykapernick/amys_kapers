@@ -1,0 +1,5 @@
+---
+const html = await Astro.slots.render('default')
+---
+
+<div set:html={html.split('<!-- excerpt -->\n')[0]} />
