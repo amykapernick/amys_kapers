@@ -1,40 +1,34 @@
 ---
 import Layout from "@layouts/talk";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const workshops = await Astro.glob("../../../workshops/**/*.md");
+	const workshops = await getCollection('workshop')
 
 	const allWorkshops = [];
 
 	workshops.forEach((talk) => {
-		if (talk?.frontmatter?.external) return;
+		if (talk?.data?.external) return;
 
-		const matches = talk.file.match(/\/(?<slug>(?:\w|\w|-)+)\.md$/i);
-		const { slug } = matches?.groups;
+		const { slug } = talk
 
-		allWorkshops.push({ params: { slug } });
+		allWorkshops.push({ params: { slug }, props: { ...talk } });
 	});
 
 	return allWorkshops;
 }
 
-const { slug } = Astro.params;
+const workshop = Astro.props
 
-const workshops = await Astro.glob("../../../workshops/**/*.md");
-
-const workshop = workshops.find(({ file }) =>
-	new RegExp(`${slug}.md`, "i").test(file)
-);
-
-const { frontmatter } = workshop;
+const { data } = workshop;
 
 const workshopContent = {
 	description:
 		"I speak at conferences about front end development, the web, mental health and life. I also run in person and online workshops workshops for a more in-depth focus on front end tech, both internally and alongside other events.",
-	...frontmatter,
+	...data,
 };
 
-const Content = workshop.Content;
+const { Content } = await workshop.render()
 ---
 
 <Layout content={workshopContent}>
