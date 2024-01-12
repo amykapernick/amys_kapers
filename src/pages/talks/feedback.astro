@@ -65,6 +65,7 @@ const content = {
 				type="text" 
 				name="talk" 
 				list="talks"
+				required
 			/>
 			<datalist id="talks">
 				{Object.values(talks).map((talk) => (
@@ -79,6 +80,7 @@ const content = {
 				type="text" 
 				name="name" 
 				id="event"
+				required
 			/>
 
 			<RangeField
