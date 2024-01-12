@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro dev --config ./config/astro.config.mjs",
     "start": "doppler run -- npm run dev",
-    "swa": "concurrently \"npm run api\" \"swa start\"",
+    "swa": "concurrently \"npm run api\" \"swa start --verbose silent\"",
     "build": "astro build --config ./config/astro.config.mjs",
     "preview": "astro preview",
     "clean": "rm -rf dist",

@@ -54,7 +54,7 @@ module.exports = async ({ context, params }) => {
         status: 302,
         headers: {
             // location: params.redirect
-            location: 'http://localhost:3000/thanks'
+            location: `/thanks`
         }
     }
 }
