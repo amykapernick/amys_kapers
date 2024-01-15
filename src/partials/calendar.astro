@@ -1,5 +1,7 @@
 ---
 const { calendarDates = [], calendarEvents = [], calendarProjects = [], calendarTrips = [], anonymous } = Astro.props
+
+const workingHours = 15
 ---
 
 <style>
@@ -193,6 +195,7 @@ const { calendarDates = [], calendarEvents = [], calendarProjects = [], calendar
 					))}
 					{calendarProjects
 					.filter((project) => project.year == year)
+					.filter((project) => !['Ongoing'].includes(project.status))
 					.map((project) => (
 						<div
 							class="project"
@@ -203,7 +206,7 @@ const { calendarDates = [], calendarEvents = [], calendarProjects = [], calendar
 								"--length": project.length,
 								"--row": project.row,
 								"--icon": project.icon,
-								"--capacity": `${(Number(project.capacity) / 5) * 100}%`
+								"--capacity": `${(Number(project.capacity) / workingHours) * 100}%`
 							}}
 						>
 							

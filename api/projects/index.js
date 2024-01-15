@@ -1,11 +1,15 @@
 require('dotenv').config()
 const { set } = require('date-fns')
-const formatDate = require('../utils/formatDate')
 const { Client } = require('@notionhq/client')
 const notion = new Client({ auth: process.env.NOTION_WORK_API })
 
 module.exports = async function (context, req) {
-    const today = new Date()
+    const today = set(new Date(), {
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        milliseconds: 0
+    })
     const filter = req?.query?.filter
 
     let datesFilter = {
@@ -41,8 +45,11 @@ module.exports = async function (context, req) {
         name: properties['Project name'].title[0].plain_text,
         start: properties['Status'].status.name,
         dates: properties['Dates']?.date,
-        capacity: properties['Capacity']?.number,
+        capacity: properties['Capacity (hrs/wk)']?.number,
+        hours: properties['Total Hours']?.number,
+        weeks: properties['Total Weeks']?.number,
     }))
+
 
     context.res = {
         body: projects
