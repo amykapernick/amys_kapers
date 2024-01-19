@@ -1,4 +1,4 @@
-const { getYear, getMonth, getDate } = require('date-fns');
+const { getYear, getMonth, getDate, addDays, differenceInCalendarDays } = require('date-fns');
 const calendarYears = require('../utils/calendar/years')
 
 module.exports = async function (context, req) {
@@ -56,28 +56,30 @@ module.exports = async function (context, req) {
 
             dates[startDate.year][startDate.month][startDate.day][type].push({
                 ...event,
-                startDay: true
+                startDay: true,
+                day: 1
             })
 
             if (endDate) {
-                // console.log({ endDate, date: dates[endDate.year][endDate.month][endDate.day] })
                 dates[endDate.year][endDate.month][endDate.day][type].push({
                     ...event,
-                    endDay: true
+                    endDay: true,
+                    day: differenceInCalendarDays(new Date(end), new Date(start)) + 1
                 })
 
-                let currentDate = new Date(start)
+                let currentDate = addDays(new Date(start), 1)
 
                 while (currentDate < new Date(end)) {
-                    currentDate.setDate(currentDate.getDate() + 1)
-
                     const year = getYear(currentDate)
                     const month = getMonth(currentDate) + 1
                     const day = getDate(currentDate)
 
                     dates[year][month][day][type].push({
                         ...event,
+                        day: differenceInCalendarDays(currentDate, new Date(start)) + 1
                     })
+
+                    currentDate = addDays(currentDate, 1)
                 }
             }
         })
@@ -95,7 +97,7 @@ module.exports = async function (context, req) {
 
     response.body = {
         ...response.body,
-        yearDates
+        dates: yearDates
     }
 
     context.res = {
