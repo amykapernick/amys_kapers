@@ -51,18 +51,16 @@ module.exports = async function (context, req) {
 
     attendeeCounts['Total'] = {
         Adults: sumArray([
-            sumArray(Object.values(attendeeCounts['Attending'])),
-            sumArray(Object.values(attendeeCounts['Not Attending'])),
-            sumArray(Object.values(attendeeCounts['Pending']))
+            attendeeCounts['Attending'].Adults,
+            attendeeCounts['Not Attending'].Adults,
+            attendeeCounts['Pending'].Adults
         ]),
         Children: sumArray([
-            sumArray(Object.values(attendeeCounts['Attending'])),
-            sumArray(Object.values(attendeeCounts['Not Attending'])),
-            sumArray(Object.values(attendeeCounts['Pending']))
+            attendeeCounts['Attending'].Children,
+            attendeeCounts['Not Attending'].Children,
+            attendeeCounts['Pending'].Children
         ]),
     }
-
-    attendeeCounts['Total']['Total'] = sumArray(Object.values(attendeeCounts['Total']))
 
     statusCounts['Total'] = sumArray(Object.values(statusCounts))
 
