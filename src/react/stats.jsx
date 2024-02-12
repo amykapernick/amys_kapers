@@ -30,18 +30,18 @@ const TravelFeed = (props) => {
 				? <p>Loading stats...</p>
 				: <dl>
 					{Object.entries(data?.statusCounts).map(([status, count]) => (
-						<span style={{'--colour': colours[status]}}>
+						<span key={status} style={{'--colour': colours[status]}}>
 							<dt>{status}</dt>
 							<dd>{count}</dd>
 						</span>
 					))}
 					{Object.entries(data?.attendeeCounts).map(([status, counts]) => (
-						<span className="double" style={{'--colour': colours[status]}}>
+						<span key={status} className="double" style={{'--colour': colours[status]}}>
 							<dt>{status}</dt>
 							<dd>
 								<dl>
 									{Object.entries(counts).map(([attendee, count]) => (
-										<span>
+										<span key={attendee}>
 											<dt>{attendee}</dt>
 											<dd>{count}</dd>
 										</span>
