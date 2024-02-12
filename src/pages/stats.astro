@@ -44,7 +44,7 @@ const {statusCounts, attendeeCounts} = await fetch(`${url}/stats`)
 			position: relative;
 			margin: 5px;
 
-			&::before {
+			&::before, &::after {
 				background: var(--colour);
 				opacity: 0.1;
 				content: "";
@@ -54,6 +54,11 @@ const {statusCounts, attendeeCounts} = await fetch(`${url}/stats`)
 				right: 0;
 				bottom: 0;
 				z-index: -1;
+			}
+
+			&::before {
+				background: $white;
+				opacity: 1;
 			}
 
 			&.double {
