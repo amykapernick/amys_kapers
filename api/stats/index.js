@@ -1,6 +1,8 @@
 const { Client } = require('@notionhq/client')
 const notion = new Client({ auth: process.env.NOTION_EVENTS_API })
 
+const sumArray = (arr) => arr.reduce((a, b) => a + b, 0)
+
 module.exports = async function (context, req) {
     const notionInvites = await notion.databases.query({
         database_id: process.env.INVITES_DB_ID,
@@ -46,6 +48,23 @@ module.exports = async function (context, req) {
 
         statusCounts[status]++
     })
+
+    attendeeCounts['Total'] = {
+        Adults: sumArray([
+            sumArray(Object.values(attendeeCounts['Attending'])),
+            sumArray(Object.values(attendeeCounts['Not Attending'])),
+            sumArray(Object.values(attendeeCounts['Pending']))
+        ]),
+        Children: sumArray([
+            sumArray(Object.values(attendeeCounts['Attending'])),
+            sumArray(Object.values(attendeeCounts['Not Attending'])),
+            sumArray(Object.values(attendeeCounts['Pending']))
+        ]),
+    }
+
+    attendeeCounts['Total']['Total'] = sumArray(Object.values(attendeeCounts['Total']))
+
+    statusCounts['Total'] = sumArray(Object.values(statusCounts))
 
     context.res = {
         status: 200,
