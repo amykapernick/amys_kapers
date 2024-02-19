@@ -43,6 +43,7 @@ const {statusCounts, attendeeCounts} = await fetch(`${url}/stats`)
 			grid-row: span 2;
 			position: relative;
 			margin: 5px;
+			order: -1;
 
 			&::before, &::after {
 				background: var(--colour);
@@ -63,6 +64,11 @@ const {statusCounts, attendeeCounts} = await fetch(`${url}/stats`)
 
 			&.double {
 				grid-column: span 2;
+				order: 2;
+
+				&:first-of-type {
+					grid-row: 4;
+				}
 			}
 
 			& dl {
@@ -89,27 +95,4 @@ const {statusCounts, attendeeCounts} = await fetch(`${url}/stats`)
 	<div class="stats">
 		<StatsFeed client:load api={import.meta.env.API_URL} />
 	</div>
-	<!-- <dl class="stats">
-		{Object.entries(statusCounts).map(([status, count]) => (
-			<span>
-				<dt>{status}</dt>
-				<dd>{count}</dd>
-			</span>
-		))}
-		{Object.entries(attendeeCounts).map(([status, counts]) => (
-			<span class="double">
-				<dt>{status}</dt>
-				<dd>
-					<dl>
-						{Object.entries(counts).map(([attendee, count]) => (
-							<span>
-								<dt>{attendee}</dt>
-								<dd>{count}</dd>
-							</span>
-						))}	
-					</dl>	
-				</dd>
-			</span>
-		))}
-	</dl> -->
 </Layout>

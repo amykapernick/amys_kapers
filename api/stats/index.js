@@ -49,15 +49,13 @@ module.exports = async function (context, req) {
         statusCounts[status]++
     })
 
-    attendeeCounts['Total'] = {
+    attendeeCounts['Total Headcount*'] = {
         Adults: sumArray([
             attendeeCounts['Attending'].Adults,
-            attendeeCounts['Not Attending'].Adults,
             attendeeCounts['Pending'].Adults
         ]),
         Children: sumArray([
             attendeeCounts['Attending'].Children,
-            attendeeCounts['Not Attending'].Children,
             attendeeCounts['Pending'].Children
         ]),
     }
