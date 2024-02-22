@@ -6,8 +6,8 @@ module.exports = async function (context, req) {
         body: {}
     }
     context.log({ step: 'running calendar' })
-    const url = req.url.split('/api')?.[0]
-    context.log({ url, req: req.url, split: req.url.split('/api') })
+    const url = req?.url.split('/api')?.[0]
+    context.log({ url, req: req?.url, split: req?.url?.split('/api') })
     const events = await fetch(`${url}/api/events?filter=all`)
         .then(res => res.json())
         .catch(error => {
@@ -17,7 +17,6 @@ module.exports = async function (context, req) {
                 error
             }
         });
-    context.log({ step: 'fetched events' })
     const travel = await fetch(`${url}/api/travel?filter=all`).then(res => res.json())
         .catch(error => {
             context.log({ error, step: 'travel' })
@@ -26,7 +25,6 @@ module.exports = async function (context, req) {
                 error
             }
         });
-    console.log({ step: 'fetched travel' })
     const projects = await fetch(`${url}/api/projects?filter=all&status=current`).then(res => res.json()).catch(error => {
         context.log({ error, step: 'projects' })
         response.status = 500
@@ -34,7 +32,6 @@ module.exports = async function (context, req) {
             error
         }
     });
-    context.log({ step: 'fetched projects' })
     const dates = calendarYears(events)
     const yearDates = {}
     const thisYear = getYear(new Date())
