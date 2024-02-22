@@ -6,8 +6,7 @@ module.exports = async function (context, req) {
         body: {}
     }
     context.log({ step: 'running calendar' })
-    const url = req?.url.split('/api')?.[0]
-    context.log({ url, req: req?.url, split: req?.url?.split('/api') })
+    const url = process.env.SITE_DOMAIN
     const events = await fetch(`${url}/api/events?filter=all`)
         .then(res => res.json())
         .catch(error => {
