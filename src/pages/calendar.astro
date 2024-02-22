@@ -49,7 +49,7 @@ const {dates} = await fetch(`${url}/calendar`)
 	}
 </style>
 
-<Layout content={content}>
+<Layout content={content} class="calendar_page">
 	<div class="calendar">
 		<h1>Calendar</h1>
 		<CalendarLayout {dates} />
