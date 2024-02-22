@@ -14,7 +14,6 @@ if (!url.includes("http")) {
 
 const {dates} = await fetch(`${url}/calendar`)
 	.then((res) => {
-		console.log({dates})
 		return res.json();
 	})
 	.catch((err) => {
@@ -23,7 +22,6 @@ const {dates} = await fetch(`${url}/calendar`)
 		return [];
 	});
 
-	console.log({dates})
 ---
 
 <style>
