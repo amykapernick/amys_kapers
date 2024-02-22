@@ -3,8 +3,8 @@ const { set, parse, getMonth, getDate, getDay, getYear, addDays, setDate, setMon
 const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thu', 'Fri', 'Sat']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
-const calendarYears = (events) => {
-	const lastEvent = events[events.length - 1]?.dates
+const calendarYears = (events = []) => {
+	const lastEvent = events[events?.length - 1]?.dates
 	const start = set(new Date(), { month: 0, date: 1 })
 	const end = set(
 		parseISO(
