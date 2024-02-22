@@ -5,28 +5,35 @@ module.exports = async function (context, req) {
     let response = {
         body: {}
     }
+    context.log({ step: 'running calendar' })
     const url = req.url.split('/api')?.[0]
     const events = await fetch(`${url}/api/events?filter=all`)
         .then(res => res.json())
         .catch(error => {
+            context.log({ error, step: 'events' })
             response.status = 500
             response.body = {
                 error
             }
         });
+    context.log({ step: 'fetched events' })
     const travel = await fetch(`${url}/api/travel?filter=all`).then(res => res.json())
         .catch(error => {
+            context.log({ error, step: 'travel' })
             response.status = 500
             response.body = {
                 error
             }
         });
+    console.log({ step: 'fetched travel' })
     const projects = await fetch(`${url}/api/projects?filter=all&status=current`).then(res => res.json()).catch(error => {
+        context.log({ error, step: 'projects' })
         response.status = 500
         response.body = {
             error
         }
     });
+    context.log({ step: 'fetched projects' })
     const dates = calendarYears(events)
     const yearDates = {}
     const thisYear = getYear(new Date())
