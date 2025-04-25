@@ -1,6 +1,7 @@
 name: Build and Deploy Azure Static Web App
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - prod
